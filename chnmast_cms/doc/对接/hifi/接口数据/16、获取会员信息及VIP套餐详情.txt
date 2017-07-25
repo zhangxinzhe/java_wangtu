@@ -1,0 +1,175 @@
+1、接口：
+http://if2.zhenxian.fm/interfacetest2/ws/order/getNewMonthlyProduct?accountNo=1476948030434&apikey=1476948030434&terminaltype=20&version=new&signature=g3wn/ciUfSXWnlsD/LtBNwCOOIc=
+accountNo：注册hifi账户id，和apikey一致
+
+
+2、返回值格式：
+{
+    "additional": "30,30",
+    "curdate": "2016-11-25",
+    "endDate": "2017-02-24",
+    "flag": "Y",
+    "inService": "Y",
+    "leftCount": "30",
+    "level": 0,
+    "newMonthlySet": [
+        {
+            "canBuy": "Y",
+            "dbthirdpartyId": "1318",
+            "discount": 8.8,
+            "downloadTimes": 30,
+            "imgUrl": "http://img.zhenxian.fm/b15c113aeddbeb606d938010b88cf8e6.png",
+            "marketPrice": 8,
+            "month": 1,
+            "name": "VIP+30首（1个月）",
+            "price": 8,
+            "productid": 8732
+        },
+        {
+            "canBuy": "Y",
+            "dbthirdpartyId": "1319",
+            "discount": 8,
+            "downloadTimes": 30,
+            "imgUrl": "http://img.zhenxian.fm/b15c113aeddbeb606d938010b88cf8e6.png",
+            "marketPrice": 23,
+            "month": 3,
+            "name": "VIP+30首（3个月）",
+            "price": 16.1,
+            "productid": 8733
+        },
+        {
+            "canBuy": "Y",
+            "dbthirdpartyId": "1320",
+            "discount": 7.5,
+            "downloadTimes": 30,
+            "imgUrl": "http://img.zhenxian.fm/b15c113aeddbeb606d938010b88cf8e6.png",
+            "marketPrice": 45,
+            "month": 6,
+            "name": "VIP+30首（6个月）",
+            "price": 27,
+            "productid": 8734
+        },
+        {
+            "canBuy": "Y",
+            "dbthirdpartyId": "1321",
+            "discount": 7,
+            "downloadTimes": 30,
+            "imgUrl": "http://img.zhenxian.fm/b15c113aeddbeb606d938010b88cf8e6.png",
+            "marketPrice": 88,
+            "month": 12,
+            "name": "VIP+30首（12个月）",
+            "price": 44,
+            "productid": 8735
+        },
+        {
+            "canBuy": "Y",
+            "dbthirdpartyId": "1322",
+            "discount": 8.8,
+            "downloadTimes": 100,
+            "imgUrl": "http://img.zhenxian.fm/b15c113aeddbeb606d938010b88cf8e6.png",
+            "marketPrice": 13,
+            "month": 1,
+            "name": "VIP+100首（1个月）",
+            "price": 13,
+            "productid": 8736
+        },
+        {
+            "canBuy": "Y",
+            "dbthirdpartyId": "1323",
+            "discount": 8,
+            "downloadTimes": 100,
+            "imgUrl": "http://img.zhenxian.fm/4908b4ce451e48264f05838180def92d.jpg",
+            "marketPrice": 36,
+            "month": 3,
+            "name": "VIP+100首（3个月）",
+            "price": 0.01,
+            "productid": 8737
+        },
+        {
+            "canBuy": "Y",
+            "dbthirdpartyId": "1324",
+            "discount": 7.5,
+            "downloadTimes": 100,
+            "imgUrl": "http://img.zhenxian.fm/b15c113aeddbeb606d938010b88cf8e6.png",
+            "marketPrice": 69,
+            "month": 6,
+            "name": "VIP+100首（6个月）",
+            "price": 0.01,
+            "productid": 8738
+        },
+        {
+            "canBuy": "Y",
+            "dbthirdpartyId": "1325",
+            "discount": 7,
+            "downloadTimes": 100,
+            "imgUrl": "http://img.zhenxian.fm/b15c113aeddbeb606d938010b88cf8e6.png",
+            "marketPrice": 132,
+            "month": 12,
+            "name": "VIP+100首（12个月）",
+            "price": 0.01,
+            "productid": 8740
+        },
+        {
+            "canBuy": "Y",
+            "dbthirdpartyId": "1326",
+            "discount": 8.8,
+            "downloadTimes": 300,
+            "imgUrl": "http://img.zhenxian.fm/b15c113aeddbeb606d938010b88cf8e6.png",
+            "marketPrice": 18,
+            "month": 1,
+            "name": "VIP+300首（1个月）",
+            "price": 0.01,
+            "productid": 8741
+        },
+        {
+            "canBuy": "Y",
+            "dbthirdpartyId": "1327",
+            "discount": 8,
+            "downloadTimes": 300,
+            "imgUrl": "http://img.zhenxian.fm/b15c113aeddbeb606d938010b88cf8e6.png",
+            "marketPrice": 51,
+            "month": 3,
+            "name": "VIP+300（3个月）",
+            "price": 51,
+            "productid": 8744
+        },
+        {
+            "canBuy": "Y",
+            "dbthirdpartyId": "1328",
+            "discount": 7.5,
+            "downloadTimes": 300,
+            "imgUrl": "http://img.zhenxian.fm/b15c113aeddbeb606d938010b88cf8e6.png",
+            "marketPrice": 99,
+            "month": 6,
+            "name": "VIP+300（6个月）",
+            "price": 0.01,
+            "productid": 8745
+        },
+        {
+            "canBuy": "Y",
+            "dbthirdpartyId": "1329",
+            "discount": 7,
+            "downloadTimes": 300,
+            "imgUrl": "http://img.zhenxian.fm/b15c113aeddbeb606d938010b88cf8e6.png",
+            "marketPrice": 192,
+            "month": 12,
+            "name": "VIP+300（12个月）",
+            "price": 0.01,
+            "productid": 8746
+        },
+        {
+            "canBuy": "Y",
+            "dbthirdpartyId": "562",
+            "discount": 8.8,
+            "downloadTimes": 30,
+            "imgUrl": "http://img.zhenxian.fm/b15c113aeddbeb606d938010b88cf8e6.png",
+            "marketPrice": 0.01,
+            "month": 1,
+            "name": "测试",
+            "price": 0.01,
+            "productid": 8891
+        }
+    ],
+    "startDate": "2016-11-24",
+    "total": 30
+}

@@ -1,0 +1,2 @@
+<script type="text/javascript" src="${DOMAIN_CMS}/js/system/addSystemUser.js?${appsetting.getVersionId()}"></script>
+<script type="text/javascript" src="${DOMAIN_CMS}/js/pwdintensity.js?${appsetting.getVersionId()}"></script>

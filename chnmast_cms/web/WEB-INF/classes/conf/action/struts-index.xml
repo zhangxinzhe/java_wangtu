@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <package name="chnmaster-support" extends="struts-default" namespace="/estudy">
+        <action name="support" class="supportAction">
+        </action>
+         
+    </package>
+    
+    <package name="chnmaster-cms-login" extends="default-package" >
+    <!-- 刷新缓存 -->
+        <action name="cleanAllCache" class="webMonitorAction" method="cleanAllCache"></action>
+        <!-- 登录 -->
+        <action name="login" class="loginAction" method="login">
+            <result name="input">/pages/index/login.ftl</result> 
+            <result name="success" type="redirect">${redirectUrl}</result>
+        </action>
+        
+         <!-- 退出 -->
+        <action name="logout" class="loginAction" method="logout">
+            <result name="success" type="redirect">login.htm</result>
+        </action>
+    </package>
+    
+    <package name="chnmaster-cms-index" extends="login-package">
+        <!-- 后台首页 -->
+        <action name="index" class="indexAction" method="index">
+            <result name="success">/pages/index/index.ftl</result>
+        </action>
+        
+        <!-- 修改密码 -->
+        <action name="resetPword" class="loginAction" method="resetPword">
+            <result name="input">/pages/index/resetPword.ftl</result>
+            <result name="success">/pages/index/login.ftl</result>
+        </action>
+    </package>
+    
+    <!-- 首页-web监控管理 -->
+    <package name="monitor" extends="login-package">
+        <action name="monitor" class="webMonitorAction">
+            <result name="success">/pages/monitor/monitorIndex.ftl</result>
+        </action>
+        
+       
+        
+        <!-- 系统并发控制查看 -->
+        <action name="systemControlView" class="webMonitorAction" method="systemControlView">
+            <result name="success">/pages/monitor/systemControlView.ftl</result>
+        </action>
+        <!-- 清除并发控制项 -->
+        <action name="removeSystemControlItem" class="webMonitorAction" method="removeSystemControlItem">
+            <result name="success" type="redirect">systemControlView.htm</result>
+        </action>
+    </package>
+    
+    
+        
+</struts>

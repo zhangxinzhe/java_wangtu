@@ -1,0 +1,1 @@
+<script type="text/javascript" src="${DOMAIN_CMS}/js/account/report/stuReport.js?${appsetting.getVersionId()}"></script>

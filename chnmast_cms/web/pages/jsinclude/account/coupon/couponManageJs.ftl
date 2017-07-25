@@ -1,0 +1,1 @@
+<script type="text/javascript" src="${DOMAIN_CMS}/js/account/coupon/couponManage.js?${appsetting.getVersionId()}"></script>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <package name="cms-system-manager" namespace="/system" extends="login-package">
+        <!-- 系统管理-用户管理 -->
+        <action name="systemUserManage" class="systemUserAction" method="systemUserManage">
+            <result name="success" type="freemarker">/pages/system/manageSystemUser.ftl</result>
+        </action>
+        <!-- 用户管理-添加用户 -->
+        <action name="addSystemUser" class="systemUserAction" method="addSystemUser">
+            <result name="input" type="freemarker">/pages/system/addSystemUser.ftl</result>
+        </action>
+        <!-- 用户管理-编辑用户（用户信息查看） -->
+        <action name="viewSystemUser" class="systemUserAction" method="viewSystemUser">
+            <result name="success" type="freemarker">/pages/system/systemUserInfo.ftl</result>
+        </action>
+        <!-- 用户权限模块树 -->
+        <action name="systemUserModuleTree" class="systemUserAction" method="respone2json"></action>
+        <!--当前用户拥有的角色表  -->
+        <action name="listSystemUserRole" class="systemUserAction" method="listSystemUserRole2json"></action>
+        <!--系统拥有的角色表（不包扩当前用户拥有的角色）  -->
+        <action name="listSystemRole" class="systemUserAction" method="listSystemRole2json"></action>
+        <!-- 用户管理-分配权限 -->
+        <action name="assignSystemRole" class="systemUserAction" method="assignSystemRole">
+            <result name="success" type="freemarker">/pages/system/systemUserInfo.ftl</result>
+        </action>
+        <!-- 用户管理-修改用户 -->
+        <action name="editSystemUser" class="systemUserAction" method="editSystemUser"></action>
+        <!-- 用户管理-重置密码 -->
+        <action name="resetSystemUserPassword" class="systemUserAction" method="resetSystemUserPassword"></action>
+        <!-- 用户管理-删除用户-->
+        <action name="delSystemUser" class="systemUserAction" method="delSystemUser"></action>
+        <!-- 用户管理-冻结用户-->
+        <action name="cancelSystemUser" class="systemUserAction" method="cancelSystemUser"></action>
+        <!-- 用户管理-解冻用户-->
+        <action name="backSystemUser" class="systemUserAction" method="backSystemUser"></action>
+        
+        
+        <!-- 系统管理-角色管理 -->
+        <action name="systemRoleManage" class="systemRoleAction" method="systemRoleManage">
+            <result name="success" type="freemarker">/pages/system/manageSystemRole.ftl</result>
+        </action>
+        <!-- 业务权限模块树 -->
+        <action name="systemModuleTree" class="systemRoleAction" method="respone2json"></action>
+        <!-- 角色管理-新增角色 -->
+        <action name="addSystemRole" class="systemRoleAction" method="addSystemRole">
+         <result name="input" type="freemarker">/pages/system/addSystemRole.ftl</result>
+        </action>
+        <!-- 角色管理-检查角色名称 -->
+        <action name="validateRoleName" class="systemRoleAction" method="validateRoleName"/>
+        <!-- 角色管理-查看角色 -->
+        <action name="showSystemRole" class="systemRoleAction" method="showSystemRole">
+            <result name="success" type="freemarker">/pages/system/systemRoleInfo.ftl</result>
+        </action>
+        <!-- 角色对应业务权限模块树 -->
+        <action name="systemRoleModuleTree" class="systemRoleAction" method="systemRoleModuleTree"></action>
+        <!-- 角色管理-修改角色 -->
+        <action name="editSystemRole" class="systemRoleAction" method="editSystemRole">
+            <result name="input" type="freemarker">/pages/system/updateSystemRole.ftl</result>
+        </action>
+      <!--   
+        <action name="editSystemRole" class="systemRoleAction" method="editSystemRole">
+            <result name="input" type="freemarker">/pages/system/updateSystemRole.ftl</result>
+            <result name="success" type="freemarker">/pages/system/systemRoleInfo.ftl</result>
+        </action>
+         -->
+        <!-- 角色对应业务权限在整树中显示 -->
+        <action name="systemRoleModuleTreeFromAll" class="systemRoleAction" method="systemRoleModuleTreeFromAll"></action>
+        <!-- 角色管理-分配用户 -->
+        <action name="assignSystemUser" class="systemRoleAction" method="assignSystemUser">
+            <result name="success" type="freemarker">/pages/system/systemRoleInfo.ftl</result>
+        </action>
+        <!-- 获取所有可分配的用户 -->
+        <action name="systemUsers" class="systemRoleAction" method="systemUsers"></action>
+        <!-- 获取已分配该角色的用户 -->
+        <action name="userList" class="systemRoleAction" method="userList"></action>
+         <!-- 角色管理-删除角色-->
+        <action name="delSystemRole" class="systemRoleAction" method="delSystemRole"></action>
+ 
+        <!-- 系统日志 -->
+        <action name="systemLog" class="systemLogAction" method="systemLog">
+            <result name="success" type="freemarker">/pages/system/manageSystemLog.ftl</result>
+        </action>
+        
+        <!-- 系统参数 --> 
+        <action name="systemConfigManage" class="systemConfigAction" method="systemConfigManage">
+            <result name="success" type="freemarker">/pages/system/manageSystemConfig.ftl</result>
+        </action>
+        <!-- 系统参数——编辑系统参数 -->
+        <action name="editSystemConfig" class="systemConfigAction" method="editSystemConfig">
+            <result name="input" type="freemarker">/pages/system/editSystemConfig.ftl</result>
+            <result name="success" type="redirect">/system/systemConfigManage.htm</result>
+        </action>
+        
+    </package>
+    
+    <package name="system-region" extends="struts-default">
+        <!-- 获取系统地区列表 -->
+        <action name="system-listRegions" class="systemRegionAction" method="listRegions">
+        </action>
+        <!-- 沃伦短信回调方法 -->
+        <action name="wolunCallBack" class="smsWolunCallBackAction" method="callBack">
+        </action>
+    </package>
+
+</struts>

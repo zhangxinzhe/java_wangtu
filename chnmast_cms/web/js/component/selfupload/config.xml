@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<wuploadConfig>
+	<common>
+		<fileFormat exclude="false" description="所有允许的文件">
+			<typeList description="所有允许的文件">
+				<type>*.txt</type>
+				<type>*.pdf</type>
+				<type>*.doc</type>
+				<type>*.docx</type>
+				<type>*.xls</type>
+				<type>*.xlsx</type>
+				<type>*.ppt</type>
+				<type>*.pptx</type>
+				<type>*.jpg</type>
+				<type>*.jpeg</type>
+				<type>*.gif</type>
+				<type>*.png</type>
+				<type>*.mp3</type>
+				<type>*.avi</type>
+				<type>*.wmv</type>
+				<type>*.rmvb</type>
+				<type>*.rm</type>
+				<type>*.mkv</type>
+				<type>*.flv</type>
+				<type>*.mp4</type>
+				<type>*.f4v</type>
+				<type>*.zip</type>
+				<type>*.rar</type>
+			</typeList>
+			<typeList description="Text Files">
+				<type>*.txt</type>
+				<type>*.pdf</type>
+				<type>*.doc</type>
+				<type>*.docx</type>
+				<type>*.xls</type>
+				<type>*.xlsx</type>
+				<type>*.ppt</type>
+				<type>*.pptx</type>
+			</typeList>
+			<typeList description="Image Files">
+				<type>*.jpg</type>
+				<type>*.jpeg</type>
+				<type>*.gif</type>
+				<type>*.png</type>
+			</typeList>
+			<typeList description="Sound Files">
+				<type>*.mp3</type>
+			</typeList>
+			<typeList description="Video Files">
+				<type>*.avi</type>
+				<type>*.wmv</type>
+				<type>*.rmvb</type>
+				<type>*.rm</type>
+				<type>*.mkv</type>
+				<type>*.flv</type>
+				<type>*.mp4</type>
+				<type>*.f4v</type>
+			</typeList>
+		</fileFormat>
+		<buttonLabel>选择文件</buttonLabel>
+		<tip>请选择上传文件</tip>
+		<bucket>kehouweb</bucket>
+		<formApi>ntzNL3Q5bzqR5iX3ZQDc45EaPf8=</formApi>
+		<expiration>36000</expiration>
+	</common>
+	<custom id="chnmaster_video">
+        <buttonLabel>上传视频</buttonLabel>
+        <tip>当前仅支持flv、mp4上传.</tip>
+        <fileFormat exclude="false"  description="视频">
+            <typeList description="Video Files">
+                <type>*.flv</type>
+                <type>*.mp4</type>
+            </typeList>
+        </fileFormat>
+    </custom>
+	<custom id="video">
+	    <buttonLabel>选择视频</buttonLabel>
+	    <tip>当前仅支持flv、wrf上传.</tip>
+		<fileFormat exclude="false"  description="视频">
+			<typeList description="Video Files">
+				<type>*.flv</type>
+				<type>*.wrf</type>
+			</typeList>
+		</fileFormat>
+	</custom>
+	<custom id="video_pic">
+        <buttonLabel>选择图片</buttonLabel>
+        <tip>请上传png,jpeg,bmp,jpg格式的图片文件，图片文件大小不能超过10MB.</tip>
+        <fileFormat exclude="false"  description="图片">
+            <typeList description="Image Files">
+                <type>*.png</type>
+                <type>*.jpeg</type>
+                <type>*.bmp</type>
+                <type>*.jpg</type>
+            </typeList>
+        </fileFormat>
+    </custom>
+    <custom id="advert">
+        <buttonLabel>选择视频</buttonLabel>
+        <tip>当前仅支持flv上传.</tip>
+        <fileFormat exclude="false"  description="视频">
+            <typeList description="视频">
+                <type>*.flv</type>
+            </typeList>
+        </fileFormat>
+    </custom>
+    <custom id="kehouAudition">
+        <buttonLabel>选择视频</buttonLabel>
+        <tip>当前仅支持flv,mp4上传.</tip>
+        <fileFormat exclude="false"  description="课后网试听课程视频">
+            <typeList description="课后网试听课程视频">
+                <type>*.flv</type>
+                <type>*.mp4</type>
+            </typeList>
+        </fileFormat>
+    </custom>
+    <custom id="wrf">
+        <buttonLabel>选择视频</buttonLabel>
+        <tip>当前仅支持wrf上传.</tip>
+        <fileFormat exclude="false"  description="wrf">
+            <typeList description="wrf">
+                <type>*.wrf</type>
+            </typeList>
+        </fileFormat>
+    </custom>
+    <custom id="vod">
+        <buttonLabel>选择视频</buttonLabel>
+        <tip>仅支持wrf,flv,mp4格式的视频上传.</tip>
+        <fileFormat exclude="false"  description="wrf">
+            <typeList description="Video Files">
+                <type>*.wrf</type>
+                <type>*.flv</type>
+                <type>*.mp4</type>
+            </typeList>
+        </fileFormat>
+    </custom>
+    <custom id="vod_time">
+        <buttonLabel>选择视频</buttonLabel>
+        <tip>请选择上传文件.</tip>
+        <fileFormat exclude="false"  description="wrf">
+            <typeList description="Video Files">
+                <type>*.wrf</type>
+                <type>*.avi</type>
+                <type>*.wmv</type>
+                <type>*.rmvb</type>
+                <type>*.rm</type>
+                <type>*.flv</type>
+                <type>*.mp4</type>
+                <type>*.asf</type>
+                <type>*.mpg</type>
+                <type>*.3gp</type>
+                <type>*.mov</type>
+                <type>*.wmv9</type>
+            </typeList>
+        </fileFormat>
+    </custom>
+    <custom id="index_banner">
+        <buttonLabel>选择图片</buttonLabel>
+        <tip>请上传png,jpeg,bmp,jpg格式的图片文件，图片文件大小不能超过10MB.</tip>
+        <fileFormat exclude="false"  description="图片">
+            <typeList description="Image Files">
+                <type>*.png</type>
+                <type>*.jpeg</type>
+                <type>*.bmp</type>
+                <type>*.jpg</type>
+            </typeList>
+        </fileFormat>
+    </custom>
+</wuploadConfig>

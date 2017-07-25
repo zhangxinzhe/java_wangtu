@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="sns build" basedir="../" default="chnmaster-base-jar"> 
+    <import file="${basedir}/bin/build-js.xml" />
+    <property file="${basedir}/bin/build.properties" />
+    
+    <property name="build.dir" value="${basedir}/build"/>
+	<property name="build.war" value="${build.dir}/war"/>
+    <property name="build.root" value="${build.dir}/root"/>
+    <property name="build.jar" value="${build.dir}/jar"/>
+    <property name="build.classes" value="${build.root}/WEB-INF/classes"/>
+    
+    <property name="config.dir" value="${basedir}/bin/realease-config"/>
+    
+    <!-- 加入环境变量 -->
+    <property environment="env"/>
+    <!-- classpath路径 -->
+    <path id="classpath">
+        <fileset dir="./bin/lib">
+            <include name="*.jar"/>
+        </fileset>
+        <fileset dir="./web/WEB-INF/lib">
+            <include name="*.jar"/>
+        </fileset>
+        <filelist>
+            <file name="${env.JAVA_HOME}/jre/lib/rt.jar"/>
+        </filelist>
+    </path>
+    
+    <!-- jar -->
+    <target name="chnmaster-common-jar">
+        <delete dir="${build.jar}"/>
+        <mkdir dir="${build.jar}"/>
+        <delete file="${build.dir}/chnmaster-common.jar"/>
+        
+        <!-- 编译java文件 -->
+        <javac destdir="${build.jar}" encoding="utf-8" classpathref="classpath" debug="on">
+            <src path="${basedir}/common_src"/>
+        </javac>
+        
+        <!-- 打jar -->
+        <jar destfile="${build.dir}/chnmaster-common.jar">
+            <fileset dir="${build.jar}"/>
+            
+            <!-- 版本号 -->
+            <manifest>
+                <attribute name="Built-By" value="zdsoft"/>
+                <attribute name="Implementation-Title" value="chnmaster-common"/>
+                <attribute name="Implementation-Vendor" value="ZDSoft Networks"/>
+                <attribute name="Implementation-Version" value="${app.version}-${date.today}"/>
+            </manifest>
+        </jar>
+    </target>
+   
+    <!-- jar -->
+    <target name="chnmaster-base-jar" depends="chnmaster-common-jar">
+        <!-- 复制基础common-jar -->
+        <copyfile dest="${web.dir}/WEB-INF/lib/chnmaster-common.jar" src="${build.dir}/chnmaster-common.jar"/>
+        <delete dir="${build.jar}"/>
+        <mkdir dir="${build.jar}"/>
+        <delete file="${build.dir}/chnmaster-base.jar"/>
+        
+        <!-- 编译java文件 -->
+        <javac destdir="${build.jar}" encoding="utf-8" classpathref="classpath" debug="on">
+            <src path="${basedir}/base_src"/>
+        </javac>
+        
+        <!-- 打jar -->
+        <jar destfile="${build.dir}/chnmaster-base.jar">
+            <fileset dir="${build.jar}"/>
+            
+            <!-- 版本号 -->
+            <manifest>
+                <attribute name="Built-By" value="zdsoft"/>
+                <attribute name="Implementation-Title" value="chnmaster-base"/>
+                <attribute name="Implementation-Vendor" value="ZDSoft Networks"/>
+                <attribute name="Implementation-Version" value="${app.version}-${date.today}"/>
+            </manifest>
+        </jar>
+        <!-- 清理现场-->
+        <delete file="${web.dir}/WEB-INF/lib/chnmaster-common.jar"></delete>
+    </target>
+   
+    <tstamp>
+        <format property="date.today" pattern="yyyyMMdd-HHmm" />
+    </tstamp>
+</project>

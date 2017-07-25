@@ -1,0 +1,1 @@
+<script type="text/javascript" src="${DOMAIN_CMS}/js/homepage/college/collegeAdd.js?${appsetting.getVersionId()}"></script>

@@ -1,0 +1,2 @@
+<script type="text/javascript" src="${DOMAIN_CMS}/js/audit/comment/commentAuditManage.js?${appsetting.getVersionId()}"></script>
+<script type="text/javascript" src="${DOMAIN_CMS!}/js/component/date/WdatePicker.js?${appsetting.getVersionId()!}"></script>

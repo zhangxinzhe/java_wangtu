@@ -1,0 +1,1 @@
+<script type="text/javascript" src="${DOMAIN_CMS}/js/wxb/serverInfo.js?${appsetting.getVersionId()}"></script>

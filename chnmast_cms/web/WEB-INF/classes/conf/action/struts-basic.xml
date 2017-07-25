@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<!-- 基础数据 -->
+<struts>
+    
+    <!-- 个人用户  -->
+    <package name="student" namespace="/basic" extends="login-package">
+        <!-- 列表 -->
+        <action name="studentManage" class="studentManageAction" method="studentManage">
+            <result name="success">/pages/basic/student/studentManage.ftl</result>
+        </action>
+        <!-- 新增 -->
+        <action name="studentAdd" class="studentManageAction" method="addStudent">
+            <result name="input">/pages/basic/student/addStudent.ftl</result>
+            <result name="success" type="redirect">/basic/studentManage.htm</result>
+        </action>
+        <!-- 查看 -->
+        <action name="viewStudent" class="studentManageAction" method="viewStudent">
+            <result name="success">/pages/basic/student/viewStudent.ftl</result>
+        </action>
+        <!-- 修改会员状态 -->
+        <action name="isMember" class="studentManageAction" method="isMember"/>
+        <!-- 显示密码  -->
+        <action name="showPwd" class="studentManageAction" method="showPwd" />
+        <!-- 重置密码  -->
+        <action name="resetPwd" class="studentManageAction" method="resetPwd" />
+        <!-- 导入 -->
+        <action name="studentImport" class="studentManageAction" method="importStudent">
+        </action> 
+        <!-- 查看导入结果 -->
+        <action name="viewStudentResultExcel" class="studentManageAction" method="viewStudentResultExcel">
+        </action> 
+        <!-- 修改 -->
+        <action name="editStudent" class="studentManageAction" method="editStudent">
+             <result name="success">/pages/basic/student/editStudent.ftl</result>
+        </action> 
+        <!-- 加载分组类型数据 -->
+        <action name="loadGroupTypes" class="studentManageAction" method="loadGroupTypes">
+            <result name="success">/pages/basic/student/loadGroupTypes.ftl</result>
+        </action>
+        <!-- 新增分组类型 -->
+        <action name="addGroupType" class="studentManageAction" method="addGroupType" />
+        <!-- 删除分组类型-->
+        <action name="delGroupType" class="studentManageAction" method="delGroupType" />
+    </package>
+    
+    <!-- 分类管理 -->
+    <package name="catalog" namespace="/basic" extends="login-package">
+        <!-- 列表 -->
+        <action name="catalogManage" class="catalogManageAction" method="catalogManage">
+            <result name="success">/pages/basic/catalog/catalogManage.ftl</result>
+        </action>
+        <!-- 新增、修改 -->
+        <action name="editCatalog" class="catalogManageAction" method="editCatalog">
+            <result name="success">/pages/basic/catalog/catalogManage.ftl</result>
+        </action>
+        <!-- 新增、修改 保存-->
+        <action name="addCatalog" class="catalogManageAction" method="addCatalog">
+            <result name="success">/pages/basic/catalog/catalogManage.ftl</result>
+        </action>
+        <!-- 注销、恢复 -->
+        <action name="deleteCatalog" class="catalogManageAction" method="deleteCatalog">
+            <result name="success">/pages/basic/catalog/catalogManage.ftl</result>
+        </action>
+    </package>
+    
+    
+</struts>

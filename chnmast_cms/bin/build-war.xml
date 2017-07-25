@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="chnmaster build" basedir="../" default="build-war"> 
+    <import file="${basedir}/bin/build-base.xml"/>
+    
+    <!-- jar -->
+    <target name="chnmaster-cms-jar" depends="chnmaster-base-jar">
+        <!--复制common-jar到lib下 -->
+        <copyfile dest="${web.dir}/WEB-INF/lib/chnmaster-common.jar" src="${build.dir}/chnmaster-common.jar"/>
+        <!--复制base-jar到lib下 -->
+        <copyfile dest="${web.dir}/WEB-INF/lib/chnmaster-base.jar" src="${build.dir}/chnmaster-base.jar"/>
+        <delete dir="${build.jar}"/>
+        <mkdir dir="${build.jar}"/>
+        <delete file="${build.dir}/chnmaster-cms.jar"/>
+        
+        <!-- 编译java文件 -->
+        <javac destdir="${build.jar}" encoding="utf-8" classpathref="classpath" debug="on">
+            <src path="${basedir}/src"/>
+        </javac>
+        
+        <!-- 打jar -->
+        <jar destfile="${build.dir}/chnmaster-cms.jar">
+            <fileset dir="${build.jar}"/>
+            
+            <!-- 版本号 -->
+            <manifest>
+                <attribute name="Built-By" value="zdsoft"/>
+                <attribute name="Implementation-Title" value="chnmaster-cms"/>
+                <attribute name="Implementation-Vendor" value="ZDSoft Networks"/>
+                <attribute name="Implementation-Version" value="${app.version}-${date.today}"/>
+            </manifest>
+        </jar>
+        <!--删除common.jar-->
+        <delete file="${web.dir}/WEB-INF/lib/chnmaster-common.jar"/>
+        <!--删除base.jar-->
+        <delete file="${web.dir}/WEB-INF/lib/chnmaster-base.jar"/>
+    </target>
+            
+    <!-- war -->
+	<target name="build-war" depends="chnmaster-cms-jar, init">
+	    <delete dir="${build.war}"/>
+	    <mkdir dir="${build.war}"/>
+	    <!--js压缩-->
+	    <closureJS/>
+	    <!--复制web-->
+	    <delete dir="${build.root}"/>
+	    <mkdir dir="${build.root}"/>
+	    <copy todir="${build.root}" overwrite="true">
+	        <fileset dir="${web.dir}">
+	            <include name="**/*.*"/>
+                <exclude name="html/**/*.*"/>
+                <exclude name="upload/**/*.*"/>
+                <exclude name="test/**/*.*"/>
+	            <exclude name="crossdomain.xml"/>
+                <!--
+                <exclude name="WEB-INF/classes/conf/**/*.*"/>
+                <exclude name="WEB-INF/classes/dic/**/*.*"/>
+                -->     
+                <exclude name="WEB-INF/classes/net/**/*.*"/>
+	        </fileset>
+	    </copy>
+	    
+	    <!--复制配置信息-->
+        <copy todir="${build.classes}" overwrite="true">
+           <fileset dir="${config.dir}"/>
+        </copy>
+	    
+	    <!-- common-jar --> 
+        <copyfile dest="${build.root}/WEB-INF/lib/chnmaster-common.jar" src="${build.dir}/chnmaster-common.jar"/>
+	    
+	    <!-- base-jar --> 
+	    <copyfile dest="${build.root}/WEB-INF/lib/chnmaster-base.jar" src="${build.dir}/chnmaster-base.jar"/>
+	     
+	    <!-- cms-jar   -->
+	    <copyfile dest="${build.root}/WEB-INF/lib/chnmaster-cms.jar" src="${build.dir}/chnmaster-cms.jar"/>
+	    
+	    <!--打包-->
+	    <war warfile="${build.war}/${app.name}-${app.version}-${version}-${date.today}.war" webxml="${build.root}/WEB-INF/web.xml">
+			<fileset dir="${build.root}"/>
+		    <manifest>
+		        <attribute name="Built-By" value="${user.name}" />
+		        <attribute name="Implementation-Title" value="${app.name}" />
+		        <attribute name="Implementation-Version" value="${app.version}-${date.today}" />
+		    </manifest>
+		</war>
+	    
+	    <!-- 拷贝到ftp -->
+        <ftp server="${server}" userid="${userid}" password="${password}" remotedir="${ftp.path}" verbose="true" depends="true">
+            <fileset file="${build.war}/${app.name}-${app.version}-${version}-${date.today}.war"></fileset>
+        </ftp> 
+	</target>
+    
+    <tstamp>
+        <format property="date.today" pattern="yyyyMMdd-HHmm" />
+    </tstamp>
+</project>

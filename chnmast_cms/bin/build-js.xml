@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--压缩合并通用js文件 -->
+<project name="chnmaster build" basedir="../" default="compileJS"> 
+	<property environment="env"/>
+
+	<property name="web.dir" value="${basedir}/web"></property>
+	<property name="js.dir" value="${web.dir}/js"></property>
+	<property name="lib.dir" value="${web.dir}/WEB-INF/lib"></property>
+	<property name="src.dir" value="${basedir}/src"></property>
+	<property name="classes.dir" value="${web.dir}/WEB-INF/classes"/>
+	
+	<!--当前时间-->
+	<property name="now" value="yyyy-MM-dd hh:mm"/>
+	
+	<!-- 初始化 -->
+    <target name="init">
+    	<!-- classpath初始化 -->
+    	<path id="project.classpath">
+			<pathelement path="${classpath}"/>
+    		<pathelement path="${classes.dir}" />
+    		<pathelement path="${lib.dir}" />
+			<fileset dir="${lib.dir}">
+				<include name="*.jar"/>
+			</fileset>
+    		<fileset dir="${basedir}/bin/lib">
+    			<include name="*.jar"/>
+    		</fileset>
+		</path>
+    	
+    	<echo>完成初始化</echo>
+	</target>
+	
+		
+	<macrodef name="closureJS">
+		<sequential>
+			
+			<echo>开始压缩合并js文件...</echo>
+		    <java jar="${basedir}/bin/lib/compiler.jar" fork="true" classpathref="project.classpath">
+                <arg value="--js=${js.dir}/base.js"/>
+                <arg value="--js=${js.dir}/base_verify.js"/>
+                <arg value="--js=${js.dir}/myscript.js"/>
+                <arg value="--js_output_file=${js.dir}/chnmaster-cms-base.min.js"/>
+            </java>
+		</sequential>
+	</macrodef>
+	
+	<target name="compileJS" depends="init">
+			<closureJS/>			
+	</target>
+	
+</project> 
+

@@ -1,0 +1,38 @@
+1、接口：
+http://if2.zhenxian.fm/interfacetest2/ws/content/keyfrequency?apikey=1474265419748&terminaltype=20&version=new&signature=qt8LPunh9Tg3pJS4IsMf6bG++rI=
+
+
+2、post提交参数：
+key：关键字，如：cyx
+
+
+3、返回值格式：
+{
+    "list": [
+        {
+            "abbreviation": "",
+            "chineseChar": "陈奕迅",
+            "searchKey": ""
+        },
+        {
+            "abbreviation": "",
+            "chineseChar": "陈奕迅48首选",
+            "searchKey": ""
+        },
+        {
+            "abbreviation": "",
+            "chineseChar": "陈奕迅lpcd45",
+            "searchKey": ""
+        },
+        {
+            "abbreviation": "",
+            "chineseChar": "唱游心海",
+            "searchKey": ""
+        },
+        {
+            "abbreviation": "",
+            "chineseChar": "草原弦梦",
+            "searchKey": ""
+        }
+    ]
+}

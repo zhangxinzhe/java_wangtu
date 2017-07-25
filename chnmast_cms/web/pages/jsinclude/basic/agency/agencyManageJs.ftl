@@ -1,0 +1,1 @@
+<script type="text/javascript" src="${DOMAIN_CMS}/js/basic/agency/agencyManage.js?${appsetting.getVersionId()}"></script>

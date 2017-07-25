@@ -1,0 +1,12 @@
+1、接口：
+http://if2.zhenxian.fm/interfacetest2/pay/thirdPartyPayResultCall
+
+
+2、post提交参数：
+uniqueId：音乐网用户ID，51
+avatarUrl：用户头像，http://file.chnmaster.com/upload/userAvatar/2016/09/18/51_photo.jpg
+userName：用户姓名，hongx
+
+
+3、返回结果：
+{result: 1表示订单交易失败，0 表示交易成功，-1表示签名错误}

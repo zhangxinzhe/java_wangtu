@@ -1,0 +1,1 @@
+<script type="text/javascript" src="${DOMAIN_CMS}/js/course/vodManage.js?${appsetting.getVersionId()}"></script>

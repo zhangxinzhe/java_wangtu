@@ -1,0 +1,24 @@
+.center-content{width:900px;margin:5px auto 20px;}
+/*导航*/
+.center-menu{height:45px;background:#fff;border:1px solid #eeefef;box-shadow:0 0 1px rgba(0,0,0,.05);border-radius:3px;overflow:hidden;}
+.center-menu a{display:block;float:left;width:20%;background:url(/images/help/tab_line.png) no-repeat right;text-align:center;font:100 20px/45px "Microsoft YaHei";color:#364760;}
+.center-menu a:hover,.center-menu a.current{background:#42b5fd;color:#fff;text-decoration:none;}
+.center-menu a.last{background-image:none;}
+.center-menu-help a{width:33.3333%;}
+
+/*----------帮助中心----------*/
+.help-center{background:#e8f3fa;border:1px solid #cce4f3;margin:30px 0 20px;}
+.help-sidebar{float:left;width:150px;}
+.help-sidebar ul li{border-bottom:1px solid #cce4f3;}
+.help-sidebar ul li p{height:42px;line-height:42px;background:url(/images/help/icon_help.png) no-repeat 10px -42px;padding-left:32px;font-size:14px;color:#364760;cursor:pointer;}
+.help-sidebar ul li span{display:none;background:#fff;}
+.help-sidebar ul li span a{display:block;height:32px;line-height:32px;background:url(/images/help/icon_help.png) no-repeat 32px -116px;padding-left:40px;color:#6d6d6d;}
+.help-sidebar ul li span a:hover{text-decoration:none;color:#009bfc;}
+.help-sidebar ul li span a.current{background-position:32px -84px;font-weight:700;color:#009bfc;}
+.help-sidebar ul li.open p{background-position:10px 0;}
+.help-sidebar ul li.open span{display:block;}
+.help-content{min-height:500px;background:#fff;border-left:1px solid #cce4f3;margin-left:150px;padding:0 20px 20px;}
+.help-content h1{height:39px;border-bottom:1px solid #eee;padding-left:10px;font:100 16px/39px "Microsoft YaHei";color:#364760;}
+.help-content .des{color:#555;}
+.help-content .des p{padding-top:10px;}
+.help-content .des p img{max-width:700px;}

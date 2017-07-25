@@ -1,0 +1,2 @@
+<script type="text/javascript" src="${DOMAIN_CMS}/js/basic/school/editSchool.js?${appsetting.getVersionId()}"></script>
+<script type="text/javascript" src="/js/pwdintensity.js?${appsetting.getVersionId()}"></script>

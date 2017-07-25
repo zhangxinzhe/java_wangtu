@@ -1,0 +1,6 @@
+1、接口：
+http://mg2.zhenxian.fm/mediatest2/access/audio/1348198026838?apikey=1474265419748&terminaltype=20&version=new&signature=qt8LPunh9Tg3pJS4IsMf6bG++rI=
+
+
+2、返回值格式：
+http://mg2.zhenxian.fm/mediatest2/access/audio/1348198026838?apikey=1474265419748&terminaltype=20&version=new&signature=qt8LPunh9Tg3pJS4IsMf6bG++rI=

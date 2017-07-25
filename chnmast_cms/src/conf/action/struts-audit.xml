@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<!-- 审核管理 -->
+<struts>
+    <!-- 加入联盟 -->
+    <package name="agencyJoin" namespace="/basic" extends="login-package">
+        <!-- 列表 -->
+        <action name="agencyJoinManage" class="agencyJoinManageAction" method="agencyJoinManage">
+            <result name="success">/pages/basic/agencyJoin/agencyJoinManage.ftl</result>
+        </action>
+        <!-- 查看 -->
+        <action name="viewAgencyJoin" class="agencyJoinManageAction" method="viewAgencyJoin">
+            <result name="success">/pages/basic/agencyJoin/viewAgencyJoin.ftl</result>
+        </action>
+        <!-- 修改 -->
+        <action name="editAgencyJoin" class="agencyJoinManageAction" method="editAgencyJoin">
+            <result name="input">/pages/basic/agencyJoin/editAgencyJoin.ftl</result>
+        </action>
+         <!-- 删除 -->
+        <action name="delAgencyJoin" class="agencyJoinManageAction" method="delAgencyJoin">
+        </action>
+        <!-- 同意加盟 -->
+        <action name="checkAgencyJoin" class="agencyJoinManageAction" method="checkAgencyJoin">
+        </action>
+        <!-- 获取用户名 -->
+        <action name="getShortspell" class="agencyJoinManageAction" method="getShortspell">
+            <result name="success">/pages/basic/agencyJoin/agencyJoinDiv.ftl</result>
+        </action>
+    </package>
+    
+    <!-- 联合会会员 -->
+    <package name="unionMember" namespace="/basic" extends="login-package">
+        <!-- 列表 -->
+        <action name="unionMemberManage" class="unionMemberManageAction" method="unionMemberManage">
+            <result name="success">/pages/basic/unionMember/unionMemberManage.ftl</result>
+        </action>
+        <!-- 查看  -->
+        <action name="viewUnionMember" class="unionMemberManageAction" method="viewUnionMember">
+            <result name="success">/pages/basic/unionMember/viewUnionMember.ftl</result>
+        </action>
+        <!-- 修改  -->
+        <action name="editUnionMember" class="unionMemberManageAction" method="editUnionMember">
+             <result name="success_pers">/pages/basic/unionMember/editUnionMember_pers.ftl</result>
+             <result name="success_team">/pages/basic/unionMember/editUnionMember_team.ftl</result>
+        </action>
+        
+        <!-- 审核 -->
+        <action name="auditUnionMember" class="unionMemberManageAction" method="auditUnionMember"></action> 
+        <!-- 下载文件 -->
+        <action name="downloadFile" class="unionMemberManageAction" method="downloadFile"></action>
+        <!-- 验证会员编号的重复性 -->
+        <action name="ajaxValidateUnionCode" class="unionMemberManageAction" method="ajaxValidateUnionCode"></action> 
+        
+        <!-- 保存操作  -->
+        <action name="saveUnionMember" class="unionMemberManageAction" method="saveUnionMember"></action>
+    </package>
+
+
+
+    <!-- 评论审核 -->
+    <package name="commentAuditMgt" namespace="/audit" extends="login-package">
+        <action name="commentAuditManage" class="commentAuditManageAction" method="commentAuditManage">
+            <result name="success">/pages/audit/comment/commentAuditManage.ftl</result>
+        </action>
+        <!-- 视频评论 -->
+        <action name="videoCommentAuditManage" class="commentAuditManageAction" method="videoCommentAuditManage">
+            <result name="success">/pages/audit/comment/videoCommentAuditManage.ftl</result>
+        </action>
+        
+        <!-- 查看审核 -->
+        <action name="auditComment" class="commentAuditManageAction" method="auditComment">
+            <result name="success">/pages/audit/comment/auditComment.ftl</result>
+        </action>
+        <!-- 查看审核 -->
+        <action name="videoComment" class="commentAuditManageAction" method="videoComment">
+            <result name="success">/pages/audit/comment/videoComment.ftl</result>
+        </action>
+        <!-- 修改审核状态 -->
+        <action name="auditCourseComment" class="commentAuditManageAction" method="auditCourseComment">
+        </action>
+        
+    
+    </package>
+</struts>

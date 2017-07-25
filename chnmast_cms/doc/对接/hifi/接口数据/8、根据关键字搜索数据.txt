@@ -1,0 +1,246 @@
+1、接口：
+http://if2.zhenxian.fm/interfacetest2/ws/content/searchproduct?apikey=1474265419748&maxitem=5&searchtype=10&startitem=0&terminaltype=20&version=new&signature=bmrG24HDfLh+H6vYO79JtbnWIEI=
+searchType：1为搜索专辑，5为搜索单曲，10为搜索艺术家，0为搜索全部
+
+
+2、post提交参数：
+key：关键字，如：阿
+
+
+3、返回值格式：
+
+	3.1 查询艺术家：searchType=10
+{
+    "itemnum": 5,
+    "list": [
+        {
+            "albumid": 0,
+            "albumname": "",
+            "contentid": "23673",
+            "imgurl": "http://pic.zhenxian.fm/390bc4c72f602afca8bda6b4522dd344.jpg",
+            "kuwoid": 0,
+            "name": "Amina Alaoui",
+            "type": 10
+        },
+        {
+            "albumid": 0,
+            "albumname": "",
+            "contentid": "1932",
+            "imgurl": "http://pic.zhenxian.fm/45d4b268182a61ebd5200e717cc0dbc9.jpg",
+            "kuwoid": 0,
+            "name": "Ataulfo Argenta",
+            "type": 10
+        },
+        {
+            "albumid": 0,
+            "albumname": "",
+            "contentid": "25104",
+            "imgurl": "http://pic.zhenxian.fm/a6De590e4D1ABFa3efaFBed81a2e1ee7.jpg",
+            "kuwoid": 0,
+            "name": "阿肆",
+            "type": 10
+        },
+        {
+            "albumid": 0,
+            "albumname": "",
+            "contentid": "25108",
+            "imgurl": "http://pic.zhenxian.fm/55ec97b752155155d7803cc293b0b5fa.jpg",
+            "kuwoid": 0,
+            "name": "阿沐",
+            "type": 10
+        },
+        {
+            "albumid": 0,
+            "albumname": "",
+            "contentid": "2349",
+            "imgurl": "http://pic.zhenxian.fm/8ceec9c1941c2a9f04b5c710975c78ba.jpg",
+            "kuwoid": 0,
+            "name": "阿杜",
+            "type": 10
+        }
+    ],
+    "total": 123
+}
+
+
+	3.2 查询专辑：searchType=1
+{
+    "itemnum": 5,
+    "list": [
+        {
+            "albumid": 0,
+            "artistid": "6792",
+            "artistname": "李贞贤",
+            "contentid": "1458094511156",
+            "imgurl": "http://pic.zhenxian.fm/FdB65B1cd836786bA0A0333E3A4D83EF.jpg",
+            "kuwoid": 0,
+            "name": "阿里阿里",
+            "type": 1
+        },
+        {
+            "albumid": 0,
+            "artistid": "5224",
+            "artistname": "刘文正",
+            "contentid": "1451297003394",
+            "imgurl": "http://pic.zhenxian.fm/ae3e7CBF2F1bAcc7d9AC4439280A95d5.jpg",
+            "kuwoid": 0,
+            "name": "阿美阿美",
+            "type": 1
+        },
+        {
+            "albumid": 0,
+            "artistid": "24902",
+            "artistname": "王梦麟",
+            "contentid": "1455763695925",
+            "imgurl": "http://pic.zhenxian.fm/C8381424d577Dc84EB92a64Ac52Fa67f.jpg",
+            "kuwoid": 0,
+            "name": "阿美!阿美!",
+            "type": 1
+        },
+        {
+            "albumid": 0,
+            "artistid": "2292",
+            "artistname": "Adele（阿黛尔）",
+            "contentid": "1446606015106",
+            "imgurl": "http://pic.zhenxian.fm/fbe3ab846249e292894347701dfc668b.jpg",
+            "kuwoid": 0,
+            "name": "Live at The Royal Albert Hall",
+            "type": 1
+        },
+        {
+            "albumid": 0,
+            "artistid": "4413",
+            "artistname": "窦唯,Various Artists(群星)",
+            "contentid": "1452588170210",
+            "imgurl": "http://pic.zhenxian.fm/4660EDa55bAcEc759aa65bc5D8fddcff.jpg",
+            "kuwoid": 0,
+            "name": "松阿珠阿吉",
+            "type": 1
+        }
+    ],
+    "total": 835
+}
+
+
+	3.3 查询单曲：searchType=5
+{
+    "itemnum": 5,
+    "list": [
+        {
+            "albumid": "1452587963552",
+            "albumimg": "http://pic.zhenxian.fm/Cb8B95b7FeC1Bd9DC94eae6e926F4B3D.jpg",
+            "albumname": "光脚丫",
+            "artistid": "5186",
+            "artistname": "阿牛",
+            "contentid": "1452653394749",
+            "imgurl": "",
+            "kuwoid": 0,
+            "name": "阿公",
+            "recordingtime": "00:04:55",
+            "state": "20",
+            "type": 5
+        },
+        {
+            "albumid": "1465724343629",
+            "albumimg": "http://pic.zhenxian.fm/73e513E1bFFcCC3bb30F1dCB66Dc9A3C.jpg",
+            "albumname": "这一瞬间 (DTS)",
+            "artistid": "8102",
+            "artistname": "阿果",
+            "contentid": "1465725248791",
+            "imgurl": "",
+            "kuwoid": 0,
+            "name": "阿惹妞",
+            "recordingtime": "00:04:37",
+            "state": "20",
+            "type": 5
+        },
+        {
+            "albumid": "1464590904653",
+            "albumimg": "http://pic.zhenxian.fm/D94d7a2Af2662224cF0a7fD11D10c4a5.jpg",
+            "albumname": "月光上行走 (DTS)",
+            "artistid": "5745",
+            "artistname": "阿佳组合",
+            "contentid": "1464600844316",
+            "imgurl": "",
+            "kuwoid": 0,
+            "name": "阿妈啦",
+            "recordingtime": "00:04:29",
+            "state": "20",
+            "type": 5
+        },
+        {
+            "albumid": "1452587717711",
+            "albumimg": "http://pic.zhenxian.fm/1d07e09FAb9aaA2d6F49FdCEB4fc660B.jpg",
+            "albumname": "新疆民歌经典",
+            "artistid": "29257",
+            "artistname": "阿木提",
+            "contentid": "1452636723447",
+            "imgurl": "",
+            "kuwoid": 0,
+            "name": "阿达尔古丽",
+            "recordingtime": "00:04:55",
+            "state": "20",
+            "type": 5
+        },
+        {
+            "albumid": "1452587885751",
+            "albumimg": "http://pic.zhenxian.fm/dbD368Aae7CF0AfA83BfB6eB33b1541b.jpg",
+            "albumname": "西藏的天空",
+            "artistid": "25106",
+            "artistname": "阿斯满",
+            "contentid": "1452646262918",
+            "imgurl": "",
+            "kuwoid": 0,
+            "name": "阿拉斯布姆",
+            "recordingtime": "00:03:20",
+            "state": "20",
+            "type": 5
+        }
+    ],
+    "total": 14053
+}
+
+
+	3.4 查询全部：searchType=0
+{
+    "album": 835,
+    "artist": 123,
+    "itemnum": 5,
+    "list": [
+        {
+            "albumid": 0,
+            "albumname": "",
+            "contentid": "23673",
+            "imgurl": "http://pic.zhenxian.fm/390bc4c72f602afca8bda6b4522dd344.jpg",
+            "kuwoid": 0,
+            "name": "Amina Alaoui",
+            "type": 10
+        },
+        {
+            "albumid": 0,
+            "artistid": "6792",
+            "artistname": "李贞贤",
+            "contentid": "1458094511156",
+            "imgurl": "http://pic.zhenxian.fm/FdB65B1cd836786bA0A0333E3A4D83EF.jpg",
+            "kuwoid": 0,
+            "name": "阿里阿里",
+            "type": 1
+        },
+        {
+            "albumid": "1452587963552",
+            "albumimg": "http://pic.zhenxian.fm/Cb8B95b7FeC1Bd9DC94eae6e926F4B3D.jpg",
+            "albumname": "光脚丫",
+            "artistid": "5186",
+            "artistname": "阿牛",
+            "contentid": "1452653394749",
+            "imgurl": "",
+            "kuwoid": 0,
+            "name": "阿公",
+            "recordingtime": "00:04:55",
+            "state": "20",
+            "type": 5
+        }
+    ],
+    "music": 14053,
+    "total": 15011
+}

@@ -1,0 +1,19 @@
+1、接口：
+http://if2.zhenxian.fm/interfacetest2/ws/content/artist/detail?apikey=1474265419748&id=7891&terminaltype=20&version=new&signature=sFsdSdhytmUapzZhb491I2cNtjo=
+id：演出者id
+
+
+2、返回值格式：
+{
+    "aliasName": "张少淳",
+    "artistId": 7891,
+    "artistName": "阿宝",
+    "beginDate": "1969-01-01",
+    "endDate": "2015-01-22",
+    "firstChar": "ab",
+    "foreignName": "阿宝",
+    "gender": "M",
+    "imgurl": "http://pic.zhenxian.fm/5637cd12ec26defa1c3203179634d585.jpg",
+    "introduction": "阿宝，原名张少淳，歌手。他拥有金属般的音色、闪电般的穿透力和极其罕见的高音，一位历尽艰辛真正来自民间的艺人，正创造着一个声音的传奇。2004年中央电视台西部民歌大赛阿宝获得铜奖，2005年中央电视台《星光大道》阿宝获得第一周周冠军及月冠军、2005年度总冠军。代表作品 《山丹丹花开红艳艳》。",
+    "popularity": 0
+}

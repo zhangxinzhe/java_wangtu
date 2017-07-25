@@ -1,0 +1,53 @@
+1、接口：
+http://if2.zhenxian.fm/interfacetest2/ws/content/music/detail?apikey=1474265419748&id=1364969446907&terminaltype=20&version=new&signature=1BeT5SPviKkm/XBQcqPb61YwpnU=
+id：歌曲id
+
+
+2、返回值格式：
+{
+    "albumid": 1364969446434,
+    "albumimg": "http://pic.zhenxian.fm/25db956320bc82b5c67af9b88125956b.jpg",
+    "albumname": "村上春树听见100%的新世纪天籁",
+    "artistid": "387",
+    "artistname": "村上春树",
+    "audioFileList": [
+        {
+            "audioCategoryId": 2,
+            "bitDepth": 16,
+            "code": "CD",
+            "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364968014117",
+            "name": "CD",
+            "size": 21
+        },
+        {
+            "audioCategoryId": 1,
+            "bitDepth": 16,
+            "code": "SQ",
+            "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364969094144",
+            "name": "SQ",
+            "size": 8
+        }
+    ],
+    "companyname": "Boulevard Records",
+    "downloadUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364968014117",
+    "dtsurl": "",
+    "flacAvail": 0,
+    "id": 1364969446907,
+    "kwId": 0,
+    "language": "其他",
+    "listenurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364969094144",
+    "lyrics": "",
+    "mp3Avail": 1,
+    "name": "夜之潮--马克.哈特",
+    "playtimes": "00:04:07",
+    "playurl": "http://mg2.zhenxian.fm/mediatest2/access/stream/audio/1364968014117",
+    "price": 0,
+    "productid": 0,
+    "publishtime": "2002-01-01",
+    "score": 0,
+    "size": 21,
+    "smallimg": "http://pic.zhenxian.fm/0f870d6b44fe72e327bf5a7a021fbd36.jpg",
+    "state": "20",
+    "tafid": 3940,
+    "technology": "http://pic.zhenxian.fm/4a8c085953bc1e838a2b43f7743bcddc.png"
+}

@@ -1,0 +1,174 @@
+1、接口：
+http://if2.zhenxian.fm/interfacetest2/ws/content/album/list?apikey=1474265419748&id=6&maxitems=20&startitem=0&terminaltype=20&type=2&version=new&signature=klhOfJMgmqwPPsxuZEuCXZIgxIM=
+id：首页栏目id
+type：查询方式，根据首页栏目menuId查专辑列表时请传type=2
+
+
+2、返回值格式：
+{
+    "album": [
+        {
+            "artist": "Various Artists(群星)",
+            "cn_name": "森海塞尔 HD800 示范盘",
+            "id": 1452588169051,
+            "kwid": 0,
+            "name": "森海塞尔 HD800 示范盘",
+            "smallimg": "http://pic.zhenxian.fm/32602AFFbadecA4Df64C0a8BCDcCD6D4.jpg"
+        },
+        {
+            "artist": "Various Artists(群星)",
+            "cn_name": "世界名曲 惊世典范 Vol.2",
+            "id": 1370247504381,
+            "kwid": 0,
+            "name": "世界名曲 惊世典范 Vol.2",
+            "smallimg": "http://pic.zhenxian.fm/e07d7ec9a8252f61927ed0aee149bb88.jpg"
+        },
+        {
+            "artist": "Francis Goya",
+            "cn_name": "The HI-FI sound of Latin Guitar II",
+            "id": 1370163882205,
+            "kwid": 0,
+            "name": "The HI-FI sound of Latin Guitar II",
+            "smallimg": "http://pic.zhenxian.fm/dc34dd3f7905e57e8d6685b7c55fd34e.jpg"
+        },
+        {
+            "artist": "Various Artists(群星)",
+            "cn_name": "铁三角耳机试音碟",
+            "id": 1455763698522,
+            "kwid": 0,
+            "name": "铁三角耳机试音碟",
+            "smallimg": "http://pic.zhenxian.fm/5d8df25a8bA7EFF5CEEB7729Ba3BcDdb.jpg"
+        },
+        {
+            "artist": "徐雯",
+            "cn_name": "十亿掌声",
+            "id": 1452588201795,
+            "kwid": 0,
+            "name": "十亿掌声",
+            "smallimg": "http://pic.zhenxian.fm/d1a4afFB9CAb0dcd17df8DC972E91C41.jpg"
+        },
+        {
+            "artist": "罗海英",
+            "cn_name": "雅拉的神奇II",
+            "id": 1370005712822,
+            "kwid": 0,
+            "name": "雅拉的神奇II",
+            "smallimg": "http://pic.zhenxian.fm/5a5ffeb7aec72ca395476523927d8b3a.jpg"
+        },
+        {
+            "artist": "陈小平",
+            "cn_name": "彻夜未眠",
+            "id": 1373478205138,
+            "kwid": 0,
+            "name": "彻夜未眠",
+            "smallimg": "http://pic.zhenxian.fm/49a6aa60f9b3e9c1b26a67d14458c52f.jpg"
+        },
+        {
+            "artist": "Various Artist(群星)",
+            "cn_name": "百年流声四重奏",
+            "id": 1447314085808,
+            "kwid": 0,
+            "name": "百年流声四重奏",
+            "smallimg": "http://pic.zhenxian.fm/bd5AdEaAd4CD3790aa8f9dBfbBAd6CaF.jpg"
+        },
+        {
+            "artist": "Antonio Vivaldi,Johann Sebastian Bach",
+            "cn_name": "Vivaldi,Bach,Handel-Concerto For Two Double Basses",
+            "id": 1455764287624,
+            "kwid": 0,
+            "name": "Vivaldi,Bach,Handel-Concerto For Two Double Basses",
+            "smallimg": "http://pic.zhenxian.fm/DaEA78D6Db15B4f8C5A127b5157957ff.jpg"
+        },
+        {
+            "artist": "Aage Kvalbein",
+            "cn_name": "Spanish Miracles",
+            "id": 1455764237794,
+            "kwid": 0,
+            "name": "Spanish Miracles",
+            "smallimg": "http://pic.zhenxian.fm/3D20EF3dB6f2634cC3C52AeC56EFD8Fb.jpg"
+        },
+        {
+            "artist": "张毅",
+            "cn_name": "一听钟情",
+            "id": 1455764080640,
+            "kwid": 0,
+            "name": "一听钟情",
+            "smallimg": "http://pic.zhenxian.fm/bbEDa6B0DF18DFCeBD6e92B46f5cdAFc.jpg"
+        },
+        {
+            "artist": "杨曼莉",
+            "cn_name": "亲密爱人",
+            "id": 1455764040766,
+            "kwid": 0,
+            "name": "亲密爱人",
+            "smallimg": "http://pic.zhenxian.fm/3D92b9eFfeE3B487bEBBC99917D5A4c5.jpg"
+        },
+        {
+            "artist": "Various Artists(群星)",
+            "cn_name": "42首极品试音",
+            "id": 1452839239354,
+            "kwid": 0,
+            "name": "42首极品试音",
+            "smallimg": "http://pic.zhenxian.fm/40dabbd1b1dE7a989de17fC50C14bD6A.jpg"
+        },
+        {
+            "artist": "Various Artists(群星)",
+            "cn_name": "The Music--Voices",
+            "id": 1373476692237,
+            "kwid": 0,
+            "name": "The Music--Voices",
+            "smallimg": "http://pic.zhenxian.fm/833493f89592e4980f81875e9e04f8f0.jpg"
+        },
+        {
+            "artist": "Various Artists(群星)",
+            "cn_name": "世界名曲 惊世典范 Vol.1",
+            "id": 1370244033595,
+            "kwid": 0,
+            "name": "世界名曲 惊世典范 Vol.1",
+            "smallimg": "http://pic.zhenxian.fm/e07d7ec9a8252f61927ed0aee149bb88.jpg"
+        },
+        {
+            "artist": "Various Artists(群星)",
+            "cn_name": "Marantz Hi-End Audiophile Test Demo CD",
+            "id": 1383900248149,
+            "kwid": 0,
+            "name": "Marantz Hi-End Audiophile Test Demo CD",
+            "smallimg": "http://pic.zhenxian.fm/91b45e0e3e2c66858bdd2ab5f9b19ba7.jpg"
+        },
+        {
+            "artist": "朱哲琴",
+            "cn_name": "央金玛",
+            "id": 1446687392279,
+            "kwid": 0,
+            "name": "央金玛",
+            "smallimg": "http://pic.zhenxian.fm/a78587077d7f89c47744d3f58e72ade8.jpg"
+        },
+        {
+            "artist": "童丽",
+            "cn_name": "对话II-古筝与童丽的故事",
+            "id": 1451296943313,
+            "kwid": 0,
+            "name": "对话II-古筝与童丽的故事",
+            "smallimg": "http://pic.zhenxian.fm/514F6AeFE2a5883eeE608F6Aa9efdb6C.jpg"
+        },
+        {
+            "artist": "Various Artist(群星)",
+            "cn_name": "Tacet: The Best 2008",
+            "id": 1446687388537,
+            "kwid": 0,
+            "name": "Tacet: The Best 2008",
+            "smallimg": "http://pic.zhenxian.fm/bdb163a67AdfaCccc7aedce2e19ca56d.jpg"
+        },
+        {
+            "artist": "刘紫玲",
+            "cn_name": "又见知音5 外国民歌",
+            "id": 1452588195983,
+            "kwid": 0,
+            "name": "又见知音5 外国民歌",
+            "smallimg": "http://pic.zhenxian.fm/519fac619c37137Bd3DcdCd0EFbccDfC.jpg"
+        }
+    ],
+    "gerentotal": 0,
+    "num": 20,
+    "total": 508
+}

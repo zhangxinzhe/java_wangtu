@@ -1,0 +1,1105 @@
+1、接口：
+http://if2.zhenxian.fm/interfacetest2/ws/content/pack/detail?apikey=1474265419748&id=1465897064692&terminaltype=20&version=new&signature=B0OmgPMpW9jhVF1HB41bamklMyw=
+id：主题id
+
+
+2、返回值格式：
+{
+    "bigimg": "http://pic.zhenxian.fm/94f51e6ad1af617c5768bd4b0ab80cdc.jpg",
+    "id": 1465897064692,
+    "introduction": "“如果鸣唱可以飞翔，我愿意像鸟一样的鸣唱。”仿如来到了森林，耳边传来了虫鸣，鸟啼，小河流水……清清淡淡的，像空气中飘送的栀子香，漫步在一个心灵与自然的世界，感受自然带来的惬意，聆听只有属于自己的山居岁月。",
+    "isFlac": 1,
+    "kwid": 0,
+    "mafid": 245,
+    "musicListItems": [
+        {
+            "albumid": "1452587828053",
+            "albumimg": "http://pic.zhenxian.fm/Ef8E90c638bCbdEBDEadF8f0a2BF6e09.jpg",
+            "albumname": "鸟",
+            "artist": "吴金黛",
+            "artistid": "22487",
+            "audioFileList": [
+                {
+                    "audioCategoryId": 1,
+                    "bitDepth": 16,
+                    "code": "SQ",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1452682651286",
+                    "name": "SQ",
+                    "size": 13
+                },
+                {
+                    "audioCategoryId": 2,
+                    "bitDepth": 16,
+                    "code": "CD",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1452682651115",
+                    "name": "CD",
+                    "size": 24
+                }
+            ],
+            "id": 1452642760089,
+            "isFlac": 1,
+            "kwid": "0",
+            "name": "画眉，微光",
+            "playurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1452682651115",
+            "price": 0,
+            "state": 20,
+            "tafid": "727245",
+            "testurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1452682651286",
+            "totaltime": "00:05:51",
+            "trackno": 6
+        },
+        {
+            "albumid": "1452587828053",
+            "albumimg": "http://pic.zhenxian.fm/Ef8E90c638bCbdEBDEadF8f0a2BF6e09.jpg",
+            "albumname": "鸟",
+            "artist": "吴金黛",
+            "artistid": "22487",
+            "audioFileList": [
+                {
+                    "audioCategoryId": 1,
+                    "bitDepth": 16,
+                    "code": "SQ",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1452682650397",
+                    "name": "SQ",
+                    "size": 14
+                },
+                {
+                    "audioCategoryId": 2,
+                    "bitDepth": 16,
+                    "code": "CD",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1452682650225",
+                    "name": "CD",
+                    "size": 37
+                }
+            ],
+            "id": 1452642761625,
+            "isFlac": 1,
+            "kwid": "0",
+            "name": "牠所遨翔的天空",
+            "playurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1452682650225",
+            "price": 0,
+            "state": 20,
+            "tafid": "727237",
+            "testurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1452682650397",
+            "totaltime": "00:06:21",
+            "trackno": 4
+        },
+        {
+            "albumid": "1452587651327",
+            "albumimg": "http://pic.zhenxian.fm/Cc758C3Bc484cb70bBF2CeDe1d2FFe2D.jpg",
+            "albumname": "山居岁月",
+            "artist": "萤火虫",
+            "artistid": "22517",
+            "audioFileList": [
+                {
+                    "audioCategoryId": 1,
+                    "bitDepth": 16,
+                    "code": "SQ",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1452673782951",
+                    "name": "SQ",
+                    "size": 8
+                },
+                {
+                    "audioCategoryId": 2,
+                    "bitDepth": 16,
+                    "code": "CD",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1452673782827",
+                    "name": "CD",
+                    "size": 20
+                }
+            ],
+            "id": 1452632990172,
+            "isFlac": 1,
+            "kwid": "0",
+            "name": "山居岁月",
+            "playurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1452673782827",
+            "price": 0,
+            "state": 20,
+            "tafid": "599233",
+            "testurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1452673782951",
+            "totaltime": "00:03:54",
+            "trackno": 1
+        },
+        {
+            "albumid": "1452587651327",
+            "albumimg": "http://pic.zhenxian.fm/Cc758C3Bc484cb70bBF2CeDe1d2FFe2D.jpg",
+            "albumname": "山居岁月",
+            "artist": "萤火虫",
+            "artistid": "22517",
+            "audioFileList": [
+                {
+                    "audioCategoryId": 1,
+                    "bitDepth": 16,
+                    "code": "SQ",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1452673786727",
+                    "name": "SQ",
+                    "size": 8
+                },
+                {
+                    "audioCategoryId": 2,
+                    "bitDepth": 16,
+                    "code": "CD",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1452673786617",
+                    "name": "CD",
+                    "size": 20
+                }
+            ],
+            "id": 1452632985544,
+            "isFlac": 1,
+            "kwid": "0",
+            "name": "一个人的雨",
+            "playurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1452673786617",
+            "price": 0,
+            "state": 20,
+            "tafid": "599253",
+            "testurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1452673786727",
+            "totaltime": "00:03:35",
+            "trackno": 7
+        },
+        {
+            "albumid": "1452587643902",
+            "albumimg": "http://pic.zhenxian.fm/1D24b604b824Eff0AdAbf7F0f16cC0c6.jpg",
+            "albumname": "梦的延长线",
+            "artist": "Various Artists(群星)",
+            "artistid": "2",
+            "audioFileList": [
+                {
+                    "audioCategoryId": 1,
+                    "bitDepth": 16,
+                    "code": "SQ",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1452676718970",
+                    "name": "SQ",
+                    "size": 9
+                },
+                {
+                    "audioCategoryId": 2,
+                    "bitDepth": 16,
+                    "code": "CD",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1452676718845",
+                    "name": "CD",
+                    "size": 24
+                }
+            ],
+            "id": 1452632504218,
+            "isFlac": 1,
+            "kwid": "0",
+            "name": "夏天来了",
+            "playurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1452676718845",
+            "price": 0,
+            "state": 20,
+            "tafid": "602523",
+            "testurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1452676718970",
+            "totaltime": "00:04:11",
+            "trackno": 4
+        },
+        {
+            "albumid": "1458094601387",
+            "albumimg": "http://pic.zhenxian.fm/6C34b56Cc0235FFFbC9dF6eF1b25E73B.jpg",
+            "albumname": "绿色方舟",
+            "artist": "吴金黛",
+            "artistid": "22487",
+            "audioFileList": [
+                {
+                    "audioCategoryId": 1,
+                    "bitDepth": 16,
+                    "code": "SQ",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1458009093543",
+                    "name": "SQ",
+                    "size": 9
+                },
+                {
+                    "audioCategoryId": 2,
+                    "bitDepth": 16,
+                    "code": "CD",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1458009093106",
+                    "name": "CD",
+                    "size": 22
+                }
+            ],
+            "id": 1460346696313,
+            "isFlac": 1,
+            "kwid": "0",
+            "name": "一首名叫云雾的诗",
+            "playurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1458009093106",
+            "price": 0,
+            "state": 20,
+            "tafid": "1228435",
+            "testurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1458009093543",
+            "totaltime": "00:04:03",
+            "trackno": 9
+        },
+        {
+            "albumid": "1458094601803",
+            "albumimg": "http://pic.zhenxian.fm/adF614118FEfF4eCCd2Ed2Bc5aa40bfB.jpg",
+            "albumname": "绿洲",
+            "artist": "李闰珉",
+            "artistid": "7786",
+            "audioFileList": [
+                {
+                    "audioCategoryId": 1,
+                    "bitDepth": 16,
+                    "code": "SQ",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1458009084417",
+                    "name": "SQ",
+                    "size": 5
+                },
+                {
+                    "audioCategoryId": 2,
+                    "bitDepth": 16,
+                    "code": "CD",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1458009083996",
+                    "name": "CD",
+                    "size": 11
+                }
+            ],
+            "id": 1460346731620,
+            "isFlac": 1,
+            "kwid": "0",
+            "name": "白色的影子",
+            "playurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1458009083996",
+            "price": 0,
+            "state": 20,
+            "tafid": "1228233",
+            "testurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1458009084417",
+            "totaltime": "00:02:28",
+            "trackno": 5
+        },
+        {
+            "albumid": "1458094618364",
+            "albumimg": "http://pic.zhenxian.fm/7F06caD09ccB13688Ac014b1DcC4eA2E.jpg",
+            "albumname": "爱的协奏曲",
+            "artist": "白日梦",
+            "artistid": "3409",
+            "audioFileList": [
+                {
+                    "audioCategoryId": 1,
+                    "bitDepth": 16,
+                    "code": "SQ",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1458008502551",
+                    "name": "SQ",
+                    "size": 6
+                },
+                {
+                    "audioCategoryId": 2,
+                    "bitDepth": 16,
+                    "code": "CD",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1458008502458",
+                    "name": "CD",
+                    "size": 13
+                }
+            ],
+            "id": 1460348425361,
+            "isFlac": 1,
+            "kwid": "0",
+            "name": "苹果薄荷 ",
+            "playurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1458008502458",
+            "price": 0,
+            "state": 20,
+            "tafid": "1222253",
+            "testurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1458008502551",
+            "totaltime": "00:02:42",
+            "trackno": 1
+        },
+        {
+            "albumid": "1458094454074",
+            "albumimg": "http://pic.zhenxian.fm/0D4c7085E6ceC5Eb73Fdd55E25Abba7E.jpg",
+            "albumname": "风动草",
+            "artist": "游学志",
+            "artistid": "5710",
+            "audioFileList": [
+                {
+                    "audioCategoryId": 1,
+                    "bitDepth": 16,
+                    "code": "SQ",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1458010831401",
+                    "name": "SQ",
+                    "size": 11
+                },
+                {
+                    "audioCategoryId": 2,
+                    "bitDepth": 16,
+                    "code": "CD",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1458010831136",
+                    "name": "CD",
+                    "size": 30
+                }
+            ],
+            "id": 1459829428028,
+            "isFlac": 1,
+            "kwid": "0",
+            "name": "风动草",
+            "playurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1458010831136",
+            "price": 0,
+            "state": 20,
+            "tafid": "1285412",
+            "testurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1458010831401",
+            "totaltime": "00:05:10",
+            "trackno": 2
+        },
+        {
+            "albumid": "1458094370396",
+            "albumimg": "http://pic.zhenxian.fm/cd072d04997829CBbcEEC97ca559708C.jpg",
+            "albumname": "寂静之丘",
+            "artist": "黄永灿",
+            "artistid": "24282",
+            "audioFileList": [
+                {
+                    "audioCategoryId": 1,
+                    "bitDepth": 16,
+                    "code": "SQ",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1458007271231",
+                    "name": "SQ",
+                    "size": 12
+                },
+                {
+                    "audioCategoryId": 2,
+                    "bitDepth": 16,
+                    "code": "CD",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1458007271120",
+                    "name": "CD",
+                    "size": 23
+                }
+            ],
+            "id": 1459819922983,
+            "isFlac": 1,
+            "kwid": "0",
+            "name": "寂静之丘（钢琴弦乐版）",
+            "playurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1458007271120",
+            "price": 0,
+            "state": 20,
+            "tafid": "1342160",
+            "testurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1458007271231",
+            "totaltime": "00:05:29",
+            "trackno": 5
+        },
+        {
+            "albumid": "1364984843638",
+            "albumimg": "http://pic.zhenxian.fm/77af059fe3c1e7d5980e56e0e3ff6848.jpg",
+            "albumname": "Earth Show",
+            "artist": "Various Artists(群星)",
+            "artistid": "2",
+            "audioFileList": [
+                {
+                    "audioCategoryId": 2,
+                    "bitDepth": 16,
+                    "code": "CD",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364982025760",
+                    "name": "CD",
+                    "size": 28
+                },
+                {
+                    "audioCategoryId": 1,
+                    "bitDepth": 16,
+                    "code": "SQ",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364983639330",
+                    "name": "SQ",
+                    "size": 10
+                }
+            ],
+            "id": 1364984843711,
+            "isFlac": 1,
+            "kwid": "0",
+            "name": "森林狂想曲",
+            "playurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364982025760",
+            "price": 0,
+            "state": 20,
+            "tafid": "8777",
+            "testurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364983639330",
+            "totaltime": "00:04:41",
+            "trackno": 1
+        },
+        {
+            "albumid": "1364984843638",
+            "albumimg": "http://pic.zhenxian.fm/77af059fe3c1e7d5980e56e0e3ff6848.jpg",
+            "albumname": "Earth Show",
+            "artist": "Various Artists(群星)",
+            "artistid": "2",
+            "audioFileList": [
+                {
+                    "audioCategoryId": 2,
+                    "bitDepth": 16,
+                    "code": "CD",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364981516383",
+                    "name": "CD",
+                    "size": 20
+                },
+                {
+                    "audioCategoryId": 1,
+                    "bitDepth": 16,
+                    "code": "SQ",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364983467976",
+                    "name": "SQ",
+                    "size": 7
+                }
+            ],
+            "id": 1364984843721,
+            "isFlac": 1,
+            "kwid": "0",
+            "name": "野性的呼唤",
+            "playurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364981516383",
+            "price": 0,
+            "state": 20,
+            "tafid": "8793",
+            "testurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364983467976",
+            "totaltime": "00:03:30",
+            "trackno": 9
+        },
+        {
+            "albumid": "1447314089031",
+            "albumimg": "http://pic.zhenxian.fm/01D9195fb815F2CACD21BFEBd0cfBEF1.jpg",
+            "albumname": "远方的寂静",
+            "artist": "林海",
+            "artistid": "5232",
+            "audioFileList": [
+                {
+                    "audioCategoryId": 2,
+                    "bitDepth": 16,
+                    "code": "CD",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1447126830486",
+                    "name": "CD",
+                    "size": 13
+                },
+                {
+                    "audioCategoryId": 1,
+                    "bitDepth": 16,
+                    "code": "SQ",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1447126830594",
+                    "name": "SQ",
+                    "size": 7
+                }
+            ],
+            "id": 1447315702438,
+            "isFlac": 1,
+            "kwid": "0",
+            "name": "远方的寂静",
+            "playurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1447126830486",
+            "price": 0,
+            "state": 20,
+            "tafid": "377977",
+            "testurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1447126830594",
+            "totaltime": "00:03:27",
+            "trackno": 5
+        },
+        {
+            "albumid": "1455763821413",
+            "albumimg": "http://pic.zhenxian.fm/DeaD8ed1ceB4aCE34C0A9FeeE0dFA2A1.jpg",
+            "albumname": "自然",
+            "artist": "Various Artists(群星)",
+            "artistid": "2",
+            "audioFileList": [
+                {
+                    "audioCategoryId": 1,
+                    "bitDepth": 16,
+                    "code": "SQ",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1455774756399",
+                    "name": "SQ",
+                    "size": 12
+                },
+                {
+                    "audioCategoryId": 2,
+                    "bitDepth": 16,
+                    "code": "CD",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1455774756290",
+                    "name": "CD",
+                    "size": 32
+                }
+            ],
+            "id": 1455796594453,
+            "isFlac": 1,
+            "kwid": "0",
+            "name": "晨歌 Forest Awakening",
+            "playurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1455774756290",
+            "price": 0,
+            "state": 20,
+            "tafid": "1073343",
+            "testurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1455774756399",
+            "totaltime": "00:05:48",
+            "trackno": 3
+        },
+        {
+            "albumid": "1451296939653",
+            "albumimg": "http://pic.zhenxian.fm/468Aaa5fabFda70c0C3E51ba38BAbddF.jpg",
+            "albumname": "枫丹白露灵气森林",
+            "artist": "Various Artists(群星)",
+            "artistid": "2",
+            "audioFileList": [
+                {
+                    "audioCategoryId": 1,
+                    "bitDepth": 16,
+                    "code": "SQ",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1451036149600",
+                    "name": "SQ",
+                    "size": 15
+                },
+                {
+                    "audioCategoryId": 2,
+                    "bitDepth": 16,
+                    "code": "CD",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1451036149147",
+                    "name": "CD",
+                    "size": 43
+                }
+            ],
+            "id": 1451555345025,
+            "isFlac": 1,
+            "kwid": "0",
+            "name": "Le chant des berges 河岸的歌 ",
+            "playurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1451036149147",
+            "price": 0,
+            "state": 20,
+            "tafid": "446090",
+            "testurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1451036149600",
+            "totaltime": "00:06:49",
+            "trackno": 6
+        }
+    ],
+    "musics": [
+        {
+            "albumid": "1452587828053",
+            "albumimg": "http://pic.zhenxian.fm/Ef8E90c638bCbdEBDEadF8f0a2BF6e09.jpg",
+            "albumname": "鸟",
+            "artist": "吴金黛",
+            "artistid": "22487",
+            "audioFileList": [
+                {
+                    "audioCategoryId": 1,
+                    "bitDepth": 16,
+                    "code": "SQ",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1452682651286",
+                    "name": "SQ",
+                    "size": 13
+                },
+                {
+                    "audioCategoryId": 2,
+                    "bitDepth": 16,
+                    "code": "CD",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1452682651115",
+                    "name": "CD",
+                    "size": 24
+                }
+            ],
+            "id": 1452642760089,
+            "isFlac": 1,
+            "kwid": "0",
+            "name": "画眉，微光",
+            "playurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1452682651115",
+            "price": 0,
+            "state": 20,
+            "tafid": "727245",
+            "testurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1452682651286",
+            "totaltime": "00:05:51",
+            "trackno": 6
+        },
+        {
+            "albumid": "1452587828053",
+            "albumimg": "http://pic.zhenxian.fm/Ef8E90c638bCbdEBDEadF8f0a2BF6e09.jpg",
+            "albumname": "鸟",
+            "artist": "吴金黛",
+            "artistid": "22487",
+            "audioFileList": [
+                {
+                    "audioCategoryId": 1,
+                    "bitDepth": 16,
+                    "code": "SQ",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1452682650397",
+                    "name": "SQ",
+                    "size": 14
+                },
+                {
+                    "audioCategoryId": 2,
+                    "bitDepth": 16,
+                    "code": "CD",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1452682650225",
+                    "name": "CD",
+                    "size": 37
+                }
+            ],
+            "id": 1452642761625,
+            "isFlac": 1,
+            "kwid": "0",
+            "name": "牠所遨翔的天空",
+            "playurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1452682650225",
+            "price": 0,
+            "state": 20,
+            "tafid": "727237",
+            "testurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1452682650397",
+            "totaltime": "00:06:21",
+            "trackno": 4
+        },
+        {
+            "albumid": "1452587651327",
+            "albumimg": "http://pic.zhenxian.fm/Cc758C3Bc484cb70bBF2CeDe1d2FFe2D.jpg",
+            "albumname": "山居岁月",
+            "artist": "萤火虫",
+            "artistid": "22517",
+            "audioFileList": [
+                {
+                    "audioCategoryId": 1,
+                    "bitDepth": 16,
+                    "code": "SQ",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1452673782951",
+                    "name": "SQ",
+                    "size": 8
+                },
+                {
+                    "audioCategoryId": 2,
+                    "bitDepth": 16,
+                    "code": "CD",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1452673782827",
+                    "name": "CD",
+                    "size": 20
+                }
+            ],
+            "id": 1452632990172,
+            "isFlac": 1,
+            "kwid": "0",
+            "name": "山居岁月",
+            "playurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1452673782827",
+            "price": 0,
+            "state": 20,
+            "tafid": "599233",
+            "testurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1452673782951",
+            "totaltime": "00:03:54",
+            "trackno": 1
+        },
+        {
+            "albumid": "1452587651327",
+            "albumimg": "http://pic.zhenxian.fm/Cc758C3Bc484cb70bBF2CeDe1d2FFe2D.jpg",
+            "albumname": "山居岁月",
+            "artist": "萤火虫",
+            "artistid": "22517",
+            "audioFileList": [
+                {
+                    "audioCategoryId": 1,
+                    "bitDepth": 16,
+                    "code": "SQ",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1452673786727",
+                    "name": "SQ",
+                    "size": 8
+                },
+                {
+                    "audioCategoryId": 2,
+                    "bitDepth": 16,
+                    "code": "CD",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1452673786617",
+                    "name": "CD",
+                    "size": 20
+                }
+            ],
+            "id": 1452632985544,
+            "isFlac": 1,
+            "kwid": "0",
+            "name": "一个人的雨",
+            "playurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1452673786617",
+            "price": 0,
+            "state": 20,
+            "tafid": "599253",
+            "testurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1452673786727",
+            "totaltime": "00:03:35",
+            "trackno": 7
+        },
+        {
+            "albumid": "1452587643902",
+            "albumimg": "http://pic.zhenxian.fm/1D24b604b824Eff0AdAbf7F0f16cC0c6.jpg",
+            "albumname": "梦的延长线",
+            "artist": "Various Artists(群星)",
+            "artistid": "2",
+            "audioFileList": [
+                {
+                    "audioCategoryId": 1,
+                    "bitDepth": 16,
+                    "code": "SQ",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1452676718970",
+                    "name": "SQ",
+                    "size": 9
+                },
+                {
+                    "audioCategoryId": 2,
+                    "bitDepth": 16,
+                    "code": "CD",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1452676718845",
+                    "name": "CD",
+                    "size": 24
+                }
+            ],
+            "id": 1452632504218,
+            "isFlac": 1,
+            "kwid": "0",
+            "name": "夏天来了",
+            "playurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1452676718845",
+            "price": 0,
+            "state": 20,
+            "tafid": "602523",
+            "testurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1452676718970",
+            "totaltime": "00:04:11",
+            "trackno": 4
+        },
+        {
+            "albumid": "1458094601387",
+            "albumimg": "http://pic.zhenxian.fm/6C34b56Cc0235FFFbC9dF6eF1b25E73B.jpg",
+            "albumname": "绿色方舟",
+            "artist": "吴金黛",
+            "artistid": "22487",
+            "audioFileList": [
+                {
+                    "audioCategoryId": 1,
+                    "bitDepth": 16,
+                    "code": "SQ",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1458009093543",
+                    "name": "SQ",
+                    "size": 9
+                },
+                {
+                    "audioCategoryId": 2,
+                    "bitDepth": 16,
+                    "code": "CD",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1458009093106",
+                    "name": "CD",
+                    "size": 22
+                }
+            ],
+            "id": 1460346696313,
+            "isFlac": 1,
+            "kwid": "0",
+            "name": "一首名叫云雾的诗",
+            "playurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1458009093106",
+            "price": 0,
+            "state": 20,
+            "tafid": "1228435",
+            "testurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1458009093543",
+            "totaltime": "00:04:03",
+            "trackno": 9
+        },
+        {
+            "albumid": "1458094601803",
+            "albumimg": "http://pic.zhenxian.fm/adF614118FEfF4eCCd2Ed2Bc5aa40bfB.jpg",
+            "albumname": "绿洲",
+            "artist": "李闰珉",
+            "artistid": "7786",
+            "audioFileList": [
+                {
+                    "audioCategoryId": 1,
+                    "bitDepth": 16,
+                    "code": "SQ",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1458009084417",
+                    "name": "SQ",
+                    "size": 5
+                },
+                {
+                    "audioCategoryId": 2,
+                    "bitDepth": 16,
+                    "code": "CD",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1458009083996",
+                    "name": "CD",
+                    "size": 11
+                }
+            ],
+            "id": 1460346731620,
+            "isFlac": 1,
+            "kwid": "0",
+            "name": "白色的影子",
+            "playurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1458009083996",
+            "price": 0,
+            "state": 20,
+            "tafid": "1228233",
+            "testurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1458009084417",
+            "totaltime": "00:02:28",
+            "trackno": 5
+        },
+        {
+            "albumid": "1458094618364",
+            "albumimg": "http://pic.zhenxian.fm/7F06caD09ccB13688Ac014b1DcC4eA2E.jpg",
+            "albumname": "爱的协奏曲",
+            "artist": "白日梦",
+            "artistid": "3409",
+            "audioFileList": [
+                {
+                    "audioCategoryId": 1,
+                    "bitDepth": 16,
+                    "code": "SQ",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1458008502551",
+                    "name": "SQ",
+                    "size": 6
+                },
+                {
+                    "audioCategoryId": 2,
+                    "bitDepth": 16,
+                    "code": "CD",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1458008502458",
+                    "name": "CD",
+                    "size": 13
+                }
+            ],
+            "id": 1460348425361,
+            "isFlac": 1,
+            "kwid": "0",
+            "name": "苹果薄荷 ",
+            "playurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1458008502458",
+            "price": 0,
+            "state": 20,
+            "tafid": "1222253",
+            "testurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1458008502551",
+            "totaltime": "00:02:42",
+            "trackno": 1
+        },
+        {
+            "albumid": "1458094454074",
+            "albumimg": "http://pic.zhenxian.fm/0D4c7085E6ceC5Eb73Fdd55E25Abba7E.jpg",
+            "albumname": "风动草",
+            "artist": "游学志",
+            "artistid": "5710",
+            "audioFileList": [
+                {
+                    "audioCategoryId": 1,
+                    "bitDepth": 16,
+                    "code": "SQ",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1458010831401",
+                    "name": "SQ",
+                    "size": 11
+                },
+                {
+                    "audioCategoryId": 2,
+                    "bitDepth": 16,
+                    "code": "CD",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1458010831136",
+                    "name": "CD",
+                    "size": 30
+                }
+            ],
+            "id": 1459829428028,
+            "isFlac": 1,
+            "kwid": "0",
+            "name": "风动草",
+            "playurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1458010831136",
+            "price": 0,
+            "state": 20,
+            "tafid": "1285412",
+            "testurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1458010831401",
+            "totaltime": "00:05:10",
+            "trackno": 2
+        },
+        {
+            "albumid": "1458094370396",
+            "albumimg": "http://pic.zhenxian.fm/cd072d04997829CBbcEEC97ca559708C.jpg",
+            "albumname": "寂静之丘",
+            "artist": "黄永灿",
+            "artistid": "24282",
+            "audioFileList": [
+                {
+                    "audioCategoryId": 1,
+                    "bitDepth": 16,
+                    "code": "SQ",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1458007271231",
+                    "name": "SQ",
+                    "size": 12
+                },
+                {
+                    "audioCategoryId": 2,
+                    "bitDepth": 16,
+                    "code": "CD",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1458007271120",
+                    "name": "CD",
+                    "size": 23
+                }
+            ],
+            "id": 1459819922983,
+            "isFlac": 1,
+            "kwid": "0",
+            "name": "寂静之丘（钢琴弦乐版）",
+            "playurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1458007271120",
+            "price": 0,
+            "state": 20,
+            "tafid": "1342160",
+            "testurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1458007271231",
+            "totaltime": "00:05:29",
+            "trackno": 5
+        },
+        {
+            "albumid": "1364984843638",
+            "albumimg": "http://pic.zhenxian.fm/77af059fe3c1e7d5980e56e0e3ff6848.jpg",
+            "albumname": "Earth Show",
+            "artist": "Various Artists(群星)",
+            "artistid": "2",
+            "audioFileList": [
+                {
+                    "audioCategoryId": 2,
+                    "bitDepth": 16,
+                    "code": "CD",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364982025760",
+                    "name": "CD",
+                    "size": 28
+                },
+                {
+                    "audioCategoryId": 1,
+                    "bitDepth": 16,
+                    "code": "SQ",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364983639330",
+                    "name": "SQ",
+                    "size": 10
+                }
+            ],
+            "id": 1364984843711,
+            "isFlac": 1,
+            "kwid": "0",
+            "name": "森林狂想曲",
+            "playurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364982025760",
+            "price": 0,
+            "state": 20,
+            "tafid": "8777",
+            "testurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364983639330",
+            "totaltime": "00:04:41",
+            "trackno": 1
+        },
+        {
+            "albumid": "1364984843638",
+            "albumimg": "http://pic.zhenxian.fm/77af059fe3c1e7d5980e56e0e3ff6848.jpg",
+            "albumname": "Earth Show",
+            "artist": "Various Artists(群星)",
+            "artistid": "2",
+            "audioFileList": [
+                {
+                    "audioCategoryId": 2,
+                    "bitDepth": 16,
+                    "code": "CD",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364981516383",
+                    "name": "CD",
+                    "size": 20
+                },
+                {
+                    "audioCategoryId": 1,
+                    "bitDepth": 16,
+                    "code": "SQ",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364983467976",
+                    "name": "SQ",
+                    "size": 7
+                }
+            ],
+            "id": 1364984843721,
+            "isFlac": 1,
+            "kwid": "0",
+            "name": "野性的呼唤",
+            "playurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364981516383",
+            "price": 0,
+            "state": 20,
+            "tafid": "8793",
+            "testurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364983467976",
+            "totaltime": "00:03:30",
+            "trackno": 9
+        },
+        {
+            "albumid": "1447314089031",
+            "albumimg": "http://pic.zhenxian.fm/01D9195fb815F2CACD21BFEBd0cfBEF1.jpg",
+            "albumname": "远方的寂静",
+            "artist": "林海",
+            "artistid": "5232",
+            "audioFileList": [
+                {
+                    "audioCategoryId": 2,
+                    "bitDepth": 16,
+                    "code": "CD",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1447126830486",
+                    "name": "CD",
+                    "size": 13
+                },
+                {
+                    "audioCategoryId": 1,
+                    "bitDepth": 16,
+                    "code": "SQ",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1447126830594",
+                    "name": "SQ",
+                    "size": 7
+                }
+            ],
+            "id": 1447315702438,
+            "isFlac": 1,
+            "kwid": "0",
+            "name": "远方的寂静",
+            "playurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1447126830486",
+            "price": 0,
+            "state": 20,
+            "tafid": "377977",
+            "testurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1447126830594",
+            "totaltime": "00:03:27",
+            "trackno": 5
+        },
+        {
+            "albumid": "1455763821413",
+            "albumimg": "http://pic.zhenxian.fm/DeaD8ed1ceB4aCE34C0A9FeeE0dFA2A1.jpg",
+            "albumname": "自然",
+            "artist": "Various Artists(群星)",
+            "artistid": "2",
+            "audioFileList": [
+                {
+                    "audioCategoryId": 1,
+                    "bitDepth": 16,
+                    "code": "SQ",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1455774756399",
+                    "name": "SQ",
+                    "size": 12
+                },
+                {
+                    "audioCategoryId": 2,
+                    "bitDepth": 16,
+                    "code": "CD",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1455774756290",
+                    "name": "CD",
+                    "size": 32
+                }
+            ],
+            "id": 1455796594453,
+            "isFlac": 1,
+            "kwid": "0",
+            "name": "晨歌 Forest Awakening",
+            "playurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1455774756290",
+            "price": 0,
+            "state": 20,
+            "tafid": "1073343",
+            "testurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1455774756399",
+            "totaltime": "00:05:48",
+            "trackno": 3
+        },
+        {
+            "albumid": "1451296939653",
+            "albumimg": "http://pic.zhenxian.fm/468Aaa5fabFda70c0C3E51ba38BAbddF.jpg",
+            "albumname": "枫丹白露灵气森林",
+            "artist": "Various Artists(群星)",
+            "artistid": "2",
+            "audioFileList": [
+                {
+                    "audioCategoryId": 1,
+                    "bitDepth": 16,
+                    "code": "SQ",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1451036149600",
+                    "name": "SQ",
+                    "size": 15
+                },
+                {
+                    "audioCategoryId": 2,
+                    "bitDepth": 16,
+                    "code": "CD",
+                    "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1451036149147",
+                    "name": "CD",
+                    "size": 43
+                }
+            ],
+            "id": 1451555345025,
+            "isFlac": 1,
+            "kwid": "0",
+            "name": "Le chant des berges 河岸的歌 ",
+            "playurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1451036149147",
+            "price": 0,
+            "state": 20,
+            "tafid": "446090",
+            "testurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1451036149600",
+            "totaltime": "00:06:49",
+            "trackno": 6
+        }
+    ],
+    "name": "乡间飞行，看窗外云卷云舒",
+    "price": 0,
+    "productid": 0,
+    "reference": "",
+    "score": 0,
+    "smallimg": "http://pic.zhenxian.fm/94f51e6ad1af617c5768bd4b0ab80cdc.jpg",
+    "state": 20
+}

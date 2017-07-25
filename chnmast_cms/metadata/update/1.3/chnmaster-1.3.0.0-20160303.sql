@@ -1,0 +1,4 @@
+-- 免费订单数据调整
+UPDATE T_ORDER T SET T.PAY_TYPE=5 WHERE T.PAY_AMOUNT=0 ;
+commit;
+    

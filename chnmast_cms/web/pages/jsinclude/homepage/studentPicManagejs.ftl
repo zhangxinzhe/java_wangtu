@@ -1,0 +1,2 @@
+<script type="text/javascript" src="${DOMAIN_CMS}/js/homepage/studentPicManage.js?${appsetting.getVersionId()}"></script>
+<script type="text/javascript" src="${DOMAIN_CMS}/js/component/ckplayer/ckplayer.min.js" charset="utf-8"></script>

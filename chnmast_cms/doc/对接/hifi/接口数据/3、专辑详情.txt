@@ -1,0 +1,474 @@
+1、接口：
+http://if2.zhenxian.fm/interfacetest2/ws/content/album/detail?apikey=1474265419748&id=1364969446434&terminaltype=20&version=new&signature=JG15XK+R2gWZ7m7pThuppyN2PUE=
+id：专辑id
+
+
+2、返回值格式：
+{
+    "aafid": 23,
+    "artists": "村上春树",
+    "bigimg": "http://pic.zhenxian.fm/25db956320bc82b5c67af9b88125956b.jpg",
+    "bitDepth": "16",
+    "cn_name": "村上春树听见100%的新世纪天籁",
+    "companyname": "Boulevard Records",
+    "disks": [
+        {
+            "albumId": "1364969446434",
+            "id": 1,
+            "musics": [
+                {
+                    "albumid": "1364969446434",
+                    "albumimg": "http://pic.zhenxian.fm/25db956320bc82b5c67af9b88125956b.jpg",
+                    "albumname": "村上春树听见100%的新世纪天籁",
+                    "artist": "村上春树",
+                    "artistid": "387",
+                    "audioFileList": [
+                        {
+                            "audioCategoryId": 2,
+                            "bitDepth": 16,
+                            "code": "CD",
+                            "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364968014117",
+                            "name": "CD",
+                            "size": 21
+                        },
+                        {
+                            "audioCategoryId": 1,
+                            "bitDepth": 16,
+                            "code": "SQ",
+                            "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364969094144",
+                            "name": "SQ",
+                            "size": 8
+                        }
+                    ],
+                    "id": 1364969446907,
+                    "isFlac": 0,
+                    "kwid": "0",
+                    "name": "夜之潮--马克.哈特",
+                    "playurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364968014117",
+                    "price": 0,
+                    "state": 20,
+                    "tafid": "3940",
+                    "testurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364969094144",
+                    "totaltime": "00:04:07",
+                    "trackno": 1
+                },
+                {
+                    "albumid": "1364969446434",
+                    "albumimg": "http://pic.zhenxian.fm/25db956320bc82b5c67af9b88125956b.jpg",
+                    "albumname": "村上春树听见100%的新世纪天籁",
+                    "artist": "村上春树",
+                    "artistid": "387",
+                    "audioFileList": [
+                        {
+                            "audioCategoryId": 2,
+                            "bitDepth": 16,
+                            "code": "CD",
+                            "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364967736182",
+                            "name": "CD",
+                            "size": 25
+                        },
+                        {
+                            "audioCategoryId": 1,
+                            "bitDepth": 16,
+                            "code": "SQ",
+                            "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364968755201",
+                            "name": "SQ",
+                            "size": 9
+                        }
+                    ],
+                    "id": 1364969446909,
+                    "isFlac": 0,
+                    "kwid": "0",
+                    "name": "忘忧森巴--竖笛鸟人",
+                    "playurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364967736182",
+                    "price": 0,
+                    "state": 20,
+                    "tafid": "3942",
+                    "testurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364968755201",
+                    "totaltime": "00:04:38",
+                    "trackno": 2
+                },
+                {
+                    "albumid": "1364969446434",
+                    "albumimg": "http://pic.zhenxian.fm/25db956320bc82b5c67af9b88125956b.jpg",
+                    "albumname": "村上春树听见100%的新世纪天籁",
+                    "artist": "村上春树",
+                    "artistid": "387",
+                    "audioFileList": [
+                        {
+                            "audioCategoryId": 2,
+                            "bitDepth": 16,
+                            "code": "CD",
+                            "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364967508555",
+                            "name": "CD",
+                            "size": 23
+                        },
+                        {
+                            "audioCategoryId": 1,
+                            "bitDepth": 16,
+                            "code": "SQ",
+                            "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364968710305",
+                            "name": "SQ",
+                            "size": 8
+                        }
+                    ],
+                    "id": 1364969446910,
+                    "isFlac": 0,
+                    "kwid": "0",
+                    "name": "不羁的乐章--提提温德斯登",
+                    "playurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364967508555",
+                    "price": 0,
+                    "state": 20,
+                    "tafid": "3944",
+                    "testurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364968710305",
+                    "totaltime": "00:03:55",
+                    "trackno": 3
+                },
+                {
+                    "albumid": "1364969446434",
+                    "albumimg": "http://pic.zhenxian.fm/25db956320bc82b5c67af9b88125956b.jpg",
+                    "albumname": "村上春树听见100%的新世纪天籁",
+                    "artist": "村上春树",
+                    "artistid": "387",
+                    "audioFileList": [
+                        {
+                            "audioCategoryId": 2,
+                            "bitDepth": 16,
+                            "code": "CD",
+                            "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364967266983",
+                            "name": "CD",
+                            "size": 15
+                        },
+                        {
+                            "audioCategoryId": 1,
+                            "bitDepth": 16,
+                            "code": "SQ",
+                            "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364968562776",
+                            "name": "SQ",
+                            "size": 8
+                        }
+                    ],
+                    "id": 1364969446911,
+                    "isFlac": 0,
+                    "kwid": "0",
+                    "name": "第三周--约翰.希望",
+                    "playurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364967266983",
+                    "price": 0,
+                    "state": 20,
+                    "tafid": "3946",
+                    "testurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364968562776",
+                    "totaltime": "00:03:55",
+                    "trackno": 4
+                },
+                {
+                    "albumid": "1364969446434",
+                    "albumimg": "http://pic.zhenxian.fm/25db956320bc82b5c67af9b88125956b.jpg",
+                    "albumname": "村上春树听见100%的新世纪天籁",
+                    "artist": "村上春树",
+                    "artistid": "387",
+                    "audioFileList": [
+                        {
+                            "audioCategoryId": 2,
+                            "bitDepth": 16,
+                            "code": "CD",
+                            "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364967429423",
+                            "name": "CD",
+                            "size": 24
+                        },
+                        {
+                            "audioCategoryId": 1,
+                            "bitDepth": 16,
+                            "code": "SQ",
+                            "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364968557327",
+                            "name": "SQ",
+                            "size": 11
+                        }
+                    ],
+                    "id": 1364969446913,
+                    "isFlac": 0,
+                    "kwid": "0",
+                    "name": "卡农--神笛汉斯",
+                    "playurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364967429423",
+                    "price": 0,
+                    "state": 20,
+                    "tafid": "3948",
+                    "testurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364968557327",
+                    "totaltime": "00:05:35",
+                    "trackno": 5
+                },
+                {
+                    "albumid": "1364969446434",
+                    "albumimg": "http://pic.zhenxian.fm/25db956320bc82b5c67af9b88125956b.jpg",
+                    "albumname": "村上春树听见100%的新世纪天籁",
+                    "artist": "村上春树",
+                    "artistid": "387",
+                    "audioFileList": [
+                        {
+                            "audioCategoryId": 2,
+                            "bitDepth": 16,
+                            "code": "CD",
+                            "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364967862391",
+                            "name": "CD",
+                            "size": 16
+                        },
+                        {
+                            "audioCategoryId": 1,
+                            "bitDepth": 16,
+                            "code": "SQ",
+                            "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364969039538",
+                            "name": "SQ",
+                            "size": 7
+                        }
+                    ],
+                    "id": 1364969446914,
+                    "isFlac": 0,
+                    "kwid": "0",
+                    "name": "春之曲--马克.哈特",
+                    "playurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364967862391",
+                    "price": 0,
+                    "state": 20,
+                    "tafid": "3950",
+                    "testurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364969039538",
+                    "totaltime": "00:03:26",
+                    "trackno": 6
+                },
+                {
+                    "albumid": "1364969446434",
+                    "albumimg": "http://pic.zhenxian.fm/25db956320bc82b5c67af9b88125956b.jpg",
+                    "albumname": "村上春树听见100%的新世纪天籁",
+                    "artist": "村上春树",
+                    "artistid": "387",
+                    "audioFileList": [
+                        {
+                            "audioCategoryId": 2,
+                            "bitDepth": 16,
+                            "code": "CD",
+                            "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364967144075",
+                            "name": "CD",
+                            "size": 27
+                        },
+                        {
+                            "audioCategoryId": 1,
+                            "bitDepth": 16,
+                            "code": "SQ",
+                            "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364968944653",
+                            "name": "SQ",
+                            "size": 9
+                        }
+                    ],
+                    "id": 1364969446916,
+                    "isFlac": 0,
+                    "kwid": "0",
+                    "name": "悲伤温哥华一号--神笛汉斯",
+                    "playurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364967144075",
+                    "price": 0,
+                    "state": 20,
+                    "tafid": "3952",
+                    "testurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364968944653",
+                    "totaltime": "00:04:32",
+                    "trackno": 7
+                },
+                {
+                    "albumid": "1364969446434",
+                    "albumimg": "http://pic.zhenxian.fm/25db956320bc82b5c67af9b88125956b.jpg",
+                    "albumname": "村上春树听见100%的新世纪天籁",
+                    "artist": "村上春树",
+                    "artistid": "387",
+                    "audioFileList": [
+                        {
+                            "audioCategoryId": 2,
+                            "bitDepth": 16,
+                            "code": "CD",
+                            "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364967987055",
+                            "name": "CD",
+                            "size": 16
+                        },
+                        {
+                            "audioCategoryId": 1,
+                            "bitDepth": 16,
+                            "code": "SQ",
+                            "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364968868879",
+                            "name": "SQ",
+                            "size": 7
+                        }
+                    ],
+                    "id": 1364969446917,
+                    "isFlac": 0,
+                    "kwid": "0",
+                    "name": "神奇之翼--竖笛鸟人",
+                    "playurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364967987055",
+                    "price": 0,
+                    "state": 20,
+                    "tafid": "3954",
+                    "testurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364968868879",
+                    "totaltime": "00:03:18",
+                    "trackno": 8
+                },
+                {
+                    "albumid": "1364969446434",
+                    "albumimg": "http://pic.zhenxian.fm/25db956320bc82b5c67af9b88125956b.jpg",
+                    "albumname": "村上春树听见100%的新世纪天籁",
+                    "artist": "村上春树",
+                    "artistid": "387",
+                    "audioFileList": [
+                        {
+                            "audioCategoryId": 2,
+                            "bitDepth": 16,
+                            "code": "CD",
+                            "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364967760190",
+                            "name": "CD",
+                            "size": 23
+                        },
+                        {
+                            "audioCategoryId": 1,
+                            "bitDepth": 16,
+                            "code": "SQ",
+                            "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364968663415",
+                            "name": "SQ",
+                            "size": 8
+                        }
+                    ],
+                    "id": 1364969446918,
+                    "isFlac": 0,
+                    "kwid": "0",
+                    "name": "嗨！伊赛拉--葛瑞夫马丁斯",
+                    "playurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364967760190",
+                    "price": 0,
+                    "state": 20,
+                    "tafid": "3956",
+                    "testurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364968663415",
+                    "totaltime": "00:04:03",
+                    "trackno": 9
+                },
+                {
+                    "albumid": "1364969446434",
+                    "albumimg": "http://pic.zhenxian.fm/25db956320bc82b5c67af9b88125956b.jpg",
+                    "albumname": "村上春树听见100%的新世纪天籁",
+                    "artist": "村上春树",
+                    "artistid": "387",
+                    "audioFileList": [
+                        {
+                            "audioCategoryId": 2,
+                            "bitDepth": 16,
+                            "code": "CD",
+                            "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364967194825",
+                            "name": "CD",
+                            "size": 19
+                        },
+                        {
+                            "audioCategoryId": 1,
+                            "bitDepth": 16,
+                            "code": "SQ",
+                            "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364968788407",
+                            "name": "SQ",
+                            "size": 7
+                        }
+                    ],
+                    "id": 1364969446920,
+                    "isFlac": 0,
+                    "kwid": "0",
+                    "name": "新星--提提温德斯登",
+                    "playurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364967194825",
+                    "price": 0,
+                    "state": 20,
+                    "tafid": "3958",
+                    "testurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364968788407",
+                    "totaltime": "00:03:42",
+                    "trackno": 10
+                },
+                {
+                    "albumid": "1364969446434",
+                    "albumimg": "http://pic.zhenxian.fm/25db956320bc82b5c67af9b88125956b.jpg",
+                    "albumname": "村上春树听见100%的新世纪天籁",
+                    "artist": "村上春树",
+                    "artistid": "387",
+                    "audioFileList": [
+                        {
+                            "audioCategoryId": 2,
+                            "bitDepth": 16,
+                            "code": "CD",
+                            "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364967202546",
+                            "name": "CD",
+                            "size": 24
+                        },
+                        {
+                            "audioCategoryId": 1,
+                            "bitDepth": 16,
+                            "code": "SQ",
+                            "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364968810340",
+                            "name": "SQ",
+                            "size": 11
+                        }
+                    ],
+                    "id": 1364969446921,
+                    "isFlac": 0,
+                    "kwid": "0",
+                    "name": "滑稽小丑--史蒂芬库德",
+                    "playurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364967202546",
+                    "price": 0,
+                    "state": 20,
+                    "tafid": "3960",
+                    "testurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364968810340",
+                    "totaltime": "00:05:20",
+                    "trackno": 11
+                },
+                {
+                    "albumid": "1364969446434",
+                    "albumimg": "http://pic.zhenxian.fm/25db956320bc82b5c67af9b88125956b.jpg",
+                    "albumname": "村上春树听见100%的新世纪天籁",
+                    "artist": "村上春树",
+                    "artistid": "387",
+                    "audioFileList": [
+                        {
+                            "audioCategoryId": 2,
+                            "bitDepth": 16,
+                            "code": "CD",
+                            "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364967726025",
+                            "name": "CD",
+                            "size": 15
+                        },
+                        {
+                            "audioCategoryId": 1,
+                            "bitDepth": 16,
+                            "code": "SQ",
+                            "musicUrl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364968619868",
+                            "name": "SQ",
+                            "size": 6
+                        }
+                    ],
+                    "id": 1364969446922,
+                    "isFlac": 0,
+                    "kwid": "0",
+                    "name": "狂舞的节奏--史蒂芬库德",
+                    "playurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364967726025",
+                    "price": 0,
+                    "state": 20,
+                    "tafid": "3962",
+                    "testurl": "http://mg2.zhenxian.fm/mediatest2/access/audio/1364968619868",
+                    "totaltime": "00:02:54",
+                    "trackno": 12
+                }
+            ],
+            "name": "1"
+        }
+    ],
+    "goods": [],
+    "id": 1364969446434,
+    "introduction": "如果你喜欢新世纪音乐，那么这张来自Boulevard旗下的这张包含了神笛汉斯、竖笛鸟人、马克.哈特等顶尖创作音乐人的超值精选将是你绝无犹豫的第一选择。你将可以感受到全新超越新世纪音乐的新品种音乐形态的深情展现。",
+    "isfullflac": 1,
+    "kwid": 0,
+    "language": "其他",
+    "musiccount": 12,
+    "name": "村上春树听见100%的新世纪天籁",
+    "playtime": "00:49:25",
+    "price": 0,
+    "productid": 0,
+    "publishtime": "2002-01-01",
+    "quality": "CD",
+    "reference": "",
+    "score": 0,
+    "size": "253.19",
+    "smallimg": "http://pic.zhenxian.fm/0f870d6b44fe72e327bf5a7a021fbd36.jpg",
+    "state": 20,
+    "technology": "http://pic.zhenxian.fm/4a8c085953bc1e838a2b43f7743bcddc.png"
+}

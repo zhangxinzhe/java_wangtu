@@ -1,0 +1,13 @@
+1、接口：
+http://mg2.zhenxian.fm/mediatest2/access/stream/audio/1364968014117?accountNo=1476948030434&apikey=1476948030434&terminaltype=20&version=new&signature=g3wn/ciUfSXWnlsD/LtBNwCOOIc=
+accountNo：注册hifi账户id，和apikey一致
+
+
+2、返回值格式：
+{
+    "Authorization": "OSS STS.Kd7dxEx9Kwj8i7uLPBqHMmPdT:ADbxPubZ7/pSgbFaeBkJtFZ3EkE=",
+    "date": "Fri, 25 Nov 2016 07:31:47 GMT",
+    "url": "http://cdn.flac.zhenxian.fm/201611251532/a80018ddb3eb42fc98bf2ab014c31d9b/00/0E/wKgBeVFcMtiANkrXAVqBwypFVoA68.flac",
+    "validatecode": "2c100f3fd9811081fecdd7df4f412280",
+    "x-oss-security-token": "CAES5QIIARKAAWOCSwQKnTf6ko7SDvs7TmF09Hj7f58URnepx6ZKc542L0O67pzDnCPNStyJyRfvth/xmBGouaBmryEl9AD/LhbXfy6MD4wd+K0vkDBdN/wZt7HUedO/TKs7lPYWIRqskS8tFGL0Ca4VxbPcrFNCXX7N0pDz0WP6rswcVesq5WXEGh1TVFMuS2Q3ZHhFeDlLd2o4aTd1TFBCcUhNbVBkVCIQMTUwMDQzNDUyODk2MzE0MyoCdHQw4ffp1IkrOgZSc2FNRDVCbAoBMRpnCgVBbGxvdxInCgxBY3Rpb25FcXVhbHMSBkFjdGlvbhoPCg1vc3M6R2V0T2JqZWN0EjUKDlJlc291cmNlRXF1YWxzEghSZXNvdXJjZRoZChdhY3M6b3NzOio6KjpkZmltLWZsYWMvKkoQMTUwMDQzNDUyODk2MzE0M1IFMjY4NDJaDUZlZGVyYXRlZFVzZXJgAHja0QE="
+}

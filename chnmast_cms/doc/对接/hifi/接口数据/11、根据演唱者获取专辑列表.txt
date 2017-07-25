@@ -1,0 +1,86 @@
+1、接口：
+http://if2.zhenxian.fm/interfacetest2/ws/content/album/list?apikey=1474265419748&id=2349&maxitems=20&startitem=0&terminaltype=20&type=3&version=new&signature=mZazk16+wEnDFMR/9LqabGrCc7Q=
+id：演出者id
+type：查询方式，根据演出者id查专辑列表时请传type=3
+
+
+2、返回值格式：
+{
+    "album": [
+        {
+            "artist": "阿杜",
+            "cn_name": "Hello",
+            "id": 1372002556015,
+            "kwid": 0,
+            "name": "Hello",
+            "smallimg": "http://pic.zhenxian.fm/d26954af980466803fbc38fe7d9bb97e.jpg"
+        },
+        {
+            "artist": "阿杜",
+            "cn_name": "醇情歌",
+            "id": 1372007031121,
+            "kwid": 0,
+            "name": "醇情歌",
+            "smallimg": "http://pic.zhenxian.fm/e6f719831f15a58384146b6f1cc988fa.jpg"
+        },
+        {
+            "artist": "阿杜",
+            "cn_name": "第9次初恋",
+            "id": 1372007302974,
+            "kwid": 0,
+            "name": "第9次初恋",
+            "smallimg": "http://pic.zhenxian.fm/13026797bb4056a24514a049c1c62e9f.jpg"
+        },
+        {
+            "artist": "阿杜",
+            "cn_name": "没什么好怕",
+            "id": 1372007745479,
+            "kwid": 0,
+            "name": "没什么好怕",
+            "smallimg": "http://pic.zhenxian.fm/8732c37e980fe8aa14016724b8138a14.jpg"
+        },
+        {
+            "artist": "阿杜",
+            "cn_name": "差一点",
+            "id": 1372008016986,
+            "kwid": 0,
+            "name": "差一点",
+            "smallimg": "http://pic.zhenxian.fm/2bba6506722345ef84a58dcb8c9a94c9.jpg"
+        },
+        {
+            "artist": "阿杜",
+            "cn_name": "天黑",
+            "id": 1372009063420,
+            "kwid": 0,
+            "name": "天黑",
+            "smallimg": "http://pic.zhenxian.fm/ef1560a60bf51eeb000a43692aa648bf.jpg"
+        },
+        {
+            "artist": "阿杜",
+            "cn_name": "坚持到底",
+            "id": 1372009219663,
+            "kwid": 0,
+            "name": "坚持到底",
+            "smallimg": "http://pic.zhenxian.fm/d57da62943983429a9a35a44ad26c313.jpg"
+        },
+        {
+            "artist": "阿杜",
+            "cn_name": "感动每一刻",
+            "id": 1373820813090,
+            "kwid": 0,
+            "name": "感动每一刻",
+            "smallimg": "http://pic.zhenxian.fm/c93666b63ed5cea8db643f9a6964be30.jpg"
+        },
+        {
+            "artist": "阿杜",
+            "cn_name": "I Do",
+            "id": 1383900253783,
+            "kwid": 0,
+            "name": "I Do",
+            "smallimg": "http://pic.zhenxian.fm/90f7570a46134cb4cd6a2d2e20bb5e76.jpg"
+        }
+    ],
+    "gerentotal": 0,
+    "num": 9,
+    "total": 9
+}

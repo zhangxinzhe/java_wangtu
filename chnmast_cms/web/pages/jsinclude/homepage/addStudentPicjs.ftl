@@ -1,0 +1,1 @@
+<script type="text/javascript" src="${DOMAIN_CMS}/js/homepage/addStudentPic.js?${appsetting.getVersionId()}"></script>

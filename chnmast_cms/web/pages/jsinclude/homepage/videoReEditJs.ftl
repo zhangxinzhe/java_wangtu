@@ -1,0 +1,1 @@
+<script type="text/javascript" src="${DOMAIN_CMS}/js/homepage/videoReview/videoReEdit.js?${appsetting.getVersionId()}"></script>

@@ -1,0 +1,301 @@
+
+------------------------------------------
+中国音乐大师网-开发环境搭建说明：
+
+1、音乐网英文代码：chnmaster
+
+
+2、源码svn地址：
+后台：
+http://192.168.0.73/study/chnmaster/cms/trunk
+其中，相关文档地址：
+http://192.168.0.73/study/chnmaster/cms/trunk/doc
+前台：
+http://192.168.0.73/study/chnmaster/home/trunk
+移动端html5工程svn：
+http://192.168.0.73/study/chnmaster/mobile/trunk
+android客户端工程svn:
+http://192.168.0.73/study/chnmaster/app_android/trunk
+ios客户端工程svn:
+http://192.168.0.73/study/chnmaster/app_ios/trunk
+
+
+
+3、代码说明：
+（1）整个工程要依赖于common_src，作为最顶级的依赖，common_src是从网校工程中复杂过来，并且做了适用于chnmaster的代码修改，与网校中的common_src有差别。
+（2）在cms中整理出base_src 源码，把chnmaster所有共用的文件放在这里，其他应用（如：前台）要引用base_src。base_src中一般在前、后台等共用的文件。
+依赖关系：src--->base_src--->common_src
+
+
+4、开发库要根据开发环境进行配置，如开发环境的域名、短信网关测试账号、开发库连接地址和账号等等。
+
+
+5、需要以下几个域名，以开发环境为例，需将域名添加到本地hosts中：
+#音乐网（开发）
+192.168.60.120      www.chnmaster.dev
+192.168.60.120      cms.chnmaster.dev
+192.168.60.120      m.chnmaster.dev
+192.168.60.120      file.chnmaster.dev
+192.168.60.120      uploadfile.chnmaster.dev
+192.168.20.4        server.cache.netstudy5
+192.168.20.4        server.database.netstudy5
+192.168.20.220      dispatch.netstudy5.tst
+
+说明：
+（1）IP地址
+    192.168.60.120 要更改成自己机器IP地址；
+    192.168.20.4   是开发数据库和memcached缓存的IP地址，一般不需要修改；
+（2）www.chnmaster.dev   主应用域名。
+（3）cms.chnmaster.dev   后台管理域名。
+（4）m.chnmaster.dev     移动端h5应用域名。
+（5）file.chnmaster.dev  是前台主应用的文件服务器域名，所有静态文件和用户上传的文件都放在该域名指向的文件夹中；用户真实环境中该域名是直接通过nginx配置的，不走tomcat。
+（6）uploadfile.chnmaster.dev   是专门保存用户上传文件的域名，也可以是file.chnmaster.dev，即file和uploadfile两个域名可以共用一个。
+（7）server.cache.netstudy5     是缓存域名。
+（8）server.database.netstudy5  是数据库域名。
+（9）dispatch.netstudy5.tst     是课程ID分配中心地址，确保创建课程的id是全局唯一的，如果不与其他应用共用一组无限宝则不需要该域名。
+
+
+6、开发环境中，file域名对应目录一般都用下面共享路径：
+\\192.168.20.2\store\chnmaster
+file目录是在cms/common_src/conf/business/common.properties中配置的。
+
+相当于发布环境中linux中的 /opt/data/chnmaster 目录。
+192.168.20.2共享文件夹的访问用户名和密码是： store/zdsoft.net.2008，请勾选记住此用户和密码，否则每次重启机器后都要输入用户名和密码。
+
+注意：
+（1）开发时，如果修改images中的某个图片，需要将该图片复制到上面file中对应目录下运行时才见效。
+（2）开发时，默认struts参数配置的是开发模式，如果修改了js或css文件，会直接生效。
+
+ 
+7、数据库（mysql）：
+（1）开发使用：
+    192.168.20.4
+    chnmaster_dev
+    root/zdsoft
+（2）保留库（空库，dmp用）：
+    192.168.20.4
+    chnmaster
+    root/zdsoft
+
+注：mysql数据库连接工具可从这里获取：
+\\192.168.20.2\工具软件\mysql连接工具
+
+账号：
+cms顶级管理员账号：chnmaster/123456
+普通账号：请在cms后台查找
+
+
+8、tomcat的server.xml的<Engine name="Catalina" defaultHost="localhost"></Engine>中间添加下面配置：
+
+        <Host name="www.chnmaster.dev" appBase="webapps"
+                unpackWARs="false" autoDeploy="false"
+                xmlValidation="false" xmlNamespaceAware="false">
+                <Context path="" docBase="自己chnmaster工程的web目录" />
+        </Host>
+        <Host name="cms.chnmaster.dev"  appBase="webapps"
+                unpackWARs="false" autoDeploy="false"
+                xmlValidation="false" xmlNamespaceAware="false">
+                <Context path="" docBase="自己chnmaster_cms工程的web目录" />
+        </Host>
+        <Host name="m.chnmaster.dev"  appBase="webapps"
+                unpackWARs="false" autoDeploy="false"
+                xmlValidation="false" xmlNamespaceAware="false">
+                <Context path="" docBase="自己chnmaster_mobile工程的web目录" />
+        </Host>
+        <Host name="file.chnmaster.dev" appBase="webapps"
+                unpackWARs="false" autoDeploy="false"
+                xmlValidation="false" xmlNamespaceAware="false">
+                <Context path="" docBase="自己chnmaster工程的web目录" />
+        </Host>
+        <Host name="uploadfile.chnmaster.dev" appBase="webapps"
+                unpackWARs="false" autoDeploy="false"
+                xmlValidation="false" xmlNamespaceAware="false">
+                <Context path="" docBase="\\192.168.20.2\store\chnmaster" />
+        </Host>
+ 
+说明：
+（1）file.chnmaster.dev中的文件路径可以指向自己本地的一个文件夹，如：chnmaster/web。
+
+
+9、编码说明：
+（1）编码前先对自己的eclipse进行设置，参考如下地址进行设置：
+http://wiki.winupon.tst/pages/viewpage.action?pageId=39945633
+（2）参考网校5.0的一些通用类或方法，详见文档《网校V5.0编码规定.doc》。
+
+
+10、打包说明
+（1）不同工程执行不同的ant文件
+（2）bin打包配置；build生成包存放目录
+（3）/bin/realease-config/conf目录下的文件会替换开发环境中的同名文件。控制测试环境和外网环境的不同参数
+release目录说明
+因为有些配置文件（如：jdbc.properties，struts.properties）在开发环境中和发布给用户时有些配置项是不一样的，
+所以打包发布时这些文件要从bin/realease-config目录中获取覆盖。
+所以如果这些文件有更改也要同步更改release目录中的对应文件。
+（4）/bin/build.properties文件，控制参数，版本号和打包文件自动上传的ftp地址
+（5）/bin/*.xml均为打包执行文件
+（6）打包顺序
+    a.后台先执行。build-war.xml文件，打包成功后，build生成包文件，且war包自动上传到配置的ftp目录
+    b.后台打包成功后，build文件夹下生成chnmaster-base.jar和chnmaster-common.jar2个jar包，需要拷贝到前台工程和手机端工程的build文件夹下（引用的外部工具类）
+    c.前台执行build.xml文件打包，手机端执行build-war.xml文件打包
+（7）结束，后台生成.war包；前台生成file*.zip包和.war包；手机端生成.war包 
+
+
+
+11、后台-异步处理业务exoperate-processor-spec.xml
+（1）UPDATE_ALL_REALNAME：修用户realname冗余字段
+（2）DELETE_ALL_FILES：异步删除多文件（适用于同时删除多个文件、大文件图片音视频文件等数据）
+（3）SMS_SEND_SINGLE：短息发送业务
+（4）UPDATE_ALL_COURSE_NAME：修改课程名称
+
+
+12、文件路径
+    注：用户头像、教师照片、优秀学员照片、课程图片、首页图片需加时间戳。NetstudyFileUtils.addCurrentTimeMark(imgSrc)
+
+T_USER
+用户头象
+upload/userAvatar/{年}/{月}/{日}/{id}_avatar.{扩展名}?t=timestamp
+头像原图
+upload/userAvatar/{年}/{月}/{日}/{id}_original.{扩展名}?t=timestamp
+
+T_USER_TEACHER
+教师照片
+upload/teaPhoto/{年}/{月}/{日}/{id}_photo.{扩展名}?t=timestamp
+身份证照片路径
+upload/teaPhoto/{年}/{月}/{日}/{id}_idcard.{扩展名}?t=timestamp
+手持身份证照片路径
+upload/teaPhoto/{年}/{月}/{日}/{id}_hand_idcard.{扩展名}?t=timestamp
+证件一寸照，证书照片
+upload/teaPhoto/{年}/{月}/{日}/{id}_card_photo.{扩展名}?t=timestamp
+
+T_USER_UNION_MEMBER
+个人照片
+upload/union/{年}/{月}/{日}/{id}/{id}_photo.{扩展名}?t=timestamp
+营业执照
+upload/union/{年}/{月}/{日}/{id}/营业执照_{会员类型name}_{姓名/机构名}.{扩展名}?t=timestamp
+推荐表扫描件
+upload/union/{年}/{月}/{日}/{id}/推荐表_{会员类型name}_{姓名}.{扩展名}?t=timestamp
+
+T_COURSE 
+课程图片
+upload/coursePic/{年}/{月}/{日}/{id}.{扩展名}?t=timestamp
+
+T_COURSE_VIDEO
+视频路径
+upload/video/{年}/{月}/{日}/{courseId}/{timestamp}.扩展名
+
+T_INDEX_ADV 
+图片路径
+upload/advert/{年}/{月}/{日}/{id}.扩展名?t=timestamp（pc端图片）
+upload/advert/{年}/{月}/{日}/{id}_mobile.扩展名?t=timestamp（手机端图片）
+音视频路径
+upload/advert/{年}/{月}/{日}/{id}.扩展名
+内容文件路径
+upload/advert/{年}/{月}/{日}/{id}.txt
+
+T_HELP_THEME
+编辑内容文件路径
+upload/help/{年}/{月}/{日}/{id}.txt
+
+T_INDEX_INFO 
+公告资讯文件路径
+upload/info/{年}/{月}/{日}/{timestamp}.txt
+分享时图片路径
+upload/info/{年}/{月}/{日}/{timestamp}.{扩展名}?t=timestamp
+
+T_INDEX_FOOTER
+内容路径
+upload/footer/{年}/{月}/{日}/{timestamp}.txt
+
+T_INDEX_STUDENT
+优秀学员
+upload/stuPhoto/{年}/{月}/{日}/{id}.{扩展名}?t=timestamp
+
+T_PICTURE
+图片或视频
+upload/picture/{年}/{月}/{日}/{id}.{扩展名}?t=timestamp
+
+T_COMPETE、T_COMPETE_ATTEND
+活动章程文件路径
+upload/compete/{年}/{月}/{日}/{compete_id}/rulefile.txt
+活动报名表路径
+upload/compete/{年}/{月}/{日}/{compete_id}/原文件名.扩展名
+活动报名学员照片路径
+upload/compete/{年}/{月}/{日}/{compete_id}/{attend_id}_photo.扩展名?t=timestamp
+活动图集文件路径
+upload/compete/{年}/{月}/{日}/{compete_id}/{id}.扩展名?t=timestamp
+
+T_COMPETE_COMMITTEE
+活动组委会照片路径
+upload/committee/{年}/{月}/{日}/{id}_photo.扩展名?t=timestamp
+活动组委会个人介绍
+upload/committee/{年}/{月}/{日}/{id}_info.txt
+
+临时路径：
+upload/temp/{年}/{月}/{timeStamp}/原文件名
+
+kindeditor富文本编辑器上传的图片路径：
+upload/editor/{年}/{月}/{日}/timestamp.扩展名
+
+导入出错文件：
+upload/{类型，如stuImport}/userid/{user.id}.xls
+
+无限宝存放目录：
+sysfile/imeeting
+访问地址举例：
+http://uploadfile.chnmaster.dev/sysfile/imeeting/update/vpver.ini
+
+
+13、UI的svn地址：（zdsoft 123456）
+交互-pc版：
+http://192.168.0.238/svn/repos/2016/@课后网校定制/中国音乐大师网/1.3.0.0/交互/中国音乐大师网1.3原型(web)
+交互-手机版：
+http://192.168.0.238/svn/repos/2016/@课后网校定制/中国音乐大师网/1.3.0.0/交互/中国音乐大师网原型（移动端1.0）
+
+美工-pc版：
+http://192.168.0.238/svn/repos/2016/@课后网校定制/中国音乐大师网/1.3.0.0/ui
+美工-手机版：
+http://192.168.0.238/svn/repos/2016/@课后网校定制/中国音乐大师网/1.3.0.0/ui/手机端
+
+切割-pc版：
+http://192.168.0.238/svn/repos/2016/@课后网校定制/中国音乐大师网/web
+切割-手机版：
+http://192.168.0.238/svn/repos/2016/@课后网校定制/中国音乐大师网/web-手机端
+切割-后台：
+http://192.168.0.238/svn/repos/2015/@网校/121项目后台管理界面/web
+
+
+14、开发环境搭建
+（1）完成上述5、6、7、8操作（host配置、file目录、mysql数据库、tomcat项目工程配置）
+（2）cms后台配置：
+            设置Java源文件的根目录base_src、common_src、src
+            引用jar包、jdk1.7、tomcat7
+（3）前台配置：
+            外部引用工具类，cms中base_src、common_src；源文件的根目录base_src、common_src、src
+            引用jar包、jdk1.7、tomcat7
+（3）手机端配置，同前台配置
+
+
+15、mail.properties
+    sql超时，邮件发送，邮件参数配置
+            
+            
+16、短信发送
+    系统参数控制，玄武短信和沃伦短信配置，系统使用沃伦短信，玄武短信未使用
+    'phone.wolun_username', '沃伦短信账号'
+    'phone.wolun_password', '沃伦短信账号密码'
+    'phone.public_content_gateway', '固定格式短信内容使用网关'
+    'phone.wolun_extno', '沃伦短信子帐号'
+    'phone.defined_content_username', '玄武自定义短信账号'
+    'phone.defined_content_password', '玄武自定义短信账号密码'
+    'phone.public_content_username', '玄武固定格式短信账号'
+    'phone.public_content_password', '玄武固定格式短信账号密码'
+    'phone.xuanwu_send_report', '是否获取玄武短信网关发送结果信息'
+
+
+
+
+
+
+
+
+

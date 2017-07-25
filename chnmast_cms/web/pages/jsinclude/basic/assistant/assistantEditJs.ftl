@@ -1,0 +1,2 @@
+<script type="text/javascript" src="${DOMAIN_CMS}/js/basic/assistant/assistantEdit.js?${appsetting.getVersionId()}"></script>
+<script type="text/javascript" src="${DOMAIN_CMS}/js/pwdintensity.js?${appsetting.getVersionId()}"></script>

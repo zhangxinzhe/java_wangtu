@@ -1,0 +1,5 @@
+/*可以在这里添加你自己的css*/
+/*放置前台页面css中影响整个页面的reset部分样式，由前端人员提供 */
+html{font-size:12px}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{margin:0;padding:0}textarea{resize:none}body,button,input,select,textarea{font:12px/1.5 "Microsoft YaHei","SimSun",Tahoma,Verdana,Arial}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}fieldset,img{border:0}address,caption,cite,code,dfn,th,var,optgroup{font-style:inherit;font-weight:inherit}del,ins{text-decoration:none}li{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;}q:before,q:after{content:''}abbr,acronym{border:0;font-variant:normal}sup{vertical-align:baseline}sub{vertical-align:baseline}
+
+

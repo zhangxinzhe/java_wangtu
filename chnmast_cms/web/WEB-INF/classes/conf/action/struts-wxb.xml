@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="chnmaster-cms-server" extends="login-package" namespace="/wxb">
+        <!-- 获得无限宝服务器列表 -->
+        <action name="serverManage" class="wxbAction" method="listServers">
+            <result name="success">/pages/wxb/serverManage.ftl</result>
+        </action>
+        
+        <!-- 新增无限宝服务器 -->
+        <action name="addServer" class="wxbAction" method="addServer">
+            <result name="input">/pages/wxb/addServer.ftl</result>
+            <result name="success" type="redirect">
+                <param name="location">/wxb/serverInfo.htm</param>
+                <param name="serverId">${serverId}</param>
+            </result>
+        </action>
+        
+        <!-- 获取指定服务器信息 -->
+        <action name="serverInfo" class="wxbAction" method="serverInfo">
+            <result name="success">/pages/wxb/serverInfo.ftl</result>
+        </action>
+        
+         <!-- 修改服务器信息 -->
+        <action name="editServer" class="wxbAction" method="editServer">
+            <result name="input">/pages/wxb/addServer.ftl</result>
+            <result name="success" type="redirect">
+                <param name="location">/wxb/serverInfo.htm</param>
+                <param name="serverId">${serverId}</param>
+            </result>
+        </action>
+        <!-- 启用或者停用服务器 -->
+        <action name="doStartOrStop" class="wxbAction" method="doStartOrStop">
+        </action>
+        <!-- 删除服务器 -->
+        <action name="deleteServer" class="wxbAction" method="deleteServer">
+        </action>
+        
+        <!-- 获取服务器加密狗信息 -->
+        <action name="getDogInfo" class="wxbAction" method="getDogInfo">
+        </action>
+    </package>
+</struts>

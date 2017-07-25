@@ -1,0 +1,191 @@
+<!doctype html>
+<head>
+<meta charset="UTF-8">
+<title>弹出框</title>
+<link rel="stylesheet" type="text/css" href="../css/public.css">
+<link rel="stylesheet" type="text/css" href="../css/style.css">
+</head>
+
+<body>
+<p class="t-center pt-10">
+    <a href="#" class="abtn abtn-blue abtn-normal">打开普通弹出框</a>
+    <a href="#" class="abtn abtn-blue abtn-select">打开机构选择弹出框</a>
+    <a href="#" class="abtn abtn-blue abtn-search">打开机构搜索弹出框</a>
+    <a href="#" class="abtn abtn-blue abtn-auto">打开自动隐藏层</a>
+</p>
+
+<div class="popUp-layer layer-250" id="txtTips" style="display:none;">
+	<p class="tt"><a href="#" class="close" title="关闭"></a><span>提示</span></p>
+	<div class="wrap">
+    	<p class="txt-tips">确定要删除全部学员吗？</p>
+    </div>
+	<p class="dd">
+		<a class="abtn abtn-blue submit" href="#"><span>确定</span></a>
+		<a class="abtn abtn-green reset ml-5" href="#"><span>取消</span></a>
+	</p>
+</div>
+
+<div class="popUp-layer" id="selectLayer" style="display:none;">
+	<p class="tt"><a href="#" class="close" title="关闭"></a><span>提示</span></p>
+	<div class="wrap fn-clear" style="width:610px;">
+    	<div class="org-wrap">
+    		<div class="org-tt">机构：</div>
+    		<ul class="org-list org-list-left">
+            	<li>孔子学院<a href="#"></a></li>
+            	<li>孔子学院孔子学院孔子学院孔子学院孔子学院孔子学院孔子学院<a href="#"></a></li>
+            	<li>孔子学院<a href="#"></a></li>
+            	<li>孔子学院<a href="#"></a></li>
+            	<li>孔子学院孔子学院孔子学院孔子学院孔子学院孔子学院孔子学院<a href="#"></a></li>
+            	<li>孔子学院<a href="#"></a></li>
+            	<li>孔子学院<a href="#"></a></li>
+            	<li>孔子学院孔子学院孔子学院孔子学院孔子学院孔子学院孔子学院<a href="#"></a></li>
+            	<li>孔子学院<a href="#"></a></li>
+            	<li>孔子学院<a href="#"></a></li>
+            	<li>孔子学院孔子学院孔子学院孔子学院孔子学院孔子学院孔子学院<a href="#"></a></li>
+            	<li>孔子学院<a href="#"></a></li>
+            	<li>孔子学院<a href="#"></a></li>
+            	<li>孔子学院孔子学院孔子学院孔子学院孔子学院孔子学院孔子学院<a href="#"></a></li>
+            	<li>孔子学院<a href="#"></a></li>
+            	<li>孔子学院<a href="#"></a></li>
+            	<li>孔子学院孔子学院孔子学院孔子学院孔子学院孔子学院孔子学院<a href="#"></a></li>
+            	<li>孔子学院<a href="#"></a></li>
+            	<li>孔子学院<a href="#"></a></li>
+            	<li>孔子学院孔子学院孔子学院孔子学院孔子学院孔子学院孔子学院<a href="#"></a></li>
+            	<li>孔子学院<a href="#"></a></li>
+            </ul>
+    	</div>
+        <div class="org-opt">
+            <a href="#" class="abtn abtn-blue">全部添加</a>
+            <a href="#" class="abtn abtn-blue">全部移除</a>
+        </div>
+    	<div class="org-wrap">
+    		<div class="org-tt">选中的机构：</div>
+    		<ul class="org-list org-list-right">
+            	<li>孔子学院<a href="#"></a></li>
+            </ul>
+    	</div>
+    </div>
+	<p class="dd">
+		<a class="abtn abtn-blue submit" href="#"><span>确定</span></a>
+		<a class="abtn abtn-green reset ml-5" href="#"><span>取消</span></a>
+	</p>
+</div>
+
+<div class="popUp-layer" id="searchLayer" style="display:none;">
+	<p class="tt"><a href="#" class="close" title="关闭"></a><span>提示</span></p>
+	<div class="wrap">
+    	<div class="org-search">
+    		<div class="org-search-tt">
+            	<span>机构名称：</span>
+                <input type="text" class="input-txt">
+                <a href="#" class="abtn abtn-blue ml-20">查询</a>
+            </div>
+            <div class="org-search-inner">
+                <ul class="org-search-list fn-clear">
+                    <li><input type="radio" class="chk">默认机构</li>
+                    <li><input type="radio" class="chk">默认机构默认机构默认机构默认机构</li>
+                    <li><input type="radio" class="chk">默认机构</li>
+                    <li><input type="radio" class="chk">默认机构</li>
+                    <li><input type="radio" class="chk">默认机构</li>
+                    <li><input type="radio" class="chk">新昌中学课后网</li>
+                    <li><input type="radio" class="chk">太湖高级中学课后网</li>
+                    <li><input type="radio" class="chk">默认机构</li>
+                    <li><input type="radio" class="chk">太湖高级中学课后网</li>
+                    <li><input type="radio" class="chk">默认机构</li>
+                    <li><input type="radio" class="chk">默认机构</li>
+                    <li><input type="radio" class="chk">默认机构</li>
+                    <li><input type="radio" class="chk">默认机构</li>
+                    <li><input type="radio" class="chk">默认机构</li>
+                    <li><input type="radio" class="chk">默认机构</li>
+                    <li><input type="radio" class="chk">默认机构</li>
+                    <li><input type="radio" class="chk">默认机构</li>
+                    <li><input type="radio" class="chk">默认机构</li>
+                    <li><input type="radio" class="chk">默认机构</li>
+                    <li><input type="radio" class="chk">默认机构</li>
+                    <li><input type="radio" class="chk">默认机构</li>
+                    <li><input type="radio" class="chk">默认机构</li>
+                    <li><input type="radio" class="chk">默认机构</li>
+                    <li><input type="radio" class="chk">默认机构</li>
+                    <li><input type="radio" class="chk">默认机构</li>
+                    <li><input type="radio" class="chk">默认机构</li>
+                    <li><input type="radio" class="chk">默认机构</li>
+                    <li><input type="radio" class="chk">默认机构</li>
+                    <li><input type="radio" class="chk">默认机构</li>
+                    <li><input type="radio" class="chk">默认机构</li>
+                </ul>
+                <div class="public-page">
+                    <span>共15条</span>
+                    <span class="ml-10">第1页</span>
+                    <span class="ml-10">每页 <input type="text" class="txt" value="20"> 条</span>
+                    <span class="ml-10">跳转到 <input type="text" class="txt" value="20"> 页</span>
+                    <a href="#" class="ml-10">首页</a>
+                    <a href="#">上一页</a>
+                    <a href="#">下一页</a>
+                    <a href="#">尾页</a>
+                </div>
+            </div>
+    	</div>
+    </div>
+	<p class="dd fn-clear">
+    	<span class="fn-left">
+            <a href="#">取消选择</a>
+            <a href="#">无机构</a>
+            <a href="#">总站</a>
+        </span>
+    	<span class="fn-right">
+            <a class="abtn abtn-blue submit" href="#"><span>确定</span></a>
+            <a class="abtn abtn-green reset ml-5" href="#"><span>取消</span></a>
+        </span>
+	</p>
+</div>
+
+<div class="popUp-layer-auto" id="autoLayer" style="display:none;top:430px;left:400px;">
+    <p class="txt">请先选择学员！</p>
+    <a href="#" class="close" title="关闭"></a>
+</div>
+
+<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="../js/myscript.js"></script>
+<script type="text/javascript" src="../js/jquery.PlaceHolder.js"></script>
+<script type="text/javascript" src="../js/jwindow.js"></script>
+<script type="text/javascript">
+$(function(){
+	//普通弹出层
+	$(".abtn-normal").click(function(e){
+		e.preventDefault();
+		$("#txtTips").jWindowOpen({
+			modal:true,
+			center:true,
+			//drag:".tt",//可移动层，不需要注释掉本行
+			close:"#txtTips .close,#txtTips .submit,#txtTips .reset" //最后一个不要加逗号，不然IE7无效
+		});
+	});
+	$(".abtn-select").click(function(e){
+		e.preventDefault();
+		$("#selectLayer").jWindowOpen({
+			modal:true,
+			center:true,
+			//drag:".tt",//可移动层，不需要注释掉本行
+			close:"#selectLayer .close,#selectLayer .submit,#selectLayer .reset" //最后一个不要加逗号，不然IE7无效
+		});
+	});
+	$(".abtn-search").click(function(e){
+		e.preventDefault();
+		$("#searchLayer").jWindowOpen({
+			modal:true,
+			center:true,
+			//drag:".tt",//可移动层，不需要注释掉本行
+			close:"#searchLayer .close,#searchLayer .submit,#searchLayer .reset" //最后一个不要加逗号，不然IE7无效
+		});
+	});
+
+	//自动关闭弹出层提示
+	$('.abtn-auto').click(function(e){
+		e.preventDefault();
+		autoLayer('#autoLayer');
+	});
+	
+})
+</script>
+</body>
+</html>

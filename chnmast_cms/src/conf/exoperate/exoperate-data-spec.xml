@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<exoperate>
+	<!-- 用户登录 -->
+	<operate type="S_LOGIN_LOG">
+		<dataset>
+			<data name="id" type="long"></data><!-- 当前登录的用户id -->
+			<date name="operateIp" type="String"></date><!-- 操作的IP地址 -->
+		</dataset>
+	</operate>
+	
+	<!-- 记录日志 -->
+	<operate type="S_OPERATE_LOG">
+	   <dateset>
+	       <date name="id" type="long"></date><!-- 当前登录的用户id -->
+	       <date name="operate" type="String"></date><!-- 日志操作信息 -->
+	       <date name="operateIp" type="String"></date><!-- 操作的IP地址 -->
+	   </dateset>
+	</operate>
+	
+	<!-- 修改RealName冗余字段 -->
+    <operate type="UPDATE_ALL_REALNAME">
+        <dataset>
+            <data name="id" type="long"></data><!-- 用户id -->
+            <date name="newRealName" type="String"></date><!-- 新realname -->
+        </dataset>
+    </operate>
+    
+    <!-- 短信发送 -->
+    <operate type="SMS_SEND_SINGLE">
+        <dataset>
+            <data name="content" type="String"></data><!-- 内容 -->
+            <date name="phone" type="String"></date><!-- 电话 -->
+            <date name="smsType" type="int"></date><!-- 短信类型 -->
+            <date name="receiveId" type="long"></date><!-- 接收人id -->
+            <date name="userName" type="String"></date><!-- 接收人账号 -->
+            <date name="realName" type="String"></date><!-- 接收人姓名 -->
+        </dataset>
+    </operate>
+	
+</exoperate>

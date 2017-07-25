@@ -1,0 +1,1419 @@
+1、接口：
+http://if2.zhenxian.fm/interfacetest2/ws/tv/index?apikey=1474265419748&terminaltype=20&version=new&signature=qt8LPunh9Tg3pJS4IsMf6bG++rI=
+
+
+2、返回值格式：
+{
+    "COUNT": 10,
+    "menus": [
+        {
+            "displayorder": 4,
+            "menuid": 6,
+            "menuname": "Hi-Fi",
+            "menutype": "album",
+            "sliderContent": [
+                {
+                    "albumName": "Absolute Audiophile Voices",
+                    "artistName": "Various Artists(群星)",
+                    "contentId": 1458094502595,
+                    "contentTitle": "史上最强的音响逸品",
+                    "displayOrder": 1,
+                    "imgUrl": "http://pic.zhenxian.fm/DdF0c3fB5745Af8Fe4Ed6DBf20bf11c4.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "村上春树听见100%的新世纪天籁",
+                    "artistName": "村上春树",
+                    "contentId": 1364969446434,
+                    "contentTitle": "村上春树听见100%的新世纪天籁",
+                    "displayOrder": 2,
+                    "imgUrl": "http://pic.zhenxian.fm/0f870d6b44fe72e327bf5a7a021fbd36.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "Master Female Audiophile",
+                    "artistName": "Various Artists(群星)",
+                    "contentId": 1383900309840,
+                    "contentTitle": "靓声天后精华集",
+                    "displayOrder": 3,
+                    "imgUrl": "http://pic.zhenxian.fm/473143943398937e3851a0981c294584.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "Ultimate Referece",
+                    "artistName": "Various Artists(群星)",
+                    "contentId": 1458094688320,
+                    "contentTitle": "尽显原母带音质最佳状态",
+                    "displayOrder": 4,
+                    "imgUrl": "http://pic.zhenxian.fm/abC0d15bd9EBcd00D85ccb381a3BE5AE.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "Fantastisk Allerede",
+                    "artistName": "Kari Bremnes",
+                    "contentId": 1453191691154,
+                    "contentTitle": "音响界至宝：挪威红玫瑰",
+                    "displayOrder": 5,
+                    "imgUrl": "http://pic.zhenxian.fm/93150f10a41470e29ab8af9889118e6b.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "真空管Hi-Fi录音大提琴",
+                    "artistName": "Various Artists(群星)",
+                    "contentId": 1452588051842,
+                    "contentTitle": "与大提琴来一趟文艺旅行",
+                    "displayOrder": 6,
+                    "imgUrl": "http://pic.zhenxian.fm/8a26dbcfc3af56322c087f6f2213f93f.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "Standing in the Safety Zone",
+                    "artistName": "Fairfield Four",
+                    "contentId": 1455764343770,
+                    "contentTitle": "\"刘汉盛榜单100\"",
+                    "displayOrder": 7,
+                    "imgUrl": "http://pic.zhenxian.fm/dfD4eb82AAB5FcF443E5dE7D6cE0cabe.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "海洛因2号HD天碟",
+                    "artistName": "Various Artist( 群星)",
+                    "contentId": 1458094630791,
+                    "contentTitle": "欧美百年民谣绝响极品",
+                    "displayOrder": 8,
+                    "imgUrl": "http://pic.zhenxian.fm/FEA9a5aBe7efef3d2893C902c83c56D4.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "雪域传奇-最美草原情歌",
+                    "artistName": "乌兰托娅",
+                    "contentId": 1452587847220,
+                    "contentTitle": "最美草原情歌",
+                    "displayOrder": 9,
+                    "imgUrl": "http://pic.zhenxian.fm/eac4c2d66d4bd02d46c0ae52af0c9596.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "",
+                    "artistName": "",
+                    "contentId": 16,
+                    "contentTitle": "Hi-Fi电台",
+                    "displayOrder": 10,
+                    "imgUrl": "http://pic.zhenxian.fm/59fb1d36a90927c304c55043cf82a6bb.png",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "broadcast"
+                }
+            ],
+            "sliderid": 2,
+            "tagid": 0
+        },
+        {
+            "displayorder": 11,
+            "menuid": 10,
+            "menuname": "民族",
+            "menutype": "album",
+            "sliderContent": [
+                {
+                    "albumName": "",
+                    "artistName": "",
+                    "contentId": -1,
+                    "contentTitle": "hifi音乐教学直播app",
+                    "displayOrder": 1,
+                    "imgUrl": "http://pic.zhenxian.fm/cc962b744d1a9a34e8948147aa7ba9d5.jpg",
+                    "linkUrl": "http://www.hifixxx.com,bag,act",
+                    "price": 0,
+                    "type": "app"
+                },
+                {
+                    "albumName": "",
+                    "artistName": "",
+                    "contentId": -1,
+                    "contentTitle": "test",
+                    "displayOrder": 2,
+                    "imgUrl": "http://pic.zhenxian.fm/45096e0ab8ce523ab1743ebf55523fbc.jpg",
+                    "linkUrl": "1,2,3",
+                    "price": 0,
+                    "type": "app"
+                },
+                {
+                    "albumName": "金色的呼唤",
+                    "artistName": "降央卓玛",
+                    "contentId": 1365149261724,
+                    "contentTitle": "金色的呼唤",
+                    "displayOrder": 3,
+                    "imgUrl": "http://pic.zhenxian.fm/1901453b14a3edbea6a63f66909b98f2.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "原版名曲 黄河 梁祝",
+                    "artistName": "Various Artists(群星)",
+                    "contentId": 1452588197818,
+                    "contentTitle": "原版历史性录音黄河梁祝",
+                    "displayOrder": 4,
+                    "imgUrl": "http://pic.zhenxian.fm/cc872BB91BfcaBC48a3cEAFaA20f8A2D.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "茉莉花",
+                    "artistName": "李哲艺",
+                    "contentId": 1452587743153,
+                    "contentTitle": "唱不尽黄土地人民生活百态,说不完的儿女情长",
+                    "displayOrder": 5,
+                    "imgUrl": "http://pic.zhenxian.fm/1547516e93c001e1ec60249175815a0b.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "苏武牧羊",
+                    "artistName": "李娜",
+                    "contentId": 1452588153613,
+                    "contentTitle": "李娜百万制作\"苏武牧羊\"",
+                    "displayOrder": 6,
+                    "imgUrl": "http://pic.zhenxian.fm/A7c0Dc3cD910daEBBF1CCDaB758C8D97.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "扬歌",
+                    "artistName": "武亦文",
+                    "contentId": 1455763728443,
+                    "contentTitle": "国内同类唱片中的上上选",
+                    "displayOrder": 7,
+                    "imgUrl": "http://pic.zhenxian.fm/FcDe6b236Bce6f32E94673772f83D13c.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "佛跳墙&岁月留声",
+                    "artistName": "广东民族乐团",
+                    "contentId": 1455764031500,
+                    "contentTitle": "年度民族音乐盛事",
+                    "displayOrder": 8,
+                    "imgUrl": "http://pic.zhenxian.fm/dF2b7c2B4b2A7C0199DE8BfDc3B5d79D.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "印象云南2-梦回香巴拉",
+                    "artistName": "Various Artists(群星)",
+                    "contentId": 1452587941886,
+                    "contentTitle": "梦回香巴拉:清幽葫芦丝天籁美韵",
+                    "displayOrder": 9,
+                    "imgUrl": "http://pic.zhenxian.fm/9CE53F7e8450960739A8fCDD62Df464a.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "",
+                    "artistName": "",
+                    "contentId": 24,
+                    "contentTitle": "民族电台",
+                    "displayOrder": 10,
+                    "imgUrl": "http://pic.zhenxian.fm/ee2e82e483255d7ff4970d789ce98c76.png",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "broadcast"
+                },
+                {
+                    "albumName": "",
+                    "artistName": "",
+                    "contentId": 1458199334636,
+                    "contentTitle": "《西部放歌》王宏伟 黑胶唱片 极品珍藏",
+                    "displayOrder": 12,
+                    "imgUrl": "http://pic.zhenxian.fm/",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "goods"
+                },
+                {
+                    "albumName": "",
+                    "artistName": "",
+                    "contentId": -1,
+                    "contentTitle": "11",
+                    "displayOrder": 21,
+                    "imgUrl": "http://pic.zhenxian.fm/",
+                    "linkUrl": "1,1,1",
+                    "price": 0,
+                    "type": "app"
+                }
+            ],
+            "sliderid": 3,
+            "tagid": 0
+        },
+        {
+            "displayorder": 1,
+            "menuid": 3,
+            "menuname": "精选",
+            "menutype": "album",
+            "sliderContent": [
+                {
+                    "albumName": "",
+                    "artistName": "",
+                    "contentId": -1,
+                    "contentTitle": "呵呵呵",
+                    "displayOrder": 1,
+                    "imgUrl": "http://pic.zhenxian.fm/77e4feea9e9be1ba5d6cd4495e34b155.jpg",
+                    "linkUrl": "http://112.74.74.4/activity/www11/",
+                    "price": 0,
+                    "type": "url"
+                },
+                {
+                    "albumName": "",
+                    "artistName": "",
+                    "contentId": -1,
+                    "contentTitle": "只用一首歌，金耳木耳现原形",
+                    "displayOrder": 2,
+                    "imgUrl": "http://pic.zhenxian.fm/c20e9286bda9f2211f05bd8e3c43a172.jpeg",
+                    "linkUrl": "http://www.zhenxian.fm/activity/www5/index1.html",
+                    "price": 0,
+                    "type": "url"
+                },
+                {
+                    "albumName": "",
+                    "artistName": "",
+                    "contentId": -1,
+                    "contentTitle": "畅享5.1声道环绕声音乐之旅",
+                    "displayOrder": 3,
+                    "imgUrl": "http://pic.zhenxian.fm/5459b477ab9421397f83f0b58343b744.jpg",
+                    "linkUrl": "http://www.zhenxian.fm/activity/www5/",
+                    "price": 0,
+                    "type": "url"
+                },
+                {
+                    "albumName": "Comrades Almost A Love Story",
+                    "artistName": "邓丽君",
+                    "contentId": 1458093885169,
+                    "contentTitle": "重温甜蜜蜜",
+                    "displayOrder": 4,
+                    "imgUrl": "http://pic.zhenxian.fm/9deFe7F5084d60ddcd7eec48eaD2fBE1.jpg",
+                    "linkUrl": "http://if2.zhenxian.fm/activitytest/img.html",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "",
+                    "artistName": "",
+                    "contentId": 1465203624460,
+                    "contentTitle": "世界著名歌曲精选",
+                    "displayOrder": 5,
+                    "imgUrl": "http://pic.zhenxian.fm/e11bde977305228a123f9ae5224e2f09.jpg",
+                    "linkUrl": "http://if2.zhenxian.fm/activitytest/img.html",
+                    "price": 0,
+                    "type": "musiclist"
+                },
+                {
+                    "albumName": "",
+                    "artistName": "",
+                    "contentId": -1,
+                    "contentTitle": "直播",
+                    "displayOrder": 6,
+                    "imgUrl": "http://pic.zhenxian.fm/780219572dde61ac1b6e1074a1d69b8c.jpg",
+                    "linkUrl": "http://www.zhenxian.fm/live/live2/",
+                    "price": 0,
+                    "type": "url"
+                },
+                {
+                    "albumName": "十年辉煌中国歌曲排行榜1993-2002",
+                    "artistName": "Various Artists(群星)",
+                    "contentId": 1452587946509,
+                    "contentTitle": "十年辉煌中国歌曲",
+                    "displayOrder": 7,
+                    "imgUrl": "http://pic.zhenxian.fm/fAa890D1C78913F2c5c3B06ebfefdCce.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "Romance de Amor",
+                    "artistName": "杨雪霏",
+                    "contentId": 1452587533031,
+                    "contentTitle": "Romance de Amor",
+                    "displayOrder": 8,
+                    "imgUrl": "http://pic.zhenxian.fm/04f48FEe0D66F31bEbB523cfB9cECFBa.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "Romance de Amor",
+                    "artistName": "杨雪霏",
+                    "contentId": 1452587533031,
+                    "contentTitle": "Romance de Amor",
+                    "displayOrder": 9,
+                    "imgUrl": "http://pic.zhenxian.fm/04f48FEe0D66F31bEbB523cfB9cECFBa.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "Romance de Amor",
+                    "artistName": "杨雪霏",
+                    "contentId": 1452587533031,
+                    "contentTitle": "令人瞩目的音乐家新星",
+                    "displayOrder": 10,
+                    "imgUrl": "http://pic.zhenxian.fm/04f48FEe0D66F31bEbB523cfB9cECFBa.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "Fantastisk Allerede",
+                    "artistName": "Kari Bremnes",
+                    "contentId": 1453191691154,
+                    "contentTitle": "音响界至宝:挪威红玫瑰",
+                    "displayOrder": 11,
+                    "imgUrl": "http://pic.zhenxian.fm/CC8f0F2E6aB92eD7cDBCCA72c4994936.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "Hindemith - The Four Temperaments",
+                    "artistName": "Anatoly Vedernikov",
+                    "contentId": 1455763553039,
+                    "contentTitle": "一位被埋没的钢琴家",
+                    "displayOrder": 12,
+                    "imgUrl": "http://pic.zhenxian.fm/45E4b3eB8AEB0daE8070fBCFADF5cA69.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "闲情听茶系列·一筐茶叶一筐歌",
+                    "artistName": "Various Artists(群星)",
+                    "contentId": 1455763637890,
+                    "contentTitle": "砌壶好茶,听个故事",
+                    "displayOrder": 13,
+                    "imgUrl": "http://pic.zhenxian.fm/8e32acf908e4618b631304d4aa32ff04.jpg",
+                    "linkUrl": "",
+                    "price": 0.01,
+                    "type": "album"
+                },
+                {
+                    "albumName": "最后还是会",
+                    "artistName": "熊天平",
+                    "contentId": 1452588109960,
+                    "contentTitle": "民谣是一把简单的吉他",
+                    "displayOrder": 14,
+                    "imgUrl": "http://pic.zhenxian.fm/FC20ca5FF1955E7F38D6aD2f6D9dEE6d.jpg",
+                    "linkUrl": "",
+                    "price": 0.01,
+                    "type": "album"
+                },
+                {
+                    "albumName": "The Visit",
+                    "artistName": "Loreena McKennitt(罗琳娜·麦肯尼特)",
+                    "contentId": 1452587315349,
+                    "contentTitle": "清灵歌声的优雅美感",
+                    "displayOrder": 15,
+                    "imgUrl": "http://pic.zhenxian.fm/CFdE8cA9dcBe2Eabe68f395Aaec4f4C4.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "我的失败和伟大",
+                    "artistName": "刘若英",
+                    "contentId": 1452588077621,
+                    "contentTitle": "听见不一样的刘若英",
+                    "displayOrder": 16,
+                    "imgUrl": "http://pic.zhenxian.fm/7e5fDbFA5a55b742dffB0Bb9dD7E5aa4.jpg",
+                    "linkUrl": "",
+                    "price": 0.01,
+                    "type": "album"
+                },
+                {
+                    "albumName": "Summer Of '42",
+                    "artistName": "Michel Legrand",
+                    "contentId": 1458094578328,
+                    "contentTitle": "一点点情,一点点色",
+                    "displayOrder": 17,
+                    "imgUrl": "http://pic.zhenxian.fm/5ED70deC84Af7e1791d25252742b9Bb6.jpg",
+                    "linkUrl": "",
+                    "price": 0.01,
+                    "type": "album"
+                },
+                {
+                    "albumName": "茉莉花",
+                    "artistName": "李哲艺",
+                    "contentId": 1452587743153,
+                    "contentTitle": "经典民歌玩小清新？",
+                    "displayOrder": 18,
+                    "imgUrl": "http://pic.zhenxian.fm/7dBE53D93eba91b513D60D9Dc32E9D3f.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "Standing in the Safety Zone",
+                    "artistName": "Fairfield Four",
+                    "contentId": 1455764343770,
+                    "contentTitle": "入选‘刘汉盛榜单100’之列",
+                    "displayOrder": 19,
+                    "imgUrl": "http://pic.zhenxian.fm/dfD4eb82AAB5FcF443E5dE7D6cE0cabe.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "给情人的摇篮曲",
+                    "artistName": "Various Artists(群星)",
+                    "contentId": 1455763712740,
+                    "contentTitle": "人人心中都有一段情",
+                    "displayOrder": 20,
+                    "imgUrl": "http://pic.zhenxian.fm/b96ae34ae0f479526825ac17e485df7b.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "",
+                    "artistName": "",
+                    "contentId": -1,
+                    "contentTitle": "中文",
+                    "displayOrder": 25,
+                    "imgUrl": "http://pic.zhenxian.fm/",
+                    "linkUrl": "http://download.zhenxian.fm/TogicVideo_V4.0.8_release_hifimusic_201608041847.apk ,com.togic.livevideo,com.togic.launcher.SplashActivity,com.togic.livevideo,com.togic.launcher.SplashActivity,com.togic.livevideo,com.togic.launcher.SplashActivity",
+                    "price": 0,
+                    "type": "app"
+                }
+            ],
+            "sliderid": 4,
+            "tagid": 0
+        },
+        {
+            "displayorder": 3,
+            "menuid": 4,
+            "menuname": "Hi-Res",
+            "menutype": "album",
+            "sliderContent": [
+                {
+                    "albumName": "菲靡靡之音(24bit)",
+                    "artistName": "王菲",
+                    "contentId": 1420441208518,
+                    "contentTitle": "菲靡靡之音",
+                    "displayOrder": 1,
+                    "imgUrl": "http://pic.zhenxian.fm/557a515cade3da2576ea805f6f06d3f8.jpg",
+                    "linkUrl": "",
+                    "price": 0.01,
+                    "type": "album"
+                },
+                {
+                    "albumName": "La luna(24bit)",
+                    "artistName": "Sarah Brightman",
+                    "contentId": 1417099972159,
+                    "contentTitle": "莎拉布莱曼:月光女神",
+                    "displayOrder": 2,
+                    "imgUrl": "http://pic.zhenxian.fm/0bfdf6d25b6bbcf58771af158f20a26c.png",
+                    "linkUrl": "",
+                    "price": 0.01,
+                    "type": "album"
+                },
+                {
+                    "albumName": "The Mass(24bit)",
+                    "artistName": "Era",
+                    "contentId": 1420441208528,
+                    "contentTitle": "一首被误解许久的歌",
+                    "displayOrder": 3,
+                    "imgUrl": "http://pic.zhenxian.fm/dd236e09b3abbec5890319ca0b1e6cd5.jpg",
+                    "linkUrl": "",
+                    "price": 40,
+                    "type": "album"
+                },
+                {
+                    "albumName": "Society of Sound Music-19-Undiscovered Voices of the Caribbean(24bit)",
+                    "artistName": "Creole Choir of Cuba",
+                    "contentId": 1455764302090,
+                    "contentTitle": "欧非文化交融在古巴的产物",
+                    "displayOrder": 4,
+                    "imgUrl": "http://pic.zhenxian.fm/74C9Afe7A3dD5d0ecfe1ba96bb0498fc.jpg",
+                    "linkUrl": "",
+                    "price": 60,
+                    "type": "album"
+                },
+                {
+                    "albumName": "Helplessness Blues(24Bit)",
+                    "artistName": "Fleet Foxes",
+                    "contentId": 1455763929518,
+                    "contentTitle": "美国独立民间摇滚乐队新势力！",
+                    "displayOrder": 5,
+                    "imgUrl": "http://pic.zhenxian.fm/B98b1817Eb63B4df8cb25bdFfACb1f80.jpg",
+                    "linkUrl": "",
+                    "price": 70,
+                    "type": "album"
+                },
+                {
+                    "albumName": "EMI群星经典金曲(24Bit)",
+                    "artistName": "Various Artist(群星)",
+                    "contentId": 1455764069262,
+                    "contentTitle": "港台巨星经典金曲",
+                    "displayOrder": 6,
+                    "imgUrl": "http://pic.zhenxian.fm/A169cBBb9188e2B4EA9480Ec653C5Da4.jpg",
+                    "linkUrl": "",
+                    "price": 0.01,
+                    "type": "album"
+                },
+                {
+                    "albumName": "Main Course(24bit)",
+                    "artistName": "Bee Gees",
+                    "contentId": 1452838676816,
+                    "contentTitle": "音乐史上最成功的三重唱团体“比吉斯”",
+                    "displayOrder": 7,
+                    "imgUrl": "http://pic.zhenxian.fm/b46d49918ad84d2b809f3f250fd1b0ae.jpg",
+                    "linkUrl": "",
+                    "price": 0.01,
+                    "type": "album"
+                },
+                {
+                    "albumName": "你不要那样看着我的眼睛(24bit)",
+                    "artistName": "蔡琴",
+                    "contentId": 1420441208600,
+                    "contentTitle": "国语老歌最佳诠释者",
+                    "displayOrder": 8,
+                    "imgUrl": "http://pic.zhenxian.fm/225ab7a24d980b68f3fefd926d39f030.jpg",
+                    "linkUrl": "",
+                    "price": 0.01,
+                    "type": "album"
+                },
+                {
+                    "albumName": "Beyond Best Collection SACD(24Bit)",
+                    "artistName": "Beyond",
+                    "contentId": 1449566223243,
+                    "contentTitle": "Beyond超级精选发烧大碟",
+                    "displayOrder": 9,
+                    "imgUrl": "http://pic.zhenxian.fm/C7eabA6bE6E9Bd4dEA7eBBbcb9ca47bd.jpg",
+                    "linkUrl": "",
+                    "price": 40,
+                    "type": "album"
+                },
+                {
+                    "albumName": "",
+                    "artistName": "",
+                    "contentId": 15,
+                    "contentTitle": "Hi-Res",
+                    "displayOrder": 10,
+                    "imgUrl": "http://pic.zhenxian.fm/35cbeb59bb5f3d5b7928d85738f0d99e.png",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "broadcast"
+                }
+            ],
+            "sliderid": 6,
+            "tagid": 0
+        },
+        {
+            "displayorder": 8,
+            "menuid": 9,
+            "menuname": "影视金曲",
+            "menutype": "album",
+            "sliderContent": [
+                {
+                    "albumName": "煎饼侠",
+                    "artistName": "Various Artists(群星)",
+                    "contentId": 1458094622033,
+                    "contentTitle": "大鹏新作煎饼侠",
+                    "displayOrder": 1,
+                    "imgUrl": "http://pic.zhenxian.fm/55E66C9b80430AC5b0a7b70dCf862bd3.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "Summer Of '42",
+                    "artistName": "Michel Legrand",
+                    "contentId": 1458094578328,
+                    "contentTitle": "一点点情,一点点色",
+                    "displayOrder": 2,
+                    "imgUrl": "http://pic.zhenxian.fm/5ED70deC84Af7e1791d25252742b9Bb6.jpg",
+                    "linkUrl": "",
+                    "price": 0.01,
+                    "type": "album"
+                },
+                {
+                    "albumName": "恋恋风尘 电影原声大碟",
+                    "artistName": "陈明章",
+                    "contentId": 1373641721797,
+                    "contentTitle": "法国影展最佳配乐奖",
+                    "displayOrder": 3,
+                    "imgUrl": "http://pic.zhenxian.fm/201012c1b40dee7d7f370f033ccda5ca.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "70年代电影原音珍藏版Vol.1",
+                    "artistName": "Various Artists(群星)",
+                    "contentId": 1451297122596,
+                    "contentTitle": "70年代台湾文艺爱情电影歌曲合集",
+                    "displayOrder": 4,
+                    "imgUrl": "http://pic.zhenxian.fm/d6A81a3c8fEfBbcfFEB7341aCdceed39.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "100 Best Film Classics 3",
+                    "artistName": "Various Artists(群星)",
+                    "contentId": 1451296853272,
+                    "contentTitle": "100首最佳电影古典音乐原声",
+                    "displayOrder": 5,
+                    "imgUrl": "http://pic.zhenxian.fm/b2cE6EaA2D3A13126c5EfaEe037048E9.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "Oscar-The Graduate",
+                    "artistName": "Simon & Garfunkel",
+                    "contentId": 1447314078587,
+                    "contentTitle": "昔日经典《毕业生》",
+                    "displayOrder": 6,
+                    "imgUrl": "http://pic.zhenxian.fm/eA7D1dCaCCD30B636aCD4B2D30B7A8Ea.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "Chicken Little",
+                    "artistName": "Various Artists(群星)",
+                    "contentId": 1458094255031,
+                    "contentTitle": "迪斯尼快乐的四眼天鸡",
+                    "displayOrder": 7,
+                    "imgUrl": "http://pic.zhenxian.fm/CD2AF6D55688Ce02dd77C2F1CB691844.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "Zorro",
+                    "artistName": "Guido & Maurizio De Angelis",
+                    "contentId": 1458094648005,
+                    "contentTitle": "佐罗:中国影迷心中的英雄",
+                    "displayOrder": 8,
+                    "imgUrl": "http://pic.zhenxian.fm/78f8e55A9915abc6deBd33a0A37e4FED.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "墨攻",
+                    "artistName": "川井宪次",
+                    "contentId": 1458094434125,
+                    "contentTitle": "墨攻",
+                    "displayOrder": 9,
+                    "imgUrl": "http://pic.zhenxian.fm/1b41BBca7A9A41Eb4B9C5AE05CAF24F7.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "",
+                    "artistName": "",
+                    "contentId": 21,
+                    "contentTitle": "影视电台",
+                    "displayOrder": 10,
+                    "imgUrl": "http://pic.zhenxian.fm/dec151f1254637a78676034aa480abf2.png",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "broadcast"
+                }
+            ],
+            "sliderid": 7,
+            "tagid": 0
+        },
+        {
+            "displayorder": 6,
+            "menuid": 8,
+            "menuname": "古典",
+            "menutype": "album",
+            "sliderContent": [
+                {
+                    "albumName": "Puccini-Turandot",
+                    "artistName": "Giacomo Puccini(贾科莫·普契尼)",
+                    "contentId": 1452587400322,
+                    "contentTitle": "图兰朵与茉莉花的惊人秘密",
+                    "displayOrder": 1,
+                    "imgUrl": "http://pic.zhenxian.fm/F9cD6C9E0AA8A359A6Fac4CBb63EfF3f.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "Hindemith - The Four Temperaments",
+                    "artistName": "Anatoly Vedernikov",
+                    "contentId": 1455763553039,
+                    "contentTitle": "一位被埋没的钢琴家",
+                    "displayOrder": 2,
+                    "imgUrl": "http://pic.zhenxian.fm/45E4b3eB8AEB0daE8070fBCFADF5cA69.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "Offenbach：Gaite Parisienne",
+                    "artistName": "Herbert von Karajan",
+                    "contentId": 1451297283005,
+                    "contentTitle": "卡拉扬指挥芭蕾舞剧",
+                    "displayOrder": 3,
+                    "imgUrl": "http://pic.zhenxian.fm/979999c215dca5ae14f65e0bf86c4d42.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "Hommage a Piazzolla",
+                    "artistName": "Gidon Kremer",
+                    "contentId": 1458093872569,
+                    "contentTitle": "探戈之父皮亚佐拉",
+                    "displayOrder": 4,
+                    "imgUrl": "http://pic.zhenxian.fm/f10aBB92d6F42C0d7D56fcc4224fe45f.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "Stradivarius The Sunrise",
+                    "artistName": "Yoko Fujita",
+                    "contentId": 1364984816891,
+                    "contentTitle": "一听“琴王”不吃人间烟火的仙音",
+                    "displayOrder": 5,
+                    "imgUrl": "http://pic.zhenxian.fm/0cee514e4b6477adacc4e1bfc6292b79.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "绝对发烧9",
+                    "artistName": "Various Artists(群星)",
+                    "contentId": 1358412177436,
+                    "contentTitle": "绝对发烧9",
+                    "displayOrder": 6,
+                    "imgUrl": "http://pic.zhenxian.fm/e1fda6cde8a0eedbc7ed69ea6ffecc5d.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "紫禁城",
+                    "artistName": "王月明",
+                    "contentId": 1368161782061,
+                    "contentTitle": "紫禁城",
+                    "displayOrder": 7,
+                    "imgUrl": "http://pic.zhenxian.fm/74d34c9c594b6c2589b4b8c33fca0693.mp4",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "最爱的意大利歌曲集（精选集） ",
+                    "artistName": "Luciano Pavarotti",
+                    "contentId": 1371836633029,
+                    "contentTitle": "最爱的意大利歌曲集",
+                    "displayOrder": 8,
+                    "imgUrl": "http://pic.zhenxian.fm/5ac8953a52990e31c5315be3ffc1fc4c.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "Classical 2008",
+                    "artistName": "Various Artists(群星)",
+                    "contentId": 1452839058436,
+                    "contentTitle": "古典跨界明星成名之曲",
+                    "displayOrder": 9,
+                    "imgUrl": "http://pic.zhenxian.fm/6da2c2e139F5eDd8bb264F61CfB5B7b8.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "",
+                    "artistName": "",
+                    "contentId": 17,
+                    "contentTitle": "古典电台",
+                    "displayOrder": 10,
+                    "imgUrl": "http://pic.zhenxian.fm/ec07508d9b5a071f91e18e5a3bfc5f9b.png",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "broadcast"
+                }
+            ],
+            "sliderid": 8,
+            "tagid": 0
+        },
+        {
+            "displayorder": 9,
+            "menuid": 11,
+            "menuname": "流行",
+            "menutype": "album",
+            "sliderContent": [
+                {
+                    "albumName": "我的失败和伟大",
+                    "artistName": "刘若英",
+                    "contentId": 1452588077621,
+                    "contentTitle": "听见不一样的刘若英",
+                    "displayOrder": 1,
+                    "imgUrl": "http://pic.zhenxian.fm/7e5fDbFA5a55b742dffB0Bb9dD7E5aa4.jpg",
+                    "linkUrl": "",
+                    "price": 0.01,
+                    "type": "album"
+                },
+                {
+                    "albumName": "La Historia",
+                    "artistName": "Ricky Martin",
+                    "contentId": 1373555034461,
+                    "contentTitle": "贴近拉丁流行天王瑞奇·马丁",
+                    "displayOrder": 2,
+                    "imgUrl": "http://pic.zhenxian.fm/c410a0c74f2e71b356b1d444ebfd5f3c.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "Goodbye & Hello",
+                    "artistName": "蔡健雅",
+                    "contentId": 1368196914785,
+                    "contentTitle": "蔡健雅撕开爱情伤口 ",
+                    "displayOrder": 3,
+                    "imgUrl": "http://pic.zhenxian.fm/d8c68c3175affa2847f8aeb3a3accae4.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "Tea for the Tillerman",
+                    "artistName": "Cat Stevens",
+                    "contentId": 1455763915609,
+                    "contentTitle": "英国民谣摇滚的代表人物",
+                    "displayOrder": 4,
+                    "imgUrl": "http://pic.zhenxian.fm/D3eee8bDDB18bCeD0041f3cf0c62ffF5.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "Country Gold",
+                    "artistName": "Various Artists(群星)",
+                    "contentId": 1458094111209,
+                    "contentTitle": "我们都会变老，唯有经典能永恒",
+                    "displayOrder": 5,
+                    "imgUrl": "http://pic.zhenxian.fm/932fb45546b4d69b91a0b60eaf38af0b.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "In the Quiet Hours",
+                    "artistName": "Phil Keaggy",
+                    "contentId": 1368164342213,
+                    "contentTitle": "“世界上最伟大的吉他手”？！",
+                    "displayOrder": 6,
+                    "imgUrl": "http://pic.zhenxian.fm/673e50bd5aa1141761b5f7126e414513.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "",
+                    "artistName": "",
+                    "contentId": 1465350852651,
+                    "contentTitle": "暗恋是一种幸福的寂寞",
+                    "displayOrder": 7,
+                    "imgUrl": "http://pic.zhenxian.fm/63b72969e789802ca1daa3841874e4ca.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "musiclist"
+                },
+                {
+                    "albumName": "A Hundred Miles or More: A Collection",
+                    "artistName": "Alison Krauss",
+                    "contentId": 1383900294224,
+                    "contentTitle": "兰草音乐的领军者",
+                    "displayOrder": 8,
+                    "imgUrl": "http://pic.zhenxian.fm/137c2f4ce8b84ed9f5d53e3643664da0.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "Faith Hill-The Hits",
+                    "artistName": "Faith Hill",
+                    "contentId": 1455763891683,
+                    "contentTitle": "乡村音乐界的超级巨星",
+                    "displayOrder": 9,
+                    "imgUrl": "http://pic.zhenxian.fm/7f36f88c8039ec95a9da4f42ec62ac2c.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "",
+                    "artistName": "",
+                    "contentId": 22,
+                    "contentTitle": "流行电台",
+                    "displayOrder": 10,
+                    "imgUrl": "http://pic.zhenxian.fm/d42245591a72ff4cf2afd66687fedc79.png",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "broadcast"
+                },
+                {
+                    "albumName": "Ultimate Kenny G",
+                    "artistName": "Kenny G",
+                    "contentId": 1451297145460,
+                    "contentTitle": "Ultimate Kenny G",
+                    "displayOrder": 15,
+                    "imgUrl": "http://pic.zhenxian.fm/DFbeac4BaA31EC3F2B4BDbE86A9CD76b.jpg",
+                    "linkUrl": "",
+                    "price": 0.01,
+                    "type": "album"
+                }
+            ],
+            "sliderid": 9,
+            "tagid": 0
+        },
+        {
+            "displayorder": 7,
+            "menuid": 7,
+            "menuname": "轻音乐",
+            "menutype": "album",
+            "sliderContent": [
+                {
+                    "albumName": "Tiny Island",
+                    "artistName": "Tiny Island",
+                    "contentId": 1365149256045,
+                    "contentTitle": "极品的发烧天碟",
+                    "displayOrder": 1,
+                    "imgUrl": "http://pic.zhenxian.fm/c67146a9dfcda252e77690581731d6dc.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "闲情听茶系列·一筐茶叶一筐歌",
+                    "artistName": "Various Artists(群星)",
+                    "contentId": 1455763637890,
+                    "contentTitle": "砌壶好茶听个故事",
+                    "displayOrder": 2,
+                    "imgUrl": "http://pic.zhenxian.fm/8e32acf908e4618b631304d4aa32ff04.jpg",
+                    "linkUrl": "",
+                    "price": 0.01,
+                    "type": "album"
+                },
+                {
+                    "albumName": "The Songs of Distant Earth",
+                    "artistName": "Mike Oldfield",
+                    "contentId": 1373822403130,
+                    "contentTitle": "电子音乐雕刻巨匠",
+                    "displayOrder": 3,
+                    "imgUrl": "http://pic.zhenxian.fm/c188fcfcdb68cbfac543e7572531ae66.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "Trumpet A GoGo",
+                    "artistName": "James Last",
+                    "contentId": 1452587142632,
+                    "contentTitle": "詹姆斯拉斯特《我的金曲集系列》",
+                    "displayOrder": 4,
+                    "imgUrl": "http://pic.zhenxian.fm/Eaf7AA5D3aF215B0C2C1cb9bA57f00E9.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "The Best of Pacific Moon",
+                    "artistName": "Various Artist(群星)",
+                    "contentId": 1455763754482,
+                    "contentTitle": "[和平之月]清音恍似梦中愁",
+                    "displayOrder": 5,
+                    "imgUrl": "http://pic.zhenxian.fm/aFF273474E349bACBFe63a465Cb84cEa.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "David Osborne Plays A Tribute to Frank Sinatra",
+                    "artistName": "David Osborne",
+                    "contentId": 1453191837902,
+                    "contentTitle": "美国白宫钢琴家",
+                    "displayOrder": 6,
+                    "imgUrl": "http://pic.zhenxian.fm/d182E6A56b8EC8374BBEFCD8f7EC9377.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "Across The Universe ",
+                    "artistName": "Terry Oldfield（特瑞·欧菲尔德）",
+                    "contentId": 1453192028529,
+                    "contentTitle": "经典收藏品:穿越苍穹",
+                    "displayOrder": 7,
+                    "imgUrl": "http://pic.zhenxian.fm/9D7Cc30D509f1a266dDc9ed8362d6ad2.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "",
+                    "artistName": "",
+                    "contentId": 1465897064692,
+                    "contentTitle": "看窗外云卷云舒",
+                    "displayOrder": 8,
+                    "imgUrl": "http://pic.zhenxian.fm/863a35577b1632d33208ec75bb77dc88.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "musiclist"
+                },
+                {
+                    "albumName": "Scarborough Faire",
+                    "artistName": "Richard Searles",
+                    "contentId": 1458094708984,
+                    "contentTitle": "唯美吉他 拨动心弦",
+                    "displayOrder": 9,
+                    "imgUrl": "http://pic.zhenxian.fm/edFdb9eca7a942D0b7aBBc004ac93549.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "",
+                    "artistName": "",
+                    "contentId": 23,
+                    "contentTitle": "轻音乐电台",
+                    "displayOrder": 10,
+                    "imgUrl": "http://pic.zhenxian.fm/3191cf2db21851a031a215b034542ac9.png",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "broadcast"
+                }
+            ],
+            "sliderid": 10,
+            "tagid": 0
+        },
+        {
+            "displayorder": 10,
+            "menuid": 13,
+            "menuname": "爵士",
+            "menutype": "album",
+            "sliderContent": [
+                {
+                    "albumName": "Ultimate Kenny G",
+                    "artistName": "Kenny G",
+                    "contentId": 1455764302923,
+                    "contentTitle": "Kenny G终极精选",
+                    "displayOrder": 1,
+                    "imgUrl": "http://pic.zhenxian.fm/C652D57E3d839F6c45935D1affd0Ba33.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "Clark Terry Express",
+                    "artistName": "Clark Terry",
+                    "contentId": 1458094247886,
+                    "contentTitle": "全能爵士乐手",
+                    "displayOrder": 2,
+                    "imgUrl": "http://pic.zhenxian.fm/dcb9daFD8c9Dabef3fFa7CFF2710240C.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "Auld Lang Syne",
+                    "artistName": "Carol Kidd",
+                    "contentId": 1367844237239,
+                    "contentTitle": "40年来第一位踏入中国大陆的英国爵士艺人",
+                    "displayOrder": 3,
+                    "imgUrl": "http://pic.zhenxian.fm/0c8d0ebcf0e3d4e3d749535d7025284a.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "The Oxnard Sessions Vol. 2",
+                    "artistName": "Michael Garson",
+                    "contentId": 1458094554814,
+                    "contentTitle": "大卫·鲍威的御用键盘手",
+                    "displayOrder": 4,
+                    "imgUrl": "http://pic.zhenxian.fm/6432BAaF1b0adcadDEbD778e3A5cC58E.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "Soul Rose",
+                    "artistName": "Shelly",
+                    "contentId": 1458094421848,
+                    "contentTitle": "深情红玫瑰:滋润了许多乐迷干渴的心灵",
+                    "displayOrder": 5,
+                    "imgUrl": "http://pic.zhenxian.fm/7306a893a9e080bb956a4567a2f19e83.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "Beethoven Allegretto From Symphony No. 7-Theme And Variations",
+                    "artistName": "Jacques Loussier Trio",
+                    "contentId": 1458094308591,
+                    "contentTitle": "唱片史上的创举:古典音乐爵士化",
+                    "displayOrder": 6,
+                    "imgUrl": "http://pic.zhenxian.fm/EABaCBD737898fc850d05bf4aDaF4544.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "想东方",
+                    "artistName": "Various Artists(群星)",
+                    "contentId": 1458094527596,
+                    "contentTitle": "东方爵士钢琴",
+                    "displayOrder": 7,
+                    "imgUrl": "http://pic.zhenxian.fm/1e2D5fB1F3DA9be9Df79C8E3f0B9C0C2.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "Blues for the Soul",
+                    "artistName": "Mighty Sam McClain",
+                    "contentId": 1458094289671,
+                    "contentTitle": "流芳后世的美国灵魂蓝调传奇",
+                    "displayOrder": 8,
+                    "imgUrl": "http://pic.zhenxian.fm/4D23cDadEa2dccCC606Bbc6aaADBE51D.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "Ain't No Sunshine",
+                    "artistName": "Al Jarreau",
+                    "contentId": 1452839214777,
+                    "contentTitle": "144个翻唱版本的单曲",
+                    "displayOrder": 9,
+                    "imgUrl": "http://pic.zhenxian.fm/11D2d1fBE954FEaa58a9c69cBBA4AD79.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "album"
+                },
+                {
+                    "albumName": "",
+                    "artistName": "",
+                    "contentId": 18,
+                    "contentTitle": "爵士电台",
+                    "displayOrder": 10,
+                    "imgUrl": "http://pic.zhenxian.fm/e6377f94c1dc4021688be45dd61735da.png",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "broadcast"
+                }
+            ],
+            "sliderid": 11,
+            "tagid": 0
+        },
+        {
+            "displayorder": 2,
+            "menuid": 26,
+            "menuname": "音乐商城",
+            "menutype": "album",
+            "sliderContent": [
+                {
+                    "albumName": "",
+                    "artistName": "",
+                    "contentId": 1465877068436,
+                    "contentTitle": "田馥甄《渺小》CD",
+                    "displayOrder": 1,
+                    "imgUrl": "http://pic.zhenxian.fm/e4961e1c01115da236546e3eb69a5772.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "goods"
+                },
+                {
+                    "albumName": "",
+                    "artistName": "",
+                    "contentId": 1464851340124,
+                    "contentTitle": "凯瑟琳·詹金斯《影音情缘》",
+                    "displayOrder": 2,
+                    "imgUrl": "http://pic.zhenxian.fm/8bab7c81edc068c4451ec88042194e7c.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "goods"
+                },
+                {
+                    "albumName": "",
+                    "artistName": "",
+                    "contentId": 1464856859937,
+                    "contentTitle": "Tori Amos多莉·艾莫丝《无悔的杰拉丁》",
+                    "displayOrder": 3,
+                    "imgUrl": "http://pic.zhenxian.fm/5e3ff88828981a2edb26f3e12cbd1661.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "goods"
+                },
+                {
+                    "albumName": "",
+                    "artistName": "",
+                    "contentId": 1458202027528,
+                    "contentTitle": "《亲情似水》（珍藏版）李丹阳专辑三",
+                    "displayOrder": 4,
+                    "imgUrl": "http://pic.zhenxian.fm/06b4af4e99d31a342c506af3dde8187a.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "goods"
+                },
+                {
+                    "albumName": "",
+                    "artistName": "",
+                    "contentId": 1465880490578,
+                    "contentTitle": "预售Jay2016新专辑《周杰伦的睡前故事》内地正式版CD",
+                    "displayOrder": 5,
+                    "imgUrl": "http://pic.zhenxian.fm/e77c0664c2dde0c8c03d5172fe32df13.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "goods"
+                },
+                {
+                    "albumName": "",
+                    "artistName": "",
+                    "contentId": 1464853058998,
+                    "contentTitle": "李云迪《王者幻想》CD",
+                    "displayOrder": 6,
+                    "imgUrl": "http://pic.zhenxian.fm/335efa69f34112f2b34264ae6567b230.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "goods"
+                },
+                {
+                    "albumName": "",
+                    "artistName": "",
+                    "contentId": 1458202690104,
+                    "contentTitle": "《大爱无疆》（真爱篇）李丹阳专辑五",
+                    "displayOrder": 7,
+                    "imgUrl": "http://pic.zhenxian.fm/3275eD4A9590d60cE9fE3A13DA71beCc.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "goods"
+                },
+                {
+                    "albumName": "",
+                    "artistName": "",
+                    "contentId": 1465877661113,
+                    "contentTitle": "Avicii艾维奇A神《Story》",
+                    "displayOrder": 8,
+                    "imgUrl": "http://pic.zhenxian.fm/6519c2a09b34a616d9f19e83a8f814a8.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "goods"
+                },
+                {
+                    "albumName": "",
+                    "artistName": "",
+                    "contentId": 1464851988556,
+                    "contentTitle": "汤灿《开始为你而活》(2CD)",
+                    "displayOrder": 9,
+                    "imgUrl": "http://pic.zhenxian.fm/0120f19cdca474879d9c32f69a71dcd8.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "goods"
+                },
+                {
+                    "albumName": "",
+                    "artistName": "",
+                    "contentId": 1464853058998,
+                    "contentTitle": "李云迪《王者幻想》",
+                    "displayOrder": 10,
+                    "imgUrl": "http://pic.zhenxian.fm/335efa69f34112f2b34264ae6567b230.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "goods"
+                },
+                {
+                    "albumName": "",
+                    "artistName": "",
+                    "contentId": 1465880490578,
+                    "contentTitle": "预售Jay2016新专辑《周杰伦的睡前故事》内地正式版CD",
+                    "displayOrder": 11,
+                    "imgUrl": "http://pic.zhenxian.fm/2a41d0d4cb15f773b2e2a0721df520cd.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "goods"
+                },
+                {
+                    "albumName": "",
+                    "artistName": "",
+                    "contentId": 1459827190070,
+                    "contentTitle": "《音乐之声 电影原声带 50周年纪念版》",
+                    "displayOrder": 12,
+                    "imgUrl": "http://pic.zhenxian.fm/d2118f2669357692d3fdfc3f11d40293.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "goods"
+                },
+                {
+                    "albumName": "",
+                    "artistName": "",
+                    "contentId": 1463382117108,
+                    "contentTitle": "中古黑胶唱片",
+                    "displayOrder": 13,
+                    "imgUrl": "http://pic.zhenxian.fm/92b43c4fa06e281a68599f3f40630dda.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "goods"
+                },
+                {
+                    "albumName": "",
+                    "artistName": "",
+                    "contentId": 1463373406462,
+                    "contentTitle": "The Roots Do You Want More 全新 美版 2LP黑胶唱片 蓝色彩胶",
+                    "displayOrder": 14,
+                    "imgUrl": "http://pic.zhenxian.fm/a14fde142a62d2073dfff88880f9ea37.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "goods"
+                },
+                {
+                    "albumName": "",
+                    "artistName": "",
+                    "contentId": 1464854436222,
+                    "contentTitle": "安德烈波切俐《热恋》",
+                    "displayOrder": 15,
+                    "imgUrl": "http://pic.zhenxian.fm/affb1365757f14dff0f7c3ff5c91aece.jpg",
+                    "linkUrl": "",
+                    "price": 0,
+                    "type": "goods"
+                }
+            ],
+            "sliderid": 12,
+            "tagid": 0
+        }
+    ]
+}

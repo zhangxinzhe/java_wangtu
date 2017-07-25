@@ -1,0 +1,18 @@
+1、接口：
+http://if2.zhenxian.fm/interfacetest2/ws/content/thirdPartyLogin?apikey=guest&protocolver=zx/1.1&terminaltype=20&timestamp=1474537785698&version=new&signature=lO+ocN24P7CZPwzLN59CziHhoyM=
+
+
+2、post提交参数：
+timestamp：时间戳
+signature：签名
+tradeState：音乐网支付结果，固定值（支付成功："1"；支付失败："0"）
+orderId：hifi订单号
+
+
+3、返回值格式：
+{
+    "accountNo": 1474265419748,
+    "avatarUrl": "http://file.chnmaster.com/upload/userAvatar/2016/09/18/51_photo.jpg",
+    "result": 0,
+    "userName": "hongx"
+}

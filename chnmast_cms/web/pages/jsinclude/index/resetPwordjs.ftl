@@ -1,0 +1,2 @@
+<script type="text/javascript" src="${DOMAIN_CMS}/js/index/resetPword.js?${appsetting.getVersionId()}"></script>
+<script type="text/javascript" src="${DOMAIN_CMS}/js/pwdintensity.js?${appsetting.getVersionId()}"></script>

@@ -1,0 +1,1 @@
+<script type="text/javascript" src="${DOMAIN_CMS}/js/basic/musicTutor/viewMusicTutor.js?${appsetting.getVersionId()}"></script>

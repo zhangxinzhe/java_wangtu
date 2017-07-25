@@ -1,0 +1,77 @@
+1、接口：
+http://if2.zhenxian.fm/interfacetest2/ws/content/artistgroup/list?apikey=1474265419748&terminaltype=20&version=new&signature=qt8LPunh9Tg3pJS4IsMf6bG++rI=
+
+
+2、返回值格式：
+[
+    {
+        "id": 117,
+        "image": "http://pic.zhenxian.fm/0e30b393b0f0a7e038b06e5c84466b95.png",
+        "name": "华语男声"
+    },
+    {
+        "id": 118,
+        "image": "http://pic.zhenxian.fm/6cf0da12e71e1a434fbe9eca64e7bb1f.png",
+        "name": "华语女声"
+    },
+    {
+        "id": 119,
+        "image": "http://pic.zhenxian.fm/bb29be9ee3dc73ac35b1a63ad3fe0e6b.png",
+        "name": "欧美男声"
+    },
+    {
+        "id": 120,
+        "image": "http://pic.zhenxian.fm/5f9b61abdf26fd0dd97c2862e33e0edb.png",
+        "name": "华语组合"
+    },
+    {
+        "id": 121,
+        "image": "http://pic.zhenxian.fm/a1914a6c0d4b00507475fbae280d0676.png",
+        "name": "欧美女声"
+    },
+    {
+        "id": 122,
+        "image": "http://pic.zhenxian.fm/e13fe46d69a039783ccf92041a721124.png",
+        "name": "欧美组合"
+    },
+    {
+        "id": 123,
+        "image": "http://pic.zhenxian.fm/80694508d4ee187506fd90471665a19d.png",
+        "name": "日韩男声"
+    },
+    {
+        "id": 124,
+        "image": "http://pic.zhenxian.fm/a06f884df7af78125489c80213bfe4d6.png",
+        "name": "日韩女声"
+    },
+    {
+        "id": 125,
+        "image": "http://pic.zhenxian.fm/9d736ac56988c9c9a073c8360a89aa75.png",
+        "name": "日韩组合"
+    },
+    {
+        "id": 126,
+        "image": "http://pic.zhenxian.fm/9cd87dc5726473cae5343ed0c97c1cfb.png",
+        "name": "其他"
+    },
+    {
+        "id": 127,
+        "image": "http://pic.zhenxian.fm/d1aef512fa495762fea749799130b0b0.png",
+        "name": "乐器演奏"
+    },
+    {
+        "id": 128,
+        "image": "http://pic.zhenxian.fm/c35eb8837017d8cfc312edc494981ebc.png",
+        "name": "指挥"
+    },
+    {
+        "id": 129,
+        "image": "http://pic.zhenxian.fm/bc61324d51a09ac21b8b24be15c2a1eb.png",
+        "name": "作曲"
+    },
+    {
+        "id": 130,
+        "image": "http://pic.zhenxian.fm/83cf1b35b00d453451fcfb23eb2ab713.png",
+        "name": "乐团"
+    }
+]

@@ -1,0 +1,1 @@
+<script type="text/javascript" src="${DOMAIN_CMS}/js/basic/student/studentManage.js?${appsetting.getVersionId()}"></script>

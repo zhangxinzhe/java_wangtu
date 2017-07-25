@@ -1,0 +1,1 @@
+<script type="text/javascript" src="${DOMAIN_CMS}/js/basic/school/schoolManage.js?${appsetting.getVersionId()}"></script>
