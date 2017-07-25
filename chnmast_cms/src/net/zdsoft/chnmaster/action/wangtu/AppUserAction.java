@@ -125,7 +125,7 @@ public class AppUserAction extends CmsBaseAction {
     public void logout() {
         CookieUtils.removeCookie(getRequest(), getResponse(), LoginUtils.getInstance().getUserInfoCookieName());
         // mainDomain = Config.getParam(BaseConstants.DOMAIN_HOME);
-        print("success");
+        printMsg("success");
         // return SUCCESS;
     }
 
