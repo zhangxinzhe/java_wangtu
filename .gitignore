@@ -1,1 +1,7 @@
 *.class
+.classpath
+.project
+chnmast_cms/common_src/conf/business/common.properties
+chnmast_cms/src/jdbc.properties
+chnmast_cms/web/WEB-INF/classes/conf/business/common.properties
+chnmast_cms/web/WEB-INF/classes/jdbc.properties
