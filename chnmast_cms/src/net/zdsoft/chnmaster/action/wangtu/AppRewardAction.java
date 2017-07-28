@@ -21,20 +21,27 @@ import org.springframework.stereotype.Controller;
 
 import net.zdsoft.chnmaster.action.common.CmsPageAction;
 import net.zdsoft.chnmaster.entity.wangtu.Catalog;
+import net.zdsoft.chnmaster.entity.wangtu.Order;
 import net.zdsoft.chnmaster.entity.wangtu.Reward;
 import net.zdsoft.chnmaster.entity.wangtu.RewardBidding;
 import net.zdsoft.chnmaster.entity.wangtu.RewardPicture;
 import net.zdsoft.chnmaster.enums.wangtu.BiddingStatus;
+import net.zdsoft.chnmaster.enums.wangtu.OrderType;
 import net.zdsoft.chnmaster.enums.wangtu.RewardStatus;
 import net.zdsoft.chnmaster.service.wangtu.CatalogService;
+import net.zdsoft.chnmaster.service.wangtu.OrderService;
 import net.zdsoft.chnmaster.service.wangtu.RewardBiddingService;
 import net.zdsoft.chnmaster.service.wangtu.RewardService;
+import net.zdsoft.common.config.NetstudyConfig;
 import net.zdsoft.common.dao.queryCondition.EqualCondition;
 import net.zdsoft.common.dao.queryCondition.QueryCondition;
+import net.zdsoft.common.enums.OrderStatus;
+import net.zdsoft.common.enums.PayType;
 import net.zdsoft.common.filesystem.util.FileSystemUtil;
+import net.zdsoft.common.utils.UUIDUtils;
 
 /**
- * @author pc1
+ * @author pc
  * @version $Revision: 1.0 $, $Date: 2017年7月17日 下午1:44:19 $
  */
 @Scope("prototype")
@@ -60,11 +67,14 @@ public class AppRewardAction extends CmsPageAction {
     private RewardBiddingService rewardBiddingService;
     @Resource
     private CatalogService catalogServiec;
+    @Resource
+    private OrderService orderService;
 
     /**
      * 悬赏列表
      */
     public void listReward() {
+        System.out.println(NetstudyConfig.getParam("rewardpercent"));
         Map<String, Object> json = new HashMap<String, Object>();
         List<QueryCondition> cons = new ArrayList<QueryCondition>();
         if (catalogId > 0) {
@@ -95,6 +105,7 @@ public class AppRewardAction extends CmsPageAction {
      * 分类列表
      */
     public void listCatalogs() {
+
         Map<String, Object> json = new HashMap<String, Object>();
         List<Catalog> catalogs = catalogServiec.listCatalog();
         json.put("catalogs", catalogs);
@@ -106,11 +117,11 @@ public class AppRewardAction extends CmsPageAction {
      * 新增竞价
      */
     public void addRewardBidding() {
+
         if (getUser() == null) {
             printMsg("请先登录");
             return;
         }
-
         Reward reward = rewardService.getRewardById(rewardId);
         if (reward == null) {
             printMsg("悬赏信息不存在！");
@@ -129,14 +140,75 @@ public class AppRewardAction extends CmsPageAction {
         bidding.setRewardId(rewardId);
         bidding.setPrice(price);
         bidding.setUnfinishPrice(unfinishPrice);
-        bidding.setStatus(BiddingStatus.APPLY);
+        bidding.setStatus(BiddingStatus.UNPAY);
         int i = rewardBiddingService.addRewardBidding(bidding);
         if (i > 0) {
+            Map<String, Object> json = new HashMap<String, Object>();
+            json.put("msg", "success");
+            json.put("rewardId", rewardId);
+            json.put("price", price);
+            json.put("pecent", NetstudyConfig.getParam("rewardpercent"));
             printMsg("success");
             return;
         }
         printMsg("竞价失败，请重试！");
         return;
+    }
+
+    /**
+     * 创建竞价订单
+     *
+     */
+    public void createBiddingOrder() {
+        if (getUser() == null) {
+            printMsg("请先登录");
+            return;
+        }
+        Reward reward = rewardService.getRewardById(rewardId);
+        if (reward == null) {
+            printMsg("悬赏信息不存在！");
+            return;
+        }
+        RewardBidding rb = rewardBiddingService.getRewardBiddingByByRewardIdAndUserId(rewardId, getUser().getId());
+        if (rb == null) {
+            printMsg("您还未竞价！");
+            return;
+        }
+        if (rb.getStatus() != BiddingStatus.UNPAY) {
+            printMsg("你已支付！");
+            return;
+        }
+        Order order = orderService.getOrderByUserAndRewardId(getUser().getId(), rewardId);
+        long orderId = 0;
+        if (order == null) {
+            order = new Order();
+            order.setUserId(getUser().getId());
+            order.setRelationId(rewardId);
+            order.setTradeNo(UUIDUtils.newId());
+            order.setCreationTime(new Date());
+            double percent = Double.valueOf(NetstudyConfig.getParam("rewardpercent"));
+            double payAmount = rb.getPrice() * percent;
+            payAmount = Math.round(payAmount * 100) * 0.01d;
+            order.setPayAmount(payAmount);
+            order.setOrderType(OrderType.BIDDING_ORDER);
+            order.setStatus(OrderStatus.UNPAY);
+            order.setPayType(PayType.UNPAY);
+            orderId = orderService.addOrder(order);
+        }
+        else {
+            orderId = order.getId();
+        }
+        if (orderId == 0) {
+            printMsg("订单创建失败，请重试！");
+            return;
+        }
+        else {
+            Map<String, Object> json = new HashMap<String, Object>();
+            json.put("msg", "success");
+            json.put("order", order);
+            printJson(json);
+        }
+
     }
 
     /**
