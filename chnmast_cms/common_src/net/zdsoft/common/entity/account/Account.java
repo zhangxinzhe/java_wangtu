@@ -38,6 +38,11 @@ public class Account extends BaseEntity {
      */
     private int status;
 
+    private String alipayAccount;
+    private String bankName;
+    private String bankUserName;
+    private String bankAccount;
+
     /**************************** 扩展属性 *************************/
     private String userName;// 用户名
     private String realName;// 姓名
@@ -162,6 +167,38 @@ public class Account extends BaseEntity {
      */
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getAlipayAccount() {
+        return alipayAccount;
+    }
+
+    public void setAlipayAccount(String alipayAccount) {
+        this.alipayAccount = alipayAccount;
+    }
+
+    public String getBankName() {
+        return bankName;
+    }
+
+    public void setBankName(String bankName) {
+        this.bankName = bankName;
+    }
+
+    public String getBankUserName() {
+        return bankUserName;
+    }
+
+    public void setBankUserName(String bankUserName) {
+        this.bankUserName = bankUserName;
+    }
+
+    public String getBankAccount() {
+        return bankAccount;
+    }
+
+    public void setBankAccount(String bankAccount) {
+        this.bankAccount = bankAccount;
     }
 
 }

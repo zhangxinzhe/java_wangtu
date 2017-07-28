@@ -38,4 +38,6 @@ public interface RewardBiddingDao {
      * @return
      */
     public int isApplyRewardByRewardIdAndUserId(long rewardId, long userId);
+
+    public RewardBidding getRewardBiddingByByRewardIdAndUserId(long rewardId, long userId);
 }

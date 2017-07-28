@@ -42,4 +42,11 @@ public class AccountDaoImpl extends BaseDaoImpl implements AccountDao {
         return executeUpdate(sql, new Object[] { founds, new Date(), accountId });
     }
 
+    @Override
+    public int updateAccount(Account account) {
+        String sql = "UPDATE T_ACCOUNT SET FUNDS=? ,MODIFY_TIME=?,ALIPAY_ACCOUNT=?,BANK_NAME=?,BANK_ACCOUNT=?,BANK_USER_NAME=? WHERE ID=?";
+        return this.executeUpdate(sql, new Object[] { account.getFunds(), new Date(), account.getAlipayAccount(),
+                account.getBankName(), account.getBankAccount(), account.getBankUserName(), account.getId() });
+    }
+
 }

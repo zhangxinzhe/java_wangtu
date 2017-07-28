@@ -38,4 +38,9 @@ public class AccountServiceImpl implements AccountService {
         return accountDao.updateFundsByAccountId(accountId, founds);
     }
 
+    @Override
+    public int updateAccount(Account account) {
+        return accountDao.updateAccount(account);
+    }
+
 }

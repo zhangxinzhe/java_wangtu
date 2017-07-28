@@ -39,4 +39,6 @@ public interface AccountDao {
      * @return
      */
     public int updateFundsByAccountId(long accountId, float founds);
+
+    public int updateAccount(Account account);
 }

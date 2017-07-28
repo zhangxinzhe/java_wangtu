@@ -25,7 +25,7 @@ public interface AccountService {
 
     /**
      * 新增账户表
-     * 
+     *
      * @param account
      * @return
      */
@@ -39,5 +39,12 @@ public interface AccountService {
      * @return
      */
     public int updateFundsByAccountId(long accountId, float founds);
+
+    /**
+     *
+     * @param account
+     * @return
+     */
+    public int updateAccount(Account account);
 
 }

@@ -37,4 +37,9 @@ public class RewardBiddingServiceImpl implements RewardBiddingService {
         return rewardBiddingDao.isApplyRewardByRewardIdAndUserId(rewardId, userId);
     }
 
+    @Override
+    public RewardBidding getRewardBiddingByByRewardIdAndUserId(long rewardId, long userId) {
+        return rewardBiddingDao.getRewardBiddingByByRewardIdAndUserId(rewardId, userId);
+    }
+
 }
