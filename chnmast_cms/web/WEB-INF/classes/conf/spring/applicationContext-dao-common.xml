@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE beans PUBLIC 
-       "-//SPRING//DTD BEAN//EN"
-       "http://www.springframework.org/dtd/spring-beans.dtd">
-<beans default-autowire="byName">
-    <bean id="daoConfigParams" class="net.zdsoft.keel.dao.DaoConfigParams" />   
-    <bean id="jdbcBaseDao" class="net.zdsoft.common.dao.JdbcBaseDao" />
-</beans>
