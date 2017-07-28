@@ -33,11 +33,13 @@ public interface RewardBiddingService {
 
     /**
      * 判断用户是否参与竞价
-     * 
+     *
      * @param rewardId
      * @param userId
      * @return
      */
     public int isApplyRewardByRewardIdAndUserId(long rewardId, long userId);
+
+    public RewardBidding getRewardBiddingByByRewardIdAndUserId(long rewardId, long userId);
 
 }
