@@ -34,7 +34,7 @@ import net.zdsoft.common.dao.queryCondition.QueryCondition;
 import net.zdsoft.common.filesystem.util.FileSystemUtil;
 
 /**
- * @author pc
+ * @author pc1
  * @version $Revision: 1.0 $, $Date: 2017年7月17日 下午1:44:19 $
  */
 @Scope("prototype")
