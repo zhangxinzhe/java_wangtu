@@ -17,15 +17,23 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import net.zdsoft.chnmaster.action.common.CmsBaseAction;
+import net.zdsoft.chnmaster.entity.wangtu.Order;
+import net.zdsoft.chnmaster.enums.wangtu.OrderType;
+import net.zdsoft.chnmaster.service.account.AccountService;
 import net.zdsoft.chnmaster.service.basic.UserService;
+import net.zdsoft.chnmaster.service.wangtu.OrderService;
 import net.zdsoft.chnmaster.utils.CookieUtils;
 import net.zdsoft.chnmaster.utils.LoginUtils;
+import net.zdsoft.common.entity.account.Account;
 import net.zdsoft.common.entity.user.User;
+import net.zdsoft.common.enums.OrderStatus;
+import net.zdsoft.common.enums.PayType;
 import net.zdsoft.common.enums.StatusEunm;
 import net.zdsoft.common.enums.UserRegTypeEnum;
 import net.zdsoft.common.enums.UserType;
 import net.zdsoft.common.filesystem.util.FileSystemUtil;
 import net.zdsoft.common.utils.Util;
+import net.zdsoft.keel.util.UUIDUtils;
 
 /**
  * @author pc
@@ -46,10 +54,24 @@ public class AppUserAction extends CmsBaseAction {
     private File avatar;
     private String avatarFileName;
     private String avatarContentType;
+    private String applyType = "alipay";// 提现方式 默认支付宝，bank:银行卡
+    private String alipayAccount;
+    private String bank;
+    private String bankAccount;
+    private String bankRealName;
+
+    private double applyFounds;
 
     @Resource
     private UserService userService;
+    @Resource
+    private AccountService accountService;
+    @Resource
+    private OrderService orderService;
 
+    /**
+     * 登录
+     */
     public void userLogin() {
 
         if (getUser() != null) {
@@ -124,9 +146,8 @@ public class AppUserAction extends CmsBaseAction {
      */
     public void logout() {
         CookieUtils.removeCookie(getRequest(), getResponse(), LoginUtils.getInstance().getUserInfoCookieName());
-        // mainDomain = Config.getParam(BaseConstants.DOMAIN_HOME);
         printMsg("success");
-        // return SUCCESS;
+
     }
 
     private String validateRegister() {
@@ -171,8 +192,77 @@ public class AppUserAction extends CmsBaseAction {
         }
         catch (Exception e) {
             printMsg("保存失败请重试！");
+
         }
 
+    }
+
+    /**
+     * 申请提现
+     */
+    public void accountApply() {
+        if (getUser() == null) {
+            printMsg("请先登录！");
+            return;
+        }
+        Account account = accountService.getAccountById(getUser().getId());
+        if (account == null) {
+            printMsg("没有您的余额信息！");
+            return;
+        }
+        if (this.applyFounds <= 0) {
+            printMsg("提现金额必须大于0！");
+            return;
+        }
+        if (account.getFunds() <= 0) {
+            printMsg("账户余额为0，不能提现！");
+            return;
+        }
+        if (applyFounds > account.getFunds()) {
+            printMsg("提现金额大于余额，无法提现！");
+            return;
+        }
+
+        if ("alipay".equals(applyType)) {
+            if (StringUtils.isBlank(alipayAccount)) {
+                printMsg("请输入支付宝账号！");
+                return;
+            }
+        }
+        else {
+            if (StringUtils.isBlank(bankRealName)) {
+                printMsg("请输入转账姓名！");
+                return;
+            }
+            if (StringUtils.isBlank(this.bankAccount)) {
+                printMsg("请输入银行账号！");
+                return;
+            }
+        }
+        // 查询用户未完成的提现订单
+        Order order = orderService.getUserFoundsOrder(getUser().getId(), OrderStatus.UNPAY);
+        if (order != null) {
+            printMsg("您的提现申请还在处理中，请稍后再试！");
+            return;
+        }
+        order = new Order();
+        order.setUserId(getUser().getId());
+        order.setRelationId(getUser().getId());
+        order.setCreationTime(new Date());
+        order.setPayAmount(applyFounds);
+        order.setOrderType(OrderType.FOUNDS_BACK);
+        order.setStatus(OrderStatus.UNPAY);
+        order.setPayType(PayType.OFFLINE);
+        order.setTradeNo(UUIDUtils.newId());
+        long orderId = orderService.addOrder(order);
+        if (orderId > 0) {
+            printMsg("success");
+            return;
+        }
+        else {
+            printMsg("提现失败 请重试！");
+            return;
+        }
     }
 
     /**
@@ -255,6 +345,54 @@ public class AppUserAction extends CmsBaseAction {
 
     public void setAvatarContentType(String avatarContentType) {
         this.avatarContentType = avatarContentType;
+    }
+
+    public void setApplyType(String applyType) {
+        this.applyType = applyType;
+    }
+
+    public String getBank() {
+        return bank;
+    }
+
+    public void setBank(String bank) {
+        this.bank = bank;
+    }
+
+    public String getBankAccount() {
+        return bankAccount;
+    }
+
+    public void setBankAccount(String bankAccount) {
+        this.bankAccount = bankAccount;
+    }
+
+    public String getBankRealName() {
+        return bankRealName;
+    }
+
+    public void setBankRealName(String bankRealName) {
+        this.bankRealName = bankRealName;
+    }
+
+    public String getAlipayAccount() {
+        return alipayAccount;
+    }
+
+    public void setAlipayAccount(String alipayAccount) {
+        this.alipayAccount = alipayAccount;
+    }
+
+    public String getApplyType() {
+        return applyType;
+    }
+
+    public double getApplyFounds() {
+        return applyFounds;
+    }
+
+    public void setApplyFounds(double applyFounds) {
+        this.applyFounds = applyFounds;
     }
 
 }
