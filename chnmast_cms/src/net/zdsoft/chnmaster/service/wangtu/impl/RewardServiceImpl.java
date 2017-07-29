@@ -11,6 +11,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.apache.commons.collections.CollectionUtils;
 import org.springframework.stereotype.Service;
 
 import net.zdsoft.chnmaster.dao.wangtu.RewardBiddingDao;
@@ -39,7 +40,15 @@ public class RewardServiceImpl implements RewardService {
 
     @Override
     public List<Reward> getRewardsByCondition(List<QueryCondition> condistions, PageDto page) {
-        return rewardDao.getRewardsByCondition(condistions, page);
+    	 List<Reward> rewards = rewardDao.getRewardsByCondition(condistions, page);
+    	 List<RewardPicture> pics = null;
+    	 for (Reward reward : rewards) {
+    		 pics =  rewardPictureService.getListByRewardId(reward.getId());
+    		 if(!CollectionUtils.isEmpty(pics)){
+    			 reward.setPicturePath(pics.get(0).getFilePath());
+    		 }
+		}
+        return rewards;
     }
 
     @Override
