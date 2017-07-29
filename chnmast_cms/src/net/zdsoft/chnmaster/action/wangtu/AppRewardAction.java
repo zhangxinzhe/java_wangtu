@@ -82,10 +82,12 @@ public class AppRewardAction extends CmsPageAction {
         }
         // 未完成的悬赏
         cons.add(new EqualCondition("R.reward_status", RewardStatus.PUBLISH.getValue(), Types.INTEGER));
+        getPage().setRowNum(6);
         rewardList = rewardService.getRewardsByCondition(cons, this.getPage());
         List<Catalog> catalogs = catalogServiec.listCatalog();
         json.put("list", rewardList);
         json.put("catalogs", catalogs);
+        json.put("page", getPage());
         printJsonMap(json);
         return;
     }
