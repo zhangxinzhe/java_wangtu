@@ -35,6 +35,7 @@ public class Reward extends BaseEntity {
     private String userName;
     private String realName;
     private String cataName;
+    private String picturePath;
     private List<RewardBidding> biddingList;
     private List<RewardPicture> pictures;
 
@@ -165,5 +166,15 @@ public class Reward extends BaseEntity {
 	public void setDeadline(Date deadline) {
 		this.deadline = deadline;
 	}
+
+	public String getPicturePath() {
+		return picturePath;
+	}
+
+	public void setPicturePath(String picturePath) {
+		this.picturePath = picturePath;
+	}
+	
+	
 
 }
