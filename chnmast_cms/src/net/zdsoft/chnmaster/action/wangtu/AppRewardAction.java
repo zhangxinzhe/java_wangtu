@@ -263,6 +263,7 @@ public class AppRewardAction extends CmsPageAction {
             i = rewardService.addReward(reward, rewardFiles);
         }
         catch (Exception e) {
+        	e.printStackTrace();
             i = 0;
         }
         if (i > 0) {
@@ -324,6 +325,9 @@ public class AppRewardAction extends CmsPageAction {
         }
         if (StringUtils.isBlank(reward.getLocation())) {
             return "请输入地址！";
+        }
+        if(reward.getDeadline() == null){
+        	return "期限不能为空！";
         }
 
         return null;

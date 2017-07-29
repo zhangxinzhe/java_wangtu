@@ -39,7 +39,7 @@ public class RewardPictureDaoImpl extends BaseDaoImpl implements RewardPictureDa
 
     @Override
     public int addPucture(final List<RewardPicture> pic) {
-        String sql = "insert into t_reward (reward_id,picPath)values(?,?)";
+        String sql = "insert into t_reward_picture (reward_id,picPath)values(?,?)";
         return this.batchUpdate(sql, new BatchPreparedStatementSetter() {
 
             @Override

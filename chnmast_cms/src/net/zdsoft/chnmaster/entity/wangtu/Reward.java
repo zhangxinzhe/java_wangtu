@@ -27,6 +27,7 @@ public class Reward extends BaseEntity {
     private double unfinishPrice;
     private String remark;
     private RewardStatus status;// 1:创建，2：发布，3：已接单，4：完成
+    private Date deadline;
 
     private Date createTime;
 
@@ -156,5 +157,13 @@ public class Reward extends BaseEntity {
     public void setPictures(List<RewardPicture> pictures) {
         this.pictures = pictures;
     }
+
+	public Date getDeadline() {
+		return deadline;
+	}
+
+	public void setDeadline(Date deadline) {
+		this.deadline = deadline;
+	}
 
 }

@@ -45,12 +45,12 @@ public class RewardDaoImpl extends BaseDaoImpl implements RewardDao {
 
     @Override
     public int addReward(Reward reward) {
-        String sql = "INSERT INTO T_REWARD (ID,USER_ID,CATALOG_ID,TITLE,DESCRIPTION,LOCATION,PRICE,unfinish_price,REMARK,create_time)"
-                + "VALUES(?,?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO T_REWARD (ID,USER_ID,CATALOG_ID,TITLE,DESCRIPTION,LOCATION,PRICE,unfinish_price,REMARK,create_time,deadline)"
+                + "VALUES(?,?,?,?,?,?,?,?,?,?,?)";
         return this.executeUpdate(sql,
                 new Object[] { reward.getId(), reward.getUserId(), reward.getCatalogId(), reward.getTitle(),
-                        reward.getDescription(), reward.getPrice(), reward.getUnfinishPrice(), reward.getRemark(),
-                        new Date() });
+                        reward.getDescription(),reward.getLocation(), reward.getPrice(), reward.getUnfinishPrice(), reward.getRemark(),
+                        new Date(), reward.getDeadline()});
     }
 
     @Override

@@ -45,6 +45,7 @@ public class LoginFilter implements Filter {
         res.addHeader("Cache-Control", "no-cache, must-revalidate");
         res.setDateHeader("Expires", 0);
         res.addHeader("Pragma", "no-cache");
+        res.setCharacterEncoding("UTF-8");
 
         String action = URLUtil.getAction(req);
         String servletPath = req.getServletPath();
