@@ -7,6 +7,8 @@ package net.zdsoft.chnmaster.service.wangtu.impl;
 
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Service;
 
 import net.zdsoft.chnmaster.dao.wangtu.RewardBiddingDao;
@@ -20,6 +22,7 @@ import net.zdsoft.chnmaster.service.wangtu.RewardBiddingService;
 @Service("rewardBiddingService")
 public class RewardBiddingServiceImpl implements RewardBiddingService {
 
+	@Resource
     private RewardBiddingDao rewardBiddingDao;
 
     @Override

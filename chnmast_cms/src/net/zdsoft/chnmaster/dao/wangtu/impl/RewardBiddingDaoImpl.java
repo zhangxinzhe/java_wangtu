@@ -32,7 +32,7 @@ public class RewardBiddingDaoImpl extends BaseDaoImpl implements RewardBiddingDa
 
     @Override
     public int addRewardBidding(RewardBidding bidding) {
-        String sql = "INSERT INTO T_REWARD (REWARD_ID,USER_ID,PRICE,UNFINISH_PRICE,STATE,CREATE_DATE)VALUES(?,?,?,?,0,?)";
+        String sql = "INSERT INTO T_REWARD_BIDDING (REWARD_ID,USER_ID,PRICE,UNFINISH_PRICE,STATE,CREATE_DATE)VALUES(?,?,?,?,0,?)";
         return this.executeUpdate(sql, new Object[] { bidding.getRewardId(), bidding.getUserId(), bidding.getPrice(),
                 bidding.getUnfinishPrice(), new Date() });
     }
