@@ -33,7 +33,7 @@ public class RewardMapper implements RowMapper<Reward> {
         entity.setCatalogId(rs.getLong("catalog_id"));
         entity.setTitle(rs.getString("title"));
         entity.setDescription(rs.getString("description"));
-        entity.setLocation(rs.getString("lacation"));
+        entity.setLocation(rs.getString("location"));
         entity.setPrice(rs.getDouble("price"));
         entity.setUnfinishPrice(rs.getDouble("unfinish_price"));
         entity.setRemark(rs.getString("remark"));
