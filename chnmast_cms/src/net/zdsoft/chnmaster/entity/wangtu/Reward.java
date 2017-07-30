@@ -38,6 +38,7 @@ public class Reward extends BaseEntity {
     private String picturePath;
     private List<RewardBidding> biddingList;
     private List<RewardPicture> pictures;
+    private int biddingNum;
 
     public long getUserId() {
         return userId;
@@ -174,6 +175,16 @@ public class Reward extends BaseEntity {
 	public void setPicturePath(String picturePath) {
 		this.picturePath = picturePath;
 	}
+
+	public int getBiddingNum() {
+		return biddingNum;
+	}
+
+	public void setBiddingNum(int biddingNum) {
+		this.biddingNum = biddingNum;
+	}
+	
+	
 	
 	
 

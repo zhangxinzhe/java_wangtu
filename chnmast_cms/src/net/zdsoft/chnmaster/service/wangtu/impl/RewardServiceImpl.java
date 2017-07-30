@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 import net.zdsoft.chnmaster.dao.wangtu.RewardBiddingDao;
 import net.zdsoft.chnmaster.dao.wangtu.RewardDao;
 import net.zdsoft.chnmaster.entity.wangtu.Reward;
+import net.zdsoft.chnmaster.entity.wangtu.RewardBidding;
 import net.zdsoft.chnmaster.entity.wangtu.RewardPicture;
 import net.zdsoft.chnmaster.service.wangtu.RewardPictureService;
 import net.zdsoft.chnmaster.service.wangtu.RewardService;
@@ -42,10 +43,15 @@ public class RewardServiceImpl implements RewardService {
     public List<Reward> getRewardsByCondition(List<QueryCondition> condistions, PageDto page) {
     	 List<Reward> rewards = rewardDao.getRewardsByCondition(condistions, page);
     	 List<RewardPicture> pics = null;
+    	 List<RewardBidding> biddings = null;
     	 for (Reward reward : rewards) {
     		 pics =  rewardPictureService.getListByRewardId(reward.getId());
     		 if(!CollectionUtils.isEmpty(pics)){
     			 reward.setPicturePath(pics.get(0).getFilePath());
+    		 }
+    		 biddings = rewardBiddingDao.getRewardBiddingByRewardId(reward.getId());
+    		 if(biddings != null && biddings.size() > 0){
+    			 reward.setBiddingNum(biddings.size());
     		 }
 		}
         return rewards;

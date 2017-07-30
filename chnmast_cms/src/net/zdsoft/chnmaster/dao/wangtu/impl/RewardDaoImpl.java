@@ -55,7 +55,7 @@ public class RewardDaoImpl extends BaseDaoImpl implements RewardDao {
 
     @Override
     public int deleteReward(long id) {
-        String sql = "DELETE * FROM T_REWARD WHERE ID=? AND REWARD_STATUS<3 ";
+        String sql = "DELETE FROM T_REWARD WHERE ID=? AND REWARD_STATUS<3 ";
         return this.executeUpdate(sql, new Object[] { id });
     }
 
