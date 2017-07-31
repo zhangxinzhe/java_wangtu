@@ -7,6 +7,8 @@ package net.zdsoft.chnmaster.service.wangtu.impl;
 
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Service;
 
 import net.zdsoft.chnmaster.dao.wangtu.OrderDao;
@@ -23,6 +25,7 @@ import net.zdsoft.common.enums.OrderStatus;
 @Service("orderService")
 public class OrderServiceImpl implements OrderService {
 
+    @Resource
     private OrderDao orderDao;
 
     @Override

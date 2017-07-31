@@ -6,11 +6,16 @@
 package net.zdsoft.chnmaster.dao.account.impl;
 
 import java.util.Date;
+import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Repository;
 
 import net.zdsoft.chnmaster.dao.account.AccountDao;
 import net.zdsoft.common.dao.BaseDaoImpl;
+import net.zdsoft.common.dao.queryCondition.QueryCondition;
+import net.zdsoft.common.dao.queryCondition.QueryConditionBuilder;
+import net.zdsoft.common.entity.PageDto;
 import net.zdsoft.common.entity.account.Account;
 import net.zdsoft.common.entity.account.mapper.AccountRowMapper;
 
@@ -37,8 +42,8 @@ public class AccountDaoImpl extends BaseDaoImpl implements AccountDao {
     }
 
     @Override
-    public int updateFundsByAccountId(long accountId, float founds) {
-        String sql = "UPDATE T_ACCOUNT SET FOUNDS = ? MODIFY_TIME=?  WHERE ID=? ";
+    public int updateFundsByAccountId(long accountId, double founds) {
+        String sql = "UPDATE T_ACCOUNT SET FUNDS = ?,MODIFY_TIME=?  WHERE ID=? ";
         return executeUpdate(sql, new Object[] { founds, new Date(), accountId });
     }
 
@@ -47,6 +52,21 @@ public class AccountDaoImpl extends BaseDaoImpl implements AccountDao {
         String sql = "UPDATE T_ACCOUNT SET FUNDS=? ,MODIFY_TIME=?,ALIPAY_ACCOUNT=?,BANK_NAME=?,BANK_ACCOUNT=?,BANK_USER_NAME=? WHERE ID=?";
         return this.executeUpdate(sql, new Object[] { account.getFunds(), new Date(), account.getAlipayAccount(),
                 account.getBankName(), account.getBankAccount(), account.getBankUserName(), account.getId() });
+    }
+
+    @Override
+    public List<Account> listAccount(List<QueryCondition> cons, PageDto page) {
+        String sql = "SELECT * FROM T_USER U,T_ACCOUNT A WHERE A.ID=U.ID AND U.IS_CANCEL=0 ";
+        QueryConditionBuilder builder = new QueryConditionBuilder();
+        builder.addConditions(cons);
+        String paramStr = builder.buildCondition();
+        if (StringUtils.isNotBlank(paramStr)) {
+            sql += " AND " + paramStr;
+        }
+        if (null == page) {
+            find(sql, builder.buildParameters(), AccountRowMapper.userAccountRowMapper);
+        }
+        return findForPage(sql, builder.buildParameters(), AccountRowMapper.userAccountRowMapper, page);
     }
 
 }

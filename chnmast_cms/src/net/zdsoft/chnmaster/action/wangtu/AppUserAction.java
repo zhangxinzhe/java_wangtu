@@ -228,6 +228,7 @@ public class AppUserAction extends CmsBaseAction {
                 printMsg("请输入支付宝账号！");
                 return;
             }
+            account.setAlipayAccount(alipayAccount);
         }
         else {
             if (StringUtils.isBlank(bankRealName)) {
@@ -238,6 +239,8 @@ public class AppUserAction extends CmsBaseAction {
                 printMsg("请输入银行账号！");
                 return;
             }
+            account.setBankUserName(bankRealName);
+            account.setBankAccount(bankAccount);
         }
         // 查询用户未完成的提现订单
         Order order = orderService.getUserFoundsOrder(getUser().getId(), OrderStatus.UNPAY);
@@ -257,6 +260,7 @@ public class AppUserAction extends CmsBaseAction {
         long orderId = orderService.addOrder(order);
         if (orderId > 0) {
             printMsg("success");
+            accountService.updateAccount(account);
             return;
         }
         else {

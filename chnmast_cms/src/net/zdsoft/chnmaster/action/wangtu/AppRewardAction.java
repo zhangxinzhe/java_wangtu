@@ -260,20 +260,20 @@ public class AppRewardAction extends CmsPageAction {
             return;
         }
         reward.setCreateTime(new Date());
-        reward.setStatus(RewardStatus.PUBLISH);
+        reward.setStatus(RewardStatus.CREATE);
         int i;
         try {
             i = rewardService.addReward(reward, rewardFiles);
         }
         catch (Exception e) {
-        	e.printStackTrace();
+            e.printStackTrace();
             i = 0;
         }
         if (i > 0) {
             printMsg("success");
             return;
         }
-        printMsg("发布失败，请重试！");
+        printMsg("新增失败，请重试！");
     }
 
     /**
@@ -312,6 +312,27 @@ public class AppRewardAction extends CmsPageAction {
         }
     }
 
+    /**
+     * 发布悬赏
+     */
+    public void publishReward() {
+        if (rewardId == 0) {
+            printMsg("悬赏数据不存在！");
+            return;
+        }
+        if (getUser() == null) {
+            printMsg("请先登录");
+            return;
+        }
+        int i = rewardService.updateRewardStatus(rewardId, RewardStatus.PUBLISH);
+        if (i <= 0) {
+            printMsg("发布失败，请重试！");
+            return;
+        }
+        printMsg("success");
+
+    }
+
     private String validateReward() {
         if (reward == null) {
             return "数据不存在！";
@@ -329,8 +350,8 @@ public class AppRewardAction extends CmsPageAction {
         if (StringUtils.isBlank(reward.getLocation())) {
             return "请输入地址！";
         }
-        if(reward.getDeadline() == null){
-        	return "期限不能为空！";
+        if (reward.getDeadline() == null) {
+            return "期限不能为空！";
         }
 
         return null;

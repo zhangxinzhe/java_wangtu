@@ -29,7 +29,7 @@ public class OrderDaoImpl extends BaseDaoImpl implements OrderDao {
     @Override
     public int addOrder(Order order) {
         String sql = "INSERT INTO T_ORDER (ID,TRADE_NO,RELATION_ID,USER_ID,PAY_AMOUNT,CREATION_TIME,"
-                + "ORDER_STATUS,PAY_TYPE,ORDER_TYPE,REMARK,ALIPAY_ACCOUNT,BANK_NAME,BANK_ACCOUNT,BANK_USER_NAME)VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+                + "ORDER_STATUS,PAY_TYPE,ORDER_TYPE,REMARK)VALUES(?,?,?,?,?,?,?,?,?,?)";
         return this.executeUpdate(sql,
                 new Object[] { order.getId(), order.getTradeNo(), order.getRelationId(), order.getUserId(),
                         order.getPayAmount(), new Date(), order.getStatus().getValue(), order.getPayType().getValue(),

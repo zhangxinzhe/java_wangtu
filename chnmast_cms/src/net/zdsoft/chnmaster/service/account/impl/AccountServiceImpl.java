@@ -5,12 +5,16 @@
  */
 package net.zdsoft.chnmaster.service.account.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
 import net.zdsoft.chnmaster.dao.account.AccountDao;
 import net.zdsoft.chnmaster.service.account.AccountService;
+import net.zdsoft.common.dao.queryCondition.QueryCondition;
+import net.zdsoft.common.entity.PageDto;
 import net.zdsoft.common.entity.account.Account;
 
 /**
@@ -34,13 +38,18 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public int updateFundsByAccountId(long accountId, float founds) {
+    public int updateFundsByAccountId(long accountId, double founds) {
         return accountDao.updateFundsByAccountId(accountId, founds);
     }
 
     @Override
     public int updateAccount(Account account) {
         return accountDao.updateAccount(account);
+    }
+
+    @Override
+    public List<Account> listAccount(List<QueryCondition> cons, PageDto page) {
+        return accountDao.listAccount(cons, page);
     }
 
 }

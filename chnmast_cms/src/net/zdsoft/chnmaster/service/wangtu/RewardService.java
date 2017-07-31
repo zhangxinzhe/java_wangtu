@@ -9,6 +9,7 @@ import java.io.File;
 import java.util.List;
 
 import net.zdsoft.chnmaster.entity.wangtu.Reward;
+import net.zdsoft.chnmaster.enums.wangtu.RewardStatus;
 import net.zdsoft.common.dao.queryCondition.QueryCondition;
 import net.zdsoft.common.entity.PageDto;
 
@@ -37,10 +38,15 @@ public interface RewardService {
 
     /**
      * 我竞价的悬赏
-     * 
+     *
      * @param userId
      * @param page
      * @return
      */
     public List<Reward> getMyRewardBidding(long userId, PageDto page);
+
+    /**
+     * 修改状态
+     */
+    public int updateRewardStatus(long id, RewardStatus status);
 }

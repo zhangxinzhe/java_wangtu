@@ -5,6 +5,10 @@
  */
 package net.zdsoft.chnmaster.service.account;
 
+import java.util.List;
+
+import net.zdsoft.common.dao.queryCondition.QueryCondition;
+import net.zdsoft.common.entity.PageDto;
 import net.zdsoft.common.entity.account.Account;
 
 /**
@@ -38,7 +42,7 @@ public interface AccountService {
      * @param founds
      * @return
      */
-    public int updateFundsByAccountId(long accountId, float founds);
+    public int updateFundsByAccountId(long accountId, double founds);
 
     /**
      *
@@ -46,5 +50,14 @@ public interface AccountService {
      * @return
      */
     public int updateAccount(Account account);
+
+    /**
+     * 余额列表
+     *
+     * @param cons
+     * @param page
+     * @return
+     */
+    public List<Account> listAccount(List<QueryCondition> cons, PageDto page);
 
 }

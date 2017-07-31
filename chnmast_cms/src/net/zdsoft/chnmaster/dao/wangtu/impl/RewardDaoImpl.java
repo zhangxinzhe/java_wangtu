@@ -14,6 +14,7 @@ import org.springframework.stereotype.Repository;
 import net.zdsoft.chnmaster.dao.wangtu.RewardDao;
 import net.zdsoft.chnmaster.entity.wangtu.Reward;
 import net.zdsoft.chnmaster.entity.wangtu.mapper.RewardMapper;
+import net.zdsoft.chnmaster.enums.wangtu.RewardStatus;
 import net.zdsoft.common.dao.BaseDaoImpl;
 import net.zdsoft.common.dao.queryCondition.QueryCondition;
 import net.zdsoft.common.dao.queryCondition.QueryConditionBuilder;
@@ -49,8 +50,8 @@ public class RewardDaoImpl extends BaseDaoImpl implements RewardDao {
                 + "VALUES(?,?,?,?,?,?,?,?,?,?,?)";
         return this.executeUpdate(sql,
                 new Object[] { reward.getId(), reward.getUserId(), reward.getCatalogId(), reward.getTitle(),
-                        reward.getDescription(),reward.getLocation(), reward.getPrice(), reward.getUnfinishPrice(), reward.getRemark(),
-                        new Date(), reward.getDeadline()});
+                        reward.getDescription(), reward.getLocation(), reward.getPrice(), reward.getUnfinishPrice(),
+                        reward.getRemark(), new Date(), reward.getDeadline() });
     }
 
     @Override
@@ -82,6 +83,12 @@ public class RewardDaoImpl extends BaseDaoImpl implements RewardDao {
             return this.find(sql, new Object[] { userId }, RewardMapper.instance());
         }
         return this.findForPage(sql, new Object[] { userId }, RewardMapper.instance(), page);
+    }
+
+    @Override
+    public int updateRewardStatus(long id, RewardStatus status) {
+        String sql = "UPDATE T_REWARD T SET T.reward_status = ? WHERE T.ID=? ";
+        return this.executeUpdate(sql, new Object[] { status.getValue(), id });
     }
 
 }
