@@ -26,6 +26,10 @@ public class RewardBidding extends BaseEntity {
     private double unfinishPrice;
     private BiddingStatus status;
     private Date createTime;
+    
+    //附加字段
+    private String userName;
+    private String avatarFile;
 
     public long getRewardId() {
         return rewardId;
@@ -74,5 +78,23 @@ public class RewardBidding extends BaseEntity {
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getAvatarFile() {
+		return avatarFile;
+	}
+
+	public void setAvatarFile(String avatarFile) {
+		this.avatarFile = avatarFile;
+	}
+    
+    
 
 }

@@ -10,6 +10,7 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
+import net.zdsoft.chnmaster.entity.wangtu.Order;
 import net.zdsoft.chnmaster.entity.wangtu.RewardBidding;
 import net.zdsoft.chnmaster.enums.wangtu.BiddingStatus;
 
@@ -20,9 +21,22 @@ import net.zdsoft.chnmaster.enums.wangtu.BiddingStatus;
 public class RewardBiddingMapper implements RowMapper<RewardBidding> {
 
     private static RewardBiddingMapper rowMapper = new RewardBiddingMapper();
+    public static RewardBiddingAndUserMapper rewardBiddingAndUserMapper = new RewardBiddingAndUserMapper();
 
     public static RewardBiddingMapper instance() {
         return rowMapper;
+    }
+    
+    static class RewardBiddingAndUserMapper implements RowMapper<Order> {
+
+        @Override
+        public Order mapRow(ResultSet rs, int arg1) throws SQLException {
+        	RewardBidding entity = rowMapper.mapRow(rs, arg1);
+        	entity.setUserName(rs.getString("username"));
+        	entity.setAvatarFile(rs.getString("AVATAR_FILE"));
+            return null;
+        }
+
     }
 
     @Override

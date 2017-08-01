@@ -55,9 +55,16 @@
         <!-- 撤销悬赏-->
         <action name="cancelReward" class="appRewardAction" method="cancelReward">
         </action>
+        <!-- 任务完成-->
+        <action name="rewardFinish" class="appRewardAction" method="rewardFinish">
+        </action>
         <!-- 取消竞价-->
         <action name="cancelBidding" class="appRewardAction" method="cancelBidding">
         </action>
+        <!-- 选择竞价人-->
+        <action name="chooseBidding" class="appRewardAction" method="chooseBidding">
+        </action>
+        
     </package>
 
 </struts>

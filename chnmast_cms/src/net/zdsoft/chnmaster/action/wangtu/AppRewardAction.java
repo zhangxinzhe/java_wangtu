@@ -401,6 +401,32 @@ public class AppRewardAction extends CmsPageAction {
         printMsg("success");
 
     }
+    
+    //选择竞价人
+    public void chooseBidding(){
+        if (getUser() == null) {
+            printMsg("请先登录");
+            return;
+        }
+        String result = rewardBiddingService.cancelBiddingReward(biddingId, BiddingStatus.SUCCESS);
+        printMsg(result);
+    }
+
+    /**
+     * 任务完成
+     */
+    public void rewardFinish() {
+        if (rewardId == 0) {
+            printMsg("悬赏数据不存在！");
+            return;
+        }
+        if (getUser() == null) {
+            printMsg("请先登录");
+            return;
+        }
+        printMsg("success");
+
+    }
 
     private String validateReward() {
         if (reward == null) {

@@ -41,6 +41,7 @@ public class Reward extends BaseEntity {
     private List<RewardPicture> pictures;
     private int biddingNum;
     private BiddingStatus biddingStatus;
+    private String phone;
 
     /**
      * 竞价详情
@@ -206,5 +207,15 @@ public class Reward extends BaseEntity {
     public void setBiddingDetail(RewardBidding biddingDetail) {
         this.biddingDetail = biddingDetail;
     }
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+    
+    
 
 }

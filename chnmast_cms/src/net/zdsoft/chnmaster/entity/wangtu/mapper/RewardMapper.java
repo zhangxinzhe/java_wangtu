@@ -35,6 +35,7 @@ public class RewardMapper implements RowMapper<Reward> {
             entity.setUserName(rs.getString("username"));
             entity.setRealName(rs.getString("REALNAME"));
             entity.setCataName(rs.getString("CataName"));
+            entity.setPhone(rs.getString("PHONE"));
             return entity;
         }
     }

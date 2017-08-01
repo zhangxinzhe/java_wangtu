@@ -10,7 +10,7 @@ package net.zdsoft.chnmaster.enums.wangtu;
  * @version $Revision: 1.0 $, $Date: 2017年7月17日 下午3:57:09 $
  */
 public enum BiddingStatus {
-	UNPAY(0, "未支付"), PAY(1, "已支付"), FINISH(2, "竞价成功"),  FAIL(3, "竞价失败"),  USER_CANCEL(4, "用户撤销"),  PUBLISHER_CANCEL(5, "发布撤销");
+	UNPAY(0, "未支付"), PAY(1, "已支付"), SUCCESS(2, "竞价成功"),  FINISH(3, "任务完成"),  FAIL(4, "竞价失败"),  USER_CANCEL(5, "用户撤销"),  PUBLISHER_CANCEL(6, "发布撤销");
 
     private int value;
     private String nameValue;
