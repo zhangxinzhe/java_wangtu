@@ -55,14 +55,14 @@ public class RewardBiddingServiceImpl implements RewardBiddingService {
     }
 
     @Override
-    public String cancelBiddingReward(long biddingId) {
+    public String cancelBiddingReward(long biddingId, BiddingStatus states) {
         RewardBidding bidding = rewardBiddingDao.getRewardBiddingById(biddingId);
         if (null == bidding) {
             return "竞价信息不存在！";
         }
 
         // 修改竞价状态
-        int i = rewardBiddingDao.updateStatusById(biddingId, BiddingStatus.USER_CANCEL);
+        int i = rewardBiddingDao.updateStatusById(biddingId, states);
         if (i <= 0) {
             return "撤销失败，请重试！";
         }

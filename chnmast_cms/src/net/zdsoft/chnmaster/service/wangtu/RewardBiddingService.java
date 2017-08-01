@@ -8,6 +8,7 @@ package net.zdsoft.chnmaster.service.wangtu;
 import java.util.List;
 
 import net.zdsoft.chnmaster.entity.wangtu.RewardBidding;
+import net.zdsoft.chnmaster.enums.wangtu.BiddingStatus;
 
 /**
  * @author pc
@@ -42,6 +43,12 @@ public interface RewardBiddingService {
 
     public RewardBidding getRewardBiddingByByRewardIdAndUserId(long rewardId, long userId);
 
-    public String cancelBiddingReward(long biddingId);
+    /**
+     * 取消竞价
+     * 
+     * @param biddingId
+     * @return
+     */
+    public String cancelBiddingReward(long biddingId, BiddingStatus states);
 
 }

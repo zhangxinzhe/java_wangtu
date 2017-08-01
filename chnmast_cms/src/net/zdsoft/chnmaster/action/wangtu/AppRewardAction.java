@@ -365,13 +365,20 @@ public class AppRewardAction extends CmsPageAction {
      * 撤销悬赏
      */
     public void cancelReward() {
+        if (getUser() == null) {
+            printMsg("请先登录");
+            return;
+        }
         printMsg("success");
     }
 
     // 取消竞价
     public void cancelBidding() {
-
-        printMsg(rewardBiddingService.cancelBiddingReward(biddingId));
+        if (getUser() == null) {
+            printMsg("请先登录");
+            return;
+        }
+        printMsg(rewardBiddingService.cancelBiddingReward(biddingId, BiddingStatus.USER_CANCEL));
     }
 
     /**
