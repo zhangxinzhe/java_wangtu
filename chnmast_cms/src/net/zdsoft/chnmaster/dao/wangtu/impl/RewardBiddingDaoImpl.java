@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
 import net.zdsoft.chnmaster.dao.wangtu.RewardBiddingDao;
 import net.zdsoft.chnmaster.entity.wangtu.RewardBidding;
 import net.zdsoft.chnmaster.entity.wangtu.mapper.RewardBiddingMapper;
+import net.zdsoft.chnmaster.enums.wangtu.BiddingStatus;
 import net.zdsoft.common.dao.BaseDaoImpl;
 
 /**
@@ -25,7 +26,7 @@ public class RewardBiddingDaoImpl extends BaseDaoImpl implements RewardBiddingDa
 
     @Override
     public List<RewardBidding> getRewardBiddingByRewardId(long rewardId) {
-        String sql = "SELECT * FROM T_REWARD_BIDDING R ,T_USER U WHERE U.ID = R.USER_ID AND R.REWARD_ID=? ORDER BY R.CREATE_DATE ";
+        String sql = "SELECT * FROM T_REWARD_BIDDING R ,T_USER U WHERE U.ID = R.USER_ID AND R.REWARD_ID=? AND STATE<4 ORDER BY R.CREATE_DATE ";
         return this.find(sql, new Object[] { rewardId }, RewardBiddingMapper.instance());
 
     }
@@ -39,7 +40,7 @@ public class RewardBiddingDaoImpl extends BaseDaoImpl implements RewardBiddingDa
 
     @Override
     public int isApplyRewardByRewardIdAndUserId(long rewardId, long userId) {
-        String sql = "SELECT COUNT(1) FROM T_REWARD_BIDDING WHERE REWARD_ID=? AND USER_ID=? ";
+        String sql = "SELECT COUNT(1) FROM T_REWARD_BIDDING WHERE REWARD_ID=? AND USER_ID=? AND STATE < 4";
         return this.findForInt(sql, new Object[] { rewardId, userId });
     }
 
@@ -48,6 +49,18 @@ public class RewardBiddingDaoImpl extends BaseDaoImpl implements RewardBiddingDa
         String sql = "SELECT * FROM T_REWARD_BIDDING WHERE REWARD_ID=? AND USER_ID=? ";
         return (RewardBidding) this.findForObject(sql, new Object[] { rewardId, userId },
                 RewardBiddingMapper.instance());
+    }
+
+    @Override
+    public int updateStatusById(long biddingId, BiddingStatus state) {
+        String sql = "UPDATE T_REWARD_BIDDING SET STATE=? WHERE ID=?";
+        return this.executeUpdate(sql, new Object[] { state.getValue(), biddingId });
+    }
+
+    @Override
+    public RewardBidding getRewardBiddingById(long id) {
+        String sql = "SELECT * FROM T_REWARD_BIDDING WHERE ID=? AND STATE<4";
+        return (RewardBidding) findForObject(sql, new Object[] { id }, RewardBiddingMapper.instance());
     }
 
 }

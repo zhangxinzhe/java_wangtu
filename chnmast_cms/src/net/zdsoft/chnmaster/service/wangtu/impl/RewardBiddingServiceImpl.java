@@ -12,8 +12,13 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import net.zdsoft.chnmaster.dao.wangtu.RewardBiddingDao;
+import net.zdsoft.chnmaster.entity.wangtu.Order;
 import net.zdsoft.chnmaster.entity.wangtu.RewardBidding;
+import net.zdsoft.chnmaster.enums.wangtu.BiddingStatus;
+import net.zdsoft.chnmaster.service.account.AccountService;
+import net.zdsoft.chnmaster.service.wangtu.OrderService;
 import net.zdsoft.chnmaster.service.wangtu.RewardBiddingService;
+import net.zdsoft.common.entity.account.Account;
 
 /**
  * @author pc
@@ -22,8 +27,12 @@ import net.zdsoft.chnmaster.service.wangtu.RewardBiddingService;
 @Service("rewardBiddingService")
 public class RewardBiddingServiceImpl implements RewardBiddingService {
 
-	@Resource
+    @Resource
     private RewardBiddingDao rewardBiddingDao;
+    @Resource
+    private OrderService orderService;
+    @Resource
+    private AccountService accountService;
 
     @Override
     public List<RewardBidding> getRewardBiddingByRewardId(long rewardId) {
@@ -43,6 +52,29 @@ public class RewardBiddingServiceImpl implements RewardBiddingService {
     @Override
     public RewardBidding getRewardBiddingByByRewardIdAndUserId(long rewardId, long userId) {
         return rewardBiddingDao.getRewardBiddingByByRewardIdAndUserId(rewardId, userId);
+    }
+
+    @Override
+    public String cancelBiddingReward(long biddingId) {
+        RewardBidding bidding = rewardBiddingDao.getRewardBiddingById(biddingId);
+        if (null == bidding) {
+            return "竞价信息不存在！";
+        }
+
+        // 修改竞价状态
+        int i = rewardBiddingDao.updateStatusById(biddingId, BiddingStatus.USER_CANCEL);
+        if (i <= 0) {
+            return "撤销失败，请重试！";
+        }
+        // 查询竞价支付订单
+        Order order = orderService.getFinishOrderByUserIdAndRewardId(bidding.getUserId(), bidding.getRewardId());
+        if (order != null) {
+            // 支付金额退回
+            Account a = accountService.getAccountById(bidding.getUserId());
+            // a.setFunds(a.getFunds() + order.getPayAmount());
+            accountService.updateFundsByAccountId(a.getId(), a.getFunds() + order.getPayAmount());
+        }
+        return "success";
     }
 
 }

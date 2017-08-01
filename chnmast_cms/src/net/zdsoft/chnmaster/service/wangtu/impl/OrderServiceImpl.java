@@ -64,4 +64,10 @@ public class OrderServiceImpl implements OrderService {
         return orderDao.listOrder(cons, page);
     }
 
+    @Override
+    public Order getFinishOrderByUserIdAndRewardId(long userId, long rewardId) {
+
+        return orderDao.getFinishOrderByUserIdAndRewardId(userId, rewardId);
+    }
+
 }

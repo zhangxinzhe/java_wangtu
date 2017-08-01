@@ -8,6 +8,7 @@ package net.zdsoft.chnmaster.dao.wangtu;
 import java.util.List;
 
 import net.zdsoft.chnmaster.entity.wangtu.RewardBidding;
+import net.zdsoft.chnmaster.enums.wangtu.BiddingStatus;
 
 /**
  * @author pc
@@ -40,4 +41,20 @@ public interface RewardBiddingDao {
     public int isApplyRewardByRewardIdAndUserId(long rewardId, long userId);
 
     public RewardBidding getRewardBiddingByByRewardIdAndUserId(long rewardId, long userId);
+
+    /**
+     * 修改竞价状态
+     *
+     * @param biddingId
+     * @return
+     */
+    public int updateStatusById(long biddingId, BiddingStatus state);
+
+    /**
+     * 根据id查询
+     * 
+     * @param id
+     * @return
+     */
+    public RewardBidding getRewardBiddingById(long id);
 }

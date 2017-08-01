@@ -42,4 +42,6 @@ public interface RewardBiddingService {
 
     public RewardBidding getRewardBiddingByByRewardIdAndUserId(long rewardId, long userId);
 
+    public String cancelBiddingReward(long biddingId);
+
 }

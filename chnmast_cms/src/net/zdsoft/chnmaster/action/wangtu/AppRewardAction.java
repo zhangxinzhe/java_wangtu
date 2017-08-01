@@ -56,6 +56,7 @@ public class AppRewardAction extends CmsPageAction {
     private double price;
     private double unfinishPrice;
     private Reward reward;
+    private long biddingId;
 
     private File[] rewardFiles;
     private String rewardPictureIds;
@@ -149,6 +150,7 @@ public class AppRewardAction extends CmsPageAction {
             printMsg("您已提交竞标！");
             return;
         }
+
         RewardBidding bidding = new RewardBidding();
         bidding.setUserId(getUser().getId());
         bidding.setRewardId(rewardId);
@@ -368,7 +370,8 @@ public class AppRewardAction extends CmsPageAction {
 
     // 取消竞价
     public void cancelBidding() {
-        printMsg("success");
+
+        printMsg(rewardBiddingService.cancelBiddingReward(biddingId));
     }
 
     /**
@@ -478,6 +481,10 @@ public class AppRewardAction extends CmsPageAction {
 
     public void setRewardPictureIds(String rewardPictureIds) {
         this.rewardPictureIds = rewardPictureIds;
+    }
+
+    public void setBiddingId(long biddingId) {
+        this.biddingId = biddingId;
     }
 
 }

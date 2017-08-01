@@ -72,4 +72,11 @@ public class OrderDaoImpl extends BaseDaoImpl implements OrderDao {
         return null;
     }
 
+    @Override
+    public Order getFinishOrderByUserIdAndRewardId(long userId, long rewardId) {
+        String sql = "SELECT * FROM T_ORDER WHERE USER_ID=? AND RELATION_ID=? AND ORDER_STATUS=?";
+        return (Order) findForObject(sql, new Object[] { userId, rewardId, OrderStatus.SUCCESS },
+                OrderMapper.instance());
+    }
+
 }

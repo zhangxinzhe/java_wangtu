@@ -68,4 +68,13 @@ public interface OrderService {
      * @return
      */
     public List<Order> listOrder(List<QueryCondition> cons, PageDto page);
+
+    /**
+     * 获取用户竞价订单
+     *
+     * @param userId
+     * @param rewardId
+     * @return
+     */
+    public Order getFinishOrderByUserIdAndRewardId(long userId, long rewardId);
 }

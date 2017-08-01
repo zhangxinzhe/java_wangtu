@@ -54,10 +54,11 @@ public interface RewardService {
 
     /**
      * 获取用户的竞价悬赏
-     * 
+     *
      * @param rewardId
      * @param userId
      * @return
      */
     public Reward getUserBiddingReward(long rewardId, long userId);
+
 }
