@@ -13,7 +13,7 @@
     <@sidebar curTopModId=topModId curSubModId=subModId />
     
     <div id="content">
-        <p class="crumbs">当前位置：基础数据&nbsp;&gt;&nbsp;<span>悬赏管理</span></p>
+        <p class="crumbs">当前位置：业务&nbsp;&gt;&nbsp;<span>悬赏管理</span></p>
         <form id="studentForm" action="" method="post">
             <table class="form-table validateForm mt-10">
                 <tr>
