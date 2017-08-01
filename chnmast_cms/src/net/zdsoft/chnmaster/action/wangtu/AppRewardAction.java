@@ -369,7 +369,7 @@ public class AppRewardAction extends CmsPageAction {
             printMsg("请先登录");
             return;
         }
-        printMsg("success");
+        printMsg(rewardService.cancelReward(rewardId));
     }
 
     // 取消竞价

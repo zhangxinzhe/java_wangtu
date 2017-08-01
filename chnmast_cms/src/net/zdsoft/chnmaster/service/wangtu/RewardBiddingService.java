@@ -45,10 +45,18 @@ public interface RewardBiddingService {
 
     /**
      * 取消竞价
-     * 
+     *
      * @param biddingId
      * @return
      */
     public String cancelBiddingReward(long biddingId, BiddingStatus states);
+
+    /**
+     * 修改竞价状态
+     *
+     * @param biddingId
+     * @return
+     */
+    public int updateStatusById(long biddingId, BiddingStatus state);
 
 }

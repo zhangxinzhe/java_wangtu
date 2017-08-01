@@ -21,14 +21,19 @@ import org.springframework.stereotype.Service;
 
 import net.zdsoft.chnmaster.dao.wangtu.RewardBiddingDao;
 import net.zdsoft.chnmaster.dao.wangtu.RewardDao;
+import net.zdsoft.chnmaster.entity.wangtu.Order;
 import net.zdsoft.chnmaster.entity.wangtu.Reward;
 import net.zdsoft.chnmaster.entity.wangtu.RewardBidding;
 import net.zdsoft.chnmaster.entity.wangtu.RewardPicture;
+import net.zdsoft.chnmaster.enums.wangtu.BiddingStatus;
 import net.zdsoft.chnmaster.enums.wangtu.RewardStatus;
+import net.zdsoft.chnmaster.service.account.AccountService;
+import net.zdsoft.chnmaster.service.wangtu.OrderService;
 import net.zdsoft.chnmaster.service.wangtu.RewardPictureService;
 import net.zdsoft.chnmaster.service.wangtu.RewardService;
 import net.zdsoft.common.dao.queryCondition.QueryCondition;
 import net.zdsoft.common.entity.PageDto;
+import net.zdsoft.common.entity.account.Account;
 import net.zdsoft.common.filesystem.util.FileSystemUtil;
 
 /**
@@ -44,6 +49,10 @@ public class RewardServiceImpl implements RewardService {
     private RewardBiddingDao rewardBiddingDao;
     @Resource
     private RewardPictureService rewardPictureService;
+    @Resource
+    private OrderService orderService;
+    @Resource
+    private AccountService accountService;
 
     @Override
     public List<Reward> getRewardsByCondition(List<QueryCondition> condistions, PageDto page) {
@@ -195,6 +204,43 @@ public class RewardServiceImpl implements RewardService {
         Reward reward = rewardDao.getRewardById(rewardId);
         reward.setBiddingDetail(rewardBiddingDao.getRewardBiddingByByRewardIdAndUserId(rewardId, userId));
         return reward;
+    }
+
+    @Override
+    public String cancelReward(long rewardId) {
+        Reward reward = rewardDao.getRewardById(rewardId);
+        if (null == reward) {
+            return "悬赏数据不存在！";
+        }
+        if (reward.getStatus() == RewardStatus.FINISH || reward.getStatus() == RewardStatus.CANCEL) {
+            return "悬赏已经" + reward.getStatus().getNameValue() + "!";
+
+        }
+        int i = rewardDao.updateRewardStatus(rewardId, RewardStatus.CANCEL);
+        if (i <= 0) {
+            return "撤销失败，请重试！";
+        }
+        // 退回竞价金额
+        List<RewardBidding> list = rewardBiddingDao.getRewardBiddingByRewardId(reward.getId());
+        if (CollectionUtils.isNotEmpty(list)) {
+            for (RewardBidding bidding : list) {
+                // 修改竞价状态
+                int m = rewardBiddingDao.updateStatusById(bidding.getId(), BiddingStatus.PUBLISHER_CANCEL);
+                if (m > 0) {
+                    // 查询竞价支付订单
+                    Order order = orderService.getFinishOrderByUserIdAndRewardId(bidding.getUserId(),
+                            bidding.getRewardId());
+                    if (order != null) {
+                        // 支付金额退回
+                        Account a = accountService.getAccountById(bidding.getUserId());
+                        // a.setFunds(a.getFunds() + order.getPayAmount());
+                        accountService.updateFundsByAccountId(a.getId(), a.getFunds() + order.getPayAmount());
+                    }
+                }
+            }
+        }
+
+        return "success";
     }
 
 }

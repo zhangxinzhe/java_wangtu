@@ -61,4 +61,12 @@ public interface RewardService {
      */
     public Reward getUserBiddingReward(long rewardId, long userId);
 
+    /**
+     * 撤销悬赏
+     * 
+     * @param rewardId
+     * @return
+     */
+    public String cancelReward(long rewardId);
+
 }

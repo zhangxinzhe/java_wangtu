@@ -77,4 +77,11 @@ public class RewardBiddingServiceImpl implements RewardBiddingService {
         return "success";
     }
 
+    @Override
+    public int updateStatusById(long biddingId, BiddingStatus state) {
+
+        return rewardBiddingDao.updateStatusById(biddingId, state);
+
+    }
+
 }
