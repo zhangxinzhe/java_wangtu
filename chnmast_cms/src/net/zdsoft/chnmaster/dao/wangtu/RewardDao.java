@@ -34,6 +34,8 @@ public interface RewardDao {
     public List<Reward> getRewardsByCondition(List<QueryCondition> condistions, PageDto page);
 
     public int addReward(Reward reward);
+    
+    public int updateReward(Reward reward);
 
     public int deleteReward(long id);
 

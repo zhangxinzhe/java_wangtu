@@ -8,6 +8,7 @@ package net.zdsoft.chnmaster.entity.wangtu;
 import java.util.Date;
 import java.util.List;
 
+import net.zdsoft.chnmaster.enums.wangtu.BiddingStatus;
 import net.zdsoft.chnmaster.enums.wangtu.RewardStatus;
 import net.zdsoft.common.entity.BaseEntity;
 
@@ -39,6 +40,7 @@ public class Reward extends BaseEntity {
     private List<RewardBidding> biddingList;
     private List<RewardPicture> pictures;
     private int biddingNum;
+    private BiddingStatus biddingStatus;
 
     public long getUserId() {
         return userId;
@@ -182,6 +184,14 @@ public class Reward extends BaseEntity {
 
 	public void setBiddingNum(int biddingNum) {
 		this.biddingNum = biddingNum;
+	}
+
+	public BiddingStatus getBiddingStatus() {
+		return biddingStatus;
+	}
+
+	public void setBiddingStatus(BiddingStatus biddingStatus) {
+		this.biddingStatus = biddingStatus;
 	}
 	
 	

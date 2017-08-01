@@ -58,6 +58,7 @@ public class AppRewardAction extends CmsPageAction {
     private Reward reward;
 
     private File[] rewardFiles;
+    private String rewardPictureIds;
     private String[] rewardFilesFileName;
     private String[] rewardFilesContentType;
 
@@ -275,6 +276,41 @@ public class AppRewardAction extends CmsPageAction {
         }
         printMsg("新增失败，请重试！");
     }
+    
+    // 修改悬赏
+    public void updateReward() {
+    	if (getUser() == null) {
+            printMsg("您还未登录！");
+            return;
+        }
+    	if(reward == null || reward.getId() <= 0){
+    		printMsg("悬赏信息查询失败！");
+            return;
+    	}
+        String str = validateReward();
+        if (!StringUtils.isBlank(str)) {
+            printMsg(str);
+            return;
+        }
+        reward.setCreateTime(new Date());
+        if(reward.getStatus() == null){
+        	reward.setStatus(RewardStatus.CREATE);
+        }
+       
+        int i;
+        try {
+        	 i = rewardService.updateReward(reward, rewardFiles, rewardPictureIds);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            i = 0;
+        }
+        if (i > 0) {
+            printMsg("success");
+            return;
+        }
+        printMsg("新增失败，请重试！");
+    }
 
     /**
      * 删除悬赏
@@ -417,4 +453,9 @@ public class AppRewardAction extends CmsPageAction {
         this.rewardFilesContentType = rewardFilesContentType;
     }
 
+	public void setRewardPictureIds(String rewardPictureIds) {
+		this.rewardPictureIds = rewardPictureIds;
+	}
+	
+	
 }

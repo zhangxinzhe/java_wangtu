@@ -39,9 +39,9 @@ public class RewardDaoImpl extends BaseDaoImpl implements RewardDao {
         }
         sql += " order by create_time desc";
         if (page == null) {
-            return this.find(sql, builder.buildParameters(), RewardMapper.instance());
+            return this.find(sql, builder.buildParameters(), RewardMapper.rewardAndCatalogAndUserMapper);
         }
-        return this.findForPage(sql, builder.buildParameters(), RewardMapper.instance(), page);
+        return this.findForPage(sql, builder.buildParameters(), RewardMapper.rewardAndCatalogAndUserMapper, page);
     }
 
     @Override
@@ -52,6 +52,15 @@ public class RewardDaoImpl extends BaseDaoImpl implements RewardDao {
                 new Object[] { reward.getId(), reward.getUserId(), reward.getCatalogId(), reward.getTitle(),
                         reward.getDescription(), reward.getLocation(), reward.getPrice(), reward.getUnfinishPrice(),
                         reward.getRemark(), new Date(), reward.getDeadline() });
+    }
+    
+    @Override
+    public int updateReward(Reward reward){
+    	String sql = "update T_REWARD set USER_ID = ?,CATALOG_ID = ?,TITLE = ?,DESCRIPTION = ?,LOCATION = ?,PRICE = ?,unfinish_price = ?,REMARK= ?,create_time= ?,deadline= ?,reward_status= ? where id = ?";
+        return this.executeUpdate(sql,
+                new Object[] { reward.getUserId(), reward.getCatalogId(), reward.getTitle(),
+                        reward.getDescription(), reward.getLocation(), reward.getPrice(), reward.getUnfinishPrice(),
+                        reward.getRemark(), new Date(), reward.getDeadline() ,reward.getStatus().getValue(),reward.getId()});
     }
 
     @Override
@@ -68,7 +77,7 @@ public class RewardDaoImpl extends BaseDaoImpl implements RewardDao {
     @Override
     public Reward getRewardById(long rewardId) {
         String sql = "SELECT R.*,U.USERNAME,U.REALNAME,C.CATANAME FROM T_REWARD R,T_USER U,T_CATALOG C WHERE U.ID=R.USER_ID AND C.ID=R.CATALOG_ID AND R.ID=?";
-        return (Reward) this.findForObject(sql, new Object[] { rewardId }, RewardMapper.instance());
+        return (Reward) this.findForObject(sql, new Object[] { rewardId }, RewardMapper.rewardAndCatalogAndUserMapper);
     }
 
     @Override
@@ -78,11 +87,11 @@ public class RewardDaoImpl extends BaseDaoImpl implements RewardDao {
 
     @Override
     public List<Reward> getMyRewardBidding(long userId, PageDto page) {
-        String sql = "SELECT T.* FROM T_REWARD T,T_REWARD_BIDDING B WHERE B.REWARD_ID=T.ID AND B.USER_ID=? ";
+        String sql = "SELECT T.*,B.state FROM T_REWARD T,T_REWARD_BIDDING B WHERE B.REWARD_ID=T.ID AND B.USER_ID=? ";
         if (null == page) {
-            return this.find(sql, new Object[] { userId }, RewardMapper.instance());
+            return this.find(sql, new Object[] { userId }, RewardMapper.rewardAndBiddingMapper);
         }
-        return this.findForPage(sql, new Object[] { userId }, RewardMapper.instance(), page);
+        return this.findForPage(sql, new Object[] { userId }, RewardMapper.rewardAndBiddingMapper, page);
     }
 
     @Override

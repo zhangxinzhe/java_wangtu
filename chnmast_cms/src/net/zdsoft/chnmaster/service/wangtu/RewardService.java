@@ -29,6 +29,8 @@ public interface RewardService {
     public List<Reward> getRewardsByCondition(List<QueryCondition> condistions, PageDto page);
 
     public int addReward(Reward reward, File[] files) throws Exception;
+    
+    public int updateReward(Reward reward, File[] files,String rewardPictureIds) throws Exception;
 
     public int deleteReward(long id);
 

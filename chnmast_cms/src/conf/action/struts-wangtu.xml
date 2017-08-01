@@ -43,6 +43,9 @@
         <!-- 新增悬赏-->
         <action name="addReward" class="appRewardAction" method="addReward">
         </action>
+        <!-- 更新悬赏-->
+        <action name="updateReward" class="appRewardAction" method="updateReward">
+        </action>
         <!-- 删除悬赏-->
         <action name="deleteReward" class="appRewardAction" method="deleteReward">
         </action>
