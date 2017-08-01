@@ -14,7 +14,7 @@ package net.zdsoft.chnmaster.enums.wangtu;
 
 public enum RewardStatus {
 
-    CREATE(1, "创建"), PUBLISH(2, "发布"), GETTING(3, "确认接单中"), DOING(4, "已接单"), FINISH(5, "完成");
+    CREATE(1, "创建"), PUBLISH(2, "发布"), DOING(3, "已接单"), FINISH(4, "完成"), CANCEL(5, "撤销");
 
     private int value;
     private String nameValue;
