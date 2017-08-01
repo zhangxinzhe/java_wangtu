@@ -10,7 +10,6 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import net.zdsoft.chnmaster.entity.wangtu.Order;
 import net.zdsoft.chnmaster.entity.wangtu.Reward;
 import net.zdsoft.chnmaster.enums.wangtu.BiddingStatus;
 import net.zdsoft.chnmaster.enums.wangtu.RewardStatus;
@@ -24,27 +23,27 @@ public class RewardMapper implements RowMapper<Reward> {
     private static RewardMapper rowMapper = new RewardMapper();
     public static RewardAndCatalogAndUserMapper rewardAndCatalogAndUserMapper = new RewardAndCatalogAndUserMapper();
     public static RewardAndBiddingMapper rewardAndBiddingMapper = new RewardAndBiddingMapper();
-    
+
     public static RewardMapper instance() {
         return rowMapper;
     }
-    
+
     static class RewardAndCatalogAndUserMapper implements RowMapper<Reward> {
         @Override
         public Reward mapRow(ResultSet rs, int arg1) throws SQLException {
-        	Reward entity = rowMapper.mapRow(rs, arg1);
-        	entity.setUserName(rs.getString("username"));
-        	entity.setRealName(rs.getString("REALNAME"));
-        	entity.setCataName(rs.getString("CataName"));
+            Reward entity = rowMapper.mapRow(rs, arg1);
+            entity.setUserName(rs.getString("username"));
+            entity.setRealName(rs.getString("REALNAME"));
+            entity.setCataName(rs.getString("CataName"));
             return entity;
         }
     }
-    
+
     static class RewardAndBiddingMapper implements RowMapper<Reward> {
         @Override
         public Reward mapRow(ResultSet rs, int arg1) throws SQLException {
-        	Reward entity = rowMapper.mapRow(rs, arg1);
-        	entity.setBiddingStatus(BiddingStatus.getStatus(rs.getInt("state")));
+            Reward entity = rowMapper.mapRow(rs, arg1);
+            entity.setBiddingStatus(BiddingStatus.getStatus(rs.getInt("state")));
             return entity;
         }
     }

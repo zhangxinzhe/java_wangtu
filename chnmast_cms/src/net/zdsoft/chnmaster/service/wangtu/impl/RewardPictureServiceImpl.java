@@ -40,4 +40,9 @@ public class RewardPictureServiceImpl implements RewardPictureService {
         return rewardPictureDao.addPucture(pics);
     }
 
+    @Override
+    public int deletePicturesByRewardId(long rewardId) {
+        return rewardPictureDao.deletePicturesByRewardId(rewardId);
+    }
+
 }

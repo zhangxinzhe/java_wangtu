@@ -59,4 +59,10 @@ public class RewardPictureDaoImpl extends BaseDaoImpl implements RewardPictureDa
         // return this.executeUpdate(sql, new Object[] { pic.getRewardId(), pic.getFilePath() });
     }
 
+    @Override
+    public int deletePicturesByRewardId(long rewardId) {
+        String sql = "DELETE FROM T_REWARD_PICTURE WHERE REWARD_ID=? ";
+        return this.executeUpdate(sql, new Object[] { rewardId });
+    }
+
 }

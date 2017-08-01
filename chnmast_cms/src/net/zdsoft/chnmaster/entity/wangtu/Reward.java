@@ -42,6 +42,11 @@ public class Reward extends BaseEntity {
     private int biddingNum;
     private BiddingStatus biddingStatus;
 
+    /**
+     * 竞价详情
+     */
+    private RewardBidding biddingDetail;
+
     public long getUserId() {
         return userId;
     }
@@ -162,40 +167,44 @@ public class Reward extends BaseEntity {
         this.pictures = pictures;
     }
 
-	public Date getDeadline() {
-		return deadline;
-	}
+    public Date getDeadline() {
+        return deadline;
+    }
 
-	public void setDeadline(Date deadline) {
-		this.deadline = deadline;
-	}
+    public void setDeadline(Date deadline) {
+        this.deadline = deadline;
+    }
 
-	public String getPicturePath() {
-		return picturePath;
-	}
+    public String getPicturePath() {
+        return picturePath;
+    }
 
-	public void setPicturePath(String picturePath) {
-		this.picturePath = picturePath;
-	}
+    public void setPicturePath(String picturePath) {
+        this.picturePath = picturePath;
+    }
 
-	public int getBiddingNum() {
-		return biddingNum;
-	}
+    public int getBiddingNum() {
+        return biddingNum;
+    }
 
-	public void setBiddingNum(int biddingNum) {
-		this.biddingNum = biddingNum;
-	}
+    public void setBiddingNum(int biddingNum) {
+        this.biddingNum = biddingNum;
+    }
 
-	public BiddingStatus getBiddingStatus() {
-		return biddingStatus;
-	}
+    public BiddingStatus getBiddingStatus() {
+        return biddingStatus;
+    }
 
-	public void setBiddingStatus(BiddingStatus biddingStatus) {
-		this.biddingStatus = biddingStatus;
-	}
-	
-	
-	
-	
+    public void setBiddingStatus(BiddingStatus biddingStatus) {
+        this.biddingStatus = biddingStatus;
+    }
+
+    public RewardBidding getBiddingDetail() {
+        return biddingDetail;
+    }
+
+    public void setBiddingDetail(RewardBidding biddingDetail) {
+        this.biddingDetail = biddingDetail;
+    }
 
 }

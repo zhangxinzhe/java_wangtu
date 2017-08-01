@@ -105,6 +105,17 @@ public class AppRewardAction extends CmsPageAction {
     }
 
     /**
+     * 竞价详情
+     */
+    public void biddingDetail() {
+        Map<String, Object> json = new HashMap<String, Object>();
+        Reward reward = rewardService.getUserBiddingReward(rewardId, getUser().getId());
+        json.put("reward", reward);
+        printJsonMap(json);
+        return;
+    }
+
+    /**
      * 分类列表
      */
     public void listCatalogs() {
@@ -276,30 +287,30 @@ public class AppRewardAction extends CmsPageAction {
         }
         printMsg("新增失败，请重试！");
     }
-    
+
     // 修改悬赏
     public void updateReward() {
-    	if (getUser() == null) {
+        if (getUser() == null) {
             printMsg("您还未登录！");
             return;
         }
-    	if(reward == null || reward.getId() <= 0){
-    		printMsg("悬赏信息查询失败！");
+        if (reward == null || reward.getId() <= 0) {
+            printMsg("悬赏信息查询失败！");
             return;
-    	}
+        }
         String str = validateReward();
         if (!StringUtils.isBlank(str)) {
             printMsg(str);
             return;
         }
         reward.setCreateTime(new Date());
-        if(reward.getStatus() == null){
-        	reward.setStatus(RewardStatus.CREATE);
+        if (reward.getStatus() == null) {
+            reward.setStatus(RewardStatus.CREATE);
         }
-       
+
         int i;
         try {
-        	 i = rewardService.updateReward(reward, rewardFiles, rewardPictureIds);
+            i = rewardService.updateReward(reward, rewardFiles, rewardPictureIds);
         }
         catch (Exception e) {
             e.printStackTrace();
@@ -346,6 +357,18 @@ public class AppRewardAction extends CmsPageAction {
         else {
             printMsg("删除失败，请重试！");
         }
+    }
+
+    /**
+     * 撤销悬赏
+     */
+    public void cancelReward() {
+        printMsg("success");
+    }
+
+    // 取消竞价
+    public void cancelBidding() {
+        printMsg("success");
     }
 
     /**
@@ -453,9 +476,8 @@ public class AppRewardAction extends CmsPageAction {
         this.rewardFilesContentType = rewardFilesContentType;
     }
 
-	public void setRewardPictureIds(String rewardPictureIds) {
-		this.rewardPictureIds = rewardPictureIds;
-	}
-	
-	
+    public void setRewardPictureIds(String rewardPictureIds) {
+        this.rewardPictureIds = rewardPictureIds;
+    }
+
 }

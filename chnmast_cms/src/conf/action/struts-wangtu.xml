@@ -28,6 +28,9 @@
         <!-- 悬赏详情 -->
         <action name="rewardDetail" class="appRewardAction" method="rewardDetail">
         </action>
+        <!-- 竞价详情 -->
+        <action name="biddingDetail" class="appRewardAction" method="biddingDetail">
+        </action>
         <!-- 分类列表 -->
         <action name="listCatalogs" class="appRewardAction" method="listCatalogs">
         </action>
@@ -48,6 +51,12 @@
         </action>
         <!-- 删除悬赏-->
         <action name="deleteReward" class="appRewardAction" method="deleteReward">
+        </action>
+        <!-- 撤销悬赏-->
+        <action name="cancelReward" class="appRewardAction" method="cancelReward">
+        </action>
+        <!-- 取消竞价-->
+        <action name="cancelBidding" class="appRewardAction" method="cancelBidding">
         </action>
     </package>
 

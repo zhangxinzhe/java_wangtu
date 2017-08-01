@@ -6,13 +6,24 @@
 <!-- 业务管理 -->
 <struts>
     
-    <!-- 分类管理 -->
+    <!-- 悬赏管理 -->
     <package name="business" namespace="/business" extends="login-package">
         <!-- 列表 -->
         <action name="rewardManage" class="rewardManagerAction" method="rewardManage">
             <result name="success">/pages/business/rewardManage.ftl</result>
         </action>
+        
     </package>
-    
+    <!-- 提现管理 -->
+    <package name="account" namespace="/account" extends="login-package">
+        <!-- 列表 -->
+        <action name="accountManage" class="accountManageAction" method="accountManage">
+            <result name="success">/pages/business/accountManage.ftl</result>
+        </action>
+        <!-- 修改余额 -->
+        <action name="updateAccount" class="accountManageAction" method="updateAccount">
+        </action>
+        
+    </package>
     
 </struts>

@@ -8,7 +8,6 @@ package net.zdsoft.chnmaster.service.wangtu.impl;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -85,59 +84,61 @@ public class RewardServiceImpl implements RewardService {
 
         return rewardDao.addReward(reward);
     }
-    
+
     @Override
-    public int updateReward(Reward reward, File[] files,String rewardPictureIds) throws Exception{
-    	//更新之前上传的图片
-    	List<RewardPicture> rewardPictures = rewardPictureService.getListByRewardId(reward.getId());
-    	if(CollectionUtils.isNotEmpty(rewardPictures)){
-    		Map<Long,String> pathMap = new HashMap<Long,String>();
-    		for (RewardPicture rewardPicture : rewardPictures) {
-    			pathMap.put(rewardPicture.getId(), rewardPicture.getFilePath());
-			}
-    		
-    		//获取需要删除的id
-    		List<Long> deletedIds = new ArrayList<Long>();
-    		List<String> deletedPaths = new ArrayList<String>();
-    		if(StringUtils.isNotBlank(rewardPictureIds)){
-            	String[] ids = rewardPictureIds.split(",");
-            	if(ArrayUtils.isNotEmpty(ids)){
-            		try {
-            			String path = null;
-    					for (int i = 0; i < ids.length; i++) {
-    						long id = Long.parseLong(ids[i]);
-    						if((path =pathMap.get(id)) != null){
-    							deletedIds.add(id);
-    							deletedPaths.add(path);
-    						}
-    					}
-    				} catch (Exception e) {
-    					e.printStackTrace();
-    				}
-            	}
-            }else{
-        		String path = null;
-        		Set<Long> idSet = pathMap.keySet();
-        		for (Long id : idSet) {
-        			path = pathMap.get(id);
-        			deletedIds.add(id);
-        			deletedPaths.add(path);
-				}
-        	}
-    		
-    		//删除数据库和文件
-    		if(CollectionUtils.isNotEmpty(deletedIds)){
-        		for (String path : deletedPaths) {
-        			if(FileSystemUtil.fileExists(path)){
-    					FileSystemUtil.deleteFile(path);
-    				}
-				}
-        		rewardPictureService.deletePictureByIds(deletedIds.toArray(new Long[]{}));
-        	}
-    	}
-    	
-    	// 保存图片
-    	if (files != null && files.length > 0) {
+    public int updateReward(Reward reward, File[] files, String rewardPictureIds) throws Exception {
+        // 更新之前上传的图片
+        List<RewardPicture> rewardPictures = rewardPictureService.getListByRewardId(reward.getId());
+        if (CollectionUtils.isNotEmpty(rewardPictures)) {
+            Map<Long, String> pathMap = new HashMap<Long, String>();
+            for (RewardPicture rewardPicture : rewardPictures) {
+                pathMap.put(rewardPicture.getId(), rewardPicture.getFilePath());
+            }
+
+            // 获取需要删除的id
+            List<Long> deletedIds = new ArrayList<Long>();
+            List<String> deletedPaths = new ArrayList<String>();
+            if (StringUtils.isNotBlank(rewardPictureIds)) {
+                String[] ids = rewardPictureIds.split(",");
+                if (ArrayUtils.isNotEmpty(ids)) {
+                    try {
+                        String path = null;
+                        for (int i = 0; i < ids.length; i++) {
+                            long id = Long.parseLong(ids[i]);
+                            if ((path = pathMap.get(id)) != null) {
+                                deletedIds.add(id);
+                                deletedPaths.add(path);
+                            }
+                        }
+                    }
+                    catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            else {
+                String path = null;
+                Set<Long> idSet = pathMap.keySet();
+                for (Long id : idSet) {
+                    path = pathMap.get(id);
+                    deletedIds.add(id);
+                    deletedPaths.add(path);
+                }
+            }
+
+            // 删除数据库和文件
+            if (CollectionUtils.isNotEmpty(deletedIds)) {
+                for (String path : deletedPaths) {
+                    if (FileSystemUtil.fileExists(path)) {
+                        FileSystemUtil.deleteFile(path);
+                    }
+                }
+                rewardPictureService.deletePictureByIds(deletedIds.toArray(new Long[] {}));
+            }
+        }
+
+        // 保存图片
+        if (files != null && files.length > 0) {
             List<RewardPicture> pics = new ArrayList<RewardPicture>();
             for (int i = 0; i < files.length; i++) {
                 RewardPicture pic = new RewardPicture();
@@ -156,6 +157,11 @@ public class RewardServiceImpl implements RewardService {
 
     @Override
     public int deleteReward(long id) {
+        // 删除图片
+        int i = rewardPictureService.deletePicturesByRewardId(id);
+        if (i <= 0) {
+            return i;
+        }
         return rewardDao.deleteReward(id);
     }
 
@@ -182,6 +188,13 @@ public class RewardServiceImpl implements RewardService {
     @Override
     public int updateRewardStatus(long id, RewardStatus status) {
         return rewardDao.updateRewardStatus(id, status);
+    }
+
+    @Override
+    public Reward getUserBiddingReward(long rewardId, long userId) {
+        Reward reward = rewardDao.getRewardById(rewardId);
+        reward.setBiddingDetail(rewardBiddingDao.getRewardBiddingByByRewardIdAndUserId(rewardId, userId));
+        return reward;
     }
 
 }

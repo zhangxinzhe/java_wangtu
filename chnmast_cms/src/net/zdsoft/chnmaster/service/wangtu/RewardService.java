@@ -29,8 +29,8 @@ public interface RewardService {
     public List<Reward> getRewardsByCondition(List<QueryCondition> condistions, PageDto page);
 
     public int addReward(Reward reward, File[] files) throws Exception;
-    
-    public int updateReward(Reward reward, File[] files,String rewardPictureIds) throws Exception;
+
+    public int updateReward(Reward reward, File[] files, String rewardPictureIds) throws Exception;
 
     public int deleteReward(long id);
 
@@ -51,4 +51,13 @@ public interface RewardService {
      * 修改状态
      */
     public int updateRewardStatus(long id, RewardStatus status);
+
+    /**
+     * 获取用户的竞价悬赏
+     * 
+     * @param rewardId
+     * @param userId
+     * @return
+     */
+    public Reward getUserBiddingReward(long rewardId, long userId);
 }

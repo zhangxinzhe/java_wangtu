@@ -38,4 +38,12 @@ public interface RewardPictureService {
      * @return
      */
     public int addPucture(List<RewardPicture> pic);
+
+    /**
+     * 删除悬赏的图片
+     * 
+     * @param rewardId
+     * @return
+     */
+    public int deletePicturesByRewardId(long rewardId);
 }
