@@ -12,9 +12,11 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import net.zdsoft.chnmaster.dao.wangtu.RewardBiddingDao;
+import net.zdsoft.chnmaster.dao.wangtu.RewardDao;
 import net.zdsoft.chnmaster.entity.wangtu.Order;
 import net.zdsoft.chnmaster.entity.wangtu.RewardBidding;
 import net.zdsoft.chnmaster.enums.wangtu.BiddingStatus;
+import net.zdsoft.chnmaster.enums.wangtu.RewardStatus;
 import net.zdsoft.chnmaster.service.account.AccountService;
 import net.zdsoft.chnmaster.service.wangtu.OrderService;
 import net.zdsoft.chnmaster.service.wangtu.RewardBiddingService;
@@ -29,6 +31,8 @@ public class RewardBiddingServiceImpl implements RewardBiddingService {
 
     @Resource
     private RewardBiddingDao rewardBiddingDao;
+    @Resource
+    private RewardDao rewardDao;
     @Resource
     private OrderService orderService;
     @Resource
@@ -55,7 +59,7 @@ public class RewardBiddingServiceImpl implements RewardBiddingService {
     }
 
     @Override
-    public String cancelBiddingReward(long biddingId, BiddingStatus states) {
+    public String updateCancelBiddingReward(long biddingId, BiddingStatus states) {
         RewardBidding bidding = rewardBiddingDao.getRewardBiddingById(biddingId);
         if (null == bidding) {
             return "竞价信息不存在！";
@@ -82,6 +86,16 @@ public class RewardBiddingServiceImpl implements RewardBiddingService {
 
         return rewardBiddingDao.updateStatusById(biddingId, state);
 
+    }
+    
+    @Override
+    public int updateStatusToChoosed(long biddingId){
+    	RewardBidding bidding = rewardBiddingDao.getRewardBiddingById(biddingId);
+    	if(bidding == null){
+    		return 0;
+    	}
+    	rewardBiddingDao.updateStatusById(biddingId, BiddingStatus.SUCCESS);
+    	return rewardDao.updateRewardStatus(bidding.getRewardId(), RewardStatus.DOING);
     }
 
 }

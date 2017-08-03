@@ -30,7 +30,7 @@ public class RewardDaoImpl extends BaseDaoImpl implements RewardDao {
 
     @Override
     public List<Reward> getRewardsByCondition(List<QueryCondition> condistions, PageDto page) {
-        String sql = "SELECT R.*,U.USERNAME,U.REALNAME,C.CATANAME FROM T_REWARD R,T_USER U,T_CATALOG C WHERE U.ID=R.USER_ID AND C.ID=R.CATALOG_ID ";
+        String sql = "SELECT R.*,U.USERNAME,U.REALNAME,C.CATANAME,U.PHONE FROM T_REWARD R,T_USER U,T_CATALOG C WHERE U.ID=R.USER_ID AND C.ID=R.CATALOG_ID ";
         QueryConditionBuilder builder = new QueryConditionBuilder();
         builder.addConditions(condistions);
         String paramStr = builder.buildCondition();
@@ -76,7 +76,7 @@ public class RewardDaoImpl extends BaseDaoImpl implements RewardDao {
 
     @Override
     public Reward getRewardById(long rewardId) {
-        String sql = "SELECT R.*,U.USERNAME,U.REALNAME,C.CATANAME,U.PHONECATANAME FROM T_REWARD R,T_USER U,T_CATALOG C WHERE U.ID=R.USER_ID AND C.ID=R.CATALOG_ID AND R.ID=?";
+        String sql = "SELECT R.*,U.USERNAME,U.REALNAME,C.CATANAME,U.PHONE,CATANAME FROM T_REWARD R,T_USER U,T_CATALOG C WHERE U.ID=R.USER_ID AND C.ID=R.CATALOG_ID AND R.ID=?";
         return (Reward) this.findForObject(sql, new Object[] { rewardId }, RewardMapper.rewardAndCatalogAndUserMapper);
     }
 

@@ -8,6 +8,7 @@ package net.zdsoft.chnmaster.service.wangtu.impl;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -97,27 +98,17 @@ public class RewardServiceImpl implements RewardService {
     @Override
     public int updateReward(Reward reward, File[] files, String rewardPictureIds) throws Exception {
         // 更新之前上传的图片
-        List<RewardPicture> rewardPictures = rewardPictureService.getListByRewardId(reward.getId());
-        if (CollectionUtils.isNotEmpty(rewardPictures)) {
-            Map<Long, String> pathMap = new HashMap<Long, String>();
-            for (RewardPicture rewardPicture : rewardPictures) {
-                pathMap.put(rewardPicture.getId(), rewardPicture.getFilePath());
-            }
 
-            // 获取需要删除的id
-            List<Long> deletedIds = new ArrayList<Long>();
-            List<String> deletedPaths = new ArrayList<String>();
+    	List<RewardPicture> rewardPictures = rewardPictureService.getListByRewardId(reward.getId());
+        if (CollectionUtils.isNotEmpty(rewardPictures)) {
+            //获取需要的id
+        	Set<Long> idset = new HashSet<>();
             if (StringUtils.isNotBlank(rewardPictureIds)) {
                 String[] ids = rewardPictureIds.split(",");
                 if (ArrayUtils.isNotEmpty(ids)) {
                     try {
-                        String path = null;
                         for (int i = 0; i < ids.length; i++) {
-                            long id = Long.parseLong(ids[i]);
-                            if ((path = pathMap.get(id)) != null) {
-                                deletedIds.add(id);
-                                deletedPaths.add(path);
-                            }
+                        	idset.add(Long.parseLong(ids[i]));
                         }
                     }
                     catch (Exception e) {
@@ -125,14 +116,15 @@ public class RewardServiceImpl implements RewardService {
                     }
                 }
             }
-            else {
-                String path = null;
-                Set<Long> idSet = pathMap.keySet();
-                for (Long id : idSet) {
-                    path = pathMap.get(id);
-                    deletedIds.add(id);
-                    deletedPaths.add(path);
-                }
+            
+            //获取要删除的id
+            List<Long> deletedIds = new ArrayList<Long>();
+            List<String> deletedPaths = new ArrayList<String>();
+            for (RewardPicture rewardPicture : rewardPictures) {
+            	if(!idset.contains(rewardPicture.getId())){
+            		deletedIds.add(rewardPicture.getId());
+                    deletedPaths.add(rewardPicture.getFilePath());
+            	}
             }
 
             // 删除数据库和文件

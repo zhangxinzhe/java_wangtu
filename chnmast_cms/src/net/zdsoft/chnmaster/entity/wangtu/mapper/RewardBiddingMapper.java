@@ -27,14 +27,14 @@ public class RewardBiddingMapper implements RowMapper<RewardBidding> {
         return rowMapper;
     }
     
-    static class RewardBiddingAndUserMapper implements RowMapper<Order> {
+    static class RewardBiddingAndUserMapper implements RowMapper<RewardBidding> {
 
         @Override
-        public Order mapRow(ResultSet rs, int arg1) throws SQLException {
+        public RewardBidding mapRow(ResultSet rs, int arg1) throws SQLException {
         	RewardBidding entity = rowMapper.mapRow(rs, arg1);
         	entity.setUserName(rs.getString("username"));
         	entity.setAvatarFile(rs.getString("AVATAR_FILE"));
-            return null;
+            return entity;
         }
 
     }

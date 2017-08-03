@@ -26,8 +26,8 @@ public class RewardBiddingDaoImpl extends BaseDaoImpl implements RewardBiddingDa
 
     @Override
     public List<RewardBidding> getRewardBiddingByRewardId(long rewardId) {
-        String sql = "SELECT * FROM T_REWARD_BIDDING R ,T_USER U WHERE U.ID = R.USER_ID AND R.REWARD_ID=? AND STATE<4 ORDER BY R.CREATE_DATE ";
-        return this.find(sql, new Object[] { rewardId }, RewardBiddingMapper.rewardBiddingAndUserMapper);
+        String sql = "SELECT * FROM T_REWARD_BIDDING R ,T_USER U WHERE U.ID = R.USER_ID AND R.REWARD_ID=? AND STATE = ? ORDER BY R.CREATE_DATE ";
+        return this.find(sql, new Object[] { rewardId,BiddingStatus.PAY.getValue() }, RewardBiddingMapper.rewardBiddingAndUserMapper);
 
     }
 

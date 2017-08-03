@@ -378,7 +378,7 @@ public class AppRewardAction extends CmsPageAction {
             printMsg("请先登录");
             return;
         }
-        printMsg(rewardBiddingService.cancelBiddingReward(biddingId, BiddingStatus.USER_CANCEL));
+        printMsg(rewardBiddingService.updateCancelBiddingReward(biddingId, BiddingStatus.USER_CANCEL));
     }
 
     /**
@@ -408,8 +408,17 @@ public class AppRewardAction extends CmsPageAction {
             printMsg("请先登录");
             return;
         }
-        String result = rewardBiddingService.cancelBiddingReward(biddingId, BiddingStatus.SUCCESS);
-        printMsg(result);
+        if(biddingId <= 0){
+        	 printMsg("请选择接单人");
+             return;
+        }
+        int status = rewardBiddingService.updateStatusToChoosed(biddingId);
+        if(status > 0){
+        	printMsg("success");
+        }else{
+        	printMsg("失败！");
+        }
+        
     }
 
     /**
@@ -424,7 +433,13 @@ public class AppRewardAction extends CmsPageAction {
             printMsg("请先登录");
             return;
         }
-        printMsg("success");
+        
+        if(rewardService.updateRewardStatus(rewardId, RewardStatus.FINISH) > 0){
+        	printMsg("success");
+        }else{
+        	printMsg("处理失败！");
+        }
+        
 
     }
 

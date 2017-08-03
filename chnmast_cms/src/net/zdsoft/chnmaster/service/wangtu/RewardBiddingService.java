@@ -49,7 +49,7 @@ public interface RewardBiddingService {
      * @param biddingId
      * @return
      */
-    public String cancelBiddingReward(long biddingId, BiddingStatus states);
+    public String updateCancelBiddingReward(long biddingId, BiddingStatus states);
 
     /**
      * 修改竞价状态
@@ -58,5 +58,12 @@ public interface RewardBiddingService {
      * @return
      */
     public int updateStatusById(long biddingId, BiddingStatus state);
+    
+    /**
+     * 接单状态改为已接单
+     * @param biddingId
+     * @return
+     */
+    public int updateStatusToChoosed(long biddingId);
 
 }
