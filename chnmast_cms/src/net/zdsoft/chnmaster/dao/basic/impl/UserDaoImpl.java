@@ -296,7 +296,7 @@ public class UserDaoImpl extends BaseDaoImpl implements UserDao {
 
     @Override
     public long updateUserAvatarUser(String avatarPath, long userId) {
-        String sql = "UPDATA T_USER SET AVATAR_FILE =? WHERE ID=? ";
+        String sql = "UPDATE T_USER SET AVATAR_FILE =? WHERE ID=? ";
         return executeUpdate(sql, new Object[] { avatarPath, userId });
     }
 

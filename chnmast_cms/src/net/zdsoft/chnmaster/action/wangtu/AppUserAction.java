@@ -185,7 +185,7 @@ public class AppUserAction extends CmsBaseAction {
             printMsg("请先登录！");
             return;
         }
-        if (avatar == null) {
+        if (avatar == null) {setAvatar(avatar);
             printMsg("上传图片不存在！");
             return;
         }
