@@ -20,8 +20,8 @@ public class Comment extends BaseEntity {
 	private long userId;
 	private long reviewerId;
 	private String content;
-	private float serviceQuility;
-	private String serviceQuilityContent;
+	private float serviceQuality;
+	private String serviceQualityContent;
 	private float serviceAttitude;
 	private String serviceAttitudeContent;
 	private Date commentTime;
@@ -57,22 +57,6 @@ public class Comment extends BaseEntity {
 
 	public void setContent(String content) {
 		this.content = content;
-	}
-
-	public float getServiceQuility() {
-		return serviceQuility;
-	}
-
-	public void setServiceQuility(float serviceQuility) {
-		this.serviceQuility = serviceQuility;
-	}
-
-	public String getServiceQuilityContent() {
-		return serviceQuilityContent;
-	}
-
-	public void setServiceQuilityContent(String serviceQuilityContent) {
-		this.serviceQuilityContent = serviceQuilityContent;
 	}
 
 	public float getServiceAttitude() {
@@ -153,6 +137,22 @@ public class Comment extends BaseEntity {
 
 	public void setCommentPictures(List<CommentPicture> commentPictures) {
 		this.commentPictures = commentPictures;
+	}
+
+	public float getServiceQuality() {
+		return serviceQuality;
+	}
+
+	public void setServiceQuality(float serviceQuality) {
+		this.serviceQuality = serviceQuality;
+	}
+
+	public String getServiceQualityContent() {
+		return serviceQualityContent;
+	}
+
+	public void setServiceQualityContent(String serviceQualityContent) {
+		this.serviceQualityContent = serviceQualityContent;
 	}
 	
 	

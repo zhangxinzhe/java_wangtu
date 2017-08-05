@@ -23,6 +23,9 @@
         <!-- 获取评论 -->
         <action name="getUserComments" class="appUserAction" method="getUserComments">
         </action>
+        <!-- 回复评论 -->
+        <action name="replyComment" class="appUserAction" method="replyComment">
+        </action>
     </package>
     <package name="appRewardAction" namespace="/appReward" extends="struts-default" >
         <!-- 悬赏列表 -->

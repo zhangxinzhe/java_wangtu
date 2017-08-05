@@ -63,6 +63,7 @@ public class AppUserAction extends CmsBaseAction {
     private String bank;
     private String bankAccount;
     private String bankRealName;
+    private long commentId;
 
     private double applyFounds;
 
@@ -287,27 +288,39 @@ public class AppUserAction extends CmsBaseAction {
             json.put("isLogin", true);
         }
         User u = userService.getUserById(getUser().getId());
-        u.setComprehensiveScore(0.6f);
-        u.setServiceAttitude(0.8f);
-        u.setServiceQuility(0.3f);
+        u.setComprehensiveScore(4.5f);
+        u.setServiceAttitude(4.8f);
+        u.setServiceQuility(3.3f);
         json.put("userInfo", u);
         printJsonMap(json);
+    }
+    
+    private String replyContent;
+    public void  replyComment(){
+    	//返回commentId和replyContent
+    	printMsg("success");
     }
     
     /**
      * 获取评论信息
      */
+    private String commentType;
+    private boolean hasContent;
     public void getUserComments() {
+    	//commentType 查询类型
+    	//all,appease,notAppease,hasPic
+    	//hasContent 只显示有评论的
+    	
     	List<Comment> comments = new ArrayList<Comment>();
-    	for (int i = 0; i < 20; i++) {
+    	for (int i = 0; i < 4; i++) {
     		Comment comment = new Comment();
     		comment.setId(i);
     		comment.setUserId(2);
     		comment.setReviewerId(1);
-    		comment.setServiceQuility(0.8f);
-    		comment.setServiceAttitude(0.1f);
+    		comment.setServiceQuality(5.8f);
+    		comment.setServiceAttitude(2.1f);
     		comment.setServiceAttitudeContent("dddddddddddddddddddd");
-    		comment.setServiceAttitudeContent("KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK");
+    		comment.setServiceQualityContent("KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK");
     		comment.setCommentTime(new Date());
     		if((i % 5) == 0){
     			comment.setReplyContent("HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH");
@@ -322,10 +335,22 @@ public class AppUserAction extends CmsBaseAction {
     			pic.setPicturePath("qr23r.png");
     			commentPictures.add(pic);
     			comment.setCommentPictures(commentPictures);
+    			pic = new CommentPicture();
+    			pic.setPicturePath("qr23r.png");
+    			commentPictures.add(pic);
+    			comment.setCommentPictures(commentPictures);
+    			pic = new CommentPicture();
+    			pic.setPicturePath("qr23r.png");
+    			commentPictures.add(pic);
+    			comment.setCommentPictures(commentPictures);
     		}
 		}
     	Map<String, Object> json = new HashMap<String, Object>();
     	json.put("comments", comments);
+    	json.put("contentTypeAll", 124);
+    	json.put("contentTypeAppease", 45);
+    	json.put("contentTypeNotAppease", 56);
+    	json.put("contentTypeHasPic", 11);
         printJsonMap(json);
     }
 
@@ -440,5 +465,39 @@ public class AppUserAction extends CmsBaseAction {
     public void setApplyFounds(double applyFounds) {
         this.applyFounds = applyFounds;
     }
+
+	public String getReplyContent() {
+		return replyContent;
+	}
+
+	public void setReplyContent(String replyContent) {
+		this.replyContent = replyContent;
+	}
+
+	public String getCommentType() {
+		return commentType;
+	}
+
+	public void setCommentType(String commentType) {
+		this.commentType = commentType;
+	}
+
+	public long getCommentId() {
+		return commentId;
+	}
+
+	public void setCommentId(long commentId) {
+		this.commentId = commentId;
+	}
+
+	public boolean isHasContent() {
+		return hasContent;
+	}
+
+	public void setHasContent(boolean hasContent) {
+		this.hasContent = hasContent;
+	}
+    
+    
 
 }
