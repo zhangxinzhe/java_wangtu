@@ -6,8 +6,10 @@
 package net.zdsoft.chnmaster.action.wangtu;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -17,6 +19,8 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import net.zdsoft.chnmaster.action.common.CmsBaseAction;
+import net.zdsoft.chnmaster.entity.wangtu.Comment;
+import net.zdsoft.chnmaster.entity.wangtu.CommentPicture;
 import net.zdsoft.chnmaster.entity.wangtu.Order;
 import net.zdsoft.chnmaster.enums.wangtu.OrderType;
 import net.zdsoft.chnmaster.service.account.AccountService;
@@ -283,7 +287,45 @@ public class AppUserAction extends CmsBaseAction {
             json.put("isLogin", true);
         }
         User u = userService.getUserById(getUser().getId());
+        u.setComprehensiveScore(0.6f);
+        u.setServiceAttitude(0.8f);
+        u.setServiceQuility(0.3f);
         json.put("userInfo", u);
+        printJsonMap(json);
+    }
+    
+    /**
+     * 获取评论信息
+     */
+    public void getUserComments() {
+    	List<Comment> comments = new ArrayList<Comment>();
+    	for (int i = 0; i < 20; i++) {
+    		Comment comment = new Comment();
+    		comment.setId(i);
+    		comment.setUserId(2);
+    		comment.setReviewerId(1);
+    		comment.setServiceQuility(0.8f);
+    		comment.setServiceAttitude(0.1f);
+    		comment.setServiceAttitudeContent("dddddddddddddddddddd");
+    		comment.setServiceAttitudeContent("KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK");
+    		comment.setCommentTime(new Date());
+    		if((i % 5) == 0){
+    			comment.setReplyContent("HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH");
+    		}
+    		comment.setReplyTime(new Date());
+    		comment.setUserName("哈哈哈哈");
+    		comments.add(comment);
+    		
+    		if(i == 3){
+    			List<CommentPicture> commentPictures = new ArrayList<CommentPicture>();
+    			CommentPicture pic = new CommentPicture();
+    			pic.setPicturePath("qr23r.png");
+    			commentPictures.add(pic);
+    			comment.setCommentPictures(commentPictures);
+    		}
+		}
+    	Map<String, Object> json = new HashMap<String, Object>();
+    	json.put("comments", comments);
         printJsonMap(json);
     }
 

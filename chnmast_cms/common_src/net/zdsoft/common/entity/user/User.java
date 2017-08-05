@@ -114,11 +114,17 @@ public class User extends BaseUser implements Serializable {
      * 备注【+】
      */
     private String remark;
+    
+    private int age;
 
     /**************************** 扩展属性 *************************/
     private String groupTypeTitle; // 分组类型名称
 
     private boolean isGuest;// 对接无限宝，是否是游客（0平台用户，1游客）
+    
+    private float comprehensiveScore;//综合评分
+	private float serviceQuility;//服务质量
+	private float serviceAttitude;//服务态度
 
     /**************************** get、set方法 *************************/
     /**
@@ -482,4 +488,37 @@ public class User extends BaseUser implements Serializable {
         this.isHifiMember = isHifiMember;
     }
 
+	public float getComprehensiveScore() {
+		return comprehensiveScore;
+	}
+
+	public void setComprehensiveScore(float comprehensiveScore) {
+		this.comprehensiveScore = comprehensiveScore;
+	}
+
+	public float getServiceQuility() {
+		return serviceQuility;
+	}
+
+	public void setServiceQuility(float serviceQuility) {
+		this.serviceQuility = serviceQuility;
+	}
+
+	public float getServiceAttitude() {
+		return serviceAttitude;
+	}
+
+	public void setServiceAttitude(float serviceAttitude) {
+		this.serviceAttitude = serviceAttitude;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+    
 }

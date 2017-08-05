@@ -20,6 +20,9 @@
         <!-- 获取用户信息 -->
         <action name="getUserInfo" class="appUserAction" method="getUserInfo">
         </action>
+        <!-- 获取评论 -->
+        <action name="getUserComments" class="appUserAction" method="getUserComments">
+        </action>
     </package>
     <package name="appRewardAction" namespace="/appReward" extends="struts-default" >
         <!-- 悬赏列表 -->
