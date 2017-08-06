@@ -398,14 +398,14 @@ public class UserServiceImpl extends BaseServiceImpl implements BeanSelfAware, U
         account.setId(user.getId());
         accountService.addAccount(account);
         // account.set
-        String content = Config.getParam(BaseConstants.CMS_BATCH_IMPORT_USER);
-        String realName = user.getRealName();
+//        String content = Config.getParam(BaseConstants.CMS_BATCH_IMPORT_USER);
+//        String realName = user.getRealName();
         // if (StringUtils.isNotBlank(realName)) {
         // realName = user.getUserName();
         // }
-        content = content.replace("${realname}", realName);
-        content = content.replace("${username}", user.getUserName());
-        content = content.replace("${password}", Util.decodePassword(user.getPassword()));
+//        content = content.replace("${realname}", realName);
+//        content = content.replace("${username}", user.getUserName());
+//        content = content.replace("${password}", Util.decodePassword(user.getPassword()));
         // sendMessage(content, user);
         return num;
     }

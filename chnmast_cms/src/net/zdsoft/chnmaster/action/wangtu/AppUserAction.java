@@ -26,6 +26,7 @@ import net.zdsoft.chnmaster.entity.wangtu.Comment;
 import net.zdsoft.chnmaster.entity.wangtu.CommentPicture;
 import net.zdsoft.chnmaster.entity.wangtu.Order;
 import net.zdsoft.chnmaster.entity.wangtu.SmsPushDevice;
+import net.zdsoft.chnmaster.entity.wangtu.SmsPushMsg;
 import net.zdsoft.chnmaster.enums.wangtu.DeviceType;
 import net.zdsoft.chnmaster.enums.wangtu.OrderType;
 import net.zdsoft.chnmaster.service.account.AccountService;
@@ -113,11 +114,16 @@ public class AppUserAction extends CmsBaseAction {
             printMsg("对不起，此账户已被注销！");
             return;
         }
+    	Map<String, Object> json = new HashMap<String, Object>();
+   	 	json.put("msg", "success");
+   	 	json.put("avatarFile", systemUser.getAvatarFile());
+   	 	json.put("userId", systemUser.getId());
+   	 	json.put("realName", systemUser.getRealName());
 
         // 将userType赋值给type
         systemUser.setType(systemUser.getUserType().getValue());
         LoginUtils.getInstance().writeUser(getRequest(), getResponse(), systemUser);
-        printMsg("success");
+    	 printJsonMap(json);
     }
 
     private boolean validateLoginUser() {
