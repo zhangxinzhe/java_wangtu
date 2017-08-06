@@ -64,6 +64,7 @@ public class AppUserAction extends CmsBaseAction {
     private String bankAccount;
     private String bankRealName;
     private long commentId;
+    private User updateUser;
 
     private double applyFounds;
 
@@ -201,6 +202,13 @@ public class AppUserAction extends CmsBaseAction {
         }
 
     }
+    
+    /**
+     * 更新用户信息
+     */
+    public void updateUserInfo(){
+    	printMsg("success");
+    }
 
     /**
      * 申请提现
@@ -288,6 +296,7 @@ public class AppUserAction extends CmsBaseAction {
             json.put("isLogin", true);
         }
         User u = userService.getUserById(getUser().getId());
+        u.setBirthday(new Date());//代码待
         u.setComprehensiveScore(4.5f);
         u.setServiceAttitude(4.8f);
         u.setServiceQuility(3.3f);
@@ -496,6 +505,14 @@ public class AppUserAction extends CmsBaseAction {
 
 	public void setHasContent(boolean hasContent) {
 		this.hasContent = hasContent;
+	}
+
+	public User getUpdateUser() {
+		return updateUser;
+	}
+
+	public void setUpdateUser(User updateUser) {
+		this.updateUser = updateUser;
 	}
     
     

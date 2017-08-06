@@ -17,6 +17,9 @@
         <!-- 修改头像 -->
         <action name="changeAvatar" class="appUserAction" method="changeAvatar">
         </action>
+        <!-- 更新用户信息 -->
+        <action name="updateUserInfo" class="appUserAction" method="updateUserInfo">
+        </action>
         <!-- 获取用户信息 -->
         <action name="getUserInfo" class="appUserAction" method="getUserInfo">
         </action>

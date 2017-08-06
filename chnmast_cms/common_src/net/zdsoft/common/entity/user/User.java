@@ -115,7 +115,12 @@ public class User extends BaseUser implements Serializable {
      */
     private String remark;
     
-    private int age;
+    private Date birthday;
+    
+    /**
+     * 行业
+     */
+    private String industry;
 
     /**************************** 扩展属性 *************************/
     private String groupTypeTitle; // 分组类型名称
@@ -513,12 +518,28 @@ public class User extends BaseUser implements Serializable {
 	}
 
 	public int getAge() {
-		return age;
+		if(birthday != null){
+			return (int)((new Date().getTime() - birthday.getTime()) / (365l * 24l * 60l * 60l * 1000l));
+		}
+		return 0;
+	}
+	
+	public Date getBirthday() {
+		return birthday;
 	}
 
-	public void setAge(int age) {
-		this.age = age;
+	public void setBirthday(Date birthday) {
+		this.birthday = birthday;
 	}
 
-    
+	public String getIndustry() {
+		return industry;
+	}
+
+	public void setIndustry(String industry) {
+		this.industry = industry;
+	}
+	
+	
+	
 }
