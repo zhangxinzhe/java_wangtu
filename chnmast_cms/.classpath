@@ -84,7 +84,6 @@
 	<classpathentry kind="lib" path="web/WEB-INF/lib/pinyin4j-2.5.0.jar"/>
 	<classpathentry kind="lib" path="web/WEB-INF/lib/poi-2.5.1.jar"/>
 	<classpathentry kind="lib" path="web/WEB-INF/lib/postmsg-ump-2.1.jar"/>
-	<classpathentry kind="lib" path="web/WEB-INF/lib/protobuf-java-2.2.0.jar"/>
 	<classpathentry kind="lib" path="web/WEB-INF/lib/quartz-all-1.6.1.jar"/>
 	<classpathentry kind="lib" path="web/WEB-INF/lib/rife-continuations.jar"/>
 	<classpathentry kind="lib" path="web/WEB-INF/lib/slf4j-api-1.5.10.jar"/>
@@ -101,5 +100,10 @@
 	<classpathentry kind="lib" path="web/WEB-INF/lib/xwork-core-2.3.16.3.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/tomcat_lib"/>
+	<classpathentry kind="lib" path="web/WEB-INF/lib/gexin-rp-fastjson-1.0.0.0.jar"/>
+	<classpathentry kind="lib" path="web/WEB-INF/lib/gexin-rp-sdk-base-4.0.0.14.jar"/>
+	<classpathentry kind="lib" path="web/WEB-INF/lib/gexin-rp-sdk-http-4.0.1.9.jar"/>
+	<classpathentry kind="lib" path="web/WEB-INF/lib/gexin-rp-sdk-template-4.0.0.8.jar"/>
+	<classpathentry kind="lib" path="web/WEB-INF/lib/protobuf-java-2.5.0.jar"/>
 	<classpathentry kind="output" path="web/WEB-INF/classes"/>
 </classpath>

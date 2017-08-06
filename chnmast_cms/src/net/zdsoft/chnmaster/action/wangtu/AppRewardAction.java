@@ -27,7 +27,9 @@ import net.zdsoft.chnmaster.entity.wangtu.RewardBidding;
 import net.zdsoft.chnmaster.entity.wangtu.RewardPicture;
 import net.zdsoft.chnmaster.enums.wangtu.BiddingStatus;
 import net.zdsoft.chnmaster.enums.wangtu.OrderType;
+import net.zdsoft.chnmaster.enums.wangtu.PushMsgTypeEnum;
 import net.zdsoft.chnmaster.enums.wangtu.RewardStatus;
+import net.zdsoft.chnmaster.service.sms.SmsPushMsgService;
 import net.zdsoft.chnmaster.service.wangtu.CatalogService;
 import net.zdsoft.chnmaster.service.wangtu.OrderService;
 import net.zdsoft.chnmaster.service.wangtu.RewardBiddingService;
@@ -71,6 +73,8 @@ public class AppRewardAction extends CmsPageAction {
     private CatalogService catalogServiec;
     @Resource
     private OrderService orderService;
+    @Resource
+    private SmsPushMsgService smsPushMsgService;
 
     /**
      * 悬赏列表
@@ -412,7 +416,10 @@ public class AppRewardAction extends CmsPageAction {
         	 printMsg("请选择接单人");
              return;
         }
-        int status = rewardBiddingService.updateStatusToChoosed(biddingId);
+        
+        smsPushMsgService.sendMsg("竞价通知", "您参与的竞价成功", PushMsgTypeEnum.BIDDING_SUCCESS, getUser(), new Long[]{1l});
+        //int status = rewardBiddingService.updateStatusToChoosed(biddingId);
+        int status = 0;
         if(status > 0){
         	printMsg("success");
         }else{

@@ -29,6 +29,13 @@
         <!-- 回复评论 -->
         <action name="replyComment" class="appUserAction" method="replyComment">
         </action>
+        
+    </package>
+    <package name="appSmsAction" namespace="/appSms" extends="struts-default" >
+    	<!-- 手机配置信息-->
+        <action name="mobileConfig" class="appSmsAction" method="mobileConfig" />
+        <!-- 消息列表-->
+        <action name="pushMsgList" class="appSmsAction" method="pushMsgList" />
     </package>
     <package name="appRewardAction" namespace="/appReward" extends="struts-default" >
         <!-- 悬赏列表 -->
