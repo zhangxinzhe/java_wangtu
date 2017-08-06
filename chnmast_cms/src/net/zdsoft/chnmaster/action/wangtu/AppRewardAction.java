@@ -418,8 +418,7 @@ public class AppRewardAction extends CmsPageAction {
         }
         
         smsPushMsgService.sendMsg("竞价通知", "您参与的竞价成功", PushMsgTypeEnum.BIDDING_SUCCESS, getUser(), new Long[]{1l});
-        //int status = rewardBiddingService.updateStatusToChoosed(biddingId);
-        int status = 0;
+        int status = rewardBiddingService.updateStatusToChoosed(biddingId);
         if(status > 0){
         	printMsg("success");
         }else{
