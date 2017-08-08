@@ -30,6 +30,19 @@ public class Order extends BaseEntity {
     private OrderType orderType;
     private String remark;
 
+    /**
+     * 辅助字段
+     *
+     * @return
+     */
+    private double funds;
+    private String userName;
+    private String realName;
+    private String alipayAccount;
+    private String bankName;
+    private String bankUserName;
+    private String bankAccount;
+
     public String getTradeNo() {
         return tradeNo;
     }
@@ -108,6 +121,62 @@ public class Order extends BaseEntity {
 
     public void setRemark(String remark) {
         this.remark = remark;
+    }
+
+    public double getFunds() {
+        return funds;
+    }
+
+    public void setFunds(double funds) {
+        this.funds = funds;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getRealName() {
+        return realName;
+    }
+
+    public void setRealName(String realName) {
+        this.realName = realName;
+    }
+
+    public String getAlipayAccount() {
+        return alipayAccount;
+    }
+
+    public void setAlipayAccount(String alipayAccount) {
+        this.alipayAccount = alipayAccount;
+    }
+
+    public String getBankName() {
+        return bankName;
+    }
+
+    public void setBankName(String bankName) {
+        this.bankName = bankName;
+    }
+
+    public String getBankUserName() {
+        return bankUserName;
+    }
+
+    public void setBankUserName(String bankUserName) {
+        this.bankUserName = bankUserName;
+    }
+
+    public String getBankAccount() {
+        return bankAccount;
+    }
+
+    public void setBankAccount(String bankAccount) {
+        this.bankAccount = bankAccount;
     }
 
 }

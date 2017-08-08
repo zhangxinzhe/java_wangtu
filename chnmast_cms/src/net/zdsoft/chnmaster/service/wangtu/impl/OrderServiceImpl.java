@@ -13,9 +13,12 @@ import org.springframework.stereotype.Service;
 
 import net.zdsoft.chnmaster.dao.wangtu.OrderDao;
 import net.zdsoft.chnmaster.entity.wangtu.Order;
+import net.zdsoft.chnmaster.enums.wangtu.OrderType;
+import net.zdsoft.chnmaster.service.account.AccountService;
 import net.zdsoft.chnmaster.service.wangtu.OrderService;
 import net.zdsoft.common.dao.queryCondition.QueryCondition;
 import net.zdsoft.common.entity.PageDto;
+import net.zdsoft.common.entity.account.Account;
 import net.zdsoft.common.enums.OrderStatus;
 
 /**
@@ -27,6 +30,8 @@ public class OrderServiceImpl implements OrderService {
 
     @Resource
     private OrderDao orderDao;
+    @Resource
+    private AccountService accountService;
 
     @Override
     public long addOrder(Order order) {
@@ -68,6 +73,30 @@ public class OrderServiceImpl implements OrderService {
     public Order getFinishOrderByUserIdAndRewardId(long userId, long rewardId) {
 
         return orderDao.getFinishOrderByUserIdAndRewardId(userId, rewardId);
+    }
+
+    @Override
+    public String updateOrderToFinish(long orderId) {
+        Order order = orderDao.getOrderByOrderId(orderId);
+        if (order == null) {
+            return "不存在订单数据！";
+        }
+        if (order.getStatus() == OrderStatus.SUCCESS) {
+            return "success";
+        }
+        // 退回操作
+        if (order.getOrderType() == OrderType.FOUNDS_BACK) {
+            Account account = accountService.getAccountById(order.getUserId());
+            if (account == null) {
+                return "账户数据不存在！";
+            }
+            double remain = account.getFunds() - order.getPayAmount();
+            remain = remain <= 0 ? 0 : remain;
+            accountService.updateFundsByAccountId(account.getId(), remain);
+            orderDao.updateOrderStatus(orderId, OrderStatus.SUCCESS);
+
+        }
+        return "success";
     }
 
 }

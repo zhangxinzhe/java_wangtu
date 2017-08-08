@@ -15,146 +15,144 @@ import net.zdsoft.common.entity.BaseEntity;
  * @version $Revision: 1.0 $, $Date: 2017年7月8日 下午12:53:45 $
  */
 public class Comment extends BaseEntity {
-	private static final long serialVersionUID = 426089512558069682L;
+    private static final long serialVersionUID = 426089512558069682L;
 
-	private long userId;
-	private long reviewerId;
-	private String content;
-	private float serviceQuality;
-	private String serviceQualityContent;
-	private float serviceAttitude;
-	private String serviceAttitudeContent;
-	private Date commentTime;
-	private String replyContent;
-	private Date replyTime;
-	private int isSatisfy;
-	private String remark;
-	
-	//附加字段
-	private String userName;
-	private String avatarFile;
-	private List<CommentPicture> commentPictures;
+    private long userId;
+    private long reviewerId;
+    private String content;
+    private float serviceQuality;
+    private String serviceQualityContent;
+    private float serviceAttitude;
+    private String serviceAttitudeContent;
+    private Date commentTime;
+    private String replyContent;
+    private Date replyTime;
+    private int isSatisfy;/* 0: 不满意，1满意 */
+    private String remark;
 
-	public long getUserId() {
-		return userId;
-	}
+    // 附加字段
+    private String userName;
+    private String avatarFile;
+    private List<CommentPicture> commentPictures;
 
-	public void setUserId(long userId) {
-		this.userId = userId;
-	}
+    public long getUserId() {
+        return userId;
+    }
 
-	public long getReviewerId() {
-		return reviewerId;
-	}
+    public void setUserId(long userId) {
+        this.userId = userId;
+    }
 
-	public void setReviewerId(long reviewerId) {
-		this.reviewerId = reviewerId;
-	}
+    public long getReviewerId() {
+        return reviewerId;
+    }
 
-	public String getContent() {
-		return content;
-	}
+    public void setReviewerId(long reviewerId) {
+        this.reviewerId = reviewerId;
+    }
 
-	public void setContent(String content) {
-		this.content = content;
-	}
+    public String getContent() {
+        return content;
+    }
 
-	public float getServiceAttitude() {
-		return serviceAttitude;
-	}
+    public void setContent(String content) {
+        this.content = content;
+    }
 
-	public void setServiceAttitude(float serviceAttitude) {
-		this.serviceAttitude = serviceAttitude;
-	}
+    public float getServiceAttitude() {
+        return serviceAttitude;
+    }
 
-	public String getServiceAttitudeContent() {
-		return serviceAttitudeContent;
-	}
+    public void setServiceAttitude(float serviceAttitude) {
+        this.serviceAttitude = serviceAttitude;
+    }
 
-	public void setServiceAttitudeContent(String serviceAttitudeContent) {
-		this.serviceAttitudeContent = serviceAttitudeContent;
-	}
+    public String getServiceAttitudeContent() {
+        return serviceAttitudeContent;
+    }
 
-	public Date getCommentTime() {
-		return commentTime;
-	}
+    public void setServiceAttitudeContent(String serviceAttitudeContent) {
+        this.serviceAttitudeContent = serviceAttitudeContent;
+    }
 
-	public void setCommentTime(Date commentTime) {
-		this.commentTime = commentTime;
-	}
+    public Date getCommentTime() {
+        return commentTime;
+    }
 
-	public String getReplyContent() {
-		return replyContent;
-	}
+    public void setCommentTime(Date commentTime) {
+        this.commentTime = commentTime;
+    }
 
-	public void setReplyContent(String replyContent) {
-		this.replyContent = replyContent;
-	}
+    public String getReplyContent() {
+        return replyContent;
+    }
 
-	public Date getReplyTime() {
-		return replyTime;
-	}
+    public void setReplyContent(String replyContent) {
+        this.replyContent = replyContent;
+    }
 
-	public void setReplyTime(Date replyTime) {
-		this.replyTime = replyTime;
-	}
+    public Date getReplyTime() {
+        return replyTime;
+    }
 
-	public int getIsSatisfy() {
-		return isSatisfy;
-	}
+    public void setReplyTime(Date replyTime) {
+        this.replyTime = replyTime;
+    }
 
-	public void setIsSatisfy(int isSatisfy) {
-		this.isSatisfy = isSatisfy;
-	}
+    public int getIsSatisfy() {
+        return isSatisfy;
+    }
 
-	public String getRemark() {
-		return remark;
-	}
+    public void setIsSatisfy(int isSatisfy) {
+        this.isSatisfy = isSatisfy;
+    }
 
-	public void setRemark(String remark) {
-		this.remark = remark;
-	}
+    public String getRemark() {
+        return remark;
+    }
 
-	public String getUserName() {
-		return userName;
-	}
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
 
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
+    public String getUserName() {
+        return userName;
+    }
 
-	public String getAvatarFile() {
-		return avatarFile;
-	}
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 
-	public void setAvatarFile(String avatarFile) {
-		this.avatarFile = avatarFile;
-	}
+    public String getAvatarFile() {
+        return avatarFile;
+    }
 
-	public List<CommentPicture> getCommentPictures() {
-		return commentPictures;
-	}
+    public void setAvatarFile(String avatarFile) {
+        this.avatarFile = avatarFile;
+    }
 
-	public void setCommentPictures(List<CommentPicture> commentPictures) {
-		this.commentPictures = commentPictures;
-	}
+    public List<CommentPicture> getCommentPictures() {
+        return commentPictures;
+    }
 
-	public float getServiceQuality() {
-		return serviceQuality;
-	}
+    public void setCommentPictures(List<CommentPicture> commentPictures) {
+        this.commentPictures = commentPictures;
+    }
 
-	public void setServiceQuality(float serviceQuality) {
-		this.serviceQuality = serviceQuality;
-	}
+    public float getServiceQuality() {
+        return serviceQuality;
+    }
 
-	public String getServiceQualityContent() {
-		return serviceQualityContent;
-	}
+    public void setServiceQuality(float serviceQuality) {
+        this.serviceQuality = serviceQuality;
+    }
 
-	public void setServiceQualityContent(String serviceQualityContent) {
-		this.serviceQualityContent = serviceQualityContent;
-	}
-	
-	
+    public String getServiceQualityContent() {
+        return serviceQualityContent;
+    }
+
+    public void setServiceQualityContent(String serviceQualityContent) {
+        this.serviceQualityContent = serviceQualityContent;
+    }
 
 }

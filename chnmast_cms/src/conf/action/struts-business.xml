@@ -14,7 +14,7 @@
         </action>
         
     </package>
-    <!-- 提现管理 -->
+    <!-- 余额管理 -->
     <package name="account" namespace="/account" extends="login-package">
         <!-- 列表 -->
         <action name="accountManage" class="accountManageAction" method="accountManage">
@@ -22,6 +22,17 @@
         </action>
         <!-- 修改余额 -->
         <action name="updateAccount" class="accountManageAction" method="updateAccount">
+        </action>
+        
+    </package>
+    <!-- 提现管理 -->
+    <package name="order" namespace="/order" extends="login-package">
+        <!-- 列表 -->
+        <action name="orderBackManage" class="orderManageAction" method="orderBackManage">
+            <result name="success">/pages/business/orderManage.ftl</result>
+        </action>
+        <!-- 修改余额 -->
+        <action name="finishOrder" class="orderManageAction" method="finishOrder">
         </action>
         
     </package>

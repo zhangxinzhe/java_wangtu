@@ -37,8 +37,8 @@ public class AccountRowMapper implements RowMapper {
         entity.setStatus(rs.getInt("STATUS"));
         entity.setAlipayAccount(rs.getString("ALIPAY_ACCOUNT"));
         entity.setBankName(rs.getString("BANK_NAME"));
-        entity.setBankUserName(rs.getString("BANK_ACCOUNT"));
-        entity.setBankAccount(rs.getString("BANK_USER_NAME"));
+        entity.setBankAccount(rs.getString("BANK_ACCOUNT"));
+        entity.setBankUserName(rs.getString("BANK_USER_NAME"));
         return entity;
     }
 

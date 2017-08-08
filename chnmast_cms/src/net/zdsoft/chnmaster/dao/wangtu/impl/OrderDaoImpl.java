@@ -8,6 +8,7 @@ package net.zdsoft.chnmaster.dao.wangtu.impl;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Repository;
 
 import net.zdsoft.chnmaster.dao.wangtu.OrderDao;
@@ -15,6 +16,7 @@ import net.zdsoft.chnmaster.entity.wangtu.Order;
 import net.zdsoft.chnmaster.entity.wangtu.mapper.OrderMapper;
 import net.zdsoft.common.dao.BaseDaoImpl;
 import net.zdsoft.common.dao.queryCondition.QueryCondition;
+import net.zdsoft.common.dao.queryCondition.QueryConditionBuilder;
 import net.zdsoft.common.entity.PageDto;
 import net.zdsoft.common.enums.OrderStatus;
 
@@ -68,8 +70,17 @@ public class OrderDaoImpl extends BaseDaoImpl implements OrderDao {
 
     @Override
     public List<Order> listOrder(List<QueryCondition> cons, PageDto page) {
-        String sql = "SELECT O.*,A.* FROM T_ORDER O ,T_USER U,T_ACCOUNT A WHERE O.USER_ID=U.ID AND U.ID=A.ID ";
-        return null;
+        String sql = "SELECT O.*,A.*,u.username,u.realname FROM T_ORDER O ,T_USER U,T_ACCOUNT A WHERE O.USER_ID=U.ID AND U.ID=A.ID ";
+        QueryConditionBuilder builder = new QueryConditionBuilder();
+        builder.addConditions(cons);
+        String paramstr = builder.buildCondition();
+        if (StringUtils.isNotBlank(paramstr)) {
+            sql += " and " + paramstr;
+        }
+        if (null == page) {
+            return this.find(sql, builder.buildParameters(), OrderMapper.fundsMapper);
+        }
+        return this.findForPage(sql, builder.buildParameters(), OrderMapper.fundsMapper, page);
     }
 
     @Override

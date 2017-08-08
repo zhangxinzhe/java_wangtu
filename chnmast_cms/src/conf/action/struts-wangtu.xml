@@ -29,7 +29,12 @@
         <!-- 回复评论 -->
         <action name="replyComment" class="appUserAction" method="replyComment">
         </action>
-        
+        <!-- 新增评论 -->
+        <action name="addComment" class="appUserAction" method="addComment">
+        </action>
+        <!-- 提现 -->
+        <action name="accountApply" class="appUserAction" method="accountApply">
+        </action>
     </package>
     <package name="appSmsAction" namespace="/appSms" extends="struts-default" >
     	<!-- 手机配置信息-->

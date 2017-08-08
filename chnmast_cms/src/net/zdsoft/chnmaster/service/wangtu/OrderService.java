@@ -77,4 +77,12 @@ public interface OrderService {
      * @return
      */
     public Order getFinishOrderByUserIdAndRewardId(long userId, long rewardId);
+
+    /**
+     * 完成订单
+     * 
+     * @param orderId
+     * @return
+     */
+    public String updateOrderToFinish(long orderId);
 }

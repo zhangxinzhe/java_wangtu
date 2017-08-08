@@ -32,6 +32,7 @@
 
 			<tx:method name="add*" />
 			<tx:method name="update*" />
+			<tx:method name="cancel*" />
 			<tx:method name="delete*" />
 			<tx:method name="save*" />
 			<tx:method name="init*" />

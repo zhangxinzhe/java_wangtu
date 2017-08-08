@@ -22,6 +22,7 @@ import net.zdsoft.common.enums.PayType;
 public class OrderMapper implements RowMapper<Order> {
 
     private static OrderMapper mapper = new OrderMapper();
+    public static final FoundsOrderMapper fundsMapper = new FoundsOrderMapper();
 
     public static OrderMapper instance() {
         return mapper;
@@ -48,9 +49,16 @@ public class OrderMapper implements RowMapper<Order> {
     static class FoundsOrderMapper implements RowMapper<Order> {
 
         @Override
-        public Order mapRow(ResultSet arg0, int arg1) throws SQLException {
-            // TODO Auto-generated method stub
-            return null;
+        public Order mapRow(ResultSet rs, int arg1) throws SQLException {
+            Order entity = OrderMapper.mapper.mapRow(rs, arg1);
+            entity.setRealName(rs.getString("realname"));
+            entity.setUserName(rs.getString("userName"));
+            entity.setFunds(rs.getDouble("funds"));
+            entity.setAlipayAccount(rs.getString("ALIPAY_ACCOUNT"));
+            entity.setBankName(rs.getString("BANK_NAME"));
+            entity.setBankAccount(rs.getString("BANK_ACCOUNT"));
+            entity.setBankUserName(rs.getString("BANK_USER_NAME"));
+            return entity;
         }
 
     }

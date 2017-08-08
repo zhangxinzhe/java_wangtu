@@ -38,16 +38,16 @@ public class Account extends BaseEntity {
      */
     private int status;
 
-    private String alipayAccount;
-    private String bankName;
-    private String bankUserName;
-    private String bankAccount;
-
     /**************************** 扩展属性 *************************/
     private String userName;// 用户名
     private String realName;// 姓名
     private String email;// 邮箱
     private String phone;// 电话
+
+    private String alipayAccount;
+    private String bankName;
+    private String bankUserName;
+    private String bankAccount;
 
     /**
      * @return Returns the funds.

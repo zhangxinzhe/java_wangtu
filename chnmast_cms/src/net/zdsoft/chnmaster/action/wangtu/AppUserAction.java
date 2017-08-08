@@ -6,6 +6,7 @@
 package net.zdsoft.chnmaster.action.wangtu;
 
 import java.io.File;
+import java.sql.Types;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -18,24 +19,21 @@ import org.apache.commons.lang.StringUtils;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
-import com.alibaba.fastjson.JSONObject;
-import com.google.gson.JsonObject;
-
 import net.zdsoft.chnmaster.action.common.CmsBaseAction;
 import net.zdsoft.chnmaster.entity.wangtu.Comment;
-import net.zdsoft.chnmaster.entity.wangtu.CommentPicture;
 import net.zdsoft.chnmaster.entity.wangtu.Order;
-import net.zdsoft.chnmaster.entity.wangtu.SmsPushDevice;
-import net.zdsoft.chnmaster.entity.wangtu.SmsPushMsg;
-import net.zdsoft.chnmaster.enums.wangtu.DeviceType;
+import net.zdsoft.chnmaster.entity.wangtu.Reward;
 import net.zdsoft.chnmaster.enums.wangtu.OrderType;
+import net.zdsoft.chnmaster.enums.wangtu.RewardStatus;
 import net.zdsoft.chnmaster.service.account.AccountService;
 import net.zdsoft.chnmaster.service.basic.UserService;
-import net.zdsoft.chnmaster.service.sms.SmsPushDeviceService;
-import net.zdsoft.chnmaster.service.sms.SmsPushMsgService;
+import net.zdsoft.chnmaster.service.wangtu.CommentService;
 import net.zdsoft.chnmaster.service.wangtu.OrderService;
+import net.zdsoft.chnmaster.service.wangtu.RewardService;
 import net.zdsoft.chnmaster.utils.CookieUtils;
 import net.zdsoft.chnmaster.utils.LoginUtils;
+import net.zdsoft.common.dao.queryCondition.EqualCondition;
+import net.zdsoft.common.dao.queryCondition.QueryCondition;
 import net.zdsoft.common.entity.account.Account;
 import net.zdsoft.common.entity.user.User;
 import net.zdsoft.common.enums.OrderStatus;
@@ -75,6 +73,12 @@ public class AppUserAction extends CmsBaseAction {
     private User updateUser;
 
     private double applyFounds;
+    private long rewardId;
+    private Comment comment;
+
+    private File[] commentFiles;
+    private String[] commentFilesFileName;
+    private String[] commentFilesContentType;
 
     @Resource
     private UserService userService;
@@ -82,6 +86,10 @@ public class AppUserAction extends CmsBaseAction {
     private AccountService accountService;
     @Resource
     private OrderService orderService;
+    @Resource
+    private CommentService commentService;
+    @Resource
+    private RewardService rewardService;
 
     /**
      * 登录
@@ -114,16 +122,16 @@ public class AppUserAction extends CmsBaseAction {
             printMsg("对不起，此账户已被注销！");
             return;
         }
-    	Map<String, Object> json = new HashMap<String, Object>();
-   	 	json.put("msg", "success");
-   	 	json.put("avatarFile", systemUser.getAvatarFile());
-   	 	json.put("userId", systemUser.getId());
-   	 	json.put("realName", systemUser.getRealName());
+        Map<String, Object> json = new HashMap<String, Object>();
+        json.put("msg", "success");
+        json.put("avatarFile", systemUser.getAvatarFile());
+        json.put("userId", systemUser.getId());
+        json.put("realName", systemUser.getRealName());
 
         // 将userType赋值给type
         systemUser.setType(systemUser.getUserType().getValue());
         LoginUtils.getInstance().writeUser(getRequest(), getResponse(), systemUser);
-    	 printJsonMap(json);
+        printJsonMap(json);
     }
 
     private boolean validateLoginUser() {
@@ -199,7 +207,8 @@ public class AppUserAction extends CmsBaseAction {
             printMsg("请先登录！");
             return;
         }
-        if (avatar == null) {setAvatar(avatar);
+        if (avatar == null) {
+            setAvatar(avatar);
             printMsg("上传图片不存在！");
             return;
         }
@@ -215,12 +224,12 @@ public class AppUserAction extends CmsBaseAction {
         }
 
     }
-    
+
     /**
      * 更新用户信息
      */
-    public void updateUserInfo(){
-    	printMsg("success");
+    public void updateUserInfo() {
+        printMsg("success");
     }
 
     /**
@@ -255,6 +264,7 @@ public class AppUserAction extends CmsBaseAction {
                 return;
             }
             account.setAlipayAccount(alipayAccount);
+
         }
         else {
             if (StringUtils.isBlank(bankRealName)) {
@@ -267,6 +277,7 @@ public class AppUserAction extends CmsBaseAction {
             }
             account.setBankUserName(bankRealName);
             account.setBankAccount(bankAccount);
+
         }
         // 查询用户未完成的提现订单
         Order order = orderService.getUserFoundsOrder(getUser().getId(), OrderStatus.UNPAY);
@@ -275,6 +286,12 @@ public class AppUserAction extends CmsBaseAction {
             return;
         }
         order = new Order();
+        if ("alipay".equals(applyType)) {
+            order.setRemark("支付宝");
+        }
+        else {
+            order.setRemark("银行转账");
+        }
         order.setUserId(getUser().getId());
         order.setRelationId(getUser().getId());
         order.setCreationTime(new Date());
@@ -283,6 +300,7 @@ public class AppUserAction extends CmsBaseAction {
         order.setStatus(OrderStatus.UNPAY);
         order.setPayType(PayType.OFFLINE);
         order.setTradeNo(UUIDUtils.newId());
+
         long orderId = orderService.addOrder(order);
         if (orderId > 0) {
             printMsg("success");
@@ -309,70 +327,129 @@ public class AppUserAction extends CmsBaseAction {
             json.put("isLogin", true);
         }
         User u = userService.getUserById(getUser().getId());
-        u.setBirthday(new Date());//代码待
+        u.setBirthday(new Date());// 代码待
         u.setComprehensiveScore(4.5f);
         u.setServiceAttitude(4.8f);
         u.setServiceQuility(3.3f);
         json.put("userInfo", u);
         printJsonMap(json);
     }
-    
+
+    /**
+     * 回复
+     */
     private String replyContent;
-    public void  replyComment(){
-    	//返回commentId和replyContent
-    	printMsg("success");
+
+    public void replyComment() {
+        if (StringUtils.isEmpty(replyContent)) {
+            printMsg("请输入回复内容！");
+            return;
+        }
+
+        int i = commentService.saveCommentReply(commentId, replyContent);
+        if (i > 0) {
+            printMsg("success");
+            return;
+        }
+        printMsg("回复失败，请重试！");
+
     }
-    
+
+    // 新增评论
+    public void addComment() {
+        if (null == getUser()) {
+            printMsg("请先登录！");
+            return;
+        }
+        Reward reward = rewardService.getRewardById(rewardId);
+        if (null == reward) {
+            printMsg("悬赏数据不存在！");
+            return;
+        }
+        if (reward.getStatus() != RewardStatus.FINISH) {
+            printMsg("当前悬赏还未完成，不能评价！");
+            return;
+        }
+
+        comment.setUserId(reward.getUserId());
+        comment.setReviewerId(getUser().getId());
+        comment.setCommentTime(new Date());
+        int i = 0;
+        try {
+            i = commentService.addComment(comment, commentFiles);
+        }
+        catch (Exception e) {
+
+        }
+        if (i > 0) {
+            printMsg("success");
+            return;
+        }
+        printMsg("评价失败，请重试!");
+
+    }
+
     /**
      * 获取评论信息
      */
-    private String commentType;
+    private String commentType = "all";
     private boolean hasContent;
+
     public void getUserComments() {
-    	//commentType 查询类型
-    	//all,appease,notAppease,hasPic
-    	//hasContent 只显示有评论的
-    	
-    	List<Comment> comments = new ArrayList<Comment>();
-    	for (int i = 0; i < 4; i++) {
-    		Comment comment = new Comment();
-    		comment.setId(i);
-    		comment.setUserId(2);
-    		comment.setReviewerId(1);
-    		comment.setServiceQuality(5.8f);
-    		comment.setServiceAttitude(2.1f);
-    		comment.setServiceAttitudeContent("dddddddddddddddddddd");
-    		comment.setServiceQualityContent("KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK");
-    		comment.setCommentTime(new Date());
-    		if((i % 5) == 0){
-    			comment.setReplyContent("HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH");
-    		}
-    		comment.setReplyTime(new Date());
-    		comment.setUserName("哈哈哈哈");
-    		comments.add(comment);
-    		
-    		if(i == 3){
-    			List<CommentPicture> commentPictures = new ArrayList<CommentPicture>();
-    			CommentPicture pic = new CommentPicture();
-    			pic.setPicturePath("qr23r.png");
-    			commentPictures.add(pic);
-    			comment.setCommentPictures(commentPictures);
-    			pic = new CommentPicture();
-    			pic.setPicturePath("qr23r.png");
-    			commentPictures.add(pic);
-    			comment.setCommentPictures(commentPictures);
-    			pic = new CommentPicture();
-    			pic.setPicturePath("qr23r.png");
-    			commentPictures.add(pic);
-    			comment.setCommentPictures(commentPictures);
-    		}
-		}
-    	Map<String, Object> json = new HashMap<String, Object>();
-    	json.put("comments", comments);
-    	json.put("contentTypeAll", 124);
-    	json.put("contentTypeAppease", 45);
-    	json.put("contentTypeNotAppease", 56);
-    	json.put("contentTypeHasPic", 11);
+        // commentType 查询类型
+        // all,appease,notAppease,hasPic
+        // hasContent 只显示有评论的
+        long userId = getUser().getId();
+        List<QueryCondition> cons = new ArrayList<QueryCondition>();
+        cons.add(new EqualCondition("t.user_id", userId, Types.INTEGER));
+        if ("appease".equals(commentType)) {
+            cons.add(new EqualCondition("t.is_satisfy", 1, Types.INTEGER));
+        }
+        else if ("notAppease".equals(commentType)) {
+            cons.add(new EqualCondition("t.is_satisfy", 0, Types.INTEGER));
+        }
+        List<Comment> comments = commentService.listCommentByUserId(cons);
+        // for (int i = 0; i < 4; i++) {
+        // Comment comment = new Comment();
+        // comment.setId(i);
+        // comment.setUserId(2);
+        // comment.setReviewerId(1);
+        // comment.setServiceQuality(5.8f);
+        // comment.setServiceAttitude(2.1f);
+        // comment.setServiceAttitudeContent("dddddddddddddddddddd");
+        // comment.setServiceQualityContent(
+        // "KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK");
+        // comment.setCommentTime(new Date());
+        // if ((i % 5) == 0) {
+        // comment.setReplyContent(
+        // "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH");
+        // }
+        // comment.setReplyTime(new Date());
+        // comment.setUserName("哈哈哈哈");
+        // comments.add(comment);
+        //
+        // if (i == 3) {
+        // List<CommentPicture> commentPictures = new ArrayList<CommentPicture>();
+        // CommentPicture pic = new CommentPicture();
+        // pic.setPicturePath("qr23r.png");
+        // commentPictures.add(pic);
+        // comment.setCommentPictures(commentPictures);
+        // pic = new CommentPicture();
+        // pic.setPicturePath("qr23r.png");
+        // commentPictures.add(pic);
+        // comment.setCommentPictures(commentPictures);
+        // pic = new CommentPicture();
+        // pic.setPicturePath("qr23r.png");
+        // commentPictures.add(pic);
+        // comment.setCommentPictures(commentPictures);
+        // }
+        // }
+        Map<String, Object> json = new HashMap<String, Object>();
+        json.put("comments", comments);
+        json.put("contentTypeAll", commentService.getAllUserCommentCount(userId));
+        json.put("contentTypeAppease", commentService.getUserSatisfyCount(userId, 1));
+        json.put("contentTypeNotAppease", commentService.getUserSatisfyCount(userId, 0));
+        // json.put("contentTypeHasPic", 11);
         printJsonMap(json);
     }
 
@@ -488,46 +565,84 @@ public class AppUserAction extends CmsBaseAction {
         this.applyFounds = applyFounds;
     }
 
-	public String getReplyContent() {
-		return replyContent;
-	}
+    public String getReplyContent() {
+        return replyContent;
+    }
 
-	public void setReplyContent(String replyContent) {
-		this.replyContent = replyContent;
-	}
+    public void setReplyContent(String replyContent) {
+        this.replyContent = replyContent;
+    }
 
-	public String getCommentType() {
-		return commentType;
-	}
+    public String getCommentType() {
+        return commentType;
+    }
 
-	public void setCommentType(String commentType) {
-		this.commentType = commentType;
-	}
+    public void setCommentType(String commentType) {
+        this.commentType = commentType;
+    }
 
-	public long getCommentId() {
-		return commentId;
-	}
+    public long getCommentId() {
+        return commentId;
+    }
 
-	public void setCommentId(long commentId) {
-		this.commentId = commentId;
-	}
+    public void setCommentId(long commentId) {
+        this.commentId = commentId;
+    }
 
-	public boolean isHasContent() {
-		return hasContent;
-	}
+    public boolean isHasContent() {
+        return hasContent;
+    }
 
-	public void setHasContent(boolean hasContent) {
-		this.hasContent = hasContent;
-	}
+    public void setHasContent(boolean hasContent) {
+        this.hasContent = hasContent;
+    }
 
-	public User getUpdateUser() {
-		return updateUser;
-	}
+    public User getUpdateUser() {
+        return updateUser;
+    }
 
-	public void setUpdateUser(User updateUser) {
-		this.updateUser = updateUser;
-	}
-    
-    
+    public void setUpdateUser(User updateUser) {
+        this.updateUser = updateUser;
+    }
+
+    public long getRewardId() {
+        return rewardId;
+    }
+
+    public void setRewardId(long rewardId) {
+        this.rewardId = rewardId;
+    }
+
+    public Comment getComment() {
+        return comment;
+    }
+
+    public void setComment(Comment comment) {
+        this.comment = comment;
+    }
+
+    public File[] getCommentFiles() {
+        return commentFiles;
+    }
+
+    public void setCommentFiles(File[] commentFiles) {
+        this.commentFiles = commentFiles;
+    }
+
+    public String[] getCommentFilesFileName() {
+        return commentFilesFileName;
+    }
+
+    public void setCommentFilesFileName(String[] commentFilesFileName) {
+        this.commentFilesFileName = commentFilesFileName;
+    }
+
+    public String[] getCommentFilesContentType() {
+        return commentFilesContentType;
+    }
+
+    public void setCommentFilesContentType(String[] commentFilesContentType) {
+        this.commentFilesContentType = commentFilesContentType;
+    }
 
 }
