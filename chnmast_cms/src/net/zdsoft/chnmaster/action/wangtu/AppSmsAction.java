@@ -57,6 +57,7 @@ public class AppSmsAction extends CmsPageAction {
     	}else {
     		 dataJson.put("refreshAgain", true);
         }
+    	dataJson.put("isLogin", getUser() != null);
     	
     	printJson(dataJson);
     }
