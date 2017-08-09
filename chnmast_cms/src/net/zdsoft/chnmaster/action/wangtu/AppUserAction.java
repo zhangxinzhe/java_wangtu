@@ -34,6 +34,7 @@ import net.zdsoft.chnmaster.utils.CookieUtils;
 import net.zdsoft.chnmaster.utils.LoginUtils;
 import net.zdsoft.common.dao.queryCondition.EqualCondition;
 import net.zdsoft.common.dao.queryCondition.QueryCondition;
+import net.zdsoft.common.dao.queryCondition.UserDefinedCondition;
 import net.zdsoft.common.entity.account.Account;
 import net.zdsoft.common.entity.user.User;
 import net.zdsoft.common.enums.OrderStatus;
@@ -354,6 +355,19 @@ public class AppUserAction extends CmsBaseAction {
         printMsg("回复失败，请重试！");
 
     }
+    
+    //获取评价人基本信息
+    public void getCommentUserInfo(){
+    	//通过rewardId，获取接单人信息
+    	User user = new User();
+    	user.setId(1);
+    	user.setAvatarFile("/upload/avatar/11501951205568.png");
+    	user.setRealName("韩庆仁");
+    	
+    	Map<String, Object> json = new HashMap<String, Object>();
+    	json.put("userInfo", user);
+    	printJsonMap(json);
+    }
 
     // 新增评论
     public void addComment() {
@@ -361,25 +375,26 @@ public class AppUserAction extends CmsBaseAction {
             printMsg("请先登录！");
             return;
         }
-        Reward reward = rewardService.getRewardById(rewardId);
+        Reward reward = rewardService.getRewardById(comment.getRewardId());
         if (null == reward) {
             printMsg("悬赏数据不存在！");
             return;
         }
         if (reward.getStatus() != RewardStatus.FINISH) {
-            printMsg("当前悬赏还未完成，不能评价！");
-            return;
+//            printMsg("当前悬赏还未完成，不能评价！");
+//            return;
         }
 
         comment.setUserId(reward.getUserId());
         comment.setReviewerId(getUser().getId());
         comment.setCommentTime(new Date());
+        comment.setContent("");
         int i = 0;
         try {
             i = commentService.addComment(comment, commentFiles);
         }
         catch (Exception e) {
-
+        	e.printStackTrace();
         }
         if (i > 0) {
             printMsg("success");
@@ -407,6 +422,10 @@ public class AppUserAction extends CmsBaseAction {
         }
         else if ("notAppease".equals(commentType)) {
             cons.add(new EqualCondition("t.is_satisfy", 0, Types.INTEGER));
+        }
+        if(hasContent){
+        	cons.add(new UserDefinedCondition("service_quility_content IS NOT NULL and service_quility_content != ''", new Object[]{}, new int[]{}));
+        	cons.add(new UserDefinedCondition("service_attitude_content IS NOT NULL and service_attitude_content != ''", new Object[]{}, new int[]{}));
         }
         List<Comment> comments = commentService.listCommentByUserId(cons);
         // for (int i = 0; i < 4; i++) {

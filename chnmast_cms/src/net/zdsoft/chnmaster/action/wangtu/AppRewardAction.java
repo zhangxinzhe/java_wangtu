@@ -36,6 +36,7 @@ import net.zdsoft.chnmaster.service.wangtu.RewardBiddingService;
 import net.zdsoft.chnmaster.service.wangtu.RewardService;
 import net.zdsoft.common.config.NetstudyConfig;
 import net.zdsoft.common.dao.queryCondition.EqualCondition;
+import net.zdsoft.common.dao.queryCondition.LikeCondition;
 import net.zdsoft.common.dao.queryCondition.QueryCondition;
 import net.zdsoft.common.enums.OrderStatus;
 import net.zdsoft.common.enums.PayType;
@@ -59,6 +60,7 @@ public class AppRewardAction extends CmsPageAction {
     private double unfinishPrice;
     private Reward reward;
     private long biddingId;
+    private String rewardTitle;
 
     private File[] rewardFiles;
     private String rewardPictureIds;
@@ -88,6 +90,9 @@ public class AppRewardAction extends CmsPageAction {
         }
         // 未完成的悬赏
         cons.add(new EqualCondition("R.reward_status", RewardStatus.PUBLISH.getValue(), Types.INTEGER));
+        if(!StringUtils.isBlank(rewardTitle)){
+        	cons.add(new LikeCondition("R.title", rewardTitle));
+        }
         getPage().setRowNum(8);
         rewardList = rewardService.getRewardsByCondition(cons, this.getPage());
         List<Catalog> catalogs = catalogServiec.listCatalog();
@@ -439,7 +444,10 @@ public class AppRewardAction extends CmsPageAction {
             printMsg("请先登录");
             return;
         }
-        
+        if(1==1){
+        	printMsg("success");
+        	return;
+        }
         if(rewardService.updateRewardStatus(rewardId, RewardStatus.FINISH) > 0){
         	printMsg("success");
         }else{
@@ -541,4 +549,13 @@ public class AppRewardAction extends CmsPageAction {
         this.biddingId = biddingId;
     }
 
+	public String getRewardTitle() {
+		return rewardTitle;
+	}
+
+	public void setRewardTitle(String rewardTitle) {
+		this.rewardTitle = rewardTitle;
+	}
+
+    
 }

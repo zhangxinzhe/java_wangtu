@@ -23,6 +23,9 @@
         <!-- 获取用户信息 -->
         <action name="getUserInfo" class="appUserAction" method="getUserInfo">
         </action>
+        <!-- 获取评论用户信息 -->
+        <action name="getCommentUserInfo" class="appUserAction" method="getCommentUserInfo">
+        </action>
         <!-- 获取评论 -->
         <action name="getUserComments" class="appUserAction" method="getUserComments">
         </action>

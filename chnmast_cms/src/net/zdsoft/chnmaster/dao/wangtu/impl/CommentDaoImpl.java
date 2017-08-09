@@ -41,12 +41,12 @@ public class CommentDaoImpl extends BaseDaoImpl implements CommentDao {
     public int addComment(Comment comment) {
         String sql = "insert into t_comment (id,user_id,reviewer_id,content,service_quility,"
                 + "service_quility_content," + "service_attitude,service_attitude_content,"
-                + "comment_time,reply_content,reply_time,is_satisfy,remark)values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                + "comment_time,reply_content,reply_time,is_satisfy,remark,reward_id,is_anonymous)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         return this.executeUpdate(sql,
                 new Object[] { comment.getId(), comment.getUserId(), comment.getReviewerId(), comment.getContent(),
                         comment.getServiceQuality(), comment.getServiceQualityContent(), comment.getServiceAttitude(),
                         comment.getServiceAttitudeContent(), comment.getCommentTime(), comment.getReplyContent(),
-                        comment.getReplyTime(), comment.getRemark() });
+                        comment.getReplyTime(),comment.getIsSatisfy(), comment.getRemark(), comment.getRewardId(),comment.getIsAnonymous()});
     }
 
     @Override
@@ -64,13 +64,13 @@ public class CommentDaoImpl extends BaseDaoImpl implements CommentDao {
     @Override
     public int getAllUserCommentCount(long userId) {
         String sql = "SELECT COUNT(1) FROM T_COMMENT WHERE USER_ID=?";
-        return this.executeUpdate(sql, new Object[] { userId });
+        return this.findForInt(sql, new Object[] { userId });
     }
 
     @Override
     public int getUserSatisfyCount(long userId, int isSatisfy) {
         String sql = "SELECT COUNT(1) FROM T_COMMENT WHERE USER_ID=? and is_satisfy=? ";
-        return this.executeUpdate(sql, new Object[] { userId, isSatisfy });
+        return this.findForInt(sql, new Object[] { userId, isSatisfy });
     }
 
     @Override

@@ -29,6 +29,8 @@ public class Comment extends BaseEntity {
     private Date replyTime;
     private int isSatisfy;/* 0: 不满意，1满意 */
     private String remark;
+    private long rewardId;
+    private boolean isAnonymous;
 
     // 附加字段
     private String userName;
@@ -154,5 +156,23 @@ public class Comment extends BaseEntity {
     public void setServiceQualityContent(String serviceQualityContent) {
         this.serviceQualityContent = serviceQualityContent;
     }
+
+	public long getRewardId() {
+		return rewardId;
+	}
+
+	public void setRewardId(long rewardId) {
+		this.rewardId = rewardId;
+	}
+
+	public boolean getIsAnonymous() {
+		return isAnonymous;
+	}
+
+	public void setIsAnonymous(boolean isAnonymous) {
+		this.isAnonymous = isAnonymous;
+	}
+    
+    
 
 }
