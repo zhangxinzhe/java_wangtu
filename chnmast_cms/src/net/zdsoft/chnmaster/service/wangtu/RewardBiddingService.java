@@ -58,12 +58,21 @@ public interface RewardBiddingService {
      * @return
      */
     public int updateStatusById(long biddingId, BiddingStatus state);
-    
+
     /**
      * 接单状态改为已接单
+     *
      * @param biddingId
      * @return
      */
     public int updateStatusToChoosed(long biddingId);
+
+    /**
+     * 获取被选中的竞价
+     * 
+     * @param rewardId
+     * @return
+     */
+    public RewardBidding getChooseBiddingByRewardId(long rewardId);
 
 }

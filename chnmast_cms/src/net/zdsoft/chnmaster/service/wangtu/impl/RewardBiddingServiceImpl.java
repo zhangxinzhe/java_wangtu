@@ -87,15 +87,21 @@ public class RewardBiddingServiceImpl implements RewardBiddingService {
         return rewardBiddingDao.updateStatusById(biddingId, state);
 
     }
-    
+
     @Override
-    public int updateStatusToChoosed(long biddingId){
-    	RewardBidding bidding = rewardBiddingDao.getRewardBiddingById(biddingId);
-    	if(bidding == null){
-    		return 0;
-    	}
-    	rewardBiddingDao.updateStatusById(biddingId, BiddingStatus.SUCCESS);
-    	return rewardDao.updateRewardStatus(bidding.getRewardId(), RewardStatus.DOING);
+    public int updateStatusToChoosed(long biddingId) {
+        RewardBidding bidding = rewardBiddingDao.getRewardBiddingById(biddingId);
+        if (bidding == null) {
+            return 0;
+        }
+        rewardBiddingDao.updateStatusById(biddingId, BiddingStatus.SUCCESS);
+        return rewardDao.updateRewardStatus(bidding.getRewardId(), RewardStatus.DOING);
+    }
+
+    @Override
+    public RewardBidding getChooseBiddingByRewardId(long rewardId) {
+
+        return rewardBiddingDao.getChooseBiddingByRewardId(rewardId);
     }
 
 }

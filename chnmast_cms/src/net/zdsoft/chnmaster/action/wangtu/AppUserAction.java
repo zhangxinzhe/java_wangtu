@@ -22,13 +22,14 @@ import org.springframework.stereotype.Controller;
 import net.zdsoft.chnmaster.action.common.CmsBaseAction;
 import net.zdsoft.chnmaster.entity.wangtu.Comment;
 import net.zdsoft.chnmaster.entity.wangtu.Order;
-import net.zdsoft.chnmaster.entity.wangtu.Reward;
+import net.zdsoft.chnmaster.entity.wangtu.RewardBidding;
+import net.zdsoft.chnmaster.enums.wangtu.BiddingStatus;
 import net.zdsoft.chnmaster.enums.wangtu.OrderType;
-import net.zdsoft.chnmaster.enums.wangtu.RewardStatus;
 import net.zdsoft.chnmaster.service.account.AccountService;
 import net.zdsoft.chnmaster.service.basic.UserService;
 import net.zdsoft.chnmaster.service.wangtu.CommentService;
 import net.zdsoft.chnmaster.service.wangtu.OrderService;
+import net.zdsoft.chnmaster.service.wangtu.RewardBiddingService;
 import net.zdsoft.chnmaster.service.wangtu.RewardService;
 import net.zdsoft.chnmaster.utils.CookieUtils;
 import net.zdsoft.chnmaster.utils.LoginUtils;
@@ -91,6 +92,8 @@ public class AppUserAction extends CmsBaseAction {
     private CommentService commentService;
     @Resource
     private RewardService rewardService;
+    @Resource
+    private RewardBiddingService rewardBiddingService;
 
     /**
      * 登录
@@ -355,18 +358,18 @@ public class AppUserAction extends CmsBaseAction {
         printMsg("回复失败，请重试！");
 
     }
-    
-    //获取评价人基本信息
-    public void getCommentUserInfo(){
-    	//通过rewardId，获取接单人信息
-    	User user = new User();
-    	user.setId(1);
-    	user.setAvatarFile("/upload/avatar/11501951205568.png");
-    	user.setRealName("韩庆仁");
-    	
-    	Map<String, Object> json = new HashMap<String, Object>();
-    	json.put("userInfo", user);
-    	printJsonMap(json);
+
+    // 获取评价人基本信息
+    public void getCommentUserInfo() {
+        // 通过rewardId，获取接单人信息
+        User user = new User();
+        user.setId(1);
+        user.setAvatarFile("/upload/avatar/11501951205568.png");
+        user.setRealName("韩庆仁");
+
+        Map<String, Object> json = new HashMap<String, Object>();
+        json.put("userInfo", user);
+        printJsonMap(json);
     }
 
     // 新增评论
@@ -375,18 +378,19 @@ public class AppUserAction extends CmsBaseAction {
             printMsg("请先登录！");
             return;
         }
-        Reward reward = rewardService.getRewardById(comment.getRewardId());
-        if (null == reward) {
+        // Reward reward = rewardService.getRewardById(comment.getRewardId());
+        RewardBidding bidding = rewardBiddingService.getChooseBiddingByRewardId(rewardId);
+        if (null == bidding) {
             printMsg("悬赏数据不存在！");
             return;
         }
-        if (reward.getStatus() != RewardStatus.FINISH) {
-//            printMsg("当前悬赏还未完成，不能评价！");
-//            return;
+        if (bidding.getStatus() != BiddingStatus.FINISH) {
+            printMsg("当前悬赏还未完成，不能评价！");
+            return;
         }
 
-        comment.setUserId(reward.getUserId());
-        comment.setReviewerId(getUser().getId());
+        comment.setUserId(getUser().getId());
+        comment.setReviewerId(bidding.getUserId());
         comment.setCommentTime(new Date());
         comment.setContent("");
         int i = 0;
@@ -394,7 +398,7 @@ public class AppUserAction extends CmsBaseAction {
             i = commentService.addComment(comment, commentFiles);
         }
         catch (Exception e) {
-        	e.printStackTrace();
+            e.printStackTrace();
         }
         if (i > 0) {
             printMsg("success");
@@ -423,9 +427,11 @@ public class AppUserAction extends CmsBaseAction {
         else if ("notAppease".equals(commentType)) {
             cons.add(new EqualCondition("t.is_satisfy", 0, Types.INTEGER));
         }
-        if(hasContent){
-        	cons.add(new UserDefinedCondition("service_quility_content IS NOT NULL and service_quility_content != ''", new Object[]{}, new int[]{}));
-        	cons.add(new UserDefinedCondition("service_attitude_content IS NOT NULL and service_attitude_content != ''", new Object[]{}, new int[]{}));
+        if (hasContent) {
+            cons.add(new UserDefinedCondition("service_quility_content IS NOT NULL and service_quility_content != ''",
+                    new Object[] {}, new int[] {}));
+            cons.add(new UserDefinedCondition("service_attitude_content IS NOT NULL and service_attitude_content != ''",
+                    new Object[] {}, new int[] {}));
         }
         List<Comment> comments = commentService.listCommentByUserId(cons);
         // for (int i = 0; i < 4; i++) {

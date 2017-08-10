@@ -7,10 +7,8 @@ package net.zdsoft.chnmaster.service.wangtu.impl;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import javax.annotation.Resource;
@@ -99,16 +97,16 @@ public class RewardServiceImpl implements RewardService {
     public int updateReward(Reward reward, File[] files, String rewardPictureIds) throws Exception {
         // 更新之前上传的图片
 
-    	List<RewardPicture> rewardPictures = rewardPictureService.getListByRewardId(reward.getId());
+        List<RewardPicture> rewardPictures = rewardPictureService.getListByRewardId(reward.getId());
         if (CollectionUtils.isNotEmpty(rewardPictures)) {
-            //获取需要的id
-        	Set<Long> idset = new HashSet<>();
+            // 获取需要的id
+            Set<Long> idset = new HashSet<>();
             if (StringUtils.isNotBlank(rewardPictureIds)) {
                 String[] ids = rewardPictureIds.split(",");
                 if (ArrayUtils.isNotEmpty(ids)) {
                     try {
                         for (int i = 0; i < ids.length; i++) {
-                        	idset.add(Long.parseLong(ids[i]));
+                            idset.add(Long.parseLong(ids[i]));
                         }
                     }
                     catch (Exception e) {
@@ -116,15 +114,15 @@ public class RewardServiceImpl implements RewardService {
                     }
                 }
             }
-            
-            //获取要删除的id
+
+            // 获取要删除的id
             List<Long> deletedIds = new ArrayList<Long>();
             List<String> deletedPaths = new ArrayList<String>();
             for (RewardPicture rewardPicture : rewardPictures) {
-            	if(!idset.contains(rewardPicture.getId())){
-            		deletedIds.add(rewardPicture.getId());
+                if (!idset.contains(rewardPicture.getId())) {
+                    deletedIds.add(rewardPicture.getId());
                     deletedPaths.add(rewardPicture.getFilePath());
-            	}
+                }
             }
 
             // 删除数据库和文件
@@ -188,6 +186,11 @@ public class RewardServiceImpl implements RewardService {
 
     @Override
     public int updateRewardStatus(long id, RewardStatus status) {
+        if (RewardStatus.FINISH == status) {
+            // 完成竞价
+            RewardBidding bidding = rewardBiddingDao.getChooseBiddingByRewardId(id);
+            rewardBiddingDao.updateStatusById(bidding.getId(), BiddingStatus.FINISH);
+        }
         return rewardDao.updateRewardStatus(id, status);
     }
 

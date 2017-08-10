@@ -52,9 +52,17 @@ public interface RewardBiddingDao {
 
     /**
      * 根据id查询
-     * 
+     *
      * @param id
      * @return
      */
     public RewardBidding getRewardBiddingById(long id);
+
+    /**
+     * 获取被选中的竞价
+     *
+     * @param rewardId
+     * @return
+     */
+    public RewardBidding getChooseBiddingByRewardId(long rewardId);
 }

@@ -90,8 +90,8 @@ public class AppRewardAction extends CmsPageAction {
         }
         // 未完成的悬赏
         cons.add(new EqualCondition("R.reward_status", RewardStatus.PUBLISH.getValue(), Types.INTEGER));
-        if(!StringUtils.isBlank(rewardTitle)){
-        	cons.add(new LikeCondition("R.title", rewardTitle));
+        if (!StringUtils.isBlank(rewardTitle)) {
+            cons.add(new LikeCondition("R.title", rewardTitle));
         }
         getPage().setRowNum(8);
         rewardList = rewardService.getRewardsByCondition(cons, this.getPage());
@@ -410,26 +410,26 @@ public class AppRewardAction extends CmsPageAction {
         printMsg("success");
 
     }
-    
-    //选择竞价人
-    public void chooseBidding(){
+
+    // 选择竞价人
+    public void chooseBidding() {
         if (getUser() == null) {
             printMsg("请先登录");
             return;
         }
-        if(biddingId <= 0){
-        	 printMsg("请选择接单人");
-             return;
+        if (biddingId <= 0) {
+            printMsg("请选择接单人");
+            return;
         }
-        
-        smsPushMsgService.sendMsg("竞价通知", "您参与的竞价成功", PushMsgTypeEnum.BIDDING_SUCCESS, getUser(), new Long[]{1l});
+        smsPushMsgService.sendMsg("竞价通知", "您参与的竞价成功", PushMsgTypeEnum.BIDDING_SUCCESS, getUser(), new Long[] { 1l });
         int status = rewardBiddingService.updateStatusToChoosed(biddingId);
-        if(status > 0){
-        	printMsg("success");
-        }else{
-        	printMsg("失败！");
+        if (status > 0) {
+            printMsg("success");
         }
-        
+        else {
+            printMsg("失败！");
+        }
+
     }
 
     /**
@@ -444,16 +444,17 @@ public class AppRewardAction extends CmsPageAction {
             printMsg("请先登录");
             return;
         }
-        if(1==1){
-        	printMsg("success");
-        	return;
+        // if (1 == 1) {
+        // printMsg("success");
+        // return;
+        // }
+        if (rewardService.updateRewardStatus(rewardId, RewardStatus.FINISH) > 0) {
+
+            printMsg("success");
         }
-        if(rewardService.updateRewardStatus(rewardId, RewardStatus.FINISH) > 0){
-        	printMsg("success");
-        }else{
-        	printMsg("处理失败！");
+        else {
+            printMsg("处理失败！");
         }
-        
 
     }
 
@@ -549,13 +550,12 @@ public class AppRewardAction extends CmsPageAction {
         this.biddingId = biddingId;
     }
 
-	public String getRewardTitle() {
-		return rewardTitle;
-	}
+    public String getRewardTitle() {
+        return rewardTitle;
+    }
 
-	public void setRewardTitle(String rewardTitle) {
-		this.rewardTitle = rewardTitle;
-	}
+    public void setRewardTitle(String rewardTitle) {
+        this.rewardTitle = rewardTitle;
+    }
 
-    
 }

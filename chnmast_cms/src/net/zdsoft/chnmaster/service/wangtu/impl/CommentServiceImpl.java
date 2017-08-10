@@ -103,7 +103,13 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     public List<Comment> listCommentByUserId(List<QueryCondition> cons) {
-        return commentDao.listCommentByUserId(cons);
+        List<Comment> list = commentDao.listCommentByUserId(cons);
+        if (!CollectionUtils.isEmpty(list)) {
+            for (Comment t : list) {
+                t.setCommentPictures(commentPictureService.getListByCommentId(t.getId()));
+            }
+        }
+        return list;
     }
 
 }
