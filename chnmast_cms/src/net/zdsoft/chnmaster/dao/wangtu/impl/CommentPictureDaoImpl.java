@@ -27,13 +27,13 @@ public class CommentPictureDaoImpl extends BaseDaoImpl implements CommentPicture
 
     @Override
     public List<CommentPicture> getListByCommentId(long commentId) {
-        String sql = "select * from t_comment_picture where reward_id=? ";
+        String sql = "select * from t_comment_picture where comment_id=? ";
         return this.find(sql, new Object[] { commentId }, CommentPictureMapper.instance());
     }
 
     @Override
     public int addPucture(final List<CommentPicture> pic) {
-        String sql = "insert into t_comment_picture (comment_id,picture_path)values(?,?)";
+        String sql = "insert into t_comment_picture (id,comment_id,picture_path)values(?,?,?)";
         return this.batchUpdate(sql, new BatchPreparedStatementSetter() {
 
             @Override
@@ -45,8 +45,9 @@ public class CommentPictureDaoImpl extends BaseDaoImpl implements CommentPicture
             @Override
             public void setValues(PreparedStatement ps, int index) throws SQLException {
                 CommentPicture picture = pic.get(index);
-                ps.setLong(1, picture.getCommentId());
-                ps.setString(2, picture.getPicturePath());
+                ps.setLong(1, picture.getId());
+                ps.setLong(2, picture.getCommentId());
+                ps.setString(3, picture.getPicturePath());
             }
 
         }).length;

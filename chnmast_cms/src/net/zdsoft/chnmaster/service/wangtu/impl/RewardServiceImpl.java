@@ -30,6 +30,7 @@ import net.zdsoft.chnmaster.service.account.AccountService;
 import net.zdsoft.chnmaster.service.wangtu.OrderService;
 import net.zdsoft.chnmaster.service.wangtu.RewardPictureService;
 import net.zdsoft.chnmaster.service.wangtu.RewardService;
+import net.zdsoft.common.config.NetstudyConfig;
 import net.zdsoft.common.dao.queryCondition.QueryCondition;
 import net.zdsoft.common.entity.PageDto;
 import net.zdsoft.common.entity.account.Account;
@@ -181,7 +182,12 @@ public class RewardServiceImpl implements RewardService {
 
     @Override
     public List<Reward> getMyRewardBidding(long userId, PageDto page) {
-        return rewardDao.getMyRewardBidding(userId, page);
+    	List<Reward> rewards = rewardDao.getMyRewardBidding(userId, page);
+    	double platPercent = Double.parseDouble(NetstudyConfig.getParam("rewardpercent"));
+    	for (Reward reward : rewards) {
+    		reward.setPlatPrice(reward.getPrice() * platPercent);
+		}
+        return rewards;
     }
 
     @Override

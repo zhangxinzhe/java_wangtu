@@ -29,6 +29,7 @@ import net.zdsoft.chnmaster.enums.wangtu.BiddingStatus;
 import net.zdsoft.chnmaster.enums.wangtu.OrderType;
 import net.zdsoft.chnmaster.enums.wangtu.PushMsgTypeEnum;
 import net.zdsoft.chnmaster.enums.wangtu.RewardStatus;
+import net.zdsoft.chnmaster.service.account.AccountService;
 import net.zdsoft.chnmaster.service.sms.SmsPushMsgService;
 import net.zdsoft.chnmaster.service.wangtu.CatalogService;
 import net.zdsoft.chnmaster.service.wangtu.OrderService;
@@ -38,6 +39,7 @@ import net.zdsoft.common.config.NetstudyConfig;
 import net.zdsoft.common.dao.queryCondition.EqualCondition;
 import net.zdsoft.common.dao.queryCondition.LikeCondition;
 import net.zdsoft.common.dao.queryCondition.QueryCondition;
+import net.zdsoft.common.entity.account.Account;
 import net.zdsoft.common.enums.OrderStatus;
 import net.zdsoft.common.enums.PayType;
 import net.zdsoft.common.filesystem.util.FileSystemUtil;
@@ -77,6 +79,8 @@ public class AppRewardAction extends CmsPageAction {
     private OrderService orderService;
     @Resource
     private SmsPushMsgService smsPushMsgService;
+    @Resource
+    private AccountService accountService;
 
     /**
      * 悬赏列表
@@ -169,10 +173,18 @@ public class AppRewardAction extends CmsPageAction {
         int i = rewardBiddingService.addRewardBidding(bidding);
         if (i > 0) {
             Map<String, Object> json = new HashMap<String, Object>();
+            double platPercent = Double.parseDouble(NetstudyConfig.getParam("rewardpercent"));
             json.put("msg", "success");
             json.put("rewardId", rewardId);
-            json.put("price", price);
-            json.put("pecent", NetstudyConfig.getParam("rewardpercent"));
+            json.put("rewardPrice", price);
+            json.put("platPrice", price * platPercent);
+            Account accout = accountService.getAccountById(getUser().getId());
+            double userBalance = 0;
+            if(accout != null){
+            	userBalance = accout.getFunds();
+            }
+            json.put("userBalance", userBalance);
+            json.put("platPercent", (platPercent * 100) + "%");
             printMsg("success");
             return;
         }
@@ -235,6 +247,10 @@ public class AppRewardAction extends CmsPageAction {
         }
 
     }
+    
+    public void finishBiddingOrder(){
+    	
+    }
 
     /**
      * 我发起的悬赏
@@ -267,6 +283,15 @@ public class AppRewardAction extends CmsPageAction {
 
         rewardList = rewardService.getMyRewardBidding(getUser().getId(), getPage());
         json.put("list", rewardList);
+        double platPercent = Double.parseDouble(NetstudyConfig.getParam("rewardpercent"));
+        json.put("platPercent", platPercent * 100 + "%");
+        
+        Account accout = accountService.getAccountById(getUser().getId());
+        double userBalance = 0;
+        if(accout != null){
+        	userBalance = accout.getFunds();
+        }
+        json.put("userBalance", userBalance);
         this.printJsonMap(json);
         return;
     }

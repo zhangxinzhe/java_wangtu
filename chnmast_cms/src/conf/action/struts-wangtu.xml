@@ -35,6 +35,9 @@
         <!-- 新增评论 -->
         <action name="addComment" class="appUserAction" method="addComment">
         </action>
+         <!-- 账户信息 -->
+        <action name="account" class="appUserAction" method="account">
+        </action>
         <!-- 提现 -->
         <action name="accountApply" class="appUserAction" method="accountApply">
         </action>
@@ -87,6 +90,12 @@
         </action>
         <!-- 选择竞价人-->
         <action name="chooseBidding" class="appRewardAction" method="chooseBidding">
+        </action>
+        <!-- 创建订单-->
+        <action name="createBiddingOrder" class="appRewardAction" method="createBiddingOrder">
+        </action>
+        <!-- 完成订单-->
+        <action name="finishBiddingOrder" class="appRewardAction" method="finishBiddingOrder">
         </action>
         
     </package>

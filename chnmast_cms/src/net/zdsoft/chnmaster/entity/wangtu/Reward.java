@@ -42,6 +42,7 @@ public class Reward extends BaseEntity {
     private int biddingNum;
     private BiddingStatus biddingStatus;
     private String phone;
+    private double platPrice;
 
     /**
      * 竞价详情
@@ -214,6 +215,14 @@ public class Reward extends BaseEntity {
 
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+
+	public double getPlatPrice() {
+		return platPrice;
+	}
+
+	public void setPlatPrice(double platPrice) {
+		this.platPrice = platPrice;
 	}
     
     

@@ -235,6 +235,16 @@ public class AppUserAction extends CmsBaseAction {
     public void updateUserInfo() {
         printMsg("success");
     }
+    
+    /**
+     * 账户信息
+     */
+    public void account(){
+    	 Account account = accountService.getAccountById(getUser().getId());
+    	 Map<String, Object> json = new HashMap<String, Object>();
+         json.put("funds", account.getFunds());
+         printJsonMap(json);
+    }
 
     /**
      * 申请提现
@@ -249,16 +259,8 @@ public class AppUserAction extends CmsBaseAction {
             printMsg("没有您的余额信息！");
             return;
         }
-        if (this.applyFounds <= 0) {
-            printMsg("提现金额必须大于0！");
-            return;
-        }
         if (account.getFunds() <= 0) {
             printMsg("账户余额为0，不能提现！");
-            return;
-        }
-        if (applyFounds > account.getFunds()) {
-            printMsg("提现金额大于余额，无法提现！");
             return;
         }
 
