@@ -22,6 +22,7 @@ import org.springframework.stereotype.Controller;
 import net.zdsoft.chnmaster.action.common.CmsBaseAction;
 import net.zdsoft.chnmaster.entity.wangtu.Comment;
 import net.zdsoft.chnmaster.entity.wangtu.Order;
+import net.zdsoft.chnmaster.entity.wangtu.Reward;
 import net.zdsoft.chnmaster.entity.wangtu.RewardBidding;
 import net.zdsoft.chnmaster.enums.wangtu.BiddingStatus;
 import net.zdsoft.chnmaster.enums.wangtu.OrderType;
@@ -235,15 +236,15 @@ public class AppUserAction extends CmsBaseAction {
     public void updateUserInfo() {
         printMsg("success");
     }
-    
+
     /**
      * 账户信息
      */
-    public void account(){
-    	 Account account = accountService.getAccountById(getUser().getId());
-    	 Map<String, Object> json = new HashMap<String, Object>();
-         json.put("funds", account.getFunds());
-         printJsonMap(json);
+    public void account() {
+        Account account = accountService.getAccountById(getUser().getId());
+        Map<String, Object> json = new HashMap<String, Object>();
+        json.put("funds", account.getFunds());
+        printJsonMap(json);
     }
 
     /**
@@ -364,10 +365,16 @@ public class AppUserAction extends CmsBaseAction {
     // 获取评价人基本信息
     public void getCommentUserInfo() {
         // 通过rewardId，获取接单人信息
-        User user = new User();
-        user.setId(1);
-        user.setAvatarFile("/upload/avatar/11501951205568.png");
-        user.setRealName("韩庆仁");
+        Reward reward = rewardService.getRewardById(rewardId);
+        if (null == reward) {
+            printMsg("悬赏信息不存在！");
+            return;
+        }
+        User user = userService.getUserById(reward.getUserId());
+        // User user = new User();
+        // user.setId(1);
+        // user.setAvatarFile("/upload/avatar/11501951205568.png");
+        // user.setRealName("韩庆仁");
 
         Map<String, Object> json = new HashMap<String, Object>();
         json.put("userInfo", user);

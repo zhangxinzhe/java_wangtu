@@ -35,7 +35,10 @@ import net.zdsoft.chnmaster.service.wangtu.CatalogService;
 import net.zdsoft.chnmaster.service.wangtu.OrderService;
 import net.zdsoft.chnmaster.service.wangtu.RewardBiddingService;
 import net.zdsoft.chnmaster.service.wangtu.RewardService;
+import net.zdsoft.common.alipay.entity.WapAlipayParam;
+import net.zdsoft.common.alipay.service.AlipayApiService;
 import net.zdsoft.common.config.NetstudyConfig;
+import net.zdsoft.common.constant.BaseConstants;
 import net.zdsoft.common.dao.queryCondition.EqualCondition;
 import net.zdsoft.common.dao.queryCondition.LikeCondition;
 import net.zdsoft.common.dao.queryCondition.QueryCondition;
@@ -63,7 +66,9 @@ public class AppRewardAction extends CmsPageAction {
     private Reward reward;
     private long biddingId;
     private String rewardTitle;
-
+    private PayType payType;
+    private WapAlipayParam alipayParam;
+    private String payInfo;
     private File[] rewardFiles;
     private String rewardPictureIds;
     private String[] rewardFilesFileName;
@@ -81,6 +86,8 @@ public class AppRewardAction extends CmsPageAction {
     private SmsPushMsgService smsPushMsgService;
     @Resource
     private AccountService accountService;
+    @Resource
+    private AlipayApiService alipayApiService;
 
     /**
      * 悬赏列表
@@ -163,6 +170,10 @@ public class AppRewardAction extends CmsPageAction {
             printMsg("您已提交竞标！");
             return;
         }
+        if (reward.getUserId() == getUser().getId()) {
+            printMsg("不能竞价自己发布的悬赏！");
+            return;
+        }
 
         RewardBidding bidding = new RewardBidding();
         bidding.setUserId(getUser().getId());
@@ -180,8 +191,8 @@ public class AppRewardAction extends CmsPageAction {
             json.put("platPrice", price * platPercent);
             Account accout = accountService.getAccountById(getUser().getId());
             double userBalance = 0;
-            if(accout != null){
-            	userBalance = accout.getFunds();
+            if (accout != null) {
+                userBalance = accout.getFunds();
             }
             json.put("userBalance", userBalance);
             json.put("platPercent", (platPercent * 100) + "%");
@@ -215,6 +226,11 @@ public class AppRewardAction extends CmsPageAction {
             printMsg("你已支付！");
             return;
         }
+        if (null == payType) {
+            printMsg("请选择支付方式！");
+            return;
+        }
+
         Order order = orderService.getOrderByUserAndRewardId(getUser().getId(), rewardId);
         long orderId = 0;
         if (order == null) {
@@ -235,21 +251,94 @@ public class AppRewardAction extends CmsPageAction {
         else {
             orderId = order.getId();
         }
+        if (payType == PayType.REMAIN) {
+            // 检查余额
+            Account account = accountService.getAccountById(getUser().getId());
+            if (account.getFunds() < order.getPayAmount()) {
+                printMsg("余额不足，请用其他方式支付！");
+                return;
+            }
+        }
         if (orderId == 0) {
             printMsg("订单创建失败，请重试！");
             return;
         }
         else {
-            Map<String, Object> json = new HashMap<String, Object>();
-            json.put("msg", "success");
-            json.put("order", order);
-            printJson(json);
+            if (PayType.REMAIN == payType) {
+                orderService.updateOrderToFinish(orderId);
+                Map<String, Object> json = new HashMap<String, Object>();
+                json.put("msg", "finish");
+                json.put("order", order);
+                printJson(json);
+                return;
+            }
+            else if (PayType.ALIPAY == payType) {
+                Map<String, Object> json = new HashMap<String, Object>();
+                try {
+                    alipayAppPayMethod(order);
+                    json.put("msg", "success");
+                    json.put("order", order);
+                    json.put("payInfo", payInfo);
+                    printJson(json);
+                }
+                catch (Exception e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+
+            }
+            else {
+                printMsg("支付失败，请重试！");
+                return;
+            }
+
         }
 
     }
-    
-    public void finishBiddingOrder(){
-    	
+
+    /**
+     * 支付宝app支付
+     *
+     * @throws Exception
+     */
+    private void alipayAppPayMethod(Order order) throws Exception {
+        // 订单信息
+        alipayParam = new WapAlipayParam();
+        // 获取手机网页即时到账授权
+        Map<String, String> params = new HashMap<String, String>();
+        params.put("notify_url",
+                NetstudyConfig.getParam(BaseConstants.DOMAIN_CMS) + "/appReward/finishBiddingOrder.htm");
+        params.put("out_trade_no", order.getTradeNo());
+        // 组装支付宝title信息
+        String subject = buildSubject();
+        params.put("subject", subject);
+        params.put("body", subject);
+        params.put("total_fee", Double.toString(order.getPayAmount()));
+
+        // 创建订单信息
+        payInfo = alipayApiService.mobileSecuritypayPay(params, alipayParam);
+    }
+
+    /**
+     * 组装支付宝title信息
+     *
+     * @return
+     */
+    private String buildSubject() {
+        String leftStr = "[";
+        String rightStr = "]";
+        StringBuffer subject = new StringBuffer();
+
+        subject.append(leftStr + "悬赏竞价支付" + rightStr);
+
+        subject.append(leftStr
+                + (StringUtils.isBlank(getUser().getRealName()) ? getUser().getUserName() : getUser().getRealName())
+                + rightStr);
+        return subject.toString();
+    }
+
+    public void finishBiddingOrder() {
+
     }
 
     /**
@@ -285,11 +374,11 @@ public class AppRewardAction extends CmsPageAction {
         json.put("list", rewardList);
         double platPercent = Double.parseDouble(NetstudyConfig.getParam("rewardpercent"));
         json.put("platPercent", platPercent * 100 + "%");
-        
+
         Account accout = accountService.getAccountById(getUser().getId());
         double userBalance = 0;
-        if(accout != null){
-        	userBalance = accout.getFunds();
+        if (accout != null) {
+            userBalance = accout.getFunds();
         }
         json.put("userBalance", userBalance);
         this.printJsonMap(json);
@@ -581,6 +670,22 @@ public class AppRewardAction extends CmsPageAction {
 
     public void setRewardTitle(String rewardTitle) {
         this.rewardTitle = rewardTitle;
+    }
+
+    public PayType getPayType() {
+        return payType;
+    }
+
+    public void setPayType(PayType payType) {
+        this.payType = payType;
+    }
+
+    public String getPayInfo() {
+        return payInfo;
+    }
+
+    public void setPayInfo(String payInfo) {
+        this.payInfo = payInfo;
     }
 
 }
