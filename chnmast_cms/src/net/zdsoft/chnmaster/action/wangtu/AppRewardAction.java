@@ -196,7 +196,7 @@ public class AppRewardAction extends CmsPageAction {
             }
             json.put("userBalance", userBalance);
             json.put("platPercent", (platPercent * 100) + "%");
-            printMsg("success");
+            printJsonMap(json);
             return;
         }
         printMsg("竞价失败，请重试！");
@@ -267,7 +267,7 @@ public class AppRewardAction extends CmsPageAction {
             if (PayType.REMAIN == payType) {
                 orderService.updateOrderToFinish(orderId);
                 Map<String, Object> json = new HashMap<String, Object>();
-                json.put("msg", "finish");
+                json.put("msg", "success");
                 json.put("order", order);
                 printJson(json);
                 return;

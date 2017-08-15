@@ -87,7 +87,7 @@ public class RewardDaoImpl extends BaseDaoImpl implements RewardDao {
 
     @Override
     public List<Reward> getMyRewardBidding(long userId, PageDto page) {
-        String sql = "SELECT T.*,B.state FROM T_REWARD T,T_REWARD_BIDDING B WHERE B.REWARD_ID=T.ID AND B.USER_ID=? ";
+        String sql = "SELECT T.*,B.state,B.price biddingPrice FROM T_REWARD T,T_REWARD_BIDDING B WHERE B.REWARD_ID=T.ID AND B.USER_ID=? ";
         if (null == page) {
             return this.find(sql, new Object[] { userId }, RewardMapper.rewardAndBiddingMapper);
         }

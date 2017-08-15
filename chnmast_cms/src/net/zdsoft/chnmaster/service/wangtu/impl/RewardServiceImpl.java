@@ -18,6 +18,7 @@ import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
+import net.zdsoft.chnmaster.dao.basic.UserDao;
 import net.zdsoft.chnmaster.dao.wangtu.RewardBiddingDao;
 import net.zdsoft.chnmaster.dao.wangtu.RewardDao;
 import net.zdsoft.chnmaster.entity.wangtu.Order;
@@ -27,6 +28,7 @@ import net.zdsoft.chnmaster.entity.wangtu.RewardPicture;
 import net.zdsoft.chnmaster.enums.wangtu.BiddingStatus;
 import net.zdsoft.chnmaster.enums.wangtu.RewardStatus;
 import net.zdsoft.chnmaster.service.account.AccountService;
+import net.zdsoft.chnmaster.service.basic.UserService;
 import net.zdsoft.chnmaster.service.wangtu.OrderService;
 import net.zdsoft.chnmaster.service.wangtu.RewardPictureService;
 import net.zdsoft.chnmaster.service.wangtu.RewardService;
@@ -34,6 +36,7 @@ import net.zdsoft.common.config.NetstudyConfig;
 import net.zdsoft.common.dao.queryCondition.QueryCondition;
 import net.zdsoft.common.entity.PageDto;
 import net.zdsoft.common.entity.account.Account;
+import net.zdsoft.common.entity.user.User;
 import net.zdsoft.common.filesystem.util.FileSystemUtil;
 
 /**
@@ -53,6 +56,9 @@ public class RewardServiceImpl implements RewardService {
     private OrderService orderService;
     @Resource
     private AccountService accountService;
+    @Resource
+    private UserService userService;
+
 
     @Override
     public List<Reward> getRewardsByCondition(List<QueryCondition> condistions, PageDto page) {
@@ -185,7 +191,7 @@ public class RewardServiceImpl implements RewardService {
     	List<Reward> rewards = rewardDao.getMyRewardBidding(userId, page);
     	double platPercent = Double.parseDouble(NetstudyConfig.getParam("rewardpercent"));
     	for (Reward reward : rewards) {
-    		reward.setPlatPrice(reward.getPrice() * platPercent);
+    		reward.setPlatPrice(reward.getBiddingPrice() * platPercent);
 		}
         return rewards;
     }
@@ -203,7 +209,12 @@ public class RewardServiceImpl implements RewardService {
     @Override
     public Reward getUserBiddingReward(long rewardId, long userId) {
         Reward reward = rewardDao.getRewardById(rewardId);
-        reward.setBiddingDetail(rewardBiddingDao.getRewardBiddingByByRewardIdAndUserId(rewardId, userId));
+        RewardBidding bidding = rewardBiddingDao.getSelectedRewardBidding(rewardId);
+        if(bidding != null){
+        	User user = userService.getUserById(bidding.getUserId());
+        	bidding.setAvatarFile(user.getAvatarFile());
+        }
+        reward.setBiddingDetail(bidding);
         return reward;
     }
 

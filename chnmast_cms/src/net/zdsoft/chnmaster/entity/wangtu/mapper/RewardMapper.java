@@ -45,6 +45,7 @@ public class RewardMapper implements RowMapper<Reward> {
         public Reward mapRow(ResultSet rs, int arg1) throws SQLException {
             Reward entity = rowMapper.mapRow(rs, arg1);
             entity.setBiddingStatus(BiddingStatus.getStatus(rs.getInt("state")));
+            entity.setBiddingPrice(rs.getDouble("biddingPrice"));
             return entity;
         }
     }

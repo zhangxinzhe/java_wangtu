@@ -41,6 +41,13 @@ public interface RewardBiddingDao {
     public int isApplyRewardByRewardIdAndUserId(long rewardId, long userId);
 
     public RewardBidding getRewardBiddingByByRewardIdAndUserId(long rewardId, long userId);
+    
+    /**
+     * 获取选中的竞价
+     * @param rewardId
+     * @return
+     */
+    public RewardBidding getSelectedRewardBidding(long rewardId) ;
 
     /**
      * 修改竞价状态

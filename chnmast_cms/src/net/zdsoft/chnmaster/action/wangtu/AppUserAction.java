@@ -100,12 +100,6 @@ public class AppUserAction extends CmsBaseAction {
      * 登录
      */
     public void userLogin() {
-
-        if (getUser() != null) {
-            printMsg("success");
-            return;
-        }
-
         if (StringUtils.isBlank(userName) || StringUtils.isBlank(password)) {
             printMsg("用户名和密码都不能为空！");
             return;
@@ -130,7 +124,7 @@ public class AppUserAction extends CmsBaseAction {
         Map<String, Object> json = new HashMap<String, Object>();
         json.put("msg", "success");
         json.put("avatarFile", systemUser.getAvatarFile());
-        json.put("userId", systemUser.getId());
+        json.put("id", systemUser.getId());
         json.put("realName", systemUser.getRealName());
 
         // 将userType赋值给type
@@ -156,6 +150,7 @@ public class AppUserAction extends CmsBaseAction {
         User u = new User();
 
         u.setUserName(userName);
+        u.setRealName(realName);
         u.setPassword(Util.encodePassword(password));
         u.setCreateTime(new Date());
         u.setIsCancel(StatusEunm.NORMAL);
