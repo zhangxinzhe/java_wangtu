@@ -23,8 +23,8 @@ import net.zdsoft.common.dao.BaseDaoImpl;
 public class SmsPushDeviceDaoImpl extends BaseDaoImpl implements SmsPushDeviceDao {
 
     @Override
-    public SmsPushDevice getPushDeviceByPushToken(String pushToken) {
-        return (SmsPushDevice) findForObject(SmsPushDeviceSql.get_push_device_by_push_token, new Object[] { pushToken },
+    public SmsPushDevice getPushDeviceByPushToken(String clientId) {
+        return (SmsPushDevice) findForObject(SmsPushDeviceSql.get_push_device_by_push_token, new Object[] { clientId },
                 SmsPushDeviceRowMapper.getInstance());
     }
 
@@ -48,8 +48,8 @@ public class SmsPushDeviceDaoImpl extends BaseDaoImpl implements SmsPushDeviceDa
     }
 
     @Override
-    public int updatePushStatus(String pushToken, int status) {
-        return executeUpdate(SmsPushDeviceSql.update_push_status, new Object[] { status, pushToken, status });
+    public int updatePushStatus(String clientId, int status) {
+        return executeUpdate(SmsPushDeviceSql.update_push_status, new Object[] { status, clientId, status });
     }
 
     @Override

@@ -18,6 +18,7 @@ import org.springframework.stereotype.Controller;
 import com.alibaba.fastjson.JSONObject;
 
 import net.zdsoft.chnmaster.action.common.CmsPageAction;
+import net.zdsoft.chnmaster.entity.wangtu.SmsPushDevice;
 import net.zdsoft.chnmaster.entity.wangtu.SmsPushMsg;
 import net.zdsoft.chnmaster.enums.wangtu.DeviceType;
 import net.zdsoft.chnmaster.service.sms.SmsPushDeviceService;
@@ -37,6 +38,7 @@ public class AppSmsAction extends CmsPageAction {
     private SmsPushMsgService smsPushMsgService;
     
     private String clientId;
+    private int pushStatus;
     /**
      * 获取手机配置信息
      */
@@ -49,17 +51,32 @@ public class AppSmsAction extends CmsPageAction {
     	androidJson.put("version", "1.0");
     	if(getUser() != null && StringUtils.isNotBlank(clientId)){
     		 smsPushDeviceService.updatePushDevice(getUser().getId(), 0, clientId, clientId, null, DeviceType.ANDROID);
-//    		// 返回消息推送状态
-//    		 SmsPushDevice pusdDevice = smsPushDeviceService.getPushDeviceByPushToken(clientId);
-//    		 if (pusdDevice != null) {
-//    			 androidJson.put("pushStatus", pusdDevice.getPushStatus() + "");
-//             }
+    		 Object pushStatus = getRequest().getSession().getAttribute("pushStatus");
+    		 if(pushStatus == null){
+    			 SmsPushDevice pusdDevice = smsPushDeviceService.getPushDeviceByPushToken(clientId);
+    			 if(pusdDevice != null){
+    				 pushStatus = pusdDevice.getPushStatus();
+    			 }
+    		 }
+    		// 返回消息推送状态
+    		 if (pushStatus != null) {
+    			 androidJson.put("pushStatus",pushStatus  + "");
+             }
     	}else {
     		 dataJson.put("refreshAgain", true);
         }
     	dataJson.put("isLogin", getUser() != null);
     	
     	printJson(dataJson);
+    }
+    
+    public void updatePushStatus(){
+    	if (StringUtils.isBlank(clientId)) {
+            return;
+        }
+        if (smsPushDeviceService.updatePushStatus(clientId, pushStatus) == 1) {
+            getRequest().getSession().setAttribute("pushStatus", pushStatus);
+        }
     }
     
     /**
@@ -80,6 +97,10 @@ public class AppSmsAction extends CmsPageAction {
 
 	public void setClientId(String clientId) {
 		this.clientId = clientId;
+	}
+
+	public void setPushStatus(int pushStatus) {
+		this.pushStatus = pushStatus;
 	}
     
     

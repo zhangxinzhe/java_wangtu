@@ -15,10 +15,10 @@ public class SmsPushDeviceSql {
      * 获取设备
      */
     public static final String get_push_devies = "SELECT * FROM T_SMS_PUSH_DEVICE WHERE USER_ID IN ";
-    public final static String get_push_device_by_push_token = "SELECT * FROM T_SMS_PUSH_DEVICE WHERE PUSH_TOKEN=?";
+    public final static String get_push_device_by_push_token = "SELECT * FROM T_SMS_PUSH_DEVICE WHERE CLIENT_ID=?";
     public final static String get_push_device_by_device_id = "SELECT * FROM T_SMS_PUSH_DEVICE WHERE DEVICE_ID=?";
     public final static String save_push_device = "INSERT INTO T_SMS_PUSH_DEVICE(USER_ID,AGENCY_ID,PUSH_TOKEN,CLIENT_ID,DEVICE_ID,CREATE_TIME,DEVICE_TYPE) VALUES(?,?,?,?,?,?,?)";
     public final static String del_push_device = "DELETE FROM T_SMS_PUSH_DEVICE WHERE ID = ?";
-    public final static String update_push_status = "UPDATE T_SMS_PUSH_DEVICE SET PUSH_STATUS = ? WHERE PUSH_TOKEN = ? AND PUSH_STATUS <> ?";
+    public final static String update_push_status = "UPDATE T_SMS_PUSH_DEVICE SET PUSH_STATUS = ? WHERE CLIENT_ID = ? AND PUSH_STATUS <> ?";
     public final static String delete_push_device = "DELETE FROM T_SMS_PUSH_DEVICE WHERE PUSH_TOKEN = ?";
 }

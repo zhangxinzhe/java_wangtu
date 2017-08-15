@@ -35,7 +35,7 @@ public interface SmsPushDeviceService {
      *            0不允许，1允许
      * @return
      */
-    public int updatePushStatus(String pushToken, int status);
+    public int updatePushStatus(String clientId, int status);
 
     /**
      * 获取设备信息
@@ -44,7 +44,7 @@ public interface SmsPushDeviceService {
      * @param deviceId
      * @return
      */
-    public SmsPushDevice getPushDeviceByPushToken(String pushToken);
+    public SmsPushDevice getPushDeviceByPushToken(String clientId);
 
     /**
      * 删除推送

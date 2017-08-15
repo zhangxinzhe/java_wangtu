@@ -21,7 +21,7 @@ public interface SmsPushDeviceDao {
      * @param deviceId
      * @return
      */
-    public SmsPushDevice getPushDeviceByPushToken(String pushToken);
+    public SmsPushDevice getPushDeviceByPushToken(String clientId);
 
     /**
      * 获取设备信息
@@ -51,12 +51,12 @@ public interface SmsPushDeviceDao {
     /**
      * 更新推送状态
      *
-     * @param pushToken
+     * @param clientId
      * @param status
      *            0不允许，1允许
      * @return
      */
-    public int updatePushStatus(String pushToken, int status);
+    public int updatePushStatus(String clientId, int status);
 
     /**
      * 删除推送

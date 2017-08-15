@@ -45,6 +45,8 @@
     <package name="appSmsAction" namespace="/appSms" extends="struts-default" >
     	<!-- 手机配置信息-->
         <action name="mobileConfig" class="appSmsAction" method="mobileConfig" />
+        <!-- 更新消息推送状态-->
+        <action name="updatePushStatus" class="appSmsAction" method="updatePushStatus" />
         <!-- 消息列表-->
         <action name="pushMsgList" class="appSmsAction" method="pushMsgList" />
     </package>

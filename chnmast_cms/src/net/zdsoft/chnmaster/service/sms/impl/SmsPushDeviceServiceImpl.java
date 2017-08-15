@@ -68,16 +68,16 @@ public class SmsPushDeviceServiceImpl implements SmsPushDeviceService {
     }
 
     @Override
-    public int updatePushStatus(String pushToken, int status) {
+    public int updatePushStatus(String clientId, int status) {
         if (status != 1 && status != 0) {
             return 0;
         }
-        return smsPushDeviceDao.updatePushStatus(pushToken, status);
+        return smsPushDeviceDao.updatePushStatus(clientId, status);
     }
 
     @Override
-    public SmsPushDevice getPushDeviceByPushToken(String pushToken) {
-        return smsPushDeviceDao.getPushDeviceByPushToken(pushToken);
+    public SmsPushDevice getPushDeviceByPushToken(String clientId) {
+        return smsPushDeviceDao.getPushDeviceByPushToken(clientId);
     }
 
     @Override
