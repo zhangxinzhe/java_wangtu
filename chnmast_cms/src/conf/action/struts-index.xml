@@ -13,6 +13,7 @@
     <package name="chnmaster-cms-login" extends="default-package" >
     <!-- 刷新缓存 -->
         <action name="cleanAllCache" class="webMonitorAction" method="cleanAllCache"></action>
+        <action name="mobileConfig" class="commonAction" method="mobileConfig" />
         <!-- 登录 -->
         <action name="login" class="loginAction" method="login">
             <result name="input">/pages/index/login.ftl</result> 

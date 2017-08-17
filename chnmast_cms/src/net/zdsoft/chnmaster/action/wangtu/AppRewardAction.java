@@ -237,7 +237,7 @@ public class AppRewardAction extends CmsPageAction {
         if (order == null) {
             order = new Order();
             order.setUserId(getUser().getId());
-            order.setRelationId(rewardId);
+            order.setRelationId(rb.getId());
             order.setTradeNo(UUIDUtils.newId());
             order.setCreationTime(new Date());
             double percent = Double.valueOf(NetstudyConfig.getParam("rewardpercent"));
@@ -246,11 +246,13 @@ public class AppRewardAction extends CmsPageAction {
             order.setPayAmount(payAmount);
             order.setOrderType(OrderType.BIDDING_ORDER);
             order.setStatus(OrderStatus.UNPAY);
-            order.setPayType(PayType.UNPAY);
+            order.setPayType(payType);
             orderId = orderService.addOrder(order);
         }
         else {
             orderId = order.getId();
+            // 更新支付方式
+            orderService.updateOrderPayType(orderId, payType);
         }
         if (payType == PayType.REMAIN) {
             // 检查余额

@@ -11,6 +11,7 @@ import net.zdsoft.chnmaster.entity.wangtu.Order;
 import net.zdsoft.common.dao.queryCondition.QueryCondition;
 import net.zdsoft.common.entity.PageDto;
 import net.zdsoft.common.enums.OrderStatus;
+import net.zdsoft.common.enums.PayType;
 
 /**
  * @author pc
@@ -84,4 +85,13 @@ public interface OrderDao {
      * @return
      */
     public Order getFinishOrderByUserIdAndRewardId(long userId, long rewardId);
+
+    /**
+     * 修改订单支付方式
+     *
+     * @param orderId
+     * @param payType
+     * @return
+     */
+    public int updateOrderPayType(long orderId, PayType payType);
 }

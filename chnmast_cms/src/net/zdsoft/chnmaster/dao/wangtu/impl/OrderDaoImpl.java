@@ -19,6 +19,7 @@ import net.zdsoft.common.dao.queryCondition.QueryCondition;
 import net.zdsoft.common.dao.queryCondition.QueryConditionBuilder;
 import net.zdsoft.common.entity.PageDto;
 import net.zdsoft.common.enums.OrderStatus;
+import net.zdsoft.common.enums.PayType;
 
 /**
  * @author pc
@@ -88,6 +89,12 @@ public class OrderDaoImpl extends BaseDaoImpl implements OrderDao {
         String sql = "SELECT * FROM T_ORDER WHERE USER_ID=? AND RELATION_ID=? AND ORDER_STATUS=?";
         return (Order) findForObject(sql, new Object[] { userId, rewardId, OrderStatus.SUCCESS },
                 OrderMapper.instance());
+    }
+
+    @Override
+    public int updateOrderPayType(long orderId, PayType payType) {
+        String sql = "UPDATE T_ORDER SET PAY_TYPE = ? WHERE ID=? ";
+        return this.executeUpdate(sql, new Object[] { payType.getValue(), orderId });
     }
 
 }

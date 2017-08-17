@@ -133,4 +133,10 @@ public class OrderServiceImpl implements OrderService {
         return null;
     }
 
+    @Override
+    public int updateOrderPayType(long orderId, PayType payType) {
+
+        return orderDao.updateOrderPayType(orderId, payType);
+    }
+
 }

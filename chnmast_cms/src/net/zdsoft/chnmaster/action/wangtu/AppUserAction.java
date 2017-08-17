@@ -158,6 +158,12 @@ public class AppUserAction extends CmsBaseAction {
         u.setRegisterType(UserRegTypeEnum.BACK_ADD);
         long id = userService.addUserAndSendMessage(u);
         if (id > 0) {
+
+            User systemUser = userService.getUserByUserNameAndPassward(userName, Util.encodePassword(password));
+
+            // 将userType赋值给type
+            systemUser.setType(systemUser.getUserType().getValue());
+            LoginUtils.getInstance().writeUser(getRequest(), getResponse(), systemUser);
             printMsg("success");
         }
         else {
@@ -178,7 +184,7 @@ public class AppUserAction extends CmsBaseAction {
     }
 
     private String validateRegister() {
-        if (StringUtils.isBlank(this.userName)) {
+        if (StringUtils.isBlank(this.telephone)) {
             return "手机号不能为空！";
         }
         if (StringUtils.isBlank(this.telephone)) {
@@ -192,7 +198,7 @@ public class AppUserAction extends CmsBaseAction {
             return "两次密码输入不同！";
         }
         // 判断用户是否存在
-        User u = userService.getUserByUserName(telephone);
+        User u = userService.getUserByUserName(userName);
         if (u != null) {
             return "用户名已经被注册！";
         }
