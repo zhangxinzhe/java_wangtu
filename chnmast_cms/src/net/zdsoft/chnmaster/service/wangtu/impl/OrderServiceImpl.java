@@ -13,13 +13,17 @@ import org.springframework.stereotype.Service;
 
 import net.zdsoft.chnmaster.dao.wangtu.OrderDao;
 import net.zdsoft.chnmaster.entity.wangtu.Order;
+import net.zdsoft.chnmaster.enums.wangtu.BiddingStatus;
 import net.zdsoft.chnmaster.enums.wangtu.OrderType;
 import net.zdsoft.chnmaster.service.account.AccountService;
 import net.zdsoft.chnmaster.service.wangtu.OrderService;
+import net.zdsoft.chnmaster.service.wangtu.RewardBiddingService;
+import net.zdsoft.chnmaster.service.wangtu.RewardService;
 import net.zdsoft.common.dao.queryCondition.QueryCondition;
 import net.zdsoft.common.entity.PageDto;
 import net.zdsoft.common.entity.account.Account;
 import net.zdsoft.common.enums.OrderStatus;
+import net.zdsoft.common.enums.PayType;
 
 /**
  * @author pc
@@ -32,6 +36,10 @@ public class OrderServiceImpl implements OrderService {
     private OrderDao orderDao;
     @Resource
     private AccountService accountService;
+    @Resource
+    private RewardService rewardService;
+    @Resource
+    private RewardBiddingService rewardBiddingService;
 
     @Override
     public long addOrder(Order order) {
@@ -94,9 +102,35 @@ public class OrderServiceImpl implements OrderService {
             remain = remain <= 0 ? 0 : remain;
             accountService.updateFundsByAccountId(account.getId(), remain);
             orderDao.updateOrderStatus(orderId, OrderStatus.SUCCESS);
-
+            return "success";
         }
-        return "success";
+        else if (order.getOrderType() == OrderType.BIDDING_ORDER) {
+            if (order.getPayType() == PayType.REMAIN) {
+                Account account = accountService.getAccountById(order.getUserId());
+                if (account == null) {
+                    return "账户数据不存在！";
+                }
+                double remain = account.getFunds() - order.getPayAmount();
+                remain = remain <= 0 ? 0 : remain;
+                accountService.updateFundsByAccountId(account.getId(), remain);
+            }
+            orderDao.updateOrderStatus(orderId, OrderStatus.SUCCESS);
+            rewardBiddingService.updateStatusById(order.getRelationId(), BiddingStatus.PAY);
+            return "success";
+        }
+        return "操作失败，请重试！";
+    }
+
+    @Override
+    public String updateBiddingOrderToFinish(long orderId) {
+        Order order = orderDao.getOrderByOrderId(orderId);
+        if (order == null) {
+            return "不存在订单数据！";
+        }
+        if (order.getStatus() == OrderStatus.SUCCESS) {
+            return "success";
+        }
+        return null;
     }
 
 }

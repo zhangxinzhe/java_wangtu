@@ -104,4 +104,9 @@ public class RewardBiddingServiceImpl implements RewardBiddingService {
         return rewardBiddingDao.getChooseBiddingByRewardId(rewardId);
     }
 
+    @Override
+    public RewardBidding getBiddingById(long biddingId) {
+        return rewardBiddingDao.getBiddingById(biddingId);
+    }
+
 }

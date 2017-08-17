@@ -80,9 +80,17 @@ public interface OrderService {
 
     /**
      * 完成订单
-     * 
+     *
      * @param orderId
      * @return
      */
     public String updateOrderToFinish(long orderId);
+
+    /**
+     * 完成订单
+     *
+     * @param orderId
+     * @return
+     */
+    public String updateBiddingOrderToFinish(long orderId);
 }

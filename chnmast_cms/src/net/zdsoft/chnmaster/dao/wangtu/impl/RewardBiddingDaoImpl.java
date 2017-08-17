@@ -51,12 +51,11 @@ public class RewardBiddingDaoImpl extends BaseDaoImpl implements RewardBiddingDa
         return (RewardBidding) this.findForObject(sql, new Object[] { rewardId, userId },
                 RewardBiddingMapper.instance());
     }
-    
+
     @Override
     public RewardBidding getSelectedRewardBidding(long rewardId) {
         String sql = "SELECT * FROM T_REWARD_BIDDING WHERE REWARD_ID=? AND STATE in(2,3,6) ";
-        return (RewardBidding) this.findForObject(sql, new Object[] { rewardId },
-                RewardBiddingMapper.instance());
+        return (RewardBidding) this.findForObject(sql, new Object[] { rewardId }, RewardBiddingMapper.instance());
     }
 
     @Override
@@ -75,6 +74,12 @@ public class RewardBiddingDaoImpl extends BaseDaoImpl implements RewardBiddingDa
     public RewardBidding getChooseBiddingByRewardId(long rewardId) {
         String sql = "SELECT * FROM T_REWARD_BIDDING WHERE REWARD_ID=? AND STATE=2 or state =3 ";
         return (RewardBidding) findForObject(sql, new Object[] { rewardId }, RewardBiddingMapper.instance());
+    }
+
+    @Override
+    public RewardBidding getBiddingById(long biddingId) {
+        String sql = "SELECT * FROM T_REWARD_BIDDING WHERE ID=? ";
+        return (RewardBidding) this.findForObject(sql, new Object[] { biddingId }, RewardBiddingMapper.instance());
     }
 
 }

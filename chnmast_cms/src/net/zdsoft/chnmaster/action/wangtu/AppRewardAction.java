@@ -73,6 +73,7 @@ public class AppRewardAction extends CmsPageAction {
     private String rewardPictureIds;
     private String[] rewardFilesFileName;
     private String[] rewardFilesContentType;
+    private long orderId;
 
     @Resource
     private RewardService rewardService;
@@ -265,10 +266,11 @@ public class AppRewardAction extends CmsPageAction {
         }
         else {
             if (PayType.REMAIN == payType) {
-                orderService.updateOrderToFinish(orderId);
+                String result = orderService.updateOrderToFinish(orderId);
                 Map<String, Object> json = new HashMap<String, Object>();
-                json.put("msg", "success");
+                json.put("msg", result);
                 json.put("order", order);
+                json.put("isFinish", result.equals("success"));
                 printJson(json);
                 return;
             }
@@ -282,7 +284,6 @@ public class AppRewardAction extends CmsPageAction {
                     printJson(json);
                 }
                 catch (Exception e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
 
@@ -338,6 +339,9 @@ public class AppRewardAction extends CmsPageAction {
     }
 
     public void finishBiddingOrder() {
+        // Order order = orderService.getOrderByOrderId(orderId);
+        String result = orderService.updateOrderToFinish(orderId);
+        this.printMsg(result);
 
     }
 
@@ -686,6 +690,14 @@ public class AppRewardAction extends CmsPageAction {
 
     public void setPayInfo(String payInfo) {
         this.payInfo = payInfo;
+    }
+
+    public long getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(long orderId) {
+        this.orderId = orderId;
     }
 
 }

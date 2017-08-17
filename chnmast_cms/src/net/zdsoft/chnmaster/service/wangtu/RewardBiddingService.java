@@ -69,10 +69,18 @@ public interface RewardBiddingService {
 
     /**
      * 获取被选中的竞价
-     * 
+     *
      * @param rewardId
      * @return
      */
     public RewardBidding getChooseBiddingByRewardId(long rewardId);
+
+    /**
+     *
+     *
+     * @param rewardId
+     * @return
+     */
+    public RewardBidding getBiddingById(long biddingId);
 
 }
