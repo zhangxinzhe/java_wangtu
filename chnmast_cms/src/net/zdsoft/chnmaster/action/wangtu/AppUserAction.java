@@ -82,6 +82,7 @@ public class AppUserAction extends CmsBaseAction {
     private File[] commentFiles;
     private String[] commentFilesFileName;
     private String[] commentFilesContentType;
+    private long userId;
 
     @Resource
     private UserService userService;
@@ -334,10 +335,13 @@ public class AppUserAction extends CmsBaseAction {
         else {
             json.put("isLogin", true);
         }
-        User u = userService.getUserById(getUser().getId());
+        if(userId <= 0){
+        	userId = getUser().getId();
+        }
+        User u = userService.getUserById(userId);
         u.setBirthday(new Date());// 代码待
         u.setComprehensiveScore(4.5f);
-        u.setServiceAttitude(4.8f);
+        u.setServiceAttitude(4.0f);
         u.setServiceQuility(3.3f);
         json.put("userInfo", u);
         printJsonMap(json);
@@ -680,4 +684,13 @@ public class AppUserAction extends CmsBaseAction {
         this.commentFilesContentType = commentFilesContentType;
     }
 
+	public long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(long userId) {
+		this.userId = userId;
+	}
+
+    
 }

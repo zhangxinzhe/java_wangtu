@@ -18,6 +18,7 @@ import org.springframework.stereotype.Controller;
 import com.alibaba.fastjson.JSONObject;
 
 import net.zdsoft.chnmaster.action.common.CmsPageAction;
+import net.zdsoft.chnmaster.config.Config;
 import net.zdsoft.chnmaster.entity.wangtu.SmsPushDevice;
 import net.zdsoft.chnmaster.entity.wangtu.SmsPushMsg;
 import net.zdsoft.chnmaster.enums.wangtu.DeviceType;
@@ -46,8 +47,8 @@ public class AppSmsAction extends CmsPageAction {
     	JSONObject dataJson = new JSONObject();
     	JSONObject androidJson = new JSONObject();
     	dataJson.put("android", androidJson);
-    	androidJson.put("name", "/sysfile/mobile/1.apk");
-    	androidJson.put("innerVersion", "2017080616");
+    	androidJson.put("name", "/sysfile/mobile/wangtu_1.0_2017021717.apk");
+    	androidJson.put("innerVersion", "2017021717");
     	androidJson.put("version", "1.0");
     	if(getUser() != null && StringUtils.isNotBlank(clientId)){
     		 smsPushDeviceService.updatePushDevice(getUser().getId(), 0, clientId, clientId, null, DeviceType.ANDROID);
@@ -66,7 +67,7 @@ public class AppSmsAction extends CmsPageAction {
     		 dataJson.put("refreshAgain", true);
         }
     	dataJson.put("isLogin", getUser() != null);
-    	
+    	dataJson.put("servicePhone", Config.getParam("servicePhone"));
     	printJson(dataJson);
     }
     
@@ -74,7 +75,7 @@ public class AppSmsAction extends CmsPageAction {
     	if (StringUtils.isBlank(clientId)) {
             return;
         }
-        if (smsPushDeviceService.updatePushStatus(clientId, pushStatus) == 1) {
+    	if (smsPushDeviceService.updatePushStatus(clientId, pushStatus) > 0) {
             getRequest().getSession().setAttribute("pushStatus", pushStatus);
         }
     }
