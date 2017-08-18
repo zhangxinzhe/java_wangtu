@@ -78,11 +78,11 @@ public class AppUserAction extends CmsBaseAction {
     private double applyFounds;
     private long rewardId;
     private Comment comment;
+    private long userId;
 
     private File[] commentFiles;
     private String[] commentFilesFileName;
     private String[] commentFilesContentType;
-    private long userId;
 
     @Resource
     private UserService userService;
@@ -152,6 +152,7 @@ public class AppUserAction extends CmsBaseAction {
 
         u.setUserName(userName);
         u.setRealName(realName);
+        u.setTelephone(telephone);
         u.setPassword(Util.encodePassword(password));
         u.setCreateTime(new Date());
         u.setIsCancel(StatusEunm.NORMAL);
@@ -236,6 +237,36 @@ public class AppUserAction extends CmsBaseAction {
      * 更新用户信息
      */
     public void updateUserInfo() {
+        if (null == getUser()) {
+            printMsg("请先登录！");
+            return;
+        }
+        if (null == updateUser) {
+            printMsg("保存失败，请重试！");
+            return;
+        }
+        if (StringUtils.isEmpty(updateUser.getRealName())) {
+            printMsg("请输入姓名！");
+            return;
+        }
+        if (null == updateUser.getSex()) {
+            printMsg("请输入性别！");
+            return;
+        }
+        if (StringUtils.isEmpty(updateUser.getIndustry())) {
+            printMsg("请输入行业！");
+            return;
+        }
+        if (null == updateUser.getBirthday()) {
+            printMsg("请输入生日日期！");
+            return;
+        }
+        updateUser.setId(getUser().getId());
+        int i = userService.updateAppUser(updateUser);
+        if (i <= 0) {
+            printMsg("保存失败，请重试！");
+            return;
+        }
         printMsg("success");
     }
 
@@ -335,14 +366,16 @@ public class AppUserAction extends CmsBaseAction {
         else {
             json.put("isLogin", true);
         }
-        if(userId <= 0){
-        	userId = getUser().getId();
+        if (userId <= 0) {
+            userId = getUser().getId();
         }
         User u = userService.getUserById(userId);
+
         u.setBirthday(new Date());// 代码待
         u.setComprehensiveScore(4.5f);
-        u.setServiceAttitude(4.0f);
+        u.setServiceAttitude(4.8f);
         u.setServiceQuility(3.3f);
+
         json.put("userInfo", u);
         printJsonMap(json);
     }
@@ -432,9 +465,12 @@ public class AppUserAction extends CmsBaseAction {
         // commentType 查询类型
         // all,appease,notAppease,hasPic
         // hasContent 只显示有评论的
-        long userId = getUser().getId();
+        if(userId <=0 ){
+            userId = getUser().getId();
+        }
+        
         List<QueryCondition> cons = new ArrayList<QueryCondition>();
-        cons.add(new EqualCondition("t.user_id", userId, Types.INTEGER));
+        cons.add(new EqualCondition("t.reviewer_id", userId, Types.INTEGER));
         if ("appease".equals(commentType)) {
             cons.add(new EqualCondition("t.is_satisfy", 1, Types.INTEGER));
         }
@@ -684,13 +720,12 @@ public class AppUserAction extends CmsBaseAction {
         this.commentFilesContentType = commentFilesContentType;
     }
 
-	public long getUserId() {
-		return userId;
-	}
+    public long getUserId() {
+        return userId;
+    }
 
-	public void setUserId(long userId) {
-		this.userId = userId;
-	}
+    public void setUserId(long userId) {
+        this.userId = userId;
+    }
 
-    
 }

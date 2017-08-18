@@ -300,4 +300,11 @@ public class UserDaoImpl extends BaseDaoImpl implements UserDao {
         return executeUpdate(sql, new Object[] { avatarPath, userId });
     }
 
+    @Override
+    public int updateAppUser(User user) {
+        String sql = "UPDATE T_USER SET REALNAME =?,SEX=?,BIRTHDAY=?,industry=?,PHONE=? WHERE ID=? ";
+        return executeUpdate(sql, new Object[] { user.getRealName(), user.getSex().getValue(), user.getBirthday(),
+                user.getIndustry(), user.getPhone(), user.getId() });
+    }
+
 }

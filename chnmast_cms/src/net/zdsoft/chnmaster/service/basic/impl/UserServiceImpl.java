@@ -18,7 +18,6 @@ import javax.annotation.Resource;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 
-import net.zdsoft.chnmaster.config.Config;
 import net.zdsoft.chnmaster.dao.basic.UserDao;
 import net.zdsoft.chnmaster.entity.user.UserImport;
 import net.zdsoft.chnmaster.service.account.AccountService;
@@ -398,14 +397,14 @@ public class UserServiceImpl extends BaseServiceImpl implements BeanSelfAware, U
         account.setId(user.getId());
         accountService.addAccount(account);
         // account.set
-//        String content = Config.getParam(BaseConstants.CMS_BATCH_IMPORT_USER);
-//        String realName = user.getRealName();
+        // String content = Config.getParam(BaseConstants.CMS_BATCH_IMPORT_USER);
+        // String realName = user.getRealName();
         // if (StringUtils.isNotBlank(realName)) {
         // realName = user.getUserName();
         // }
-//        content = content.replace("${realname}", realName);
-//        content = content.replace("${username}", user.getUserName());
-//        content = content.replace("${password}", Util.decodePassword(user.getPassword()));
+        // content = content.replace("${realname}", realName);
+        // content = content.replace("${username}", user.getUserName());
+        // content = content.replace("${password}", Util.decodePassword(user.getPassword()));
         // sendMessage(content, user);
         return num;
     }
@@ -439,6 +438,12 @@ public class UserServiceImpl extends BaseServiceImpl implements BeanSelfAware, U
     public long updateUserAvatarUser(String avatarPath, long userId) {
 
         return userDao.updateUserAvatarUser(avatarPath, userId);
+    }
+
+    @Override
+    public int updateAppUser(User user) {
+        return userDao.updateAppUser(user);
+
     }
 
 }

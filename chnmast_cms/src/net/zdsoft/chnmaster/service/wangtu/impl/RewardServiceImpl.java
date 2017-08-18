@@ -18,7 +18,6 @@ import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
-import net.zdsoft.chnmaster.dao.basic.UserDao;
 import net.zdsoft.chnmaster.dao.wangtu.RewardBiddingDao;
 import net.zdsoft.chnmaster.dao.wangtu.RewardDao;
 import net.zdsoft.chnmaster.entity.wangtu.Order;
@@ -58,7 +57,6 @@ public class RewardServiceImpl implements RewardService {
     private AccountService accountService;
     @Resource
     private UserService userService;
-
 
     @Override
     public List<Reward> getRewardsByCondition(List<QueryCondition> condistions, PageDto page) {
@@ -188,11 +186,11 @@ public class RewardServiceImpl implements RewardService {
 
     @Override
     public List<Reward> getMyRewardBidding(long userId, PageDto page) {
-    	List<Reward> rewards = rewardDao.getMyRewardBidding(userId, page);
-    	double platPercent = Double.parseDouble(NetstudyConfig.getParam("rewardpercent"));
-    	for (Reward reward : rewards) {
-    		reward.setPlatPrice(reward.getBiddingPrice() * platPercent);
-		}
+        List<Reward> rewards = rewardDao.getMyRewardBidding(userId, page);
+        double platPercent = Double.parseDouble(NetstudyConfig.getParam("rewardpercent"));
+        for (Reward reward : rewards) {
+            reward.setPlatPrice(reward.getBiddingPrice() * platPercent);
+        }
         return rewards;
     }
 
@@ -210,10 +208,14 @@ public class RewardServiceImpl implements RewardService {
     public Reward getUserBiddingReward(long rewardId, long userId) {
         Reward reward = rewardDao.getRewardById(rewardId);
         RewardBidding bidding = rewardBiddingDao.getSelectedRewardBidding(rewardId);
-        if(bidding != null){
-        	User user = userService.getUserById(bidding.getUserId());
-        	bidding.setAvatarFile(user.getAvatarFile());
+        if (null == bidding) {
+            bidding = rewardBiddingDao.getRewardBiddingByByRewardIdAndUserId(rewardId, userId);
         }
+        if (bidding != null) {
+            User user = userService.getUserById(bidding.getUserId());
+            bidding.setAvatarFile(user.getAvatarFile());
+        }
+
         reward.setBiddingDetail(bidding);
         return reward;
     }

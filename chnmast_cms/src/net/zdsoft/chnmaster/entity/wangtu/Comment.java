@@ -17,8 +17,8 @@ import net.zdsoft.common.entity.BaseEntity;
 public class Comment extends BaseEntity {
     private static final long serialVersionUID = 426089512558069682L;
 
-    private long userId;
-    private long reviewerId;
+    private long userId;// 评论人id
+    private long reviewerId;// 被评论人id
     private String content;
     private float serviceQuality;
     private String serviceQualityContent;
@@ -157,22 +157,20 @@ public class Comment extends BaseEntity {
         this.serviceQualityContent = serviceQualityContent;
     }
 
-	public long getRewardId() {
-		return rewardId;
-	}
+    public long getRewardId() {
+        return rewardId;
+    }
 
-	public void setRewardId(long rewardId) {
-		this.rewardId = rewardId;
-	}
+    public void setRewardId(long rewardId) {
+        this.rewardId = rewardId;
+    }
 
-	public boolean getIsAnonymous() {
-		return isAnonymous;
-	}
+    public boolean getIsAnonymous() {
+        return isAnonymous;
+    }
 
-	public void setIsAnonymous(boolean isAnonymous) {
-		this.isAnonymous = isAnonymous;
-	}
-    
-    
+    public void setIsAnonymous(boolean isAnonymous) {
+        this.isAnonymous = isAnonymous;
+    }
 
 }

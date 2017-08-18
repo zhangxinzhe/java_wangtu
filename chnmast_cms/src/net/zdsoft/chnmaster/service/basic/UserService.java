@@ -251,4 +251,12 @@ public interface UserService {
      * @return
      */
     public long updateUserAvatarUser(String avatarPath, long userId);
+
+    /**
+     * 前台用户修改个人信息
+     *
+     * @param user
+     * @return
+     */
+    public int updateAppUser(User user);
 }
