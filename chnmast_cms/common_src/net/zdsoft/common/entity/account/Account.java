@@ -5,6 +5,7 @@
  */
 package net.zdsoft.common.entity.account;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 import net.zdsoft.common.entity.BaseEntity;
@@ -21,7 +22,7 @@ public class Account extends BaseEntity {
     /**
      * 账户余额
      */
-    private float funds;
+    private double funds;
 
     /**
      * 修改时间
@@ -52,15 +53,18 @@ public class Account extends BaseEntity {
     /**
      * @return Returns the funds.
      */
-    public float getFunds() {
-        return funds;
+    public double getFunds() {
+        BigDecimal bg = new BigDecimal(funds);
+        double f1 = bg.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+
+        return f1;
     }
 
     /**
      * @param funds
      *            The funds to set.
      */
-    public void setFunds(float funds) {
+    public void setFunds(double funds) {
         this.funds = funds;
     }
 

@@ -54,8 +54,8 @@ public class RewardBiddingServiceImpl implements RewardBiddingService {
     }
 
     @Override
-    public RewardBidding getRewardBiddingByByRewardIdAndUserId(long rewardId, long userId) {
-        return rewardBiddingDao.getRewardBiddingByByRewardIdAndUserId(rewardId, userId);
+    public RewardBidding getRewardBiddingByByRewardIdAndUserId(long rewardId, long userId, BiddingStatus state) {
+        return rewardBiddingDao.getRewardBiddingByByRewardIdAndUserId(rewardId, userId, state);
     }
 
     @Override

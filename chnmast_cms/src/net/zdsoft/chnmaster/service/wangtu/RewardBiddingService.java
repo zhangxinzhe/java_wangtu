@@ -41,7 +41,7 @@ public interface RewardBiddingService {
      */
     public int isApplyRewardByRewardIdAndUserId(long rewardId, long userId);
 
-    public RewardBidding getRewardBiddingByByRewardIdAndUserId(long rewardId, long userId);
+    public RewardBidding getRewardBiddingByByRewardIdAndUserId(long rewardId, long userId, BiddingStatus state);
 
     /**
      * 取消竞价

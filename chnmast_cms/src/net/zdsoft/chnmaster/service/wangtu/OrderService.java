@@ -36,6 +36,14 @@ public interface OrderService {
     public Order getOrderByOrderId(long id);
 
     /**
+     * 查询订单
+     *
+     * @param id
+     * @return
+     */
+    public Order getOrderByTradeNo(String tradeNo);
+
+    /**
      * 订单状态修改
      *
      * @param id
@@ -97,7 +105,7 @@ public interface OrderService {
 
     /**
      * 修改订单支付方式
-     * 
+     *
      * @param orderId
      * @param payType
      * @return

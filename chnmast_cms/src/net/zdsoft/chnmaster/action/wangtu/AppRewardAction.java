@@ -19,6 +19,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
+import com.alibaba.fastjson.JSONObject;
+
 import net.zdsoft.chnmaster.action.common.CmsPageAction;
 import net.zdsoft.chnmaster.entity.wangtu.Catalog;
 import net.zdsoft.chnmaster.entity.wangtu.Order;
@@ -44,8 +46,10 @@ import net.zdsoft.common.dao.queryCondition.LikeCondition;
 import net.zdsoft.common.dao.queryCondition.QueryCondition;
 import net.zdsoft.common.entity.account.Account;
 import net.zdsoft.common.enums.OrderStatus;
+import net.zdsoft.common.enums.PayDeviceType;
 import net.zdsoft.common.enums.PayType;
 import net.zdsoft.common.filesystem.util.FileSystemUtil;
+import net.zdsoft.common.utils.URLUtil;
 import net.zdsoft.common.utils.UUIDUtils;
 
 /**
@@ -171,6 +175,10 @@ public class AppRewardAction extends CmsPageAction {
             printMsg("您已提交竞标！");
             return;
         }
+        if (price == 0) {
+            printMsg("竞价价格不能为0！");
+            return;
+        }
         if (reward.getUserId() == getUser().getId()) {
             printMsg("不能竞价自己发布的悬赏！");
             return;
@@ -218,15 +226,16 @@ public class AppRewardAction extends CmsPageAction {
             printMsg("悬赏信息不存在！");
             return;
         }
-        RewardBidding rb = rewardBiddingService.getRewardBiddingByByRewardIdAndUserId(rewardId, getUser().getId());
+        RewardBidding rb = rewardBiddingService.getRewardBiddingByByRewardIdAndUserId(rewardId, getUser().getId(),
+                BiddingStatus.UNPAY);
         if (rb == null) {
             printMsg("您还未竞价！");
             return;
         }
-        if (rb.getStatus() != BiddingStatus.UNPAY) {
-            printMsg("你已支付！");
-            return;
-        }
+        // if (rb.getStatus() != BiddingStatus.UNPAY) {
+        // printMsg("你已支付！");
+        // return;
+        // }
         if (null == payType) {
             printMsg("请选择支付方式！");
             return;
@@ -342,8 +351,26 @@ public class AppRewardAction extends CmsPageAction {
 
     public void finishBiddingOrder() {
         // Order order = orderService.getOrderByOrderId(orderId);
-        String result = orderService.updateOrderToFinish(orderId);
-        this.printMsg(result);
+        if (orderId != 0) {
+            String result = orderService.updateOrderToFinish(orderId);
+            this.printMsg(result);
+            return;
+        }
+        else {
+            JSONObject paramsJson = null;
+            try {
+                paramsJson = alipayApiService.buildTradeNotifyParams(URLUtil.getParams(getRequest()));
+                paramsJson.put("pay_type", PayDeviceType.ANDROID);// 支付宝网页支付
+            }
+            catch (Exception e) {
+                log.error("支付宝返回信息解析失败！", e);
+                // msg = "支付宝返回信息解析失败！";
+
+            }
+            String tradeNo = paramsJson.getString("out_trade_no");
+            Order order = orderService.getOrderByTradeNo(tradeNo);
+            orderService.updateOrderToFinish(order.getId());
+        }
 
     }
 

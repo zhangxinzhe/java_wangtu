@@ -56,4 +56,20 @@ public interface CommentService {
      */
     public int getUserSatisfyCount(long userId, int isSatisfy);
 
+    /**
+     * 获取用户服务质量平均值
+     *
+     * @param userId
+     * @return
+     */
+    public int getUserServiceQuityAVG(long userId);
+
+    /**
+     * 获取用户服务态度平均值
+     *
+     * @param userId
+     * @return
+     */
+    public int getUserServiceAttitudeAVG(long userId);
+
 }

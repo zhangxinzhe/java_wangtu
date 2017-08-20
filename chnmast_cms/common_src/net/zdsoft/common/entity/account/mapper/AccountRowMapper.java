@@ -31,7 +31,7 @@ public class AccountRowMapper implements RowMapper {
     public Account mapRow(ResultSet rs, int arg1) throws SQLException {
         Account entity = new Account();
         entity.setId(rs.getLong("ID"));
-        entity.setFunds(rs.getFloat("FUNDS"));
+        entity.setFunds(rs.getDouble("FUNDS"));
         entity.setModifyTime(rs.getTimestamp("MODIFY_TIME"));
         entity.setFundsLocked(rs.getFloat("FUNDS_LOCKED"));
         entity.setStatus(rs.getInt("STATUS"));

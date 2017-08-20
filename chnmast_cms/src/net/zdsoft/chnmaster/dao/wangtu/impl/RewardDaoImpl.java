@@ -53,14 +53,14 @@ public class RewardDaoImpl extends BaseDaoImpl implements RewardDao {
                         reward.getDescription(), reward.getLocation(), reward.getPrice(), reward.getUnfinishPrice(),
                         reward.getRemark(), new Date(), reward.getDeadline() });
     }
-    
+
     @Override
-    public int updateReward(Reward reward){
-    	String sql = "update T_REWARD set USER_ID = ?,CATALOG_ID = ?,TITLE = ?,DESCRIPTION = ?,LOCATION = ?,PRICE = ?,unfinish_price = ?,REMARK= ?,create_time= ?,deadline= ?,reward_status= ? where id = ?";
+    public int updateReward(Reward reward) {
+        String sql = "update T_REWARD set USER_ID = ?,CATALOG_ID = ?,TITLE = ?,DESCRIPTION = ?,LOCATION = ?,PRICE = ?,unfinish_price = ?,REMARK= ?,create_time= ?,deadline= ?,reward_status= ? where id = ?";
         return this.executeUpdate(sql,
-                new Object[] { reward.getUserId(), reward.getCatalogId(), reward.getTitle(),
-                        reward.getDescription(), reward.getLocation(), reward.getPrice(), reward.getUnfinishPrice(),
-                        reward.getRemark(), new Date(), reward.getDeadline() ,reward.getStatus().getValue(),reward.getId()});
+                new Object[] { reward.getUserId(), reward.getCatalogId(), reward.getTitle(), reward.getDescription(),
+                        reward.getLocation(), reward.getPrice(), reward.getUnfinishPrice(), reward.getRemark(),
+                        new Date(), reward.getDeadline(), reward.getStatus().getValue(), reward.getId() });
     }
 
     @Override
@@ -87,7 +87,7 @@ public class RewardDaoImpl extends BaseDaoImpl implements RewardDao {
 
     @Override
     public List<Reward> getMyRewardBidding(long userId, PageDto page) {
-        String sql = "SELECT T.*,B.state,B.price biddingPrice FROM T_REWARD T,T_REWARD_BIDDING B WHERE B.REWARD_ID=T.ID AND B.USER_ID=? ";
+        String sql = "SELECT T.*,B.state,B.price biddingPrice FROM T_REWARD T,T_REWARD_BIDDING B WHERE B.REWARD_ID=T.ID AND B.USER_ID=? AND state<>4 and state<>5 ";
         if (null == page) {
             return this.find(sql, new Object[] { userId }, RewardMapper.rewardAndBiddingMapper);
         }

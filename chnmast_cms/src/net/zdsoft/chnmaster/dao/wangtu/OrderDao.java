@@ -94,4 +94,12 @@ public interface OrderDao {
      * @return
      */
     public int updateOrderPayType(long orderId, PayType payType);
+
+    /**
+     * 查询订单
+     *
+     * @param id
+     * @return
+     */
+    public Order getOrderByTradeNo(String tradeNo);
 }

@@ -97,4 +97,10 @@ public class OrderDaoImpl extends BaseDaoImpl implements OrderDao {
         return this.executeUpdate(sql, new Object[] { payType.getValue(), orderId });
     }
 
+    @Override
+    public Order getOrderByTradeNo(String tradeNo) {
+        String sql = "SELECT * FROM T_ORDER WHERE TRADE_NO=? ";
+        return (Order) findForObject(sql, new Object[] { tradeNo }, OrderMapper.instance());
+    }
+
 }

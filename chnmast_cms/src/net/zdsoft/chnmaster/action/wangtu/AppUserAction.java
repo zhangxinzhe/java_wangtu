@@ -371,10 +371,12 @@ public class AppUserAction extends CmsBaseAction {
         }
         User u = userService.getUserById(userId);
 
-        u.setBirthday(new Date());// 代码待
-        u.setComprehensiveScore(4.5f);
-        u.setServiceAttitude(4.8f);
-        u.setServiceQuility(3.3f);
+        // u.setBirthday(u.getBirthday());// 代码待
+        int serviceAttitude = commentService.getUserServiceAttitudeAVG(userId);
+        int serviceQuility = commentService.getUserServiceAttitudeAVG(userId);
+        u.setComprehensiveScore(serviceAttitude / 20.0f + serviceAttitude / 20.0f);
+        u.setServiceAttitude(serviceAttitude / 10.0f);
+        u.setServiceQuility(serviceQuility / 10.0f);
 
         json.put("userInfo", u);
         printJsonMap(json);
@@ -465,10 +467,10 @@ public class AppUserAction extends CmsBaseAction {
         // commentType 查询类型
         // all,appease,notAppease,hasPic
         // hasContent 只显示有评论的
-        if(userId <=0 ){
+        if (userId <= 0) {
             userId = getUser().getId();
         }
-        
+
         List<QueryCondition> cons = new ArrayList<QueryCondition>();
         cons.add(new EqualCondition("t.reviewer_id", userId, Types.INTEGER));
         if ("appease".equals(commentType)) {

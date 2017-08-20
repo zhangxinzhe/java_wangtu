@@ -112,4 +112,15 @@ public class CommentServiceImpl implements CommentService {
         return list;
     }
 
+    @Override
+    public int getUserServiceQuityAVG(long userId) {
+        return commentDao.getUserServiceQuityAVG(userId);
+    }
+
+    @Override
+    public int getUserServiceAttitudeAVG(long userId) {
+
+        return commentDao.getUserServiceAttitudeAVG(userId);
+    }
+
 }

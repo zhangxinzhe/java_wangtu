@@ -27,7 +27,7 @@ public class Comment extends BaseEntity {
     private Date commentTime;
     private String replyContent;
     private Date replyTime;
-    private int isSatisfy;/* 0: 不满意，1满意 */
+    private int isSatisfy = 1;/* 0: 不满意，1满意 */
     private String remark;
     private long rewardId;
     private boolean isAnonymous;

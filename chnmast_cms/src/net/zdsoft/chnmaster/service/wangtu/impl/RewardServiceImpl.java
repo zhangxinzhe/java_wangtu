@@ -209,7 +209,12 @@ public class RewardServiceImpl implements RewardService {
         Reward reward = rewardDao.getRewardById(rewardId);
         RewardBidding bidding = rewardBiddingDao.getSelectedRewardBidding(rewardId);
         if (null == bidding) {
-            bidding = rewardBiddingDao.getRewardBiddingByByRewardIdAndUserId(rewardId, userId);
+            bidding = rewardBiddingDao.getRewardBiddingByByRewardIdAndUserId(rewardId, userId, BiddingStatus.PAY);
+            if (null == bidding) {
+                bidding = rewardBiddingDao.getRewardBiddingByByRewardIdAndUserId(rewardId, userId,
+                        BiddingStatus.FINISH);
+                ;
+            }
         }
         if (bidding != null) {
             User user = userService.getUserById(bidding.getUserId());

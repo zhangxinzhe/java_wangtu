@@ -139,4 +139,10 @@ public class OrderServiceImpl implements OrderService {
         return orderDao.updateOrderPayType(orderId, payType);
     }
 
+    @Override
+    public Order getOrderByTradeNo(String tradeNo) {
+
+        return orderDao.getOrderByTradeNo(tradeNo);
+    }
+
 }

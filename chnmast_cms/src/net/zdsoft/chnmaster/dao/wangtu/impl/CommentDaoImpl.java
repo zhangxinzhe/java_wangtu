@@ -46,7 +46,8 @@ public class CommentDaoImpl extends BaseDaoImpl implements CommentDao {
                 new Object[] { comment.getId(), comment.getUserId(), comment.getReviewerId(), comment.getContent(),
                         comment.getServiceQuality(), comment.getServiceQualityContent(), comment.getServiceAttitude(),
                         comment.getServiceAttitudeContent(), comment.getCommentTime(), comment.getReplyContent(),
-                        comment.getReplyTime(),comment.getIsSatisfy(), comment.getRemark(), comment.getRewardId(),comment.getIsAnonymous()});
+                        comment.getReplyTime(), comment.getIsSatisfy(), comment.getRemark(), comment.getRewardId(),
+                        comment.getIsAnonymous() });
     }
 
     @Override
@@ -63,13 +64,13 @@ public class CommentDaoImpl extends BaseDaoImpl implements CommentDao {
 
     @Override
     public int getAllUserCommentCount(long userId) {
-        String sql = "SELECT COUNT(1) FROM T_COMMENT WHERE USER_ID=?";
+        String sql = "SELECT COUNT(1) FROM T_COMMENT WHERE reviewer_id=?";
         return this.findForInt(sql, new Object[] { userId });
     }
 
     @Override
     public int getUserSatisfyCount(long userId, int isSatisfy) {
-        String sql = "SELECT COUNT(1) FROM T_COMMENT WHERE USER_ID=? and is_satisfy=? ";
+        String sql = "SELECT COUNT(1) FROM T_COMMENT WHERE reviewer_id=? and is_satisfy=? ";
         return this.findForInt(sql, new Object[] { userId, isSatisfy });
     }
 
@@ -85,6 +86,18 @@ public class CommentDaoImpl extends BaseDaoImpl implements CommentDao {
         sql += " order by t.comment_time desc limit 20 ";
 
         return this.find(sql, builder.buildParameters(), CommentMapper.instane());
+    }
+
+    @Override
+    public int getUserServiceQuityAVG(long userId) {
+        String sql = "select AVG(t.service_quility)*10 from t_comment t where t.reviewer_id=? ";
+        return findForInt(sql, new Object[] { userId });
+    }
+
+    @Override
+    public int getUserServiceAttitudeAVG(long userId) {
+        String sql = "select AVG(t.service_attitude)*10 from t_comment t where t.reviewer_id=? ";
+        return findForInt(sql, new Object[] { userId });
     }
 
 }
