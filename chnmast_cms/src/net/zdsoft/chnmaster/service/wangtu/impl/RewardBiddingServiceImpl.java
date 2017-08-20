@@ -71,7 +71,7 @@ public class RewardBiddingServiceImpl implements RewardBiddingService {
             return "撤销失败，请重试！";
         }
         // 查询竞价支付订单
-        Order order = orderService.getFinishOrderByUserIdAndRewardId(bidding.getUserId(), bidding.getRewardId());
+        Order order = orderService.getFinishOrderByUserIdAndRewardId(bidding.getUserId(), bidding.getId());
         if (order != null) {
             // 支付金额退回
             Account a = accountService.getAccountById(bidding.getUserId());

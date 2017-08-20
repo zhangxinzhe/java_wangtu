@@ -197,7 +197,7 @@ public class AppRewardAction extends CmsPageAction {
             json.put("msg", "success");
             json.put("rewardId", rewardId);
             json.put("rewardPrice", price);
-            json.put("platPrice", price * platPercent);
+            json.put("platPrice", ((int)(price * platPercent * 100))/100.0);
             Account accout = accountService.getAccountById(getUser().getId());
             double userBalance = 0;
             if (accout != null) {

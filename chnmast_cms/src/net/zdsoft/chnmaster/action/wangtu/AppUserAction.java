@@ -152,7 +152,7 @@ public class AppUserAction extends CmsBaseAction {
 
         u.setUserName(userName);
         u.setRealName(realName);
-        u.setTelephone(telephone);
+        u.setPhone(telephone);
         u.setPassword(Util.encodePassword(password));
         u.setCreateTime(new Date());
         u.setIsCancel(StatusEunm.NORMAL);
@@ -274,9 +274,11 @@ public class AppUserAction extends CmsBaseAction {
      * 账户信息
      */
     public void account() {
-        Account account = accountService.getAccountById(getUser().getId());
-        Map<String, Object> json = new HashMap<String, Object>();
-        json.put("funds", account.getFunds());
+    	Map<String, Object> json = new HashMap<String, Object>();
+    	if(getUser() != null){
+    		Account account = accountService.getAccountById(getUser().getId());
+            json.put("funds", account.getFunds());
+    	}
         printJsonMap(json);
     }
 
@@ -373,8 +375,8 @@ public class AppUserAction extends CmsBaseAction {
 
         // u.setBirthday(u.getBirthday());// 代码待
         int serviceAttitude = commentService.getUserServiceAttitudeAVG(userId);
-        int serviceQuility = commentService.getUserServiceAttitudeAVG(userId);
-        u.setComprehensiveScore(serviceAttitude / 20.0f + serviceAttitude / 20.0f);
+        int serviceQuility = commentService.getUserServiceQuityAVG(userId);
+        u.setComprehensiveScore(serviceAttitude / 20.0f + serviceQuility / 20.0f);
         u.setServiceAttitude(serviceAttitude / 10.0f);
         u.setServiceQuility(serviceQuility / 10.0f);
 

@@ -189,7 +189,7 @@ public class RewardServiceImpl implements RewardService {
         List<Reward> rewards = rewardDao.getMyRewardBidding(userId, page);
         double platPercent = Double.parseDouble(NetstudyConfig.getParam("rewardpercent"));
         for (Reward reward : rewards) {
-            reward.setPlatPrice(reward.getBiddingPrice() * platPercent);
+            reward.setPlatPrice(((int)(reward.getBiddingPrice() * platPercent * 100))/100.0);
         }
         return rewards;
     }
