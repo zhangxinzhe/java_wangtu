@@ -37,11 +37,12 @@
     <!-- 注入自己的bean方法 -->      
     <bean class="net.zdsoft.common.service.InjectBeanSelfProcessor" />
         
-	<!-- 定义缓存对象 -->
+	<!-- 定义缓存对象 
     <bean id="cacheManager" class="net.zdsoft.keel.cache.DefaultCacheManager" lazy-init="false" destroy-method="shutdown" />  
     <bean id="cacheBean" class="net.zdsoft.common.cache.CacheProviderFactoryBean" lazy-init="false">
        	<property name="cacheServerUrl" value="${cache.server_url}"></property>
     </bean>
+    -->
     
     <!-- 文件服务器初始化 -->
     <bean class="net.zdsoft.common.filesystem.util.FileSystemInitBean" lazy-init="false" autowire="byName">

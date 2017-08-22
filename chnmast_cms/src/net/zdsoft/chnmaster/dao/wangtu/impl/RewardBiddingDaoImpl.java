@@ -72,7 +72,7 @@ public class RewardBiddingDaoImpl extends BaseDaoImpl implements RewardBiddingDa
 
     @Override
     public RewardBidding getChooseBiddingByRewardId(long rewardId) {
-        String sql = "SELECT * FROM T_REWARD_BIDDING WHERE REWARD_ID=? AND STATE=2 or state =3 ";
+        String sql = "SELECT * FROM T_REWARD_BIDDING WHERE REWARD_ID=? AND (STATE=2 or state =3) ";
         return (RewardBidding) findForObject(sql, new Object[] { rewardId }, RewardBiddingMapper.instance());
     }
 

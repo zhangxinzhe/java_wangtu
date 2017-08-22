@@ -11,7 +11,7 @@ import java.util.HashMap;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
-import net.zdsoft.chnmaster.action.common.CmsPageAction;
+import net.zdsoft.chnmaster.action.common.MobilePageAction;
 
 /**
  * @author pc
@@ -19,7 +19,7 @@ import net.zdsoft.chnmaster.action.common.CmsPageAction;
  */
 @Scope("prototype")
 @Controller
-public class AppOrderAction extends CmsPageAction {
+public class AppOrderAction extends MobilePageAction {
 
     private static final long serialVersionUID = 1L;
 

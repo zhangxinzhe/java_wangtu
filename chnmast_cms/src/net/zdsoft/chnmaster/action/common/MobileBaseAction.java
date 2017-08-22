@@ -1,34 +1,23 @@
 package net.zdsoft.chnmaster.action.common;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.JSONObject;
 
 import net.zdsoft.chnmaster.service.account.AccountService;
 import net.zdsoft.chnmaster.service.system.SystemMobileService;
 import net.zdsoft.chnmaster.utils.LoginUtils;
 import net.zdsoft.common.action.BaseAction;
-import net.zdsoft.common.config.NetstudyConfig;
 import net.zdsoft.common.constant.BaseConstants;
 import net.zdsoft.common.entity.BaseUser;
-import net.zdsoft.common.entity.user.User;
 import net.zdsoft.common.enums.UserType;
-import net.zdsoft.common.hifi.dto.HifiHomeColumn;
 import net.zdsoft.common.hifi.service.HifiService;
 import net.zdsoft.common.service.SystemWxbService;
 import net.zdsoft.common.utils.StringUtil;
@@ -96,175 +85,6 @@ public class MobileBaseAction extends BaseAction {
     public void prepare() throws Exception {
         // 访问的URL
         requestUrl = getRequest().getServletPath();
-    }
-
-    /**
-     * 通用-AJAX页面结果消息输出到客户端
-     *
-     * @param message
-     * @param isError
-     * @throws JSONException
-     */
-    public void writeMessage(String message, boolean isError) throws JSONException {
-        com.alibaba.fastjson.JSONObject obj = new com.alibaba.fastjson.JSONObject();
-        obj.put("error", isError);
-        obj.put("message", message);
-        wirteJsonMessage(obj);
-    }
-
-    /**
-     * AJAX-向页面写JSON
-     *
-     * @param jsonObj
-     * @return
-     */
-    public String wirteJsonMessage(com.alibaba.fastjson.JSONObject jsonObj) {
-        try {
-            HttpServletResponse response = getResponse();
-            response.setContentType("application/json;charset=UTF-8");
-            response.setCharacterEncoding("UTF-8");
-            PrintWriter writer = response.getWriter();
-            writer.write(jsonObj.toJSONString());
-            writer.flush();
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
-        return NONE;
-    }
-
-    /**
-     * 输出字符串
-     *
-     * @param value
-     */
-    @Override
-    protected String print(Object value) {
-        PrintWriter out = null;
-        try {
-            HttpServletResponse resp = getResponse();
-            resp.setContentType("text/html");
-            resp.setCharacterEncoding("utf-8");
-            out = resp.getWriter();
-            out.print(value);
-        }
-        catch (Exception e) {
-            log.error("输出信息时出错，原因：", e);
-        }
-        finally {
-            if (out != null) {
-                out.flush();
-                out.close();
-            }
-        }
-        return null;
-    }
-
-    /**
-     * 输出JSON对象
-     *
-     * @param obj
-     */
-    @Override
-    protected String printJson(Object obj) {
-        return print(JSON.toJSONString(obj));
-    }
-
-    /**
-     * ajax跨域请求输出信息
-     *
-     * @param value
-     */
-    @Override
-    protected String printJsonp(Object value) {
-        PrintWriter out = null;
-        try {
-            HttpServletResponse resp = getResponse();
-            resp.setCharacterEncoding("utf-8");
-            resp.setContentType("text/javascript");
-            String callback = getRequest().getParameter("callback");
-            if (callback != null) {
-                value = callback + "(" + value + ")";
-            }
-            out = resp.getWriter();
-            out.print(value);
-        }
-        catch (Exception e) {
-            log.error("输出信息时出错，原因：", e);
-        }
-        finally {
-            if (out != null) {
-                out.flush();
-                out.close();
-            }
-        }
-        return null;
-    }
-
-    public String getNowStr() {
-        if (StringUtils.isEmpty(nowStr)) {
-            Date date = new Date();
-            SimpleDateFormat format = new SimpleDateFormat("HH");
-            int time = Integer.parseInt(format.format(date));
-
-            if (0 <= time && time <= 8) {
-                nowStr = "早上好";
-            }
-            else if (9 <= time && time <= 11) {
-                nowStr = "上午好";
-            }
-            else if (12 <= time && time <= 14) {
-                nowStr = "中午好";
-            }
-            else if (15 <= time && time <= 17) {
-                nowStr = "下午好";
-            }
-            else if (18 <= time && time <= 23) {
-                nowStr = "晚上好";
-            }
-        }
-
-        return nowStr;
-    }
-
-    /**
-     * 初始化用户信息，放入cookie
-     */
-    protected void initUser(User userInfo) {
-        // 本地登录
-        userInfo.setIsLocal(1);
-        userInfo.setType(userInfo.getUserType().getValue());
-        LoginUtils.getInstance().writeUser(getRequest(), getResponse(), userInfo);
-    }
-
-    @Override
-    public BaseUser getUser() {
-        if (user == null) {
-            user = LoginUtils.getInstance().getUserFromRequest(getRequest());
-        }
-        if (null != user) {
-            user.setApp("chnmaster".equals(getAppType()));
-        }
-        return user;
-    }
-
-    /**
-     * 对接hifi，获取apikey
-     */
-    public String getHifiApikey() {
-        if (getUser() != null) {
-            return (String) getRequest().getSession().getAttribute(BaseConstants.HIFI_APIKEY_LOGIN);
-        }
-        else {
-            return (String) getRequest().getSession().getAttribute(BaseConstants.HIFI_APIKEY_NO_LOGIN);
-        }
-    }
-
-    /**
-     * 对接hifi，只获取专辑类型列表，不获取具体content
-     */
-    public List<HifiHomeColumn> getAlbumTypes() {
-        return hifiService.getColumnMenuTypeList(getHifiApikey());
     }
 
     /**
@@ -399,11 +219,12 @@ public class MobileBaseAction extends BaseAction {
         return iosUrl;
     }
 
-    /**
-     * hifi会员价格
-     */
-    public float getHifiMemberAmount() {
-        return Float.valueOf(NetstudyConfig.getParam(BaseConstants.HIFI_VIP_AMOUNT));
+    @Override
+    public BaseUser getUser() {
+        if (user == null) {
+            user = LoginUtils.getInstance().getUserFromRequest(getRequest());
+        }
+        return user;
     }
 
 }

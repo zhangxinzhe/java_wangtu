@@ -42,6 +42,9 @@ public class CommentServiceImpl implements CommentService {
         }
         for (Comment c : list) {
             c.setCommentPictures(commentPictureService.getListByCommentId(c.getId()));
+            if (c.getIsAnonymous()) {
+                c.setUserName("匿名");
+            }
         }
         return list;
     }

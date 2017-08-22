@@ -9,13 +9,11 @@ import java.util.Date;
 
 import javax.annotation.Resource;
 
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 import net.zdsoft.chnmaster.dao.SystemVersionDao;
 import net.zdsoft.chnmaster.service.SystemVersionService;
 import net.zdsoft.common.cache.BaseCacheServiceImpl;
-import net.zdsoft.common.cache.CacheCall.CacheObjectParam;
 import net.zdsoft.common.constant.DataTypeConstants;
 import net.zdsoft.common.entity.system.SystemVersion;
 
@@ -34,34 +32,35 @@ public class SystemVersionServiceImpl extends BaseCacheServiceImpl implements Sy
     @Override
     public long getMaxSystemVersionId() {
         // 先从缓存中取
-        Long versionId = getObjectFromCache(new CacheObjectParam<Long>() {
-            @Override
-            public String getDataType() {
-                return DataTypeConstants.SYSTEM_VERSION;
-            }
-
-            @Override
-            public Long getAgencyId() {
-                return 0l;
-            }
-
-            @Override
-            public String fetchKey() {
-                return getKeyName(getDataType(), getAgencyId(), GET_MAX_SYSTEMVERSION_ID);
-            }
-
-            @Override
-            public Long fetchObject() {
-                return systemVersionDao.getMaxSystemVersionId();
-            }
-        });
-
-        if (versionId == null) {
-            return 0;
-        }
-        else {
-            return versionId.longValue();
-        }
+        // Long versionId = getObjectFromCache(new CacheObjectParam<Long>() {
+        // @Override
+        // public String getDataType() {
+        // return DataTypeConstants.SYSTEM_VERSION;
+        // }
+        //
+        // @Override
+        // public Long getAgencyId() {
+        // return 0l;
+        // }
+        //
+        // @Override
+        // public String fetchKey() {
+        // return getKeyName(getDataType(), getAgencyId(), GET_MAX_SYSTEMVERSION_ID);
+        // }
+        //
+        // @Override
+        // public Long fetchObject() {
+        // return systemVersionDao.getMaxSystemVersionId();
+        // }
+        // });
+        //
+        // if (versionId == null) {
+        // return 0;
+        // }
+        // else {
+        // return versionId.longValue();
+        // }
+        return systemVersionDao.getMaxSystemVersionId();
     }
 
     @Override
@@ -73,41 +72,48 @@ public class SystemVersionServiceImpl extends BaseCacheServiceImpl implements Sy
     public String getMaxSystemVersionNo() {
         String versionNo = null;
 
-        // 先从缓存中取
-        versionNo = getObjectFromCache(new CacheObjectParam<String>() {
-            @Override
-            public String getDataType() {
-                return DataTypeConstants.SYSTEM_VERSION;
-            }
-
-            @Override
-            public Long getAgencyId() {
-                return 0l;
-            }
-
-            @Override
-            public String fetchKey() {
-                return getKeyName(getDataType(), getAgencyId(), GET_MAX_SYSTEMVERSION_NO);
-            }
-
-            @Override
-            public String fetchObject() {
-                SystemVersion version = systemVersionDao.getMaxSystemVersion();
-                if (version == null) {
-                    return "0";
-                }
-
-                // 组装版本号格式
-                return (version.getVersion() + " build:" + version.getBuild());
-            }
-        });
-
-        if (StringUtils.isEmpty(versionNo)) {
+        // // 先从缓存中取
+        // versionNo = getObjectFromCache(new CacheObjectParam<String>() {
+        // @Override
+        // public String getDataType() {
+        // return DataTypeConstants.SYSTEM_VERSION;
+        // }
+        //
+        // @Override
+        // public Long getAgencyId() {
+        // return 0l;
+        // }
+        //
+        // @Override
+        // public String fetchKey() {
+        // return getKeyName(getDataType(), getAgencyId(), GET_MAX_SYSTEMVERSION_NO);
+        // }
+        //
+        // @Override
+        // public String fetchObject() {
+        // SystemVersion version = systemVersionDao.getMaxSystemVersion();
+        // if (version == null) {
+        // return "0";
+        // }
+        //
+        // // 组装版本号格式
+        // return (version.getVersion() + " build:" + version.getBuild());
+        // }
+        // });
+        //
+        // if (StringUtils.isEmpty(versionNo)) {
+        // return "0";
+        // }
+        // else {
+        // return versionNo;
+        // }
+        SystemVersion version = systemVersionDao.getMaxSystemVersion();
+        if (version == null) {
             return "0";
         }
-        else {
-            return versionNo;
-        }
+
+        // 组装版本号格式
+        return (version.getVersion() + " build:" + version.getBuild());
     }
 
     @Override

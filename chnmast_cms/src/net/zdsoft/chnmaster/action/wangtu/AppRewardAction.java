@@ -21,7 +21,7 @@ import org.springframework.stereotype.Controller;
 
 import com.alibaba.fastjson.JSONObject;
 
-import net.zdsoft.chnmaster.action.common.CmsPageAction;
+import net.zdsoft.chnmaster.action.common.MobilePageAction;
 import net.zdsoft.chnmaster.entity.wangtu.Catalog;
 import net.zdsoft.chnmaster.entity.wangtu.Order;
 import net.zdsoft.chnmaster.entity.wangtu.Reward;
@@ -58,7 +58,7 @@ import net.zdsoft.common.utils.UUIDUtils;
  */
 @Scope("prototype")
 @Controller
-public class AppRewardAction extends CmsPageAction {
+public class AppRewardAction extends MobilePageAction {
 
     private static final long serialVersionUID = 1L;
 
@@ -197,7 +197,7 @@ public class AppRewardAction extends CmsPageAction {
             json.put("msg", "success");
             json.put("rewardId", rewardId);
             json.put("rewardPrice", price);
-            json.put("platPrice", ((int)(price * platPercent * 100))/100.0);
+            json.put("platPrice", ((int) (price * platPercent * 100)) / 100.0);
             Account accout = accountService.getAccountById(getUser().getId());
             double userBalance = 0;
             if (accout != null) {

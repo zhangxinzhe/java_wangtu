@@ -118,6 +118,9 @@ public class Comment extends BaseEntity {
     }
 
     public String getUserName() {
+        if (this.isAnonymous) {
+            return "匿名";
+        }
         return userName;
     }
 

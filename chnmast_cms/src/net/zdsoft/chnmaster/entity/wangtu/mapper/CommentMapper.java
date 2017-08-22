@@ -42,6 +42,7 @@ public class CommentMapper implements RowMapper<Comment> {
         entity.setRemark(rs.getString("remark"));
         entity.setUserName(rs.getString("username"));
         entity.setAvatarFile(rs.getString("AVATAR_FILE"));
+        entity.setIsAnonymous(rs.getBoolean("is_anonymous"));
         return entity;
     }
 
