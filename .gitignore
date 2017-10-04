@@ -5,3 +5,4 @@ chnmast_cms/common_src/conf/business/common.properties
 chnmast_cms/src/jdbc.properties
 chnmast_cms/web/WEB-INF/classes/
 chnmast_cms/web/upload/
+chnmast_cms/src/conf/business/common.properties
