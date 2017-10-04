@@ -19,7 +19,7 @@ import org.apache.commons.lang.StringUtils;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
-import net.zdsoft.chnmaster.action.common.CmsBaseAction;
+import net.zdsoft.chnmaster.action.common.MobilePageAction;
 import net.zdsoft.chnmaster.entity.wangtu.Comment;
 import net.zdsoft.chnmaster.entity.wangtu.Order;
 import net.zdsoft.chnmaster.entity.wangtu.Reward;
@@ -54,7 +54,7 @@ import net.zdsoft.keel.util.UUIDUtils;
  */
 @Scope("prototype")
 @Controller
-public class AppUserAction extends CmsBaseAction {
+public class AppUserAction extends MobilePageAction {
 
     private static final long serialVersionUID = 1L;
 
@@ -69,9 +69,9 @@ public class AppUserAction extends CmsBaseAction {
     private String avatarContentType;
     private String applyType = "alipay";// 提现方式 默认支付宝，bank:银行卡
     private String alipayAccount;
-    private String bank;
-    private String bankAccount;
-    private String bankRealName;
+    private String bankName;
+    private String fundsAccount;
+    private String fundsName;
     private long commentId;
     private User updateUser;
 
@@ -274,11 +274,11 @@ public class AppUserAction extends CmsBaseAction {
      * 账户信息
      */
     public void account() {
-    	Map<String, Object> json = new HashMap<String, Object>();
-    	if(getUser() != null){
-    		Account account = accountService.getAccountById(getUser().getId());
+        Map<String, Object> json = new HashMap<String, Object>();
+        if (getUser() != null) {
+            Account account = accountService.getAccountById(getUser().getId());
             json.put("funds", account.getFunds());
-    	}
+        }
         printJsonMap(json);
     }
 
@@ -301,24 +301,29 @@ public class AppUserAction extends CmsBaseAction {
         }
 
         if ("alipay".equals(applyType)) {
-            if (StringUtils.isBlank(alipayAccount)) {
+            if (StringUtils.isBlank(fundsAccount)) {
                 printMsg("请输入支付宝账号！");
                 return;
             }
-            account.setAlipayAccount(alipayAccount);
+            account.setAlipayAccount(fundsAccount);
 
         }
         else {
-            if (StringUtils.isBlank(bankRealName)) {
+            if (StringUtils.isBlank(this.bankName)) {
+                printMsg("请输入银行名称！");
+                return;
+            }
+            if (StringUtils.isBlank(this.fundsName)) {
                 printMsg("请输入转账姓名！");
                 return;
             }
-            if (StringUtils.isBlank(this.bankAccount)) {
+            if (StringUtils.isBlank(this.fundsAccount)) {
                 printMsg("请输入银行账号！");
                 return;
             }
-            account.setBankUserName(bankRealName);
-            account.setBankAccount(bankAccount);
+            account.setBankUserName(fundsName);
+            account.setBankAccount(fundsAccount);
+            account.setBankName(bankName);
 
         }
         // 查询用户未完成的提现订单
@@ -337,7 +342,7 @@ public class AppUserAction extends CmsBaseAction {
         order.setUserId(getUser().getId());
         order.setRelationId(getUser().getId());
         order.setCreationTime(new Date());
-        order.setPayAmount(applyFounds);
+        order.setPayAmount(account.getFunds());
         order.setOrderType(OrderType.FOUNDS_BACK);
         order.setStatus(OrderStatus.UNPAY);
         order.setPayType(PayType.OFFLINE);
@@ -412,7 +417,12 @@ public class AppUserAction extends CmsBaseAction {
             printMsg("悬赏信息不存在！");
             return;
         }
-        User user = userService.getUserById(reward.getUserId());
+        RewardBidding bidding = rewardBiddingService.getChooseBiddingByRewardId(rewardId);
+        User user = null;
+        if (bidding != null) {
+            user = userService.getUserById(bidding.getUserId());
+        }
+        // User user = userService.getUserById(userId);
         // User user = new User();
         // user.setId(1);
         // user.setAvatarFile("/upload/avatar/11501951205568.png");
@@ -420,6 +430,7 @@ public class AppUserAction extends CmsBaseAction {
 
         Map<String, Object> json = new HashMap<String, Object>();
         json.put("userInfo", user);
+        json.put("rewardId", rewardId);
         printJsonMap(json);
     }
 
@@ -430,7 +441,7 @@ public class AppUserAction extends CmsBaseAction {
             return;
         }
         // Reward reward = rewardService.getRewardById(comment.getRewardId());
-        RewardBidding bidding = rewardBiddingService.getChooseBiddingByRewardId(rewardId);
+        RewardBidding bidding = rewardBiddingService.getChooseBiddingByRewardId(comment.getRewardId());
         if (null == bidding) {
             printMsg("悬赏数据不存在！");
             return;
@@ -600,30 +611,6 @@ public class AppUserAction extends CmsBaseAction {
         this.applyType = applyType;
     }
 
-    public String getBank() {
-        return bank;
-    }
-
-    public void setBank(String bank) {
-        this.bank = bank;
-    }
-
-    public String getBankAccount() {
-        return bankAccount;
-    }
-
-    public void setBankAccount(String bankAccount) {
-        this.bankAccount = bankAccount;
-    }
-
-    public String getBankRealName() {
-        return bankRealName;
-    }
-
-    public void setBankRealName(String bankRealName) {
-        this.bankRealName = bankRealName;
-    }
-
     public String getAlipayAccount() {
         return alipayAccount;
     }
@@ -730,6 +717,30 @@ public class AppUserAction extends CmsBaseAction {
 
     public void setUserId(long userId) {
         this.userId = userId;
+    }
+
+    public String getBankName() {
+        return bankName;
+    }
+
+    public void setBankName(String bankName) {
+        this.bankName = bankName;
+    }
+
+    public String getFundsAccount() {
+        return fundsAccount;
+    }
+
+    public void setFundsAccount(String fundsAccount) {
+        this.fundsAccount = fundsAccount;
+    }
+
+    public String getFundsName() {
+        return fundsName;
+    }
+
+    public void setFundsName(String fundsName) {
+        this.fundsName = fundsName;
     }
 
 }

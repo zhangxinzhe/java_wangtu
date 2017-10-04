@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import net.zdsoft.chnmaster.dao.SystemConfigDao;
 import net.zdsoft.chnmaster.service.SystemConfigService;
 import net.zdsoft.common.cache.BaseCacheServiceImpl;
-import net.zdsoft.common.cache.CacheCall.CacheObjectMapParam;
 import net.zdsoft.common.constant.DataTypeConstants;
 import net.zdsoft.common.entity.system.SystemConfig;
 
@@ -28,27 +27,28 @@ public class SystemConfigServiceImpl extends BaseCacheServiceImpl implements Sys
 
     @Override
     public Map<String, SystemConfig> getSystemConfigMap() {
-        return this.getObjectMapFromCache(new CacheObjectMapParam<String, SystemConfig>() {
-            @Override
-            public String getDataType() {
-                return DataTypeConstants.SYSTEM_CONFIG;
-            }
-
-            @Override
-            public Long getAgencyId() {
-                return 0l;
-            }
-
-            @Override
-            public String fetchKey() {
-                return getKeyName(getDataType(), getAgencyId(), GET_SYSTEMCONFIG_MAP);
-            }
-
-            @Override
-            public Map<String, SystemConfig> fetchObjects() {
-                return systemConfigDao.getSystemConfigMap();
-            }
-        });
+        // return this.getObjectMapFromCache(new CacheObjectMapParam<String, SystemConfig>() {
+        // @Override
+        // public String getDataType() {
+        // return DataTypeConstants.SYSTEM_CONFIG;
+        // }
+        //
+        // @Override
+        // public Long getAgencyId() {
+        // return 0l;
+        // }
+        //
+        // @Override
+        // public String fetchKey() {
+        // return getKeyName(getDataType(), getAgencyId(), GET_SYSTEMCONFIG_MAP);
+        // }
+        //
+        // @Override
+        // public Map<String, SystemConfig> fetchObjects() {
+        // return systemConfigDao.getSystemConfigMap();
+        // }
+        // });
+        return systemConfigDao.getSystemConfigMap();
     }
 
     @Override

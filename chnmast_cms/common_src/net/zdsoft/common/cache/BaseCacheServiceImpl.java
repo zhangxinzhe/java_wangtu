@@ -6,8 +6,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
-import javax.annotation.Resource;
-
 import org.apache.commons.collections.CollectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,7 +20,7 @@ import net.zdsoft.keel.cache.Cache;
 public class BaseCacheServiceImpl {
 
     protected Logger log = LoggerFactory.getLogger(getClass());
-    @Resource
+    // @Resource
     private Cache<String, Object> cacheBean;
 
     private final static String live_key = "chnamster.memcached_live_incr";

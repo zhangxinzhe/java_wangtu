@@ -44,7 +44,7 @@ public class CmsBaseAction extends BaseAction {
     protected SystemAppService systemAppService;
     @Resource
     protected BaseService baseService;
-    @Resource
+    // @Resource
     protected CacheManager cacheManager;
     @Resource
     protected SystemVersionService systemVersionService;

@@ -1,4 +1,4 @@
-/* 
+/*
  * @(#)SystemModuleServiceImpl.java    Created on 2014-6-26
  * Copyright (c) 2014 ZDSoft Networks, Inc. All rights reserved.
  * $Id$
@@ -20,8 +20,6 @@ import net.zdsoft.chnmaster.dao.system.SystemModuleDao;
 import net.zdsoft.chnmaster.entity.system.SystemModule;
 import net.zdsoft.chnmaster.service.common.BaseServiceImpl;
 import net.zdsoft.chnmaster.service.system.SystemModuleService;
-import net.zdsoft.common.cache.CacheCall.CacheObjectsParam;
-import net.zdsoft.common.constant.DataTypeConstants;
 
 @Service("systemModuleService")
 public class SystemModuleServiceImpl extends BaseServiceImpl implements SystemModuleService {
@@ -32,28 +30,29 @@ public class SystemModuleServiceImpl extends BaseServiceImpl implements SystemMo
 
     @Override
     public List<SystemModule> listSystemModule() {
-        return this.getObjectsFromCache(new CacheObjectsParam<SystemModule>() {
-
-            @Override
-            public String getDataType() {
-                return DataTypeConstants.SYSTEM_MODULE;
-            }
-
-            @Override
-            public Long getAgencyId() {
-                return 0l;
-            }
-
-            @Override
-            public String fetchKey() {
-                return getKeyName(getDataType(), getAgencyId(), LIST_SYSTEM_MODULE);
-            }
-
-            @Override
-            public List<SystemModule> fetchObjects() {
-                return systemModuleDao.listSystemModule();
-            }
-        });
+        return systemModuleDao.listSystemModule();
+        // return this.getObjectsFromCache(new CacheObjectsParam<SystemModule>() {
+        //
+        // @Override
+        // public String getDataType() {
+        // return DataTypeConstants.SYSTEM_MODULE;
+        // }
+        //
+        // @Override
+        // public Long getAgencyId() {
+        // return 0l;
+        // }
+        //
+        // @Override
+        // public String fetchKey() {
+        // return getKeyName(getDataType(), getAgencyId(), LIST_SYSTEM_MODULE);
+        // }
+        //
+        // @Override
+        // public List<SystemModule> fetchObjects() {
+        // return systemModuleDao.listSystemModule();
+        // }
+        // });
     }
 
     @Override

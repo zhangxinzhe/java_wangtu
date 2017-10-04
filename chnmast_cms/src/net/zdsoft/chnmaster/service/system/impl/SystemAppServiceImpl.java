@@ -1,4 +1,4 @@
-/* 
+/*
  * @(#)SystemAppServiceImpl.java    Created on 2015-4-13
  * Copyright (c) 2015 ZDSoft Networks, Inc. All rights reserved.
  * $Id$
@@ -17,8 +17,6 @@ import net.zdsoft.chnmaster.dao.system.SystemAppDao;
 import net.zdsoft.chnmaster.entity.system.SystemApp;
 import net.zdsoft.chnmaster.service.common.BaseServiceImpl;
 import net.zdsoft.chnmaster.service.system.SystemAppService;
-import net.zdsoft.common.cache.CacheCall.CacheObjectsParam;
-import net.zdsoft.common.constant.DataTypeConstants;
 
 /**
  * @author dongzk
@@ -33,28 +31,29 @@ public class SystemAppServiceImpl extends BaseServiceImpl implements SystemAppSe
 
     @Override
     public List<SystemApp> listUsingSystemApp() {
-        return this.getObjectsFromCache(new CacheObjectsParam<SystemApp>() {
-
-            @Override
-            public String getDataType() {
-                return DataTypeConstants.SYSTEM_APP;
-            }
-
-            @Override
-            public Long getAgencyId() {
-                return 0l;
-            }
-
-            @Override
-            public String fetchKey() {
-                return getKeyName(getDataType(), getAgencyId(), LIST_USING_SYSTEMAPP);
-            }
-
-            @Override
-            public List<SystemApp> fetchObjects() {
-                return systemAppDao.listUsingSystemApp();
-            }
-        });
+        // return this.getObjectsFromCache(new CacheObjectsParam<SystemApp>() {
+        //
+        // @Override
+        // public String getDataType() {
+        // return DataTypeConstants.SYSTEM_APP;
+        // }
+        //
+        // @Override
+        // public Long getAgencyId() {
+        // return 0l;
+        // }
+        //
+        // @Override
+        // public String fetchKey() {
+        // return getKeyName(getDataType(), getAgencyId(), LIST_USING_SYSTEMAPP);
+        // }
+        //
+        // @Override
+        // public List<SystemApp> fetchObjects() {
+        // return systemAppDao.listUsingSystemApp();
+        // }
+        // });
+        return systemAppDao.listUsingSystemApp();
     }
 
     @Override

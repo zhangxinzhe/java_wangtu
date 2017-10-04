@@ -11,11 +11,8 @@ import java.io.InputStreamReader;
 import org.springframework.stereotype.Service;
 
 import net.zdsoft.common.cache.BaseCacheServiceImpl;
-import net.zdsoft.common.cache.CacheCall.CacheObjectParam;
 import net.zdsoft.common.config.NetstudyConfig;
 import net.zdsoft.common.constant.BaseConstants;
-import net.zdsoft.common.constant.DataKeyConstants;
-import net.zdsoft.common.constant.DataTypeConstants;
 import net.zdsoft.common.filesystem.util.FileSystemUtil;
 import net.zdsoft.common.service.SystemWxbService;
 import net.zdsoft.common.utils.IniReader;
@@ -31,68 +28,83 @@ public class SystemWxbServiceImpl extends BaseCacheServiceImpl implements System
 
     @Override
     public String getWxbPcClientUrl() {
-        return getObjectFromCache(new CacheObjectParam<String>() {
-
-            @Override
-            public String fetchKey() {
-                return DataKeyConstants.GET_WXB_PC_CLIENT_URL;
-            }
-
-            @Override
-            public String getDataType() {
-                return DataTypeConstants.SYSTEM_WXB;
-            }
-
-            @Override
-            public Long getAgencyId() {
-                return 0l;
-            }
-
-            @Override
-            public String fetchObject() {
-                try {
-                    return getWxbClientUrl(BaseConstants.WXB_PC_CLIENT_FILE_NAME, BaseConstants.WXB_PC_CLIENT_KEY);
-                }
-                catch (Exception e) {
-                    e.printStackTrace();
-                    return null;
-                }
-            }
-        });
-
+        // return getObjectFromCache(new CacheObjectParam<String>() {
+        //
+        // @Override
+        // public String fetchKey() {
+        // return DataKeyConstants.GET_WXB_PC_CLIENT_URL;
+        // }
+        //
+        // @Override
+        // public String getDataType() {
+        // return DataTypeConstants.SYSTEM_WXB;
+        // }
+        //
+        // @Override
+        // public Long getAgencyId() {
+        // return 0l;
+        // }
+        //
+        // @Override
+        // public String fetchObject() {
+        // try {
+        // return getWxbClientUrl(BaseConstants.WXB_PC_CLIENT_FILE_NAME, BaseConstants.WXB_PC_CLIENT_KEY);
+        // }
+        // catch (Exception e) {
+        // e.printStackTrace();
+        // return null;
+        // }
+        // }
+        // });
+        try {
+            return getWxbClientUrl(BaseConstants.WXB_PC_CLIENT_FILE_NAME, BaseConstants.WXB_PC_CLIENT_KEY);
+        }
+        catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @Override
     public String getWxbAndroidClientUrl() {
-        return getObjectFromCache(new CacheObjectParam<String>() {
-
-            @Override
-            public String fetchKey() {
-                return DataKeyConstants.GET_WXB_ANDROID_CLIENT_URL;
-            }
-
-            @Override
-            public String getDataType() {
-                return DataTypeConstants.SYSTEM_WXB;
-            }
-
-            @Override
-            public Long getAgencyId() {
-                return 0l;
-            }
-
-            @Override
-            public String fetchObject() {
-                try {
-                    return getWxbClientUrl(BaseConstants.WXB_ANDROID_CLIENT_FILE_NAME,
-                            BaseConstants.WXB_ANDROID_CLIENT_KEY);
-                }
-                catch (Exception e) {
-                    e.printStackTrace();
-                    return null;
-                }
-            }
-        });
+        // return getObjectFromCache(new CacheObjectParam<String>() {
+        //
+        // @Override
+        // public String fetchKey() {
+        // return DataKeyConstants.GET_WXB_ANDROID_CLIENT_URL;
+        // }
+        //
+        // @Override
+        // public String getDataType() {
+        // return DataTypeConstants.SYSTEM_WXB;
+        // }
+        //
+        // @Override
+        // public Long getAgencyId() {
+        // return 0l;
+        // }
+        //
+        // @Override
+        // public String fetchObject() {
+        // try {
+        // return getWxbClientUrl(BaseConstants.WXB_ANDROID_CLIENT_FILE_NAME,
+        // BaseConstants.WXB_ANDROID_CLIENT_KEY);
+        // }
+        // catch (Exception e) {
+        // e.printStackTrace();
+        // return null;
+        // }
+        // }
+        // });
+        try {
+            return getWxbClientUrl(BaseConstants.WXB_ANDROID_CLIENT_FILE_NAME, BaseConstants.WXB_ANDROID_CLIENT_KEY);
+        }
+        catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            return null;
+        }
 
     }
 
@@ -107,34 +119,42 @@ public class SystemWxbServiceImpl extends BaseCacheServiceImpl implements System
      * @return
      */
     private String getWxbUpdateUrl() {
-        return getObjectFromCache(new CacheObjectParam<String>() {
+        // return getObjectFromCache(new CacheObjectParam<String>() {
+        //
+        // @Override
+        // public String fetchKey() {
+        // return DataKeyConstants.GET_WXB_CLIENT_UPDATE_URL;
+        // }
+        //
+        // @Override
+        // public String getDataType() {
+        // return DataTypeConstants.SYSTEM_WXB;
+        // }
+        //
+        // @Override
+        // public Long getAgencyId() {
+        // return 0l;
+        // }
+        //
+        // @Override
+        // public String fetchObject() {
+        // try {
+        // return getWxbClientUrl(BaseConstants.WXB_PC_CLIENT_FILE_NAME, BaseConstants.WXB_CLIENT_UPDATE_KEY);
+        // }
+        // catch (Exception e) {
+        // e.printStackTrace();
+        // return null;
+        // }
+        // }
+        // });
+        try {
+            return getWxbClientUrl(BaseConstants.WXB_PC_CLIENT_FILE_NAME, BaseConstants.WXB_CLIENT_UPDATE_KEY);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
 
-            @Override
-            public String fetchKey() {
-                return DataKeyConstants.GET_WXB_CLIENT_UPDATE_URL;
-            }
-
-            @Override
-            public String getDataType() {
-                return DataTypeConstants.SYSTEM_WXB;
-            }
-
-            @Override
-            public Long getAgencyId() {
-                return 0l;
-            }
-
-            @Override
-            public String fetchObject() {
-                try {
-                    return getWxbClientUrl(BaseConstants.WXB_PC_CLIENT_FILE_NAME, BaseConstants.WXB_CLIENT_UPDATE_KEY);
-                }
-                catch (Exception e) {
-                    e.printStackTrace();
-                    return null;
-                }
-            }
-        });
     }
 
     /**

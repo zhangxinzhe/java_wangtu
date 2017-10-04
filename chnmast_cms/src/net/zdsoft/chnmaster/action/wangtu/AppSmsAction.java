@@ -17,7 +17,7 @@ import org.springframework.stereotype.Controller;
 
 import com.alibaba.fastjson.JSONObject;
 
-import net.zdsoft.chnmaster.action.common.CmsPageAction;
+import net.zdsoft.chnmaster.action.common.MobilePageAction;
 import net.zdsoft.chnmaster.config.Config;
 import net.zdsoft.chnmaster.entity.wangtu.SmsPushDevice;
 import net.zdsoft.chnmaster.entity.wangtu.SmsPushMsg;
@@ -31,78 +31,79 @@ import net.zdsoft.chnmaster.service.sms.SmsPushMsgService;
  */
 @Scope("prototype")
 @Controller
-public class AppSmsAction extends CmsPageAction {
-	private static final long serialVersionUID = 6943539821957694807L;
-	@Resource
+public class AppSmsAction extends MobilePageAction {
+    private static final long serialVersionUID = 6943539821957694807L;
+    @Resource
     private SmsPushDeviceService smsPushDeviceService;
     @Resource
     private SmsPushMsgService smsPushMsgService;
-    
+
     private String clientId;
     private int pushStatus;
+
     /**
      * 获取手机配置信息
      */
-    public void mobileConfig(){
-    	JSONObject dataJson = new JSONObject();
-    	JSONObject androidJson = new JSONObject();
-    	dataJson.put("android", androidJson);
-    	androidJson.put("name", "/sysfile/mobile/wangtu_1.0_2017021717.apk");
-    	androidJson.put("innerVersion", "2017021717");
-    	androidJson.put("version", "1.0");
-    	if(getUser() != null && StringUtils.isNotBlank(clientId)){
-    		 smsPushDeviceService.updatePushDevice(getUser().getId(), 0, clientId, clientId, null, DeviceType.ANDROID);
-    		 Object pushStatus = getRequest().getSession().getAttribute("pushStatus");
-    		 if(pushStatus == null){
-    			 SmsPushDevice pusdDevice = smsPushDeviceService.getPushDeviceByPushToken(clientId);
-    			 if(pusdDevice != null){
-    				 pushStatus = pusdDevice.getPushStatus();
-    			 }
-    		 }
-    		// 返回消息推送状态
-    		 if (pushStatus != null) {
-    			 androidJson.put("pushStatus",pushStatus  + "");
-             }
-    	}else {
-    		 dataJson.put("refreshAgain", true);
+    public void mobileConfig() {
+        JSONObject dataJson = new JSONObject();
+        JSONObject androidJson = new JSONObject();
+        dataJson.put("android", androidJson);
+        androidJson.put("name", "/sysfile/mobile/wangtu_1.0_2017021717.apk");
+        androidJson.put("innerVersion", "2017021717");
+        androidJson.put("version", "1.0");
+        if (getUser() != null && StringUtils.isNotBlank(clientId)) {
+            smsPushDeviceService.updatePushDevice(getUser().getId(), 0, clientId, clientId, null, DeviceType.ANDROID);
+            Object pushStatus = getRequest().getSession().getAttribute("pushStatus");
+            if (pushStatus == null) {
+                SmsPushDevice pusdDevice = smsPushDeviceService.getPushDeviceByPushToken(clientId);
+                if (pusdDevice != null) {
+                    pushStatus = pusdDevice.getPushStatus();
+                }
+            }
+            // 返回消息推送状态
+            if (pushStatus != null) {
+                androidJson.put("pushStatus", pushStatus + "");
+            }
         }
-    	dataJson.put("isLogin", getUser() != null);
-    	dataJson.put("servicePhone", Config.getParam("servicePhone"));
-    	printJson(dataJson);
+        else {
+            dataJson.put("refreshAgain", true);
+        }
+        dataJson.put("isLogin", getUser() != null);
+        dataJson.put("servicePhone", Config.getParam("servicePhone"));
+        printJson(dataJson);
     }
-    
-    public void updatePushStatus(){
-    	if (StringUtils.isBlank(clientId)) {
+
+    public void updatePushStatus() {
+        if (StringUtils.isBlank(clientId)) {
             return;
         }
-    	if (smsPushDeviceService.updatePushStatus(clientId, pushStatus) > 0) {
+        if (smsPushDeviceService.updatePushStatus(clientId, pushStatus) > 0) {
             getRequest().getSession().setAttribute("pushStatus", pushStatus);
         }
     }
-    
+
     /**
      * 消息列表
      */
-    public void pushMsgList(){
-    	Map<String, Object> json = new HashMap<String, Object>();
-    	getPage().setRowNum(8);
-    	 List<SmsPushMsg> smsPushMsgs =smsPushMsgService.getPushMsgs(getUser().getId(), getPage());
-    	 json.put("list", smsPushMsgs);
-         json.put("page", getPage());
-         printJsonMap(json);
+    public void pushMsgList() {
+        Map<String, Object> json = new HashMap<String, Object>();
+        getPage().setRowNum(8);
+        List<SmsPushMsg> smsPushMsgs = smsPushMsgService.getPushMsgs(getUser().getId(), getPage());
+        json.put("list", smsPushMsgs);
+        json.put("page", getPage());
+        printJsonMap(json);
     }
 
-	public String getClientId() {
-		return clientId;
-	}
+    public String getClientId() {
+        return clientId;
+    }
 
-	public void setClientId(String clientId) {
-		this.clientId = clientId;
-	}
+    public void setClientId(String clientId) {
+        this.clientId = clientId;
+    }
 
-	public void setPushStatus(int pushStatus) {
-		this.pushStatus = pushStatus;
-	}
-    
-    
+    public void setPushStatus(int pushStatus) {
+        this.pushStatus = pushStatus;
+    }
+
 }
