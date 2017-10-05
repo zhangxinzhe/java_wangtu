@@ -31,6 +31,13 @@ public interface RewardBiddingService {
      * @return
      */
     public int addRewardBidding(RewardBidding bidding);
+    
+    /**
+     * 删除竞价
+     * @param biddingId
+     * @return
+     */
+    public int deleteRewardBidding(long biddingId);
 
     /**
      * 判断用户是否参与竞价

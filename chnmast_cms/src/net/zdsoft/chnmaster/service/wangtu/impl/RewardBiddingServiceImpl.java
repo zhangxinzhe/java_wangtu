@@ -47,6 +47,11 @@ public class RewardBiddingServiceImpl implements RewardBiddingService {
     public int addRewardBidding(RewardBidding bidding) {
         return rewardBiddingDao.addRewardBidding(bidding);
     }
+    
+    @Override
+    public int deleteRewardBidding(long biddingId){
+    	return rewardBiddingDao.deleteRewardBidding(biddingId);
+    }
 
     @Override
     public int isApplyRewardByRewardIdAndUserId(long rewardId, long userId) {

@@ -66,6 +66,9 @@
         <!-- 新增竞价-->
         <action name="addRewardBidding" class="appRewardAction" method="addRewardBidding">
         </action>
+        <!-- 删除竞价-->
+        <action name="delRewardBidding" class="appRewardAction" method="delRewardBidding">
+        </action>
         <!-- 我的悬赏-->
         <action name="myReward" class="appRewardAction" method="myReward">
         </action>

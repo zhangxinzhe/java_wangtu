@@ -15,6 +15,7 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -112,6 +113,12 @@ public class AppRewardAction extends MobilePageAction {
         getPage().setRowNum(8);
         rewardList = rewardService.getRewardsByCondition(cons, this.getPage());
         List<Catalog> catalogs = catalogServiec.listCatalog();
+        if(CollectionUtils.isNotEmpty(catalogs)){
+        	Catalog catalog = new Catalog();
+        	catalog.setCname("全部");
+        	catalog.setId(0);
+        	catalogs.add(0,catalog);
+        }
         json.put("list", rewardList);
         json.put("catalogs", catalogs);
         json.put("page", getPage());
@@ -210,6 +217,33 @@ public class AppRewardAction extends MobilePageAction {
         }
         printMsg("竞价失败，请重试！");
         return;
+    }
+    
+    /**
+     * 删除未支付竞价订单
+     */
+    public void delRewardBidding() {
+    	if (getUser() == null) {
+            printMsg("请先登录");
+            return;
+        }
+    	Reward reward = rewardService.getRewardById(rewardId);
+    	if (reward == null) {
+            printMsg("悬赏信息不存在！");
+            return;
+        }
+    	RewardBidding rb = rewardBiddingService.getRewardBiddingByByRewardIdAndUserId(rewardId, getUser().getId(),
+                BiddingStatus.UNPAY);
+        if (rb == null) {
+            printMsg("未支付的竞价才允许删除！");
+            return;
+        }
+        
+        if (rewardBiddingService.deleteRewardBidding(rb.getId()) > 0) {
+            printMsg("success");
+            return;
+        }
+        printMsg("删除失败！");
     }
 
     /**

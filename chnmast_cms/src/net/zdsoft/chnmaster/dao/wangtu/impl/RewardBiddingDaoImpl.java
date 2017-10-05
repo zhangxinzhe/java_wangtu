@@ -38,6 +38,12 @@ public class RewardBiddingDaoImpl extends BaseDaoImpl implements RewardBiddingDa
         return this.executeUpdate(sql, new Object[] { bidding.getRewardId(), bidding.getUserId(), bidding.getPrice(),
                 bidding.getUnfinishPrice(), new Date() });
     }
+    
+    @Override
+    public int deleteRewardBidding(long biddingId){
+    	String sql = "DELETE FROM T_REWARD_BIDDING WHERE ID = ?";
+    	return this.executeUpdate(sql, new Object[] { biddingId });
+    }
 
     @Override
     public int isApplyRewardByRewardIdAndUserId(long rewardId, long userId) {
